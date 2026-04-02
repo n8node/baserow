@@ -1,0 +1,16 @@
+services:
+  baserow:
+    image: baserow/baserow:2.1.6
+    container_name: baserow
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      - baserow_data:/baserow/data
+    ports:
+      - "127.0.0.1:8080:80"
+
+volumes:
+  baserow_data:
+    external: true
+    name: baserow_data
