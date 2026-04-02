@@ -107,14 +107,14 @@ def test_create_user(data_fixture):
 @pytest.mark.django_db
 def test_update_user(data_fixture):
     user_handler = UserHandler()
-    user = data_fixture.create_user(first_name="Initial", language="fr")
+    user = data_fixture.create_user(first_name="Initial", language="ru")
 
     user_handler.update_user(user, first_name="Updated")
 
     user.refresh_from_db()
     user.profile.refresh_from_db()
     assert user.first_name == "Updated"
-    assert user.profile.language == "fr"
+    assert user.profile.language == "ru"
 
     user_handler.update_user(user, language="en")
 
@@ -266,7 +266,7 @@ def test_create_user_with_template_different_language(data_fixture):
     user_handler = UserHandler()
     valid_password = "thisIsAValidPassword"
     user = user_handler.create_user(
-        "Test1", "test0@test.nl", valid_password, template=template, language="fr"
+        "Test1", "test0@test.nl", valid_password, template=template, language="ru"
     )
 
     assert Workspace.objects.all().count() == 2
@@ -310,7 +310,7 @@ def test_send_reset_password_email(data_fixture, mailoutbox):
 
 @pytest.mark.django_db(transaction=True)
 def test_send_reset_password_email_in_different_language(data_fixture, mailoutbox):
-    user = data_fixture.create_user(email="test@localhost", language="fr")
+    user = data_fixture.create_user(email="test@localhost", language="ru")
     handler = UserHandler()
 
     handler.send_reset_password_email(user, "http://localhost:3000/reset-password")
@@ -906,7 +906,7 @@ def test_send_change_email_confirmation_in_different_language(data_fixture, mail
     data_fixture.create_password_provider()
     valid_password = "thisIsAValidPassword"
     user = data_fixture.create_user(
-        email="test@localhost", password=valid_password, language="fr"
+        email="test@localhost", password=valid_password, language="ru"
     )
     handler = UserHandler()
 

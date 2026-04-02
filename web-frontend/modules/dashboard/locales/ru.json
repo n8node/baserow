@@ -1,0 +1,47 @@
+{
+  "dashboard": {
+    "descriptionPlaceholder": "Описание"
+  },
+  "dashboardHeader": {
+    "doneEditing": "Закончено редактирование"
+  },
+  "emptyDashboard": {
+    "title": "В этой панели управления нет виджетов",
+    "subtitle": "Начните с добавления одного.",
+    "addWidget": "Добавить виджет"
+  },
+  "dashboardHeaderMenuItems": {
+    "editMode": "Режим редактирования"
+  },
+  "createWidgetModal": {
+    "title": "Добавить новый виджет"
+  },
+  "widget": {
+    "fixConfiguration": "Исправить конфигурацию"
+  },
+  "summaryWidget": {
+    "name": "Краткое содержание"
+  },
+  "emptyDashboardSidebar": {
+    "title": "Ни один элемент не выбран",
+    "message": "Нажмите на один из элементов, чтобы увидеть подробности."
+  },
+  "widgetSettings": {
+    "title": "Заголовок",
+    "description": "Описание"
+  },
+  "aggregateRowsDataSourceForm": {
+    "data": "Данные",
+    "sourceFieldLabel": "Источник",
+    "viewFieldLabel": "Вид",
+    "notSelected": "Не выбрано",
+    "aggregationFieldLabel": "Поле",
+    "aggregationTypeLabel": "Краткое содержание"
+  },
+  "widgetContext": {
+    "delete": "Удалить"
+  },
+  "trashType": {
+    "widget": "виджет"
+  }
+}

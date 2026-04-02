@@ -1,0 +1,180 @@
+{
+  "automationWorkflow": {
+    "title": "Рабочий процесс"
+  },
+  "automationWelcomeGuidedTourStep": {
+    "title": "Добро пожаловать в Baserow Automations!",
+    "content": "Давайте совершим краткий обзор. Вы увидите, как настраивать триггеры, добавлять действия, тестировать рабочий процесс и публиковать его — кодирование не требуется."
+  },
+  "automationGraphGuidedTourStep": {
+    "title": "Управляйте графиком рабочего процесса здесь",
+    "content": "Создайте здесь триггер и действия, чтобы определить, что должен делать рабочий процесс. Выберите триггер или действие, чтобы настроить его на боковой панели."
+  },
+  "automationTestRunGuidedTourStep": {
+    "title": "Проверьте свой рабочий процесс",
+    "content": "Когда вы будете готовы, запустите тестовый запуск, чтобы увидеть рабочий процесс в действии. Триггер сработает один раз, чтобы имитировать полное выполнение."
+  },
+  "automationHistoryGuidedTourStep": {
+    "title": "Просмотр истории рабочего процесса",
+    "content": "Используйте панель истории для просмотра прошлых запусков тестов и опубликованных выполнений. Это отличный способ отладки или подтверждения результатов."
+  },
+  "automationPublishGuidedTourStep": {
+    "title": "Опубликуйте свой рабочий процесс",
+    "content": "После того как вы протестировали и усовершенствовали свою настройку, опубликуйте свой рабочий процесс, чтобы воплотить его в жизнь. Его триггер теперь будет запускаться автоматически по расписанию."
+  },
+  "automationWorkflowStateGuidedTourStep": {
+    "title": "Контролировать состояние рабочего процесса",
+    "content": "Отсюда вы можете приостановить или возобновить рабочий процесс в любое время. Вы всегда можете контролировать, активен он или отключен."
+  },
+  "automationDocsGuidedTourStep": {
+    "title": "Изучите документацию",
+    "content": "Если вы когда-нибудь застряли или хотите узнать больше, нажмите выделенную кнопку, чтобы просмотреть подробные руководства и часто задаваемые вопросы об автоматизации зданий в Baserow."
+  },
+  "sidebarComponentAutomation": {
+    "createAutomationWorkflow": "Новый рабочий процесс"
+  },
+  "createAutomationWorkflowModal": {
+    "header": "Создать рабочий процесс",
+    "submit": "Добавить рабочий процесс"
+  },
+  "automationWorkflowForm": {
+    "defaultName": "Рабочий процесс",
+    "nameTitle": "Имя",
+    "nameSubtitle": "Уникальное имя рабочего процесса",
+    "namePlaceholder": "Введите имя..."
+  },
+  "duplicateAutomationWorkflowJobType": {
+    "name": "Дублирующийся рабочий процесс автоматизации",
+    "duplicating": "Дублирование",
+    "duplicatedTitle": "Рабочий процесс дублирован."
+  },
+  "trashType": {
+    "workflow": "рабочий процесс",
+    "automation": "автоматизация"
+  },
+  "generalSettings": {
+    "titleOverview": "Общий",
+    "nameLabel": "Имя автоматизации",
+    "notificationLabel": "Уведомления",
+    "notificationCheckboxLabel": "Получайте уведомления, если эта автоматизация не удалась",
+    "cantUpdateAutomationTitle": "Не удалось обновить автоматизацию",
+    "cantUpdateAutomationDescription": "К сожалению, не удалось обновить автоматизацию."
+  },
+  "integrationSettings": {
+    "title": "Интеграции",
+    "noIntegrationMessage": "Вы еще не создали ни одной интеграции. Их можно создать путем добавления источника данных, действия или аутентификации пользователя.",
+    "integrationMessage": "Вы можете создавать новые интеграции, добавляя источник данных, действие или аутентификацию пользователя."
+  },
+  "automationHeader": {
+    "startTestRun": "Начать тестовый запуск",
+    "stopTestRun": "Остановить тестовый запуск",
+    "publishBtn": "Публиковать",
+    "settingsBtn": "Настройки",
+    "historyBtn": "История",
+    "docsBtn": "Документы",
+    "switchLabelDraft": "Черновик",
+    "switchLabelDisabled": "Неполноценный",
+    "switchLabelPaused": "Приостановлено",
+    "switchLabelLive": "Жить",
+    "lastPublished": "Последняя публикация"
+  },
+  "dataProviderType": {
+    "currentIteration": "Текущая итерация",
+    "item": "Элемент",
+    "previousNode": "Предыдущий узел"
+  },
+  "nodeSidePanel": {
+    "labelTitle": "Этикетка"
+  },
+  "historySidePanel": {
+    "title": "История",
+    "noRunsTitle": "Пробегов пока нет",
+    "noRunsDescription": "Когда этот рабочий процесс запустится, здесь будут показаны результаты.",
+    "statusStarted": "В ходе выполнения...",
+    "statusSuccess": "Пробежал успешно",
+    "statusError": "Не удалось запустить",
+    "statusDisabled": "Отключено Baserow",
+    "completedInSeconds": "Выполнено за {s} секунд.",
+    "completedInLessThanSecond": "Выполнено менее чем за 1 секунду.",
+    "running": "Бег в течение {at} с",
+    "testRun": "Тест"
+  },
+  "nodeType": {
+    "triggerDeletionError": "Триггеры нельзя удалить, только заменить.",
+    "localBaserowRowsCreatedLabel": "Строки создаются в {tableName}",
+    "localBaserowRowsUpdatedLabel": "Строки обновляются в {tableName}",
+    "localBaserowRowsDeletedLabel": "Строки удаляются в {tableName}",
+    "localBaserowCreateRowLabel": "Создайте строку в {tableName}",
+    "localBaserowUpdateRowLabel": "Обновить строку в {tableName}",
+    "localBaserowDeleteRowLabel": "Удалить строку в {tableName}",
+    "localBaserowGetRowLabel": "Прочитайте строку в {tableName}",
+    "localBaserowListRowsLabel": "Список строк в {tableName}",
+    "localBaserowAggregateRowsLabel": "Суммировать строки в {tableName}",
+    "httpRequestLabel": "Отправить HTTP-запрос",
+    "smtpEmailLabel": "Отправить электронное письмо",
+    "routerLabel": "Следуйте 1 из {edgeCount} ветвей",
+    "iterationLabel": "Перебирайте элементы",
+    "routerDefaultEdgeLabelFallback": "По умолчанию",
+    "routerWithOutputNodesDeleteError": "Невозможно удалить, пока не будут удалены его выходные узлы {outputCount}.",
+    "routerWithOutputNodesReplaceError": "Невозможно заменить, пока не будут удалены его выходные узлы {outputCount}.",
+    "iteratorWithChildrenNodesDeleteError": "Невозможно удалить, пока не будут удалены его дочерние узлы.",
+    "iteratorWithChildrenNodesReplaceError": "Невозможно заменить, пока не будут удалены его дочерние узлы.",
+    "periodicTriggerLabel": "Периодический триггер",
+    "aiAgent": "AI-подсказка",
+    "slackWriteMessageName": "Отправить сообщение Slack",
+    "slackWriteMessageLabel": "Отправьте сообщение на номер #{channel}"
+  },
+  "workflowNode": {
+    "actionDelete": "Удалить",
+    "actionReplace": "Заменять",
+    "actionDuplicate": "Дублировать",
+    "actionConfigure": "Настроить",
+    "beforeLabelTrigger": "Начинается, когда",
+    "beforeLabelAction": "Затем",
+    "beforeLabelCondition": "Если условие выполнено",
+    "beforeLabelConditionDefault": "Если ни одно условие не выполняется",
+    "beforeLabelRepeat": "Для каждого предмета",
+    "moreEdit": "Редактировать",
+    "moreReplace": "Заменять",
+    "nodeOptions": "Параметры узла",
+    "displayLabelDebug": "ID: {id} | Предыдущий: {previousNodeId} | {outputUid}",
+    "moreDuplicate": "Дублировать"
+  },
+  "workflowAddNode": {
+    "displayTitle": "Создать узел автоматизации"
+  },
+  "workflowNodeContext": {
+    "searchPlaceholderTrigger": "Ищите триггер...",
+    "searchPlaceholderActions": "Поиск действий...",
+    "noResults": "Результаты не найдены"
+  },
+  "serviceType": {
+    "periodicTrigger": "Периодический триггер",
+    "periodicTriggerDescription": "Запускает рабочий процесс периодически через определенные промежутки времени.",
+    "periodicTriggerTriggeredAt": "Сработало в",
+    "errorIntervalMissing": "Требуется интервал.",
+    "coreHTTPTrigger": "HTTP-триггер",
+    "coreHTTPTriggerDescription": "Получайте HTTP-запросы для запуска рабочих процессов."
+  },
+  "workflowEditor": {
+    "chooseEvent": "Выберите событие..."
+  },
+  "simulateDispatch": {
+    "sampleDataLabel": "Выход",
+    "triggerNodeAwaitingEvent": "Узел ждет. Вручную запустите событие, чтобы заполнить полезную нагрузку и завершить тест.",
+    "simulationInProgress": "Выполняется тестирование узла...",
+    "errorNodeNotConfigured": "Перед тестированием узел должен быть настроен.",
+    "errorPreviousNodeNotConfigured": "Предыдущий узел «{node}» должен быть настроен.",
+    "errorPreviousNodesNotTested": "Предыдущий узел «{node}» должен быть проверен первым.",
+    "buttonLabelTest": "Тестовое мероприятие",
+    "buttonLabelTestAgain": "Тестовое мероприятие еще раз",
+    "testNodeDescription": "Проверьте это событие, чтобы убедиться в правильности конфигурации. Данные этого теста можно использовать на последующих этапах.",
+    "buttonLabelShowPayload": "Показать полезную нагрузку",
+    "buttonLabelShowError": "Показать ошибку",
+    "sampleDataModalTitle": "Полезная нагрузка для {nodeLabel}",
+    "sampleDataModalSubTitle": "Полезная нагрузка JSON",
+    "sampleDataCopy": "Копировать",
+    "errorOccurred": "Произошла ошибка...",
+    "sampleDataCopied": "Полезная нагрузка скопирована в буфер обмена."
+  }
+}

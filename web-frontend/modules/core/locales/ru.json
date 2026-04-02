@@ -1,510 +1,1155 @@
 {
-    "paginator": {
-        "page": "",
-        "of": ""
+  "paginator": {
+    "page": "Страница",
+    "of": "из {pages}"
+  },
+  "workspaceSearch": {
+    "title": "Поиск",
+    "searchEverything": "Поиск...",
+    "searching": "Идет поиск...",
+    "noResults": "Результаты не найдены",
+    "noResultsSubtitle": "Мы не смогли найти ничего, соответствующего «{searchTerm}».",
+    "welcome": "Ищите все на своем рабочем месте",
+    "welcomeSubtitle": "Используйте поле поиска выше, чтобы найти приложения, таблицы, поля и многое другое.",
+    "navigate": "Навигация",
+    "select": "Выбрать",
+    "close": "Закрыть",
+    "empty": "(пустой)",
+    "types": {
+      "applications": "Приложения",
+      "tables": "Таблицы",
+      "fields": "Поля",
+      "rows": "Строки"
+    }
+  },
+  "copied": {
+    "label": "Скопировано!"
+  },
+  "action": {
+    "cancel": "Отмена",
+    "submit": "Отправить"
+  },
+  "sidebarApplication": {
+    "rename": "Переименовать",
+    "duplicate": "Дублировать",
+    "viewTrash": "Посмотреть мусор",
+    "delete": "Удалить",
+    "snapshots": "Снимки"
+  },
+  "duplicateApplicationJobType": {
+    "duplicating": "Дублирование",
+    "duplicatedTitle": "Заявка дублируется"
+  },
+  "InstallTemplateJobType": {
+    "installing": "Установка",
+    "installedTitle": "Шаблон установлен"
+  },
+  "sidebar": {
+    "createWorkspace": "Создать рабочую область",
+    "addNewWorkspace": "Добавить новое рабочее пространство",
+    "inviteOthers": "Пригласить других",
+    "members": "Члены",
+    "logoff": "Выйти",
+    "errorNoWorkspace": "У вас нет рабочих мест.",
+    "adminTools": "Инструменты администратора",
+    "home": "Дом",
+    "dashboard": "Панель управления",
+    "trash": "Мусор",
+    "settings": "Мои настройки",
+    "notifications": "Уведомления",
+    "adminSettings": "Настройки администратора",
+    "general": "Общий",
+    "people": "Люди",
+    "licenses": "Лицензии"
+  },
+  "accountForm": {
+    "nameLabel": "Ваше имя",
+    "languageLabel": "Язык интерфейса"
+  },
+  "accountSettings": {
+    "title": "Счет",
+    "changedTitle": "Измененный",
+    "changedDescription": "Данные вашей учетной записи были изменены.",
+    "submitButton": "Обновить аккаунт"
+  },
+  "twoFactorAuthSettings": {
+    "title": "Двухфакторная аутентификация",
+    "loadingError": "Не удалось загрузить двухфакторную конфигурацию."
+  },
+  "disableTwoFactorAuth": {
+    "title": "Вы уверены, что хотите отключить 2FA?",
+    "description": "Ваша учетная запись потеряет дополнительный уровень безопасности. Если кто-то узнает ваш пароль, он сможет войти в вашу учетную запись.",
+    "cancel": "Оставь это включенным",
+    "disable": "Запрещать",
+    "successTitle": "Двухфакторная аутентификация отключена",
+    "errorWrongPasswordTitle": "Неправильный пароль",
+    "errorWrongPasswordMessage": "Введенный пароль не соответствует вашему паролю."
+  },
+  "enableTwoFactorOptions": {
+    "cancel": "Отмена",
+    "continue": "Продолжать"
+  },
+  "saveBackupCode": {
+    "description": "Если вы потеряете доступ к приложению или телефону для аутентификации и не сможете получать или генерировать коды аутентификации, вы можете использовать эту резервную копию. Вы можете использовать его только один раз. Обязательно запишите его или скопируйте в безопасное место, чтобы иметь к нему доступ без входа в систему.",
+    "backupCodes": "Резервные коды",
+    "copy": "Копировать",
+    "continue": "Продолжать",
+    "backupCodesCopiedTitle": "Скопировано!",
+    "backupCodesCopiedMessage": "Резервные коды скопированы в буфер обмена."
+  },
+  "totpAuthType": {
+    "name": "Приложение для аутентификации",
+    "description": "Используйте приложение, чтобы получить коды двухфакторной аутентификации. Мы рекомендуем использовать такие приложения, как Google Authenticator, Authy и Microsoft Authenticator.",
+    "enabledDescription": "Вы получите коды подтверждения через приложение для аутентификации. Чтобы настроить другое приложение или метод, просто отключите 2FA и настройте заново.",
+    "sideLabel": "Рекомендуется"
+  },
+  "twoFactorEnabled": {
+    "enabled": "Включено",
+    "disable": "Отключить 2FA"
+  },
+  "totpLogin": {
+    "backupCodesTitle": "Введите резервный код",
+    "backupCodesDescription": "Войдите в систему, используя одноразовый резервный код.",
+    "authenticate": "Аутентификация",
+    "goBack": "Возвращаться",
+    "totpTitle": "Двухфакторная аутентификация",
+    "totpDescription": "Введите код из приложения для аутентификации.",
+    "verify": "Проверять",
+    "useBackupCode": "Используйте резервный код",
+    "verificationFailed": "Проверка не удалась",
+    "verificationFailedDescription": "Введенный код неверен.",
+    "loginExpired": "Срок действия входа истек",
+    "loginExpiredDescription": "Пожалуйста, укажите свой пароль еще раз.",
+    "rateLimit": "Слишком много попыток."
+  },
+  "settingsModal": {
+    "title": "Мои настройки"
+  },
+  "notificationPanel": {
+    "title": "Уведомления",
+    "markAllAsRead": "Отметить все как прочитанное",
+    "clearAll": "Очистить все",
+    "noNotificationTitle": "У вас нет уведомлений",
+    "noNotification": "Мы будем уведомлять вас о важных обновлениях и о каждом упоминании вас на Baserow.",
+    "newNotificationsAvailable": "Доступны новые уведомления",
+    "refresh": "Обновить"
+  },
+  "clearAllNotificationsConfirmModal": {
+    "title": "Вы уверены, что хотите удалить все уведомления?",
+    "message": "Все уведомления будут удалены без возможности восстановления, и вы больше не сможете их увидеть."
+  },
+  "passwordSettings": {
+    "title": "Изменить пароль",
+    "changedTitle": "Пароль изменен",
+    "changedDescription": "Ваш пароль был изменен. В следующий раз, когда вы захотите войти в систему, вам придется использовать новый пароль.",
+    "oldPasswordLabel": "Старый пароль",
+    "oldPasswordRequiredError": "Требуется старый пароль.",
+    "newPasswordLabel": "Новый пароль",
+    "repeatNewPasswordLabel": "Повторите новый пароль",
+    "repeatNewPasswordMatchError": "Это поле должно совпадать с полем нового пароля.",
+    "submitButton": "Изменить пароль",
+    "errorInvalidOldPasswordTitle": "Неверный пароль",
+    "errorInvalidOldPasswordMessage": "Не удалось изменить пароль, поскольку старый пароль недействителен."
+  },
+  "emailSettings": {
+    "title": "Изменить адрес электронной почты",
+    "successTitle": "Письмо с подтверждением отправлено",
+    "successDescription": "Мы отправили письмо с подтверждением на ваш новый адрес. Пожалуйста, проверьте свой почтовый ящик и нажмите ссылку, чтобы завершить изменение адреса электронной почты.",
+    "currentEmailLabel": "Текущий адрес электронной почты",
+    "newEmailLabel": "Новый адрес электронной почты",
+    "passwordLabel": "Текущий пароль",
+    "submitButton": "Отправить письмо с подтверждением",
+    "errorInvalidPasswordTitle": "Неверный пароль",
+    "errorInvalidPasswordMessage": "Не удалось запросить изменение адреса электронной почты, поскольку ваш пароль неверен.",
+    "errorEmailExistsTitle": "Электронная почта уже существует",
+    "errorEmailExistsMessage": "Не удалось запросить изменение адреса электронной почты, поскольку учетная запись с таким адресом электронной почты уже существует.",
+    "errorNotAllowedTitle": "Изменение электронной почты не разрешено",
+    "errorNotAllowedMessage": "Вы не можете изменить свой адрес электронной почты, поскольку ваша учетная запись использует аутентификацию единого входа (SSO)."
+  },
+  "deleteAccountSettings": {
+    "title": "Удалить аккаунт",
+    "description": "Вы можете запланировать удаление своей учетной записи, введя текущий пароль и нажав кнопку. Ваша учетная запись будет окончательно удалена через {days} дней. Тем временем, если вы снова войдете в систему, удаление вашей учетной записи будет отменено.",
+    "workspaceNoticeDescription": "Когда ваша учетная запись будет окончательно удалена, все рабочие области и связанные с ними данные, для которых вы являетесь последним активным пользователем с правами администратора, также будут удалены. Рабочие области, показанные ниже, будут удалены, поскольку вы являетесь единственным администратором. Чтобы предотвратить их удаление, вы должны сначала назначить другого администратора пользователя, прежде чем удалять свою учетную запись.",
+    "orphanWorkspaces": "Также будет окончательно удалено по истечении льготного периода.",
+    "orphanWorkspaceMemberCount": "доступен никому|доступен одному пользователю|доступен {count} пользователям",
+    "password": "Пароль",
+    "passwordConfirm": "Повторите пароль",
+    "repeatPasswordMatchError": "Это поле должно совпадать с первым полем пароля.",
+    "submitButton": "Удалить аккаунт",
+    "errorInvalidPasswordTitle": "Неверный пароль",
+    "errorInvalidPasswordMessage": "Не удалось удалить вашу учетную запись, поскольку ваш пароль недействителен.",
+    "errorUserIsLastAdminTitle": "Последний администратор",
+    "errorUserIsLastAdminMessage": "Не удалось удалить вашу учетную запись, поскольку вы являетесь последним администратором этого экземпляра Baserow.",
+    "accountDeletedSuccessTitle": "Удаление аккаунта запланировано",
+    "accountDeletedSuccessMessage": "Ваш аккаунт будет удален.",
+    "workspaceLoadingError": "Проверка рабочих областей не удалась",
+    "workspaceLoadingErrorDescription": "Не удалось проверить удаляемые рабочие области. Обновите страницу."
+  },
+  "error": {
+    "alreadyExistsTitle": "Пользователь уже существует",
+    "alreadyExistsMessage": "Пользователь с указанным адресом электронной почты уже существует.",
+    "passwordRequired": "Требуется пароль.",
+    "invalidEmail": "Пожалуйста, введите действительный адрес электронной почты.",
+    "disabledAccountTitle": "Аккаунт отключен",
+    "disabledAccountMessage": "Эта учетная запись пользователя отключена.",
+    "captchaVerificationFailedTitle": "Проверка капчи не удалась",
+    "captchaVerificationFailedMessage": "Проверка капчи не удалась. Пожалуйста, попробуйте еще раз.",
+    "incorrectCredentialTitle": "Неправильные учетные данные",
+    "incorrectCredentialMessage": "Указанный адрес электронной почты или пароль неверны.",
+    "inputRequired": "Требуется ввод.",
+    "disabledPasswordProviderTitle": "Аутентификация по паролю отключена.",
+    "disabledPasswordProviderMessage": "Пожалуйста, используйте другого поставщика аутентификации."
+  },
+  "field": {
+    "language": "Язык",
+    "emailAddress": "Адрес электронной почты",
+    "name": "Ваше имя",
+    "password": "Пароль",
+    "passwordRepeat": "Повторите пароль"
+  },
+  "invitationTitle": "Приглашение",
+  "invitationMessage": "{invitedBy} пригласил вас присоединиться к {workspace}.",
+  "workspaceForm": {
+    "nameLabel": "Имя"
+  },
+  "leaveWorkspaceModal": {
+    "title": "Оставьте {workspace}",
+    "message": "Вы уверены, что хотите покинуть рабочую область {workspace}? Вы больше не сможете получить доступ к связанным приложениям, и если вы хотите восстановить доступ, один из администраторов должен снова пригласить вас. Если вы покинете рабочую область, она не будет удалена. Все остальные участники по-прежнему будут иметь к нему доступ. Невозможно покинуть рабочую область, если вы являетесь последним администратором, поскольку в этом случае она останется без обслуживания.",
+    "leave": "Покинуть рабочее пространство"
+  },
+  "exportWorkspaceModal": {
+    "title": "Экспорт",
+    "description": "Ваши данные будут экспортированы в виде ZIP-файла, который можно импортировать в другой экземпляр Baserow.",
+    "exportSettings": "Экспорт настроек",
+    "export": "Экспортировать данные",
+    "reset": "Начать заново",
+    "cancel": "Отмена",
+    "download": "Скачать",
+    "exportingState": "Экспорт...",
+    "exportingTableState": "Экспорт: {table}",
+    "exportingCreateArchiveState": "Создание архива",
+    "noExports": "Экспорта для этой рабочей области пока нет.",
+    "created": "созданный"
+  },
+  "exportWorkspaceForm": {
+    "exportSettingsLabel": "Экспорт настроек",
+    "selectDataToExport": "Выберите данные для экспорта",
+    "selectAll": "Выбрать все",
+    "deselectAll": "Отменить выбор всех",
+    "onlyStructureLabel": "Только структура экспорта",
+    "onlyStructureDescription": "Если включено, будет экспортироваться только структура приложений. Данные не будут включены."
+  },
+  "importWorkspaceModal": {
+    "title": "Импортировать данные Baserow",
+    "description": "Вы можете импортировать существующие данные Baserow, загрузив ZIP-файл из другого экземпляра Baserow.",
+    "import": "Импортировать данные",
+    "upload": "Загрузить",
+    "uploadAndImport": "Загрузить и импортировать",
+    "cancel": "Отмена",
+    "done": "Сделанный",
+    "close": "Закрывать",
+    "retry": "Повторить попытку",
+    "uploading": "загружаю...",
+    "chooseFile": "Выбрать файл",
+    "selectApplications": "Выберите данные для импорта",
+    "deselectAll": "Отменить выбор всех",
+    "selectAll": "Выбрать все",
+    "databases": "Базы данных",
+    "applications": "Приложения",
+    "successTitle": "Данные Baserow успешно импортированы.",
+    "successMessage": "Импортированные {count} приложения",
+    "signatureVerificationNote": "Невозможно импортировать zip-файл из ненадежного источника.",
+    "invalidResourceTitle": "Неверный ресурс",
+    "invalidResourceMessage": "Предоставленный файл не является допустимым экспортом Baserow.",
+    "untrustedPublicKeyTitle": "Ненадежная подпись",
+    "untrustedPublicKeyMessage": "Предоставленный файл подписан ненадежным открытым ключом. Попросите администратора добавить открытый ключ в список доверенных ключей или отключить проверку подписи, чтобы иметь возможность импортировать этот файл.",
+    "importingState": "Импорт...",
+    "importingTableStructure": "Создание: {table}",
+    "importingTableData": "Импорт данных: {table}"
+  },
+  "importWorkspaceForm": {
+    "selectApplicationsToImport": "Выберите приложения для импорта"
+  },
+  "dashboardWorkspace": {
+    "createApplication": "Создать новый"
+  },
+  "dashboardVerifyEmail": {
+    "title": "Пожалуйста, проверьте свой почтовый ящик и нажмите на ссылку, чтобы подтвердить свой адрес электронной почты.",
+    "resendConfirmationEmail": "Повторно отправить письмо с подтверждением"
+  },
+  "resendEmailVerification": {
+    "confirmationEmailSentTitle": "Письмо с подтверждением отправлено",
+    "confirmationEmailSentDescription": "Письмо с подтверждением было отправлено."
+  },
+  "verifyEmailAddress": {
+    "confirmation": "Ваш адрес электронной почты подтвержден.",
+    "goToDashboard": "Перейти на панель управления",
+    "invalidToken": "Недействительный токен подтверждения.",
+    "disabledPasswordProvider": "Поставщик аутентификации по паролю отключен.",
+    "emailMismatchWarning": "Обратите внимание, что подтвержденный адрес электронной почты не принадлежит учетной записи, которую вы используете в данный момент."
+  },
+  "emailNotVerified": {
+    "title": "Требуется подтверждение электронной почты",
+    "description": "Пожалуйста, проверьте свой почтовый ящик и нажмите на ссылку для подтверждения. После проверки ваша учетная запись будет активирована.",
+    "resend": "Повторно отправить письмо с подтверждением"
+  },
+  "workspaceInvitation": {
+    "title": "Приглашение",
+    "message": "{by} пригласил вас присоединиться к {workspace}.",
+    "reject": "Отклонять",
+    "accept": "Принимать"
+  },
+  "workspaceInviteForm": {
+    "invitationFormTitle": "Пригласить по электронной почте",
+    "optionalMessagePlaceholder": "Дополнительное сообщение",
+    "errorInvalidEmail": "Пожалуйста, введите действительный адрес электронной почты.",
+    "errorTooLongMessage": "Сообщения ограничены {amount} символами.",
+    "additionalRoles": "Дополнительные роли"
+  },
+  "workspaceContext": {
+    "renameWorkspace": "Переименовать рабочую область",
+    "exportWorkspace": "Экспортировать данные",
+    "importWorkspace": "Импортировать данные",
+    "settings": "Настройки",
+    "members": "Члены",
+    "auditLog": "Журнал аудита",
+    "viewTrash": "Посмотреть мусор",
+    "leaveWorkspace": "Покинуть рабочее пространство",
+    "deleteWorkspace": "Удалить рабочую область"
+  },
+  "workspaceSettingsModal": {
+    "title": "Настройки рабочей области"
+  },
+  "workspaceSettingType": {
+    "generativeAI": "Генеративный ИИ"
+  },
+  "generativeAIModelType": {
+    "openai": "ОпенАИ",
+    "openaiApiKeyLabel": "API-ключ",
+    "openaiApiKeyDescription": "Предоставьте ключ API OpenAI, если вы хотите включить интеграцию. [Инструкция по получению ключа API](https://help.openai.com/en/articles/4936850-where-do-i-find-my-openai-api-key).",
+    "openaiOrganization": "Организация (необязательно)",
+    "openaiModelsLabel": "Включенные модели",
+    "openaiModelsDescription": "Предоставьте список разделенных запятыми [моделей OpenAI] (https://platform.openai.com/docs/models/continous-model-upgrades), которые можно использовать в Baserow. (например, `gpt-3.5-turbo,gpt-4`)",
+    "openaiBaseUrl": "Базовый URL",
+    "openaiBaseUrlDescription": "По умолчанию используется базовый URL-адрес OpenAI, если он пуст. При желании можно изменить на https://eu.api.openai.com/v1, https://<имя-вашего-ресурса>.openai.azure.com или любой другой API, совместимый с OpenAI.",
+    "anthropic": "антропный",
+    "anthropicApiKeyLabel": "API-ключ",
+    "anthropicApiKeyDescription": "Предоставьте ключ Anthropic API, если вы хотите включить интеграцию. [Инструкция по получению ключа API](https://docs.anthropic.com/en/api/getting-started).",
+    "anthropicModelsLabel": "Включенные модели",
+    "anthropicModelsDescription": "Предоставьте список разделенных запятыми [антропных моделей] (https://docs.anthropic.com/en/docs/about-claude/models), которые можно использовать в Baserow. (например, `claude-3-5-sonnet-20241022,claude-3-opus-20240229`)",
+    "mistral": "Мистраль",
+    "mistralApiKeyLabel": "API-ключ",
+    "mistralApiKeyDescription": "Предоставьте ключ API Mistral, если вы хотите включить интеграцию. [Инструкция по получению API-ключа](https://docs.mistral.ai/getting-started/quickstart/).",
+    "mistralModelsLabel": "Включенные модели",
+    "mistralModelsDescription": "Предоставьте список разделенных запятыми [моделей Mistral] (https://docs.mistral.ai/getting-started/models/models_overview/), которые можно использовать в Baserow. (например, «мистраль-большой-последний», «мистраль-маленький-последний»)",
+    "ollama": "Оллама",
+    "ollamaHostLabel": "Хозяин",
+    "ollamaHostDescription": "Укажите имя хоста вашего сервера [Ollama](https://ollama.com/). Обычно это выполняется локально на вашем устройстве.",
+    "ollamaModelsLabel": "Включенные модели",
+    "ollamaModelsDescription": "Предоставьте список разделенных запятыми [установленных моделей Ollama] (https://ollama.com/library). Обратите внимание, что модель необходимо загрузить и установить, прежде чем ее можно будет использовать. (например, `лама2,мистраль`)",
+    "openRouter": "OpenRouter",
+    "openRouterApiKeyLabel": "API-ключ",
+    "openRouterApiKeyDescription": "Предоставьте ключ API OpenRouter, если вы хотите включить интеграцию. [получить ключ API](https://openrouter.ai/settings/keys).",
+    "openRouterOrganization": "Организация (необязательно)",
+    "openRouterModelsLabel": "Включенные модели",
+    "openRouterModelsDescription": "Предоставьте список разделенных запятыми [моделей OpenRouter] (https://openrouter.ai/models), которые можно использовать в Baserow. (например, `openai/gpt-4o,anthropic/claude-3-haiku`)"
+  },
+  "generativeAIWorkspaceSettings": {
+    "title": "Генеративные настройки ИИ",
+    "description": "Эти настройки можно использовать для дополнительной настройки конфигурации генеративного ИИ на уровне рабочей области. Такие функции, как поле AI, можно отключить, поскольку у них нет ключа API для одной из поддерживаемых моделей. Указав здесь настройки, вы можете включить эти функции. Если оставить значение пустым, по умолчанию будут восстановлены глобальные настройки экземпляра. Обратите внимание, что эти настройки будут доступны всем в рабочей области.",
+    "changedTitle": "Настройки обновлены правильно",
+    "changedDescription": "Настройки были обновлены и теперь будут использоваться в этой рабочей области.",
+    "submitButton": "Обновить настройки",
+    "openSettings": "Открыть настройки",
+    "hideSettings": "Скрыть настройки"
+  },
+  "createWorkspaceModal": {
+    "createNew": "Создать новое рабочее пространство",
+    "defaultName": "Безымянная рабочая область",
+    "add": "Добавить рабочую область",
+    "permissionDeniedTitle": "Доступ запрещен",
+    "permissionDeniedBody": "У вас нет необходимых разрешений для создания новой рабочей области."
+  },
+  "templateCategories": {
+    "search": "Шаблоны поиска",
+    "title": "Шаблоны"
+  },
+  "templateHeader": {
+    "use": "Используйте этот шаблон"
+  },
+  "trashSidebar": {
+    "unnamedWorkspace": "Безымянное рабочее пространство {id}",
+    "workspaces": "Рабочие пространства"
+  },
+  "trashContents": {
+    "message": "Восстановить удаленные элементы из прошлого {duration}",
+    "empty": "За последние три дня ничего не удалялось.",
+    "emptyButtonTrashed": "Удалить {type} навсегда",
+    "emptyButtonNotTrashed": "Очистить корзину этого {type}",
+    "unnamed": "Безымянный {type} {id}"
+  },
+  "trashEmptyModal": {
+    "titleIsTrashed": "Вы уверены, что хотите навсегда удалить {name}?",
+    "titleIsNotTrashed": "Вы уверены, что хотите очистить корзину {name}?",
+    "messageIsTrashed": "Это приведет к безвозвратному удалению файла и всего его содержимого. После чего их невозможно восстановить.",
+    "messageIsNotTrashed": "Это приведет к безвозвратному удалению перечисленных элементов. После чего их невозможно восстановить.",
+    "buttonIsTrashed": "Удалить навсегда",
+    "buttonIsNotTrashed": "Пустой"
+  },
+  "trashEntry": {
+    "deletedUser": "Удаленный пользователь",
+    "fromParent": "с {parent}",
+    "name": "{user} удалено {type} {title} {parent}",
+    "restore": "Восстановить",
+    "andMore": "... и еще {count}",
+    "unnamed": "Безымянный {type} {id}"
+  },
+  "trashModal": {
+    "emptyTitle": "Рабочие области не найдены",
+    "emptyMessage": "Вы не являетесь участником какой-либо рабочей области. Такие приложения, как базы данных, принадлежат рабочей области, поэтому для их создания вам необходимо создать рабочую область.",
+    "emptyMessageWithoutCreatePermission": "Вы не являетесь участником какой-либо рабочей области. Такие приложения, как базы данных, принадлежат рабочей области, поэтому для их создания вам необходимо сначала получить приглашение в рабочую область от администратора."
+  },
+  "uploadViaURLUserFileUpload": {
+    "title": "Загрузить с URL-адреса",
+    "urlLabel": "URL-адрес",
+    "urlError": "Требуется действительный URL-адрес."
+  },
+  "userFilesModal": {
+    "title": "Загрузить из"
+  },
+  "uploadFileUserFileUpload": {
+    "title": "Загрузить с моего устройства",
+    "drop": "Перетащите сюда",
+    "clickOrDrop": "Нажмите или перетащите сюда свои файлы",
+    "retry": "Повторить попытку"
+  },
+  "uploadFileDropzone": {
+    "drop": "Перетащите сюда",
+    "clickOrDrop": "Нажмите или перетащите сюда свои файлы",
+    "errorTooManyFilesTitle": "Слишком много файлов",
+    "errorTooManyFilesMessage": "Вы можете загрузить только один файл",
+    "errorWrongFileTypeTitle": "Неправильный тип файла",
+    "errorWrongFileTypeMessage": "Вы не можете загрузить файл типа {type}"
+  },
+  "createApplicationContext": {
+    "fromTemplate": "Из шаблона",
+    "fromTemplateDesc": "Быстро начните с одного из рекомендуемых нами шаблонов.",
+    "table": "Стол",
+    "tableDesc": "Создайте новое место для управления данными в вашей базе данных.",
+    "importWorkspace": "Импортировать данные",
+    "importWorkspaceDesc": "Добавьте существующие данные из экземпляра Baserow."
+  },
+  "applicationForm": {
+    "nameLabel": "Имя",
+    "namePlaceholder": "Введите имя..."
+  },
+  "connectingToast": {
+    "title": "Повторное подключение",
+    "content": "Пытаюсь восстановить обновления в реальном времени."
+  },
+  "failedConnectingToast": {
+    "title": "Неуспешный",
+    "content": "Обновления в реальном времени не удалось восстановить. Пожалуйста, обновите, чтобы продолжить.",
+    "action": "Обновить страницу"
+  },
+  "authorizationErrorToast": {
+    "title": "Ошибка авторизации",
+    "content": "Похоже, у вас нет прав на просмотр этого ресурса.",
+    "action": "Обновить страницу"
+  },
+  "userSessionExpiredToast": {
+    "title": "Срок сеанса истек",
+    "content": "Вы вышли из системы, поскольку срок действия вашего токена аутентификации истек. Пожалуйста, войдите снова."
+  },
+  "userPasswordChangedToast": {
+    "title": "Пароль изменен",
+    "content": "Ваш пароль был изменен. Пожалуйста, войдите снова."
+  },
+  "restoreToast": {
+    "restore": "Восстановить удаленное {type}"
+  },
+  "copyingToast": {
+    "title": "Копирование...",
+    "content": "Подготовка ваших данных"
+  },
+  "PastingToast": {
+    "title": "Вставка...",
+    "content": "Подготовка ваших данных"
+  },
+  "clearingToast": {
+    "title": "Очистка...",
+    "content": "Подготовка ваших данных"
+  },
+  "undoRedoToast": {
+    "undoingTitle": "Отмена...",
+    "undoingText": "Отмена вашего действия",
+    "undoneTitle": "Отменено",
+    "undoneText": "Действие отменено",
+    "noMoreUndo": "Больше нет действий, которые можно отменить.",
+    "skippingUndoDueToError": "Отменить не удалось из-за неизвестной ошибки, ее пропустили.",
+    "redoingTitle": "Переделка...",
+    "redoingText": "Повтор вашего действия",
+    "redoneTitle": "Переделано",
+    "redoneText": "Действие переделано",
+    "noMoreRedo": "Больше не нужно повторять действия",
+    "skippingRedoDueToError": "Повтор не выполнен из-за неизвестной ошибки, его пропустили.",
+    "failed": "Неуспешный"
+  },
+  "permissionsUpdatedToast": {
+    "title": "Разрешения обновлены",
+    "content": "Это может повлиять на то, к чему у вас есть доступ, перезагрузите страницу.",
+    "action": "Перезагрузить"
+  },
+  "errorLayout": {
+    "notFound": "Страница, которую вы ищете, не найдена. Это может быть связано с тем, что URL-адрес неверен или у вас нет разрешения на просмотр этой страницы.",
+    "error": "Что-то пошло не так при загрузке страницы. Наши разработчики были уведомлены о проблеме. Пожалуйста, попробуйте обновить или вернуться на панель управления.",
+    "backDashboard": "Вернуться к панели управления",
+    "backLogin": "Вернуться к входу",
+    "wrong": "Что-то пошло не так",
+    "refresh": "Обновить страницу"
+  },
+  "dashboard": {
+    "title": "Панель управления",
+    "alertTitle": "Нам нужна ваша помощь!",
+    "alertText": "Делясь информацией с Baserow, вы помогаете нам улучшить продукт и сделать его более полезным для вас.",
+    "tweetContent": "Ознакомьтесь с {'@'}baserow — инструментом баз данных без кода с открытым исходным кодом и альтернативой Airtable!",
+    "redditTitle": "'Baserow - база данных без кода с открытым исходным кодом.",
+    "becomeGithubSponsor": "Станьте спонсором GitHub",
+    "starOnGitHub": "Отметьте нас на GitHub",
+    "shareOnTwitter": "Твит о Базерове",
+    "shareOnReddit": "Поделиться на Reddit",
+    "shareOnFacebook": "Поделиться на Facebook",
+    "shareOnLinkedIn": "Поделиться в LinkedIn",
+    "suggestedTemplates": "Предлагаемые шаблоны",
+    "resources": "Ресурсы",
+    "knowledgeBase": "База знаний",
+    "knowledgeBaseMessage": "Найдите ответы на все ваши вопросы",
+    "tutorials": "Учебники",
+    "tutorialsMessage": "Откройте для себя потенциал Бейсроу",
+    "apiDocumentation": "Документация по API",
+    "apiDocumentationMessage": "Узнайте больше о нашем коде",
+    "emptyWorkspace": "Это рабочее пространство пусто",
+    "emptyWorkspaceMessage": "Начните с создания новой базы данных или приложения.",
+    "addNew": "Добавить новый...",
+    "noWorkspace": "Нет рабочего места",
+    "noWorkspaceDescription": "Начните с создания нового рабочего пространства"
+  },
+  "dashboardApplication": {
+    "createdAt": "созданный"
+  },
+  "templateCard": {
+    "viewMore": "Посмотреть больше"
+  },
+  "login": {
+    "title": "Добро пожаловать",
+    "emailPlaceholder": "Введите свой адрес электронной почты..",
+    "passwordPlaceholder": "Введите свой пароль..",
+    "forgotPassword": "Забыл?",
+    "signUpText": "Впервые в Бэсэроу?",
+    "signUp": "Зарегистрироваться",
+    "displayPasswordLogin": "Войдите, используя адрес электронной почты и пароль",
+    "redirecting": "Перенаправление к провайдеру аутентификации..."
+  },
+  "resetPassword": {
+    "title": "Сбросить пароль",
+    "newPassword": "Новый пароль",
+    "repeatNewPassword": "Повторите новый пароль",
+    "submit": "Изменить пароль",
+    "changed": "Пароль изменен",
+    "message": "Теперь вы можете войти в Baserow, используя новый пароль.",
+    "errorInvalidLinkTitle": "Неверная ссылка",
+    "errorInvalidLinkMessage": "Не удалось сбросить пароль, поскольку ссылка недействительна.",
+    "errorLinkExpiredTitle": "Срок действия ссылки истек",
+    "errorLinkExpiredMessage": "Срок действия ссылки для сброса пароля истек. Пожалуйста, запросите еще один.",
+    "disabled": "Сброс пароля отключен",
+    "disabledMessage": "Сбросить пароль невозможно, поскольку он отключен."
+  },
+  "changeEmail": {
+    "title": "Подтвердить изменение адреса электронной почты",
+    "submit": "Подтвердить изменение адреса электронной почты",
+    "changed": "Адрес электронной почты изменен",
+    "message": "Ваш адрес электронной почты был успешно изменен. Теперь вы можете войти в Baserow, используя новый адрес электронной почты.",
+    "errorInvalidLinkTitle": "Неверная ссылка",
+    "errorInvalidLinkMessage": "Не удалось изменить адрес электронной почты, поскольку ссылка недействительна.",
+    "errorLinkExpiredTitle": "Срок действия ссылки истек",
+    "errorLinkExpiredMessage": "Срок действия ссылки для изменения адреса электронной почты истек. Пожалуйста, запросите новый в настройках вашего аккаунта.",
+    "errorEmailExistsTitle": "Электронная почта уже существует",
+    "errorEmailExistsMessage": "Не удалось изменить адрес электронной почты, поскольку учетная запись с таким адресом электронной почты уже существует.",
+    "errorEmailAlreadyChangedTitle": "Электронная почта уже изменена",
+    "errorEmailAlreadyChangedMessage": "Адрес электронной почты уже изменен на запрошенный адрес."
+  },
+  "signup": {
+    "headTitle": "Зарегистрироваться",
+    "title": "Зарегистрироваться",
+    "disabled": "Регистрация отключена",
+    "disabledMessage": "Невозможно создать учетную запись, поскольку она отключена.",
+    "requireFirstUser": "Добро пожаловать в Бэйсероу!",
+    "requireFirstUserMessage": "Пожалуйста, заполните форму ниже, чтобы создать пользователя-администратора.",
+    "emailPlaceholder": "Введите свой адрес электронной почты..",
+    "namePlaceholder": "Введите свое имя..",
+    "passwordPlaceholder": "Введите свой пароль..",
+    "passwordRepeatPlaceholder": "Подтвердите свой пароль..",
+    "loginText": "У вас уже есть аккаунт?",
+    "login": "Авторизоваться"
+  },
+  "forgotPassword": {
+    "title": "Забыли пароль",
+    "message": "Введите свой адрес электронной почты, и мы вышлем вам ссылку для сброса пароля.",
+    "submit": "Отправить ссылку",
+    "confirmationTitle": "Проверьте свою электронную почту",
+    "confirmation": "Мы отправили электронное письмо на номер {email}, содержащее ссылку для сброса пароля Baserow.",
+    "disabled": "Забыли пароль отключено",
+    "disabledMessage": "Сбросить пароль невозможно, поскольку он отключен.",
+    "loginText": "У вас уже есть учетная запись и пароль?",
+    "goBack": "Возвращаться"
+  },
+  "settings": {
+    "settingsTitle": "Настройки администратора",
+    "baserowInstanceId": "Идентификатор экземпляра",
+    "instanceIdDescription": "Идентификатор экземпляра — это уникальный идентификатор вашей копии Baserow.",
+    "baserowVersion": "Базовая версия",
+    "baserowVersionDescription": "Номер версии этого экземпляра.",
+    "accountRestrictions": "Ограничения аккаунта",
+    "settingAllowResetPasswordName": "Разрешить сброс пароля",
+    "settingAllowResetPasswordDescription": "По умолчанию пользователи могут запросить ссылку для сброса пароля.",
+    "settingAllowResetPasswordWarning": "Обратите внимание, что вы можете заблокировать себя в системе и доступ не будет восстановлен, если вы забудете свой пароль.",
+    "settingAllowNewAccountsName": "Разрешить создание новых учетных записей",
+    "settingAllowNewAccountsDescription": "По умолчанию любой пользователь, посещающий ваш домен Baserow, может зарегистрировать новую учетную запись.",
+    "settingAllowSignupsViaWorkspaceInvitationsName": "Разрешить регистрацию через приглашения в рабочую область",
+    "settingAllowSignupsViaWorkspaceInvitationDescription": "Даже если создание новых учетных записей отключено, эта опция позволяет напрямую приглашенным пользователям создавать учетные записи.",
+    "settingAllowNonStaffCreateWorkspaceOperation": "Разрешить всем создавать новые рабочие пространства",
+    "settingAllowNonStaffCreateWorkspaceOperationDescription": "По умолчанию каждый может создавать новые рабочие области. Отключите этот параметр, чтобы разрешить создавать новые рабочие пространства только сотрудникам.",
+    "settingAllowNonStaffCreateWorkspaceOperationWarning": "Для новых пользователей автоматически создается рабочее пространство, в котором они являются администраторами.",
+    "settingTrackWorkspaceUsage": "Отслеживайте использование рабочего пространства",
+    "settingTrackWorkspaceUsageDescription": "Включает ночное задание, подсчитывающее использование строк и файлов для каждой рабочей области, отображаемое на странице администратора рабочей области премиум-класса.",
+    "userSettings": "Пользователь",
+    "settingUserDeletionGraceDelay": "Удалить льготную отсрочку",
+    "settingUserDeletionGraceDelayDescription": "Это количество дней без входа в систему, по истечении которого учетная запись, запланированная к удалению, удаляется безвозвратно.",
+    "invalidAccountDeletionGraceDelay": "Это значение является обязательным и должно быть положительным целым числом меньше 32000.",
+    "enabled": "включено",
+    "maintenance": "Обслуживание",
+    "emailVerification": "Проверка электронной почты",
+    "emailVerificationDescription": "Управляет необходимостью проверки адресов электронной почты.",
+    "emailVerificationNoVerification": "Без проверки",
+    "emailVerificationRecommended": "Рекомендуется",
+    "emailVerificationEnforced": "Принудительный",
+    "settingsVerifyImportSignature": "Проверьте подпись импорта",
+    "settingsVerifyImportSignatureDescription": "Если этот параметр включен, подпись импортированных данных проверяется, чтобы гарантировать, что данные не были подделаны."
+  },
+  "formSidebar": {
+    "fields": "Поля",
+    "rowEditableBy": "Обновить строки через поля",
+    "rowEditableByDescription": "Строки в этой таблице можно обновить с помощью этой формы через следующие поля редактирования строк:",
+    "actions": {
+      "addAll": "Добавить все",
+      "removeAll": "Удалить все",
+      "addField": "Добавить поле"
     },
-    "copied": {
-        "label": ""
+    "notifyUserOnSubmit": "Получить уведомление об отправке",
+    "fieldsDescription": "Все поля есть в форме.",
+    "prefillOrHideInfoLink": "Предварительно заполняйте или скрывайте динамически",
+    "modal": {
+      "title": "Предварительно заполняйте или скрывайте поля динамически",
+      "descriptionPartOne": "Формы могут быть предварительно заполнены, чтобы помочь пользователю быстрее заполнить форму.",
+      "descriptionPartTwo": "Все поля, доступные в форме, могут быть предварительно заполнены.",
+      "howToHide": {
+        "title": "Как скрыть поле",
+        "description": "Если вы хотите динамически скрыть поле, вы можете сделать это с помощью параметров запроса, добавленных в общедоступный доступ из URL-адреса. Эти параметры запроса имеют префикс `hide_`, чтобы избежать конфликта с потенциальными параметрами запроса в будущем."
+      },
+      "howToPrefill": {
+        "title": "Как предварительно заполнить форму",
+        "description": "Если вы хотите предварительно заполнить форму данными, вы можете сделать это с помощью параметров запроса, добавленных в URL-адрес общедоступной формы. Эти параметры запроса имеют префикс «prefill», чтобы избежать конфликтов с потенциальными параметрами запроса в будущем."
+      },
+      "format": {
+        "title": "Формат",
+        "description": "Формат параметров запроса следующий:",
+        "codeSnippet": "?prefill_<имя_поля>=<значение>"
+      },
+      "example": {
+        "title": "Пример",
+        "description": "В приведенном ниже примере мы хотим предварительно заполнить поле «Имя» значением «Майк».",
+        "codeSnippet": "?prefill_Name=Майк"
+      },
+      "spaces": {
+        "title": "Пространства",
+        "description": "Пробелы в имени поля заменяются на `+`, чтобы избежать проблем с параметром запроса.",
+        "codeSnippet": "?prefill_my+field=Майк"
+      },
+      "multipleValues": {
+        "title": "Несколько значений",
+        "description": "Если вы хотите предварительно заполнить несколько полей, вы можете сделать это, добавив `,` между значениями.",
+        "codeSnippet": "?prefill_multi+select=Майк, Джон"
+      },
+      "specialFieldTypes": {
+        "title": "Специальные типы полей",
+        "description": "Обычно значение предварительного заполнения совпадает со значением поля. Но есть некоторые исключения, когда значение переводится в другое значение.",
+        "ratingField": {
+          "title": "Поле рейтинга",
+          "description": "Поле рейтинга принимает число, указывающее, сколько звездочек следует заполнить.",
+          "codeSnippet": "?prefill_rating=3"
+        },
+        "linkRowField": {
+          "title": "Поле строки ссылки",
+          "description": "Поле строки ссылки может принимать значение, отображаемое в раскрывающемся списке выбора.",
+          "codeSnippet": "?prefill_link+row=Майк"
+        },
+        "selectField": {
+          "title": "Поле одиночного выбора/множественного выбора",
+          "description": "Одно поле выбора может принимать значение, отображаемое в раскрывающемся списке выбора. То же самое относится и к полю «Множественный выбор», но оно также может принимать несколько значений.",
+          "codeSnippet": "?prefill_single+select=Майк"
+        },
+        "dateField": {
+          "title": "Поле даты",
+          "description": "Поле даты может принимать дату в следующих форматах и ​​будет использовать формат даты поля для анализа даты.",
+          "codeSnippet": "// Стандарты\nISO_8601\n\n// Общие форматы\n'ГГГГ-ММ-ДД',\n'ГГГГ-ММ-ДД чч:мм А',\n'ГГГГ-ММ-ДД ЧЧ:мм',\n\n// ЕС\n'ДД/ММ/ГГГГ', \n'ДД/ММ/ГГГГ чч:мм А', \n'ДД/ММ/ГГГГ ЧЧ:мм'\n\n// США\n'ММ/ДД/ГГГГ', \n'ММ/ДД/ГГГГ чч:мм А', \n'ММ/ДД/ГГГГ ЧЧ:мм'"
+        }
+      }
+    }
+  },
+  "job": {
+    "statePending": "Жду начала...",
+    "stateStarted": "Началось...",
+    "stateFinished": "Законченный",
+    "stateCanceled": "Отменено",
+    "stateFailed": "Неуспешный",
+    "errorJobCannotBeCancelledTitle": "Не удалось отменить",
+    "errorJobCannotBeCancelledDescription": "Отменить работу невозможно, так как она уже завершена.\nЧтобы удалить его, удалите первый снимок в списке ниже.",
+    "errorJobAlreadyRunningTitle": "Уже работает",
+    "errorJobAlreadyRunningDescription": "Другое задание импорта уже выполняется. Вам нужно дождаться завершения одного, прежде чем начинать следующий."
+  },
+  "datetime": {
+    "secondsAgo": "Только что | 1 секунду назад | {n} секунд назад",
+    "minutesAgo": "0 минут назад | 1 минуту назад | {n} минут назад",
+    "hoursAgo": "0 часов назад | 1 час назад | {n} часов назад",
+    "daysAgo": "0 дней назад | 1 день назад | {n} дней назад",
+    "monthsAgo": "0 месяцев назад | 1 месяц назад | {n} месяцев назад",
+    "yearsAgo": "0 лет назад | 1 год назад | {n} лет назад",
+    "lessThanMinuteAgo": "меньше минуты назад",
+    "justNow": "прямо сейчас"
+  },
+  "crudTableSearch": {
+    "search": "Поиск"
+  },
+  "membersSettings": {
+    "membersTabTitle": "Члены",
+    "invitesTabTitle": "Приглашает",
+    "membersTable": {
+      "title": "{userAmount} Участники в {workspaceName}",
+      "inviteMember": "Пригласить участника",
+      "columns": {
+        "name": "Имя",
+        "email": "Электронная почта",
+        "role": "Роль по умолчанию",
+        "highestRole": "Высшая роль",
+        "highestRoleHelpText": "Наивысшая роль, назначенная ему пользователем напрямую или через команду во всем в этой рабочей области.",
+        "highestRoleInstanceHelpText": "Самая высокая роль, которую имеет этот пользователь в экземпляре",
+        "teams": "Команды",
+        "2fa": "2ФА"
+      },
+      "actions": {
+        "copyEmail": "Копировать письмо",
+        "remove": "Удалить из рабочей области"
+      }
     },
-    "sidebarApplication": {
-        "rename": "",
-        "duplicate": "",
-        "viewTrash": "",
-        "delete": "",
-        "snapshots": ""
+    "invitesTable": {
+      "title": "{invitesAmount} Ожидающие приглашения в {workspaceName}",
+      "columns": {
+        "email": "Электронная почта",
+        "message": "Сообщение",
+        "role": "Роль по умолчанию"
+      },
+      "actions": {
+        "copyEmail": "Копировать письмо",
+        "remove": "Отменить приглашение"
+      }
     },
-    "duplicateApplicationJobType": {
-        "duplicating": "",
-        "duplicatedTitle": ""
-    },
-    "InstallTemplateJobType": {
-        "installing": "",
-        "installedTitle": ""
-    },
-    "sidebar": {
-        "createWorkspace": "",
-        "inviteOthers": "",
-        "members": "",
-        "logoff": "",
-        "errorNoWorkspace": "",
-        "admin": "",
-        "dashboard": "",
-        "trash": "",
-        "settings": ""
-    },
-    "accountForm": {
-        "nameLabel": "",
-        "languageLabel": ""
-    },
-    "accountSettings": {
-        "title": "",
-        "changedTitle": "",
-        "changedDescription": "",
-        "submitButton": ""
-    },
-    "settingsModal": {
-        "title": ""
-    },
-    "passwordSettings": {
-        "title": "",
-        "changedTitle": "",
-        "changedDescription": "",
-        "oldPasswordLabel": "",
-        "oldPasswordRequiredError": "",
-        "newPasswordLabel": "",
-        "repeatNewPasswordLabel": "",
-        "repeatNewPasswordMatchError": "",
-        "submitButton": "",
-        "errorInvalidOldPasswordTitle": "",
-        "errorInvalidOldPasswordMessage": ""
-    },
-    "deleteAccountSettings": {
-        "title": "",
-        "description": "",
-        "workspaceNotice": "",
-        "workspaceNoticeDescription": "",
-        "orphanWorkspaces": "",
-        "orphanWorkspaceMemberCount": "",
-        "password": "",
-        "passwordConfirm": "",
-        "repeatPasswordMatchError": "",
-        "submitButton": "",
-        "errorInvalidPasswordTitle": "",
-        "errorInvalidPasswordMessage": "",
-        "errorUserIsLastAdminTitle": "",
-        "errorUserIsLastAdminMessage": "",
-        "accountDeletedSuccessTitle": "",
-        "accountDeletedSuccessMessage": "",
-        "workspaceLoadingError": "",
-        "workspaceLoadingErrorDescription": ""
+    "membersInviteModal": {
+      "title": "Пригласить участников рабочей области",
+      "submit": "Отправить приглашение",
+      "helpIconText": "Выбранная роль будет ролью пользователя по умолчанию в этой рабочей области.",
+      "errors": {
+        "userAlreadyInWorkspace": {
+          "title": "Пользователь уже находится в рабочей области.",
+          "text": "Невозможно отправить приглашение, если пользователь уже является участником рабочей области."
+        }
+      }
+    }
+  },
+  "memberSelectionList": {
+    "searchPlaceholder": "Находить ...",
+    "selectedAmountLabel": "{count} выбрано"
+  },
+  "memberAssignmentModalFooter": {
+    "invite": "Пригласить {count}",
+    "deselectAll": "Отменить выбор всех",
+    "selectAll": "Выбрать все"
+  },
+  "removeFromWorkspaceModal": {
+    "title": "Подтвердить удаление из рабочей области",
+    "confirmation": "Вы уверены, что хотите удалить {name} из {workspaceName}? Это действие невозможно отменить.",
+    "remove": "Удалять"
+  },
+  "editRoleContext": {
+    "billableRolesLink": "Документация по оплачиваемым ролям",
+    "additionalRoles": "Дополнительные роли"
+  },
+  "highestPaidRoleField": {
+    "billable": "подлежащий оплате"
+  },
+  "integrationCreateEditModal": {
+    "createTitle": "Новая интеграция",
+    "editTitle": "Изменить интеграцию",
+    "warningTitle": "Предупреждение"
+  },
+  "integrationEditForm": {
+    "name": "Имя",
+    "namePlaceholder": "Введите название интеграции..."
+  },
+  "integrationDropdown": {
+    "addIntegration": "Добавить новую интеграцию",
+    "noIntegrations": "Интеграций не обнаружено.",
+    "selectTypeFirst": "Сначала выберите тип",
+    "integrationPlaceholder": "Выберите интеграцию"
+  },
+  "dropdown": {
+    "empty": "Нет доступных товаров"
+  },
+  "richTextEditorMentionsList": {
+    "notFound": "Пользователи не найдены"
+  },
+  "workspaceInvitationAcceptedNotification": {
+    "title": "{sender} принял ваше приглашение присоединиться к {workspaceName}",
+    "deletedUser": "Удаленный пользователь"
+  },
+  "workspaceInvitationRejectedNotification": {
+    "title": "{sender} отклонил ваше приглашение присоединиться к {workspaceName}",
+    "deletedUser": "Удаленный пользователь"
+  },
+  "workspaceInvitationCreatedNotification": {
+    "title": "{sender} пригласил вас присоединиться к {workspaceName}",
+    "deletedUser": "Удаленный пользователь"
+  },
+  "versionUpgradeNotification": {
+    "title": "{version} здесь! Узнайте, что нового."
+  },
+  "emailNotifications": {
+    "title": "Уведомления по электронной почте",
+    "label": "Упоминания, комментарии и другие уведомления",
+    "description": "Настройте частоту отправки писем на ваш почтовый ящик.",
+    "instant": "Мгновенный",
+    "daily": "Ежедневно",
+    "weekly": "Еженедельно",
+    "never": "Никогда",
+    "submitButton": "Частота обновления"
+  },
+  "formulaInputField": {
+    "errorInvalidFormula": "Формула недействительна.",
+    "advancedFormulaMode": "Расширенный режим формул",
+    "invalidFormulaTitle": "Неверная формула",
+    "invalidSyntax": "Недействительная экспертная формула. Проверьте синтаксис."
+  },
+  "formulaInputErrorContext": {
+    "viewFullError": "Посмотреть полную ошибку"
+  },
+  "formulaInputExplorerContext": {
+    "variables": "Переменные",
+    "functions": "Функции",
+    "operators": "Операторы",
+    "search": "Поиск",
+    "useRegularInputModalTitle": "Использовать обычный ввод для этого поля?",
+    "useSimpleInput": "Переключиться в базовый режим",
+    "useSimpleInputModalTitle": "Перейти в базовый режим?",
+    "useAdvancedInput": "Переключиться в экспертный режим",
+    "useAdvancedInputModalTitle": "Переключиться в экспертный режим?",
+    "modalMessage": "Переключение в другой режим очистит текущую формулу. Вы уверены, что хотите продолжить?"
+  },
+  "formulaParserErrors": {
+    "invalidArgCountMin": "Функция '00' ожидает минимум 1 аргументов.",
+    "invalidArgCountExact": "Функция '00' ожидает ровно 1 аргументов.",
+    "invalidArgCountRange": "Функция «00» ожидает аргументов от {minArgs} до {maxArgs}."
+  },
+  "dataExplorer": {
+    "noMatchingNodesText": "Соответствующих результатов не обнаружено.",
+    "noProvidersText": "Поставщики данных не найдены. Для начала вы можете, например, добавить источник данных или параметр страницы."
+  },
+  "dataExplorerNode": {
+    "showMore": "Показать больше повторов",
+    "selectNode": "Выбирать"
+  },
+  "richTextEditorBubbleMenu": {
+    "bold": "Смелый",
+    "italic": "Курсив",
+    "underline": "Подчеркнуть",
+    "strikethrough": "Ударять",
+    "link": "Связь",
+    "linkEditPlaceholder": "URL-адрес ссылки...",
+    "linkEditDone": "Сделанный"
+  },
+  "richTextEditorFloatingMenu": {
+    "hierarchy": "Иерархия",
+    "lists": "Списки",
+    "paragraph": "Параграф",
+    "heading1": "Заголовок 1",
+    "heading2": "Заголовок 2",
+    "heading3": "Заголовок 3",
+    "orderedList": "Нумерованный список",
+    "unorderedList": "Маркированный список",
+    "code": "Код",
+    "taskList": "Список задач"
+  },
+  "selectAIModelForm": {
+    "AIType": "Тип ИИ",
+    "AIModel": "Модель ИИ",
+    "fileField": "Поле файла",
+    "temperatureLabel": "Температура",
+    "temperatureDescription": "Температура LLM, параметр, установленный между 0 и {max}, регулирует случайность ответов: более низкие значения дают целенаправленные ответы, а более высокие значения повышают креативность."
+  },
+  "onboarding": {
+    "title": "Регистрация",
+    "creating": "Создание своего первого рабочего места",
+    "continue": "Продолжать",
+    "skip": "Пропустить сейчас",
+    "cancel": "Мне не нужна помощь в настройке",
+    "failedTitle": "Что-то пошло не так",
+    "failedDescription": "Адаптация не была полностью завершена, хотя некоторые ее части могли быть завершены.",
+    "failedTryAgain": "Попробуйте еще раз",
+    "failedSkip": "Пропустить регистрацию"
+  },
+  "moreStep": {
+    "title": "Расскажите нам немного больше",
+    "how": "Как вы узнали о нас?",
+    "howSearchEngine": "Поисковая система (Google/Bing)",
+    "howSocialMedia": "Социальные сети",
+    "howOnlineAds": "Интернет-объявления",
+    "howContent": "Контент (блог/информационный бюллетень/видео)",
+    "howReviewSite": "Обзор сайта/торговой площадки",
+    "howFriend": "От друга",
+    "howColleague": "От коллеги",
+    "howEvent": "Мероприятие или вебинар",
+    "howSales": "Продажи",
+    "howOther": "Другой",
+    "country": "Страна",
+    "share": "Я согласен поделиться этим с командой Baserow"
+  },
+  "teamStep": {
+    "description": "В какой команде ты состоишь?",
+    "marketingTeam": "Маркетинг",
+    "productAndDesignTeam": "Продукт и дизайн",
+    "engineeringTeam": "Инженерное дело",
+    "operationsTeam": "Операции",
+    "itAndSupportTeam": "ИТ и поддержка",
+    "hrAndLegalTeam": "HR и юриспруденция",
+    "financeTeam": "Финансы",
+    "creativeProductionTeam": "Креативное производство",
+    "salesAndAccountManagementTeam": "Управление продажами и счетами",
+    "customerServiceTeam": "Обслуживание клиентов",
+    "manufacturingTeam": "Производство",
+    "otherPersonalTeam": "Другое / Личное"
+  },
+  "colorInput": {
+    "default": "По умолчанию"
+  },
+  "colorPickerContext": {
+    "pickColorPlaceholder": "Или выберите заранее определенный цвет"
+  },
+  "imageInput": {
+    "labelDescription": "Выберите изображение для загрузки...",
+    "labelButton": "Загрузить"
+  },
+  "user": {
+    "isStaff": "Персонал",
+    "isWorkspaceAdmin": "Является администратором рабочей области",
+    "active": "Активный",
+    "deactivated": "Деактивирован"
+  },
+  "adminType": {
+    "dashboard": "Панель управления",
+    "users": "Пользователи",
+    "workspaces": "Рабочие пространства"
+  },
+  "workspacesAdminTable": {
+    "allWorkspaces": "Все рабочие места",
+    "id": "ИДЕНТИФИКАТОР",
+    "name": "Имя",
+    "members": "Члены",
+    "applications": "Приложения",
+    "created": "Созданный",
+    "rowCount": "Количество строк",
+    "freeUsers": "Бесплатные пользователи",
+    "seatsTaken": "Мест занято",
+    "storageUsage": "Используемое хранилище (МБ)",
+    "usageHelpText": "Рассчитывается каждую ночь, если включена настройка отслеживания использования рабочей области."
+  },
+  "editWorkspaceContext": {
+    "delete": "Удалить навсегда"
+  },
+  "deleteWorkspaceModal": {
+    "title": "Удалить {name}",
+    "confirmation": "Вы уверены, что хотите удалить рабочую область: {name}?",
+    "comment": "Рабочая область будет безвозвратно удалена, включая связанные с ней приложения. Это действие невозможно отменить.",
+    "delete": "Удалить рабочую область {name}"
+  },
+  "activeUsers": {
+    "newUsers": "Новые пользователи",
+    "activeUsers": "Активные пользователи"
+  },
+  "usersAdminTable": {
+    "allUsers": "Все пользователи",
+    "username": "Имя пользователя",
+    "name": "Имя",
+    "workspaces": "Рабочие пространства",
+    "lastLogin": "Последний вход",
+    "dateJoined": "Зарегистрировался",
+    "active": "Активный"
+  },
+  "editUserContext": {
+    "changePassword": "Изменить пароль",
+    "delete": "Удалить навсегда",
+    "impersonate": "Олицетворять"
+  },
+  "changePasswordForm": {
+    "newPassword": "Новый пароль",
+    "repeatPassword": "Повторите пароль",
+    "changePassword": "Изменить пароль",
+    "error": {
+      "doesntMatch": "Это поле должно совпадать с полем вашего пароля."
+    }
+  },
+  "userForm": {
+    "fullName": "Полное имя",
+    "email": "Электронная почта",
+    "isActive": "Активен",
+    "warning": {
+      "changeEmail": "Изменение адреса электронной почты этого пользователя означает, что при входе в систему он должен использовать для этого новый адрес электронной почты. Об этом необходимо сообщить этому пользователю.",
+      "inactiveUser": "Когда пользователь помечен как неактивный, он не может войти в систему.",
+      "userStaff": "Создание штата пользователей дает им доступ администратора ко всем пользователям, всем рабочим пространствам и возможность отзывать собственные разрешения для сотрудников."
     },
     "error": {
-        "alreadyExistsTitle": "",
-        "alreadyExistsMessage": "",
-        "passwordRequired": "",
-        "invalidEmail": "",
-        "disabledAccountTitle": "",
-        "disabledAccountMessage": "",
-        "incorrectCredentialTitle": "",
-        "incorrectCredentialMessage": "",
-        "inputRequired": "",
-        "disabledPasswordProviderTitle": "",
-        "disabledPasswordProviderMessage": ""
-    },
-    "field": {
-        "language": "",
-        "emailAddress": "",
-        "name": "",
-        "password": "",
-        "passwordRepeat": ""
-    },
-    "invitationTitle": "",
-    "invitationMessage": "",
-    "workspaceForm": {
-        "nameLabel": ""
-    },
-    "leaveWorkspaceModal": {
-        "title": "",
-        "message": "",
-        "leave": ""
-    },
-    "dashboardWorkspace": {
-        "createApplication": ""
-    },
-    "workspaceInvitation": {
-        "title": "",
-        "message": "",
-        "reject": "",
-        "accept": ""
-    },
-    "workspaceMemberModal": {
-        "membersModalTitle": "",
-        "userDescription": "",
-        "invitationDescription": "",
-        "sendInvite": "",
-        "userAlreadyInWorkspaceTitle": "",
-        "userDescriptionPendingDeletion": "",
-        "userAlreadyInWorkspaceText": ""
-    },
-    "workspaceInviteForm": {
-        "invitationFormTitle": "",
-        "optionalMessagePlaceholder": "",
-        "errorInvalidEmail": "",
-        "errorTooLongMessage": ""
-    },
-    "workspacesContext": {
-        "search": "",
-        "noResults": "",
-        "createWorkspace": ""
-    },
-    "workspaceContext": {
-        "renameWorkspace": "",
-        "members": "",
-        "viewTrash": "",
-        "leaveWorkspace": "",
-        "deleteWorkspace": ""
-    },
-    "createWorkspaceModal": {
-        "createNew": "",
-        "defaultName": "",
-        "add": "",
-        "permissionDeniedTitle": "",
-        "permissionDeniedBody": ""
-    },
-    "templateCategories": {
-        "search": "",
-        "title": ""
-    },
-    "templateHeader": {
-        "use": ""
-    },
-    "trashSidebar": {
-        "title": "",
-        "unnamedWorkspace": ""
-    },
-    "trashContents": {
-        "message": "",
-        "empty": "",
-        "emptyButtonTrashed": "",
-        "emptyButtonNotTrashed": "",
-        "unnamed": ""
-    },
-    "trashEmptyModal": {
-        "titleIsTrashed": "",
-        "titleIsNotTrashed": "",
-        "messageIsTrashed": "",
-        "messageIsNotTrashed": "",
-        "buttonIsTrashed": "",
-        "buttonIsNotTrashed": ""
-    },
-    "trashEntry": {
-        "deletedUser": "",
-        "fromParent": "",
-        "name": "",
-        "restore": "",
-        "andMore": "",
-        "unnamed": ""
-    },
-    "trashModal": {
-        "emptyTitle": "",
-        "emptyMessage": "",
-        "emptyMessageWithoutCreatePermission": ""
-    },
-    "uploadViaURLUserFileUpload": {
-        "title": "",
-        "urlLabel": "",
-        "urlError": ""
-    },
-    "userFilesModal": {
-        "title": ""
-    },
-    "uploadFileUserFileUpload": {
-        "title": "",
-        "drop": "",
-        "clickOrDrop": "",
-        "retry": ""
-    },
-    "createApplicationContext": {
-        "fromTemplate": ""
-    },
-    "applicationForm": {
-        "nameLabel": ""
-    },
-    "connectingNotification": {
-        "title": "",
-        "content": ""
-    },
-    "failedConnectingNotification": {
-        "title": "",
-        "content": "",
-        "action": ""
-    },
-    "AuthorizationErrorNotification": {
-        "title": "",
-        "content": "",
-        "action": ""
-    },
-    "UserSessionExpiredNotification": {
-        "title": "",
-        "content": ""
-    },
-    "restoreNotification": {
-        "restore": ""
-    },
-    "copyingNotification": {
-        "title": "",
-        "content": ""
-    },
-    "pastingNotification": {
-        "title": "",
-        "content": ""
-    },
-    "clearingNotification": {
-        "title": "",
-        "content": ""
-    },
-    "undoRedoNotification": {
-        "undoingTitle": "",
-        "undoingText": "",
-        "undoneTitle": "",
-        "undoneText": "",
-        "noMoreUndo": "",
-        "skippingUndoDueToError": "",
-        "redoingTitle": "",
-        "redoingText": "",
-        "redoneTitle": "",
-        "redoneText": "",
-        "noMoreRedo": "",
-        "skippingRedoDueToError": "",
-        "failed": ""
-    },
-    "permissionsUpdatedNotification": {
-        "title": "",
-        "content": "",
-        "action": ""
-    },
-    "errorLayout": {
-        "notFound": "",
-        "error": "",
-        "backDashboard": "",
-        "backLogin": "",
-        "wrong": "",
-        "refresh": ""
-    },
-    "dashboard": {
-        "title": "",
-        "alertTitle": "",
-        "alertText": "",
-        "tweetContent": "",
-        "redditTitle": "",
-        "noWorkspaceTitle": "",
-        "noWorkspaceText": "",
-        "noWorkspaceTextWithoutCreatePermission": "",
-        "createWorkspace": "",
-        "becomeGithubSponsor": "",
-        "starOnGitlab": "",
-        "shareOnTwitter": "",
-        "shareOnReddit": "",
-        "shareOnFacebook": "",
-        "shareOnLinkedIn": ""
-    },
-    "dashboardSidebar": {
-        "workspaces": "",
-        "links": "",
-        "knowledgeBase": "",
-        "tutorials": "",
-        "userSettings": "",
-        "trash": "",
-        "logoff": ""
-    },
-    "login": {
-        "title": "",
-        "emailPlaceholder": "",
-        "passwordPlaceholder": "",
-        "forgotPassword": "",
-        "signUpText": "",
-        "signUp": "",
-        "displayPasswordLogin": "",
-        "redirecting": ""
-    },
-    "resetPassword": {
-        "title": "",
-        "newPassword": "",
-        "repeatNewPassword": "",
-        "submit": "",
-        "changed": "",
-        "errorInvalidLinkTitle": "",
-        "errorInvalidLinkMessage": "",
-        "errorLinkExpiredTitle": "",
-        "errorLinkExpiredMessage": "",
-        "disabled": "",
-        "disabledMessage": ""
-    },
-    "signup": {
-        "headTitle": "",
-        "title": "",
-        "disabled": "",
-        "disabledMessage": "",
-        "requireFirstUser": "",
-        "requireFirstUserMessage": "",
-        "emailPlaceholder": "",
-        "namePlaceholder": "",
-        "passwordPlaceholder": "",
-        "passwordRepeatPlaceholder": "",
-        "loginText": "",
-        "login": ""
-    },
-    "forgotPassword": {
-        "title": "",
-        "message": "",
-        "submit": "",
-        "confirmation": "",
-        "disabled": "",
-        "disabledMessage": "",
-        "loginText": ""
-    },
-    "settings": {
-        "settingsTitle": "",
-        "baserowInstanceId": "",
-        "instanceIdDescription": "",
-        "accountRestrictions": "",
-        "settingAllowResetPasswordName": "",
-        "settingAllowResetPasswordDescription": "",
-        "settingAllowResetPasswordWarning": "",
-        "settingAllowNewAccountsName": "",
-        "settingAllowNewAccountsDescription": "",
-        "settingAllowSignupsViaWorkspaceInvitationsName": "",
-        "settingAllowSignupsViaWorkspaceInvitationDescription": "",
-        "settingAllowNonStaffCreateWorkspaceOperation": "",
-        "settingAllowNonStaffCreateWorkspaceOperationDescription": "",
-        "settingAllowNonStaffCreateWorkspaceOperationWarning": "",
-        "userDeletionGraceDelay": "",
-        "settingUserDeletionGraceDelay": "",
-        "settingUserDeletionGraceDelayDescription": "",
-        "invalidAccountDeletionGraceDelay": "",
-        "enabled": ""
-    },
-    "formSidebar": {
-        "actions": {
-            "addAll": "",
-            "removeAll": "",
-            "addField": ""
-        },
-        "fieldsDescription": "",
-        "prefillOrHideInfoLink": "",
-        "modal": {
-            "title": "",
-            "descriptionPartOne": "",
-            "descriptionPartTwo": "",
-            "howToHide": {
-                "title": "",
-                "description": ""
-            },
-            "howToPrefill": {
-                "title": "",
-                "description": ""
-            },
-            "format": {
-                "title": "",
-                "description": "",
-                "codeSnippet": ""
-            },
-            "example": {
-                "title": "",
-                "description": "",
-                "codeSnippet": ""
-            },
-            "spaces": {
-                "title": "",
-                "description": "",
-                "codeSnippet": ""
-            },
-            "multipleValues": {
-                "title": "",
-                "description": "",
-                "codeSnippet": ""
-            },
-            "specialFieldTypes": {
-                "title": "",
-                "description": "",
-                "ratingField": {
-                    "title": "",
-                    "description": "",
-                    "codeSnippet": ""
-                },
-                "linkRowField": {
-                    "title": "",
-                    "description": "",
-                    "codeSnippet": ""
-                },
-                "selectField": {
-                    "title": "",
-                    "description": "",
-                    "codeSnippet": ""
-                },
-                "dateField": {
-                    "title": "",
-                    "description": "",
-                    "codeSnippet": ""
-                }
-            }
-        }
-    },
-    "job": {
-        "statePending": "",
-        "stateStarted": "",
-        "stateFinished": "",
-        "stateFailed": "",
-        "errorJobAlreadyRunningTitle": "",
-        "errorJobAlreadyRunningDescription": ""
-    },
-    "datetime": {
-        "secondsAgo": "",
-        "minutesAgo": "",
-        "hoursAgo": "",
-        "daysAgo": "",
-        "monthsAgo": "",
-        "yearsAgo": ""
-    },
-    "crudTableSearch": {
-        "search": ""
-    },
-    "membersSettings": {
-        "membersTabTitle": "",
-        "invitesTabTitle": "",
-        "membersTable": {
-            "title": "",
-            "inviteMember": "",
-            "columns": {
-                "name": "",
-                "email": "",
-                "role": "",
-                "teams": ""
-            },
-            "actions": {
-                "copyEmail": "",
-                "remove": ""
-            }
-        },
-        "invitesTable": {
-            "title": "",
-            "columns": {
-                "email": "",
-                "message": "",
-                "role": ""
-            },
-            "actions": {
-                "copyEmail": "",
-                "remove": ""
-            }
-        },
-        "membersInviteModal": {
-            "title": "",
-            "submit": "",
-            "helpIconText": "",
-            "errors": {
-                "userAlreadyInWorkspace": {
-                    "title": "",
-                    "text": ""
-                }
-            }
-        }
-    },
-    "memberSelectionList": {
-        "searchPlaceholder": "",
-        "selectedAmountLabel": ""
-    },
-    "memberAssignmentModalFooter": {
-        "invite": "",
-        "deselectAll": "",
-        "selectAll": ""
-    },
-    "removeFromWorkspaceModal": {
-        "title": "",
-        "confirmation": "",
-        "remove": ""
-    },
-    "editRoleContext": {
-        "billableRolesLink": ""
+      "invalidName": "Пожалуйста, введите действительное полное имя, оно должно быть длиннее 2 букв и меньше 150.",
+      "invalidEmail": "Пожалуйста, введите действительный адрес электронной почты."
     }
+  },
+  "changeUserPasswordModal": {
+    "changePassword": "Изменить пароль для {username}"
+  },
+  "deleteUserModal": {
+    "title": "Удалить {username}",
+    "confirmation": "Вы уверены, что хотите удалить пользователя: {name}?",
+    "comment1": "Учетная запись пользователя будет удалена, однако рабочие области, участником которых является пользователь, продолжат существовать. Рабочая область пользователя не будет удалена, даже если этот пользователь является последним пользователем в рабочей области. Удаление последнего пользователя в рабочей области лишает кого-либо доступа к этой рабочей области.",
+    "comment2": "После удаления пользователя новый пользователь может снова зарегистрироваться, используя адрес электронной почты удаленного пользователя. Чтобы гарантировать, что они не смогут зарегистрироваться снова, вместо этого деактивируйте пользователя и не удаляйте его.",
+    "delete": "Удалить пользователя {username}"
+  },
+  "editUserModal": {
+    "delete": "Удалить пользователя",
+    "edit": "Изменить { username }"
+  },
+  "twoFactorAuthField": {
+    "enabled": "Включено",
+    "disabled": "Неполноценный"
+  },
+  "adminDashboard": {
+    "title": "Панель управления",
+    "totals": "Итоги",
+    "totalUsers": "Всего пользователей",
+    "totalWorkspaces": "Всего рабочих пространств",
+    "totalApplications": "Всего заявок",
+    "newUsers": "Новые пользователи",
+    "newUsers24h": "Новые пользователи живут 24 часа",
+    "newUsers7days": "Новые пользователи последние 7 дней",
+    "newUsers30days": "Новые пользователи за последние 30 дней",
+    "activeUsers": "Активные пользователи",
+    "activeUsers24h": "Активные пользователи последние 24 часа",
+    "activeUsers7days": "Активные пользователи за последние 7 дней",
+    "activeUsers30days": "Активные пользователи за последние 30 дней",
+    "viewAll": "Посмотреть все"
+  },
+  "formGroup": {
+    "protectedField": "Это поле защищено. Нажмите, чтобы изменить.",
+    "cancelProtectedField": "Отменить изменение"
+  },
+  "userSourceType": {
+    "userCountSummary": "{count} пользователей ({lastUpdated})"
+  },
+  "guidedTourStep": {
+    "step": "{step} из {totalSteps}",
+    "gotIt": "Понятно",
+    "next": "Следующий",
+    "back": "Назад"
+  },
+  "welcomeGuidedTourStep": {
+    "title": "Добро пожаловать в Бэйсероу",
+    "content": "Давайте совершим краткий обзор, чтобы познакомить вас с основами. Всего за несколько кликов вы научитесь легко организовывать и визуализировать свои данные.",
+    "buttonText": "Начать тур"
+  },
+  "controlCenterGuidedTourStep": {
+    "title": "Ваш центр управления Baserow",
+    "content": "Левая боковая панель помогает вам управлять своим рабочим пространством:\n\n- Домой – доступ к главной панели управления.\n- Уведомления: будьте в курсе изменений и упоминаний.\n- Пригласить участников – сотрудничайте, добавляя членов команды.\n- Корзина: список и восстановление всех удаленных элементов."
+  },
+  "createNewGuidedTourStep": {
+    "title": "Создайте новую базу данных или приложение",
+    "content": "Нажмите «Добавить новый…», чтобы настроить новую базу данных, приложение или панель мониторинга для вашего проекта, отдела или команды."
+  },
+  "mcpEndpointSettings": {
+    "title": "MCP-сервер",
+    "createEndpoint": "Создать конечную точку",
+    "createNewTitle": "Создать конечную точку сервера MCP",
+    "backToOverview": "Назад",
+    "noEndpointsMessage": "Конечные точки сервера MCP (Model Context Protocol) не добавлены. Их можно использовать для прямой интеграции с LLM, например Claude, и позволить LLM выполнять действия непосредственно в Baserow. Создайте конечную точку сервера, чтобы начать."
+  },
+  "mcpEndpointForm": {
+    "nameLabel": "Имя",
+    "workspaceLabel": "Рабочая область"
+  },
+  "mcpEndpoint": {
+    "detailLabel": "Подробнее",
+    "endpointURLIntro": "URL-адрес сервера MCP (Model Context Protocol) можно добавить к любому клиенту, поддерживающему серверы MCP. Это уникальная конечная точка, которая предоставляет LLM прямой доступ для выполнения действий в рабочей области от вашего имени.",
+    "reveal": "Показать полный URL",
+    "warning": "Относитесь к URL-адресу MCP как к паролю, поскольку он позволяет изменять данные в Baserow.",
+    "claudeInstructions": "Три простых шага для начала работы с Claude Desktop и Baserow MCP.\n\n1. Откройте настройки Claude Desktop на панели навигации. (⌘+,)\n1. Перейдите на вкладку «Разработка» и нажмите «Изменить конфигурацию».\n1. Включите следующую конфигурацию JSON в `claude_desktop_config.json`.",
+    "cursorInstructions": "Три простых шага для начала работы с Cursor и Baserow MCP.\n\n1. Откройте настройки курсора (⇧+⌘+J)\n1. Перейдите на вкладку «MCP» и нажмите «Добавить сервер MCP».\n1. Добавьте следующую конфигурацию JSON.",
+    "windsurfInstructions": "Два простых шага для настройки MCP с Cascase в Windsurf.\n\n1. Перейдите в Windsurf — Настройки -> Дополнительные настройки или Палитра команд -> Открыть страницу настроек Windsurf.\n1. Прокрутите вниз до раздела «Каскад», и вы найдете возможность добавить новый сервер, просмотреть существующие серверы и кнопку для просмотра необработанного файла конфигурации JSON по адресу `mcp_config.json`. Добавьте к нему следующее:"
+  },
+  "coreHTTPTriggerServiceForm": {
+    "title": "URL вебхука",
+    "urlVersion": "Версия",
+    "urlVersionPublished": "Опубликовано",
+    "urlVersionTest": "Тест",
+    "copyUrl": "Скопировать URL-адрес вебхука",
+    "urlCopied": "URL вебхука скопирован в буфер обмена.",
+    "description": "Этот веб-перехватчик будет получать HTTP-запросы и запускать рабочий процесс с данными запроса в качестве полезной нагрузки.",
+    "methodsOptionLabel": "Разрешенные методы HTTP",
+    "methodsOptionDescription": "Управляет тем, какие методы HTTP разрешены для этого веб-перехватчика. Исключение GET снижает вероятность случайного срабатывания веб-перехватчика.",
+    "methodsOptionAll": "Все",
+    "methodsOptionExcludeGet": "Исключить GET"
+  },
+  "twoFactorAuthEmpty": {
+    "title": "Вы еще не включили 2FA",
+    "description": "Добавьте дополнительный уровень безопасности в свою учетную запись.",
+    "enable": "Включить 2FA",
+    "notAllowedTitle": "2FA не включен",
+    "notAllowedDescription": "Добавление 2FA возможно только для учетных записей с паролем."
+  },
+  "nodeHelpTooltip": {
+    "exampleLabel": "Пример",
+    "result": "Результат: {result}"
+  },
+  "enableWithQRCode": {
+    "scanQRCode": "Сканируйте QR-код",
+    "scanQRCodeDescription": "Сканируйте код с помощью такого приложения, как Google Authenticator, Authy или Microsoft Authenticator.",
+    "clickToCopy": "Либо нажмите здесь, чтобы скопировать код.",
+    "secretCopiedTitle": "Секрет скопирован.",
+    "secretCopiedMessage": "Секрет TOTP скопирован в буфер обмена.",
+    "enterCode": "Введите показанный код",
+    "enterCodeDescription": "Введите 6-значный код, показанный в приложении, чтобы подтвердить правильность его настройки.",
+    "verificationFailed": "Проверка не удалась",
+    "verificationFailedDescription": "Введенный код недействителен.",
+    "provisioningFailed": "Не удалось выполнить инициализацию.",
+    "checkSuccess": "Двухфакторная аутентификация успешно включена."
+  },
+  "adminUsers": {
+    "title": "Пользователи"
+  },
+  "adminWorkspaces": {
+    "title": "Рабочие пространства"
+  }
 }

@@ -64,7 +64,7 @@ export default defineNuxtConfig({
   modules: [...baserow.modules, '@nuxtjs/i18n', '@sentry/nuxt/module'],
   i18n: {
     strategy: 'no_prefix',
-    defaultLocale: 'en',
+    defaultLocale: 'ru',
     langDir: 'locales',
     locales,
     trailingSlash: true,

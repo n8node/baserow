@@ -1,756 +1,1175 @@
 {
-    "webhookModal": {
-        "title": "",
-        "createWebhook": "",
-        "backToList": ""
-    },
-    "deleteWebhookModal": {
-        "title": "",
-        "deleteButton": "",
-        "body": ""
-    },
-    "webhookList": {
-        "noWebhooksMessage": ""
-    },
-    "testWebhookModal": {
-        "title": "",
-        "unreachable": ""
-    },
-    "webhookForm": {
-        "inputLabels": {
-            "name": "",
-            "value": "",
-            "requestMethod": "",
-            "url": "",
-            "userFieldNames": "",
-            "events": "",
-            "headers": "",
-            "example": ""
-        },
-        "errors": {
-            "urlField": "",
-            "invalidHeaders": ""
-        },
-        "checkbox": {
-            "sendUserFieldNames": ""
-        },
-        "radio": {
-            "allEvents": "",
-            "customEvents": ""
-        },
-        "triggerButton": "",
-        "deactivated": {
-            "title": "",
-            "content": "",
-            "activate": ""
-        },
-        "deprecatedEventType": {
-            "title": "",
-            "description": "",
-            "convert": ""
-        }
-    },
-    "webhook": {
-        "details": "",
-        "lastCall": "",
-        "noCalls": "",
-        "callLog": "",
-        "triggerDescription": ""
-    },
-    "createWebhook": {
-        "errorTableWebhookMaxLimitExceededTitle": "",
-        "errorTableWebhookMaxLimitExceededDescription": ""
-    },
-    "sidebar": {
-        "viewAPI": "",
-        "createTable": ""
-    },
-    "sidebarItem": {
-        "exportTable": ""
-    },
-    "duplicateTableJobType": {
-        "duplicating": "",
-        "duplicatedTitle": ""
-    },
-    "apiToken": {
-        "create": "",
-        "read": "",
-        "update": "",
-        "delete": "",
-        "tokenPrefix": "",
-        "viewAPIDocs": "",
-        "generateNewToken": "",
-        "showOrHide": "",
-        "copyToClipboard": "",
-        "showDatabases": ""
-    },
-    "apiTokenSettings": {
-        "title": "",
-        "createToken": "",
-        "noTokensMessage": "",
-        "hasFullPermissions": "",
-        "hasOnlySelectedPermissions": "",
-        "noPermissions": "",
-        "createNewTitle": "",
-        "backToOverview": ""
-    },
-    "apiTokenForm": {
-        "nameLabel": "",
-        "workspaceLabel": ""
-    },
-    "apiDocsSelectDatabase": {
-        "needOneDatabase": ""
-    },
-    "apiDocsExample": {
-        "requestSample": "",
-        "responseSample": "",
-        "userFieldNames": ""
-    },
-    "apiDocsParameter": {
-        "optional": "",
-        "defaultValue": ""
-    },
-    "apiDocsTableGetRow": {
-        "description": "",
-        "rowId": ""
-    },
-    "apiDocsErrors": {
-        "errorCode": "",
-        "name": "",
-        "description": "",
-        "okDescription": "",
-        "badRequestDescription": "",
-        "unauthorizedDescription": "",
-        "notFoundDescription": "",
-        "requestEntityTooLargeDescription": "",
-        "internalErrorDescription": "",
-        "badGatewayDescription": "",
-        "unavailableDescription": ""
-    },
-    "apiDocsTableFields": {
-        "tableTitle": "",
-        "tableId": "",
-        "description": "",
-        "id": "",
-        "name": "",
-        "type": "",
-        "compatibleFilters": ""
-    },
-    "apiDocsTableListRows": {
-        "description": "",
-        "page": "",
-        "size": "",
-        "userFieldNames": "",
-        "search": "",
-        "orderBy": "",
-        "filter": "",
-        "filterLink": "",
-        "filterType": "",
-        "include": "",
-        "exclude": "",
-        "viewId": ""
-    },
-    "apiDocsIntro": {
-        "intro": "",
-        "autoDocDescription": "",
-        "databaseId": "",
-        "jsClient": "",
-        "pythonClient": ""
-    },
-    "apiDocsTableListFields": {
-        "description": "",
-        "resultFieldProperties": "",
-        "id": "",
-        "name": "",
-        "tableId": "",
-        "order": "",
-        "primary": "",
-        "type": "",
-        "extraProps": "",
-        "readOnly": ""
-    },
-    "apiDocsTableDeleteRow": {
-        "description": "",
-        "rowId": ""
-    },
-    "apiDocsTableDeleteRows": {
-        "description": "",
-        "items": ""
-    },
-    "apiDocsTableMoveRow": {
-        "description": "",
-        "rowId": "",
-        "before": ""
-    },
-    "apiDocsUploadFile": {
-        "description": "",
-        "file": ""
-    },
-    "apiDocsUploadFileViaURL": {
-        "description": "",
-        "url": ""
-    },
-    "apiDocsTableUpdateRow": {
-        "description": "",
-        "rowId": "",
-        "before": ""
-    },
-    "apiDocsTableUpdateRows": {
-        "description": "",
-        "id": ""
-    },
-    "apiDocsTableCreateRow": {
-        "description": "",
-        "before": ""
-    },
-    "apiDocsTableCreateRows": {
-        "description": "",
-        "before": ""
-    },
-    "apiDocsAuth": {
-        "description": "",
-        "settingsLink": ""
-    },
-    "apiDocsFilters": {
-        "filter": "",
-        "exampleValue": "",
-        "example": "",
-        "field": ""
-    },
-    "fieldTextSubForm": {
-        "placeholder": ""
-    },
-    "fieldSingleSelectSubForm": {
-        "optionsLabel": ""
-    },
-    "fieldSingleSelectDropdown": {
-        "notFound": ""
-    },
-    "fieldmultipleCollaboratorsDropdown": {
-        "notFound": ""
-    },
-    "fieldDateSubForm": {
-        "dateFormatLabel": "",
-        "dateFormatEuropean": "",
-        "dateFormatUS": "",
-        "dateFormatISO": "",
-        "includeTimeLabel": "",
-        "timeFormatLabel": "",
-        "24Hour": "",
-        "12Hour": ""
-    },
-    "fieldLinkRowSubForm": {
-        "noTable": "",
-        "selectTableLabel": "",
-        "hasRelatedFieldLabel": ""
-    },
-    "fieldSelectOptions": {
-        "add": ""
-    },
-    "fieldNumberSubForm": {
-        "typeLabel": "",
-        "integer": "",
-        "decimal": "",
-        "decimalPlacesLabel": "",
-        "allowNegative": ""
-    },
-    "fieldContext": {
-        "editField": "",
-        "deleteField": "",
-        "hideField": "",
-        "showField": ""
-    },
-    "fieldForm": {
-        "name": "",
-        "fieldAlreadyExists": "",
-        "nameNotAllowed": "",
-        "nameTooLong": ""
-    },
-    "fieldLookupSubForm": {
-        "noTable": "",
-        "selectThroughFieldLabel": "",
-        "selectTargetFieldLabel": ""
-    },
-    "fieldFormulaNumberSubForm": {
-        "typeLabel": "",
-        "integer": "",
-        "decimal": "",
-        "decimalPlacesLabel": "",
-        "allowNegative": ""
-    },
-    "fieldRatingSubForm": {
-        "maxValue": "",
-        "color": "",
-        "style": ""
-    },
-    "rowCreateModal": {
-        "addField": ""
-    },
-    "selectRowContent": {
-        "search": ""
-    },
-    "rowEditModal": {
-        "addField": "",
-        "showHiddenFields": "",
-        "hideHiddenFields": ""
-    },
-    "rowEditFieldMultipleSelect": {
-        "addOption": ""
-    },
-    "rowEditFieldMultipleCollaborators": {
-        "addCollaborator": ""
-    },
-    "rowEditFieldFile": {
-        "addFile": "",
-        "sizes": {
-            "0": "",
-            "1": "",
-            "2": "",
-            "3": "",
-            "4": "",
-            "5": ""
-        }
-    },
-    "rowEditFieldLinkRow": {
-        "addLink": ""
-    },
-    "tableCSVImporter": {
-        "chooseFileLabel": "",
-        "chooseFileDescription": "",
-        "chooseFile": "",
-        "columnSeparator": "",
-        "recordSeparator": "",
-        "unitSeparator": "",
-        "encoding": "",
-        "firstRowHeader": "",
-        "limitFileSize": "",
-        "limitError": "",
-        "emptyCSV": ""
-    },
-    "importer": {
-        "fieldDefaultName": "",
-        "loading": "",
-        "decoding": "",
-        "parsing": "",
-        "preparing": "",
-        "inProgress": ""
-    },
-    "tableForm": {
-        "name": ""
-    },
-    "tableXMLImporter": {
-        "fileLabel": "",
-        "fileDescription": "",
-        "chooseButton": "",
-        "processingError": "",
-        "emptyError": "",
-        "limitFileSize": "",
-        "limitError": ""
-    },
-    "tableJSONImporter": {
-        "fileLabel": "",
-        "fileDescription": "",
-        "chooseButton": "",
-        "encodingLabel": "",
-        "processingError": "",
-        "arrayError": "",
-        "emptyError": "",
-        "limitFileSize": "",
-        "limitError": ""
-    },
-    "tablePasteImporter": {
-        "pasteLabel": "",
-        "pasteDescription": "",
-        "firstRowHeader": "",
-        "limitError": ""
-    },
-    "importFileModal": {
-        "title": "",
-        "defaultName": "",
-        "changeImporterType": "",
-        "additionalImportTitle": "",
-        "importLabel": "",
-        "newTable": "",
-        "addButton": "",
-        "showTable": "",
-        "importButton": "",
-        "uploading": "",
-        "preparing": "",
-        "importError": "",
-        "openCreatedTable": "",
-        "showReport": "",
-        "reportTitleFailure": "",
-        "reportTitleSuccess": "",
-        "reportMessage": "",
-        "stateRowCreation": "",
-        "statePreValidation": "",
-        "stateCreateTable": "",
-        "fieldMappingTitle": "",
-        "fieldMappingDescription": "",
-        "selectImportMessage": "",
-        "filePreview": "",
-        "importPreview": ""
-    },
-    "formulaAdvancedEditContext": {
-        "textAreaFormulaInputPlaceholder": "",
-        "fields": "",
-        "functions": "",
-        "operators": "",
-        "fieldType": ""
-    },
-    "fieldFormulaInitialSubForm": {
-        "formulaInputPlaceholder": "",
-        "refreshFormulaOptions": ""
-    },
-    "formulaFieldItemDescription": {
-        "syntax": "",
-        "examples": ""
-    },
-    "viewSearchContext": {
-        "searchInRows": "",
-        "hideNotMatching": ""
-    },
-    "viewsContext": {
-        "searchView": "",
-        "noViews": "",
-        "collaborative": ""
-    },
-    "viewFilterTypeLinkRow": {
-        "unnamed": "",
-        "choose": ""
-    },
-    "viewFilterContext": {
-        "addFilter": "",
-        "disableAllFilters": "",
-        "noFilterTitle": "",
-        "noFilterText": "",
-        "where": "",
-        "and": "",
-        "or": "",
-        "relatedFieldNotFound": "",
-        "filterTypeNotFound": "",
-        "noCompatibleFilterTypesErrorTitle": "",
-        "noCompatibleFilterTypesErrorMessage": ""
-    },
-    "viewFilterTypeFileTypeDropdown": {
-        "image": "",
-        "document": ""
-    },
-    "createViewModal": {
-        "createNew": "",
-        "add": ""
-    },
-    "shareViewLink": {
-        "shareView": "",
-        "shareViewTitle": "",
-        "sharedViewTitle": "",
-        "sharedViewDescription": "",
-        "disableLink": "",
-        "generateNewUrl": "",
-        "copyURL": "",
-        "EnablePassword": "",
-        "DisablePassword": "",
-        "ChangePassword": ""
-    },
-    "viewSortContext": {
-        "noSortTitle": "",
-        "noSortText": "",
-        "sortBy": "",
-        "thenBy": "",
-        "addSort": ""
-    },
-    "viewSort": {
-        "sort": ""
-    },
-    "viewDecorator": {
-        "decorator": ""
-    },
-    "viewRotateSlugModal": {
-        "title": "",
-        "refreshWarning": "",
-        "generateNewURL": ""
-    },
-    "shareViewEnablePasswordModal": {
-        "newPasswordTitle": "",
-        "newPasswordDescription": "",
-        "newPasswordSave": "",
-        "changePasswordTitle": "",
-        "changePasswordDescription": "",
-        "changePasswordSave": ""
-    },
-    "shareViewDisablePasswordModal": {
-        "title": "",
-        "description": "",
-        "disable": ""
-    },
-    "publicViewAuthLogin": {
-        "title": "",
-        "description": "",
-        "enter": "",
-        "error": {
-            "incorrectPasswordTitle": "",
-            "incorrectPasswordText": ""
-        }
-    },
-    "viewFieldsContext": {
-        "coverField": "",
-        "noCover": "",
-        "search": "",
-        "hideAll": "",
-        "showAll": ""
-    },
-    "viewFilterTypeBoolean": {
-        "selected": ""
-    },
-    "viewFilter": {
-        "filter": ""
-    },
-    "viewContext": {
-        "exportView": "",
-        "duplicateView": "",
-        "renameView": "",
-        "webhooks": "",
-        "importFile": "",
-        "deleteView": ""
-    },
-    "deleteViewModal": {
-        "title": "",
-        "description": "",
-        "delete": ""
-    },
-    "viewForm": {
-        "name": "",
-        "whoCanEdit": ""
-    },
-    "viewOwnershipType": {
-        "collaborative": "",
-        "personal": ""
-    },
-    "galleryViewHeader": {
-        "customizeCards": ""
-    },
-    "gridViewHide": {
-        "hideField": ""
-    },
-    "gridViewFieldType": {
-        "insertLeft": "",
-        "insertRight": "",
-        "createFilter": "",
-        "duplicate": "",
-        "sortField": "",
-        "hideField": ""
-    },
-    "gridViewRow": {
-        "rowNotMatchingFilters": "",
-        "rowNotMatchingSearch": "",
-        "rowHasMoved": ""
-    },
-    "gridView": {
-        "selectRow": "",
-        "insertRowAbove": "",
-        "insertRowBelow": "",
-        "duplicateRow": "",
-        "enlargeRow": "",
-        "deleteRow": "",
-        "deleteRows": "",
-        "copyCells": "",
-        "rowCount": "",
-        "hiddenRowsInsertedTitle": "",
-        "hiddenRowsInsertedMessage": ""
-    },
-    "gridViewFieldFile": {
-        "dropHere": "",
-        "dropFileHere": ""
-    },
-    "gridViewFieldLinkRow": {
-        "unnamed": ""
-    },
-    "gridViewIdentifierOptions": {
-        "id": "",
-        "count": ""
-    },
-    "gridViewRowsAddContext": {
-        "title": "",
-        "choice": ""
-    },
-    "formViewMeta": {
-        "includeRowId": ""
-    },
-    "previewAny": {
-        "externalWarning": ""
-    },
-    "exportTableModal": {
-        "failedTitle": "",
-        "failedDescription": "",
-        "cancelledTitle": "",
-        "cancelledDescription": ""
-    },
-    "exporterTypeChoices": {
-        "formatLabel": ""
-    },
-    "exportTableForm": {
-        "viewLabel": "",
-        "typeError": ""
-    },
-    "exportTableLoadingBar": {
-        "export": "",
-        "download": ""
-    },
-    "exportTableDropdown": {
-        "exportEntireTable": ""
-    },
-    "tableCSVExporter": {
-        "columnSeparatorLabel": "",
-        "recordSeparator": "",
-        "unitSeparator": "",
-        "encodingLabel": "",
-        "firstRowIsHeaderLabel": ""
-    },
-    "apiDocsDatabase": {
-        "pageTitle": "",
-        "back": "",
-        "openDatabase": ""
-    },
-    "apiDocsComponent": {
-        "title": "",
-        "intro": "",
-        "settings": "",
-        "selectApplicationTitle": "",
-        "signIn": "",
-        "back": ""
-    },
-    "viewAggregationType": {
-        "emptyCount": "",
-        "notEmptyCount": "",
-        "emptyPercentage": "",
-        "notEmptyPercentage": "",
-        "checkedCount": "",
-        "notCheckedCount": "",
-        "checkedPercentage": "",
-        "notCheckedPercentage": "",
-        "min": "",
-        "max": "",
-        "earliestDate": "",
-        "earliestDateShort": "",
-        "latestDate": "",
-        "latestDateShort": "",
-        "uniqueCount": "",
-        "sum": "",
-        "average": "",
-        "median": "",
-        "stdDev": "",
-        "stdDevShort": "",
-        "variance": ""
-    },
-    "databaseForm": {
-        "importLabel": "",
-        "emptyLabel": "",
-        "airtableLabel": ""
-    },
-    "importFromAirtable": {
-        "airtableShareLinkTitle": "",
-        "airtableShareLinkDescription": "",
-        "airtableShareLinkBeta": "",
-        "airtableShareLinkPaste": "",
-        "importButtonLabel": "",
-        "openButtonLabel": "",
-        "importError": "",
-        "statePending": "",
-        "stateFailed": "",
-        "stateFinished": "",
-        "stateDownloadingBase": "",
-        "stateConverting": "",
-        "stateDownloadingFiles": "",
-        "stateImporting": "",
-        "stateImportingTable": "",
-        "errorJobAlreadyRunningTitle": "",
-        "errorJobAlreadyRunningDescription": "",
-        "linkError": ""
-    },
-    "chooseSingleSelectField": {
-        "addSelectField": ""
-    },
-    "viewDecoratorContext": {
-        "addDecorator": ""
-    },
-    "databaseDashboardSidebarLinks": {
-        "apiDocumentation": ""
-    },
-    "formViewField": {
-        "required": "",
-        "descriptionPlaceholder": "",
-        "showWhenMatchingConditions": "",
-        "addCondition": ""
-    },
-    "duplicateFieldContext": {
-        "duplicate": "",
-        "cloneData": "",
-        "readOnlyField": ""
-    },
-    "snapshotsModal": {
-        "title": "",
-        "description": "",
-        "descriptionLimits": "",
-        "createLabel": "",
-        "create": "",
-        "snapshotRestoredErrorTitle": "",
-        "snapshotRestoredErrorMessage": "",
-        "snapshotDeletedErrorTitle": "",
-        "snapshotDeletedErrorMessage": "",
-        "limitReached": "",
-        "snapshot": "",
-        "importingState": "",
-        "reset": ""
-    },
-    "deleteSnapshotModal": {
-        "title": "",
-        "content": "",
-        "confirm": ""
-    },
-    "snapshotListItem": {
-        "restore": "",
-        "delete": "",
-        "created": ""
-    },
-    "formViewModeType": {
-        "form": "",
-        "formDescription": ""
-    },
-    "formViewHeader": {
-        "mode": "",
-        "preview": "",
-        "fields": ""
-    },
-    "formViewModePreviewForm": {
-        "addCoverImage": "",
-        "addLogo": "",
-        "titlePlaceholder": "",
-        "descriptionPlaceholder": "",
-        "noFields": ""
-    },
-    "table": {
-        "adjacentRow": {
-            "notification": {
-                "notFound": {
-                    "next": {
-                        "title": "",
-                        "message": ""
-                    },
-                    "previous": {
-                        "title": "",
-                        "message": ""
-                    }
-                },
-                "error": {
-                    "title": "",
-                    "message": ""
-                }
-            }
-        },
-        "chooseView": ""
-    },
-    "fileField": {
-        "errorEmptyFileNameTitle": "",
-        "errorEmptyFileNameMessage": ""
+  "webhookModal": {
+    "title": "{name} вебхуки",
+    "createWebhook": "Создать вебхук",
+    "backToList": "Вернуться к списку"
+  },
+  "deleteWebhookModal": {
+    "title": "Удалить {webhookName}",
+    "deleteButton": "Удалить вебхук",
+    "body": "Вы уверены, что хотите удалить этот вебхук? Восстановить его позже вы не сможете."
+  },
+  "webhookList": {
+    "noWebhooksMessage": "Вы еще не создали ни одного вебхука. Веб-перехватчики можно использовать для информирования сторонних систем о создании, обновлении или удалении строки в Baserow."
+  },
+  "testWebhookModal": {
+    "title": "Тестовый вебхук",
+    "unreachable": "Сервер недоступен"
+  },
+  "webhookForm": {
+    "inputLabels": {
+      "name": "Имя",
+      "value": "Ценить",
+      "requestMethod": "Метод",
+      "url": "URL-адрес",
+      "userFieldNames": "Имена пользовательских полей",
+      "events": "Какие события должны запускать этот вебхук?",
+      "headers": "Дополнительные заголовки",
+      "example": "Пример полезной нагрузки"
+    },
+    "errors": {
+      "urlField": "Должен быть действительный URL-адрес, начинающийся с «https://» или «http://».",
+      "invalidHeaders": "Один из заголовков недействителен."
+    },
+    "checkbox": {
+      "sendUserFieldNames": "Используйте имя поля вместо идентификатора"
+    },
+    "radio": {
+      "allEvents": "Отправь мне все",
+      "customEvents": "Позвольте мне выбрать отдельные события"
+    },
+    "triggerButton": "Запустить тестовый вебхук",
+    "deactivated": {
+      "title": "Вебхук деактивирован",
+      "content": "Этот веб-перехватчик был деактивирован, поскольку произошло слишком много последовательных сбоев. Пожалуйста, проверьте журнал вызовов для получения более подробной информации. Нажмите на кнопку ниже, чтобы активировать ее снова. Не забудьте сохранить вебхук после активации.",
+      "activate": "Активировать"
+    },
+    "triggerWhenFieldsHaveChanged": "Триггер, когда поля изменились",
+    "helpTriggerWhenFieldsHaveChanged": "Будет срабатывать только в том случае, если изменится значение ячейки выбранных полей."
+  },
+  "webhook": {
+    "details": "подробности",
+    "lastCall": "Последний звонок: {lastCallTime}",
+    "noCalls": "Никаких звонков не было",
+    "callLog": "Журнал вызовов",
+    "triggerDescription": "Триггеры по каждому событию | Запускается по событию {count} | Запускается по {count} событиям"
+  },
+  "createWebhook": {
+    "errorTableWebhookMaxLimitExceededTitle": "Превышено максимальное количество веб-перехватчиков",
+    "errorTableWebhookMaxLimitExceededDescription": "Невозможно создать веб-перехватчик, поскольку превышено максимальное количество веб-перехватчиков на таблицу."
+  },
+  "sidebar": {
+    "viewAPI": "Посмотреть документацию по API",
+    "createTable": "Новый стол"
+  },
+  "sidebarItem": {
+    "exportTable": "Экспортировать таблицу",
+    "webhooks": "Вебхуки",
+    "lastSynced": "Последняя синхронизация",
+    "notSynced": "не синхронизировано",
+    "sync": "Таблица синхронизации",
+    "updateSyncConfig": "Обновить конфигурацию синхронизации"
+  },
+  "duplicateTableJobType": {
+    "name": "Дублировать таблицу",
+    "duplicating": "Дублирование",
+    "duplicatedTitle": "Таблица продублирована"
+  },
+  "apiToken": {
+    "create": "создавать",
+    "read": "читать",
+    "update": "обновлять",
+    "delete": "удалить",
+    "tokenPrefix": "Токен:",
+    "viewAPIDocs": "Посмотреть документацию по API",
+    "generateNewToken": "Создать новый токен",
+    "showOrHide": "Показать или скрыть токен",
+    "copyToClipboard": "Скопировать в буфер обмена",
+    "showDatabases": "показать базы данных"
+  },
+  "apiTokenSettings": {
+    "title": "Токены базы данных",
+    "createToken": "Создать токен",
+    "noTokensMessage": "Вы еще не создали токен базы данных. Вы можете использовать токены базы данных для аутентификации с помощью конечных точек REST API, где вы можете создавать, читать, обновлять и удалять строки. Разрешения можно устанавливать на уровне таблицы.",
+    "hasFullPermissions": "Имеет полные разрешения, в том числе для всех детей.",
+    "hasOnlySelectedPermissions": "Имеет разрешения только для выбранных дочерних элементов.",
+    "noPermissions": "Не имеет разрешений.",
+    "createNewTitle": "Создать новый токен базы данных",
+    "backToOverview": "Вернуться к обзору"
+  },
+  "apiTokenForm": {
+    "nameLabel": "Имя",
+    "workspaceLabel": "Рабочая область"
+  },
+  "apiDocsSelectDatabase": {
+    "needOneDatabase": "Для просмотра документации API вам необходима хотя бы одна база данных."
+  },
+  "apiDocsExample": {
+    "requestSample": "Запросить образец",
+    "responseSample": "Образец ответа",
+    "userFieldNames": "Имена пользовательских полей"
+  },
+  "apiDocsParameter": {
+    "optional": "необязательный",
+    "defaultValue": "По умолчанию: {value}"
+  },
+  "apiDocsTableGetRow": {
+    "description": "Получите одну строку {name}.",
+    "rowId": "Уникальный идентификатор запрашиваемой строки."
+  },
+  "apiDocsErrors": {
+    "errorCode": "Код ошибки",
+    "name": "Имя",
+    "description": "Описание",
+    "okDescription": "Запрос выполнен успешно.",
+    "badRequestDescription": "Запрос содержит недопустимые значения, или JSON не удалось проанализировать.",
+    "unauthorizedDescription": "Когда вы пытаетесь получить доступ к конечной точке без действующего токена базы данных.",
+    "notFoundDescription": "Строка или таблица не найдены.",
+    "requestEntityTooLargeDescription": "Запрос превысил максимально допустимый размер полезных данных.",
+    "internalErrorDescription": "На сервере возникла непредвиденная ситуация.",
+    "badGatewayDescription": "Baserow перезагружается или происходит непредвиденный сбой.",
+    "unavailableDescription": "Сервер не смог вовремя обработать ваш запрос."
+  },
+  "apiDocsTableFields": {
+    "tableTitle": "{name} таблица",
+    "tableId": "Идентификатор этой таблицы:",
+    "description": "Каждая строка в таблице {name} содержит следующие поля.",
+    "id": "ИДЕНТИФИКАТОР",
+    "name": "Имя",
+    "type": "Тип",
+    "compatibleFilters": "Совместимые фильтры"
+  },
+  "apiDocsTableListRows": {
+    "description": "Чтобы просмотреть строки в таблице *{name}*, необходимо отправить запрос GET к конечной точке *{name}*. Ответ разбит на страницы, и по умолчанию возвращается первая страница. Правильную страницу можно получить, указав параметры запроса `page` и `size`.",
+    "page": "Определяет, какая страница строк должна быть возвращена.",
+    "size": "Определяет, сколько строк должно быть возвращено на страницу.",
+    "userFieldNames": "Если указан GET-параметр `user_field_names` и его значение является одним из следующих: `y`, `yes`, `true`, `t`, `on`, `1` или пустая строка, имена полей, возвращаемые этой конечной точкой, будут фактическими именами полей.\n\nЕсли GET-параметр `user_field_names` не указан или не соответствует ни одному из приведенных выше значений, то все возвращаемые имена полей будут иметь вид `field_`, за которым следует идентификатор поля. Например, `field_1` относится к полю с идентификатором `1`.\n\n Кроме того, когда установлено `user_field_names`, изменяется поведение других параметров GET `order_by`, `include` и `exclude`. Вместо этого они ожидают списки фактических имен полей, разделенных запятыми.",
+    "search": "Если указано, будут возвращены только строки с данными, соответствующими поисковому запросу.",
+    "test": "`{'{'}\"filter_type\": \"AND\", \"filters\": [{'{'}\"field\": \"Name\", \"type\": \"equal\", \"value\": \"test\"{'}'}]{'}'}",
+    "orderBy": "При желании строки можно упорядочить по полям, разделенным запятой. По умолчанию или если в начале поля стоит «+», поле упорядочивается по возрастанию (A-Z), но если добавить к полю знак «-», его можно упорядочить по убыванию (Z-A).\n\n #### С `user_field_names`:\n\n `order_by` должен представлять собой разделенный запятыми список имен полей для сортировки. Например, если вы предоставите следующий параметр GET `order_by=My Field,-My Field 2`, строки будут упорядочены по полю с именем `My Field` в порядке возрастания. Если некоторые поля имеют одинаковое значение, это подмножество будет упорядочено по полю с именем «Мое поле 2» в порядке убывания.\n\n Убедитесь, что к полям с именами, начинающимися с `+` или `-`, добавлен еще один `+` или `-`. Например, `+-Имя`.\n\n Название полей, содержащих запятые, должно быть заключено в кавычки: `\"Имя\",``. Если имена полей содержат кавычки, их необходимо экранировать с помощью символа `\\`. Например: `Имя \\\"`. \n\n#### Без `user_field_names`:\n\n `order_by` должен представлять собой список полей `field_`, разделенных запятыми, за которым следует идентификатор поля для сортировки. Например, если вы предоставите следующий параметр GET `order_by=field_1,-field_2`, строки будут упорядочены по `field_1` в порядке возрастания. Если некоторые поля имеют одинаковое значение, это подмножество будет упорядочено по «полю_2» в порядке убывания.",
+    "filters": "При необходимости строки можно фильтровать с использованием тех же фильтров представлений, которые доступны для представлений. Этот параметр принимает сериализованную строку JSON, содержащую дерево фильтров, которое нужно применить к этому представлению. Дерево фильтров представляет собой вложенную структуру, содержащую фильтры, которые необходимо применить. \n\n#### С `user_field_names`:\n\nПримером допустимого дерева фильтров является следующее: `{'{'}\"filter_type\": \"AND\", \"filters\": [{'{'}\"field\": \"Name\", \"type\": \"equal\", \"value\": \"test\"{'}'}]{'}'}`.\n\n#### Без `user_field_names`:\n\nНапример, если вы дополнительно предоставляете следующий параметр GET: `{'{'}\"filter_type\": \"AND\", \"filters\": [{'{'}\"field\": 1, \"type\": \"equal\", \"value\": \"test\"{'}'}]{'}'}`\n\nОбратите внимание, что если этот параметр указан, все остальные `filter__{'{'}field{'}'}__{'{'}filter{'}'}` будут игнорироваться, а также параметр filter_type.",
+    "filter": "При необходимости строки можно фильтровать с использованием тех же фильтров представлений, которые доступны для представлений. Можно применить несколько фильтров, если они соответствуют одному и тому же формату. Переменные field и filter указывают, как и где применять фильтр соответственно.\n\n#### С `user_field_names`:\n\nНапример, если вы дополнительно предоставите следующий параметр GET: `filter__Name__equal=test`, будут возвращены только строки, в которых значение `Name` равно 'test'. Этот метод обратно совместим и будет проверять `field_id`, если он не удался по имени.\n\n#### Без `user_field_names`:\n\nНапример, если вы дополнительно предоставите следующий параметр GET: `filter__field_1__equal=test`, будут возвращены только строки, в которых значение `field_1` равно 'test'.\n\nОбратите внимание: если указан параметр filter, этот параметр будет игнорироваться.",
+    "filterLink": "Список всех фильтров можно найти здесь.",
+    "filterType": "- `AND`: указывает, что строки должны соответствовать всем предоставленным фильтрам.\n- `OR`: указывает, что строки должны соответствовать только одному из фильтров.\n\n Это работает только в том случае, если предусмотрено два или более фильтров.",
+    "include": "По умолчанию в ответ включены все поля. Вы можете выбрать подмножество полей для включения, указав параметр запроса включения.\n\n #### С `user_field_names`:\n\n `include` должен представлять собой список имен полей, разделенных запятыми, которые будут включены в результаты. Например, если вы укажете следующий параметр GET: `include=My Field,-My Field 2`, то будут включены только эти поля (если они не исключены явно).\n\n Название полей, содержащих запятые, должно быть заключено в кавычки: `\"Имя\",``. Если имена полей содержат кавычки, их необходимо экранировать с помощью символа `\\`. Например: `Имя \\\"`.\n\n #### Без `user_field_names`:\n\n `include` должен представлять собой разделенный запятыми список `field_`, за которым следует идентификатор поля, которое будет включено в результаты. Например: если вы предоставите следующий параметр GET `include=field_1,field_2`, то поля с идентификатором `1` и идентификатором `2` будут включены только эти поля (если они не исключены явно).",
+    "exclude": "По умолчанию в ответ включены все поля. Вы можете выбрать подмножество полей для исключения, указав параметр запроса исключения.\n\n #### С `user_field_names`:\n\n `exclude` должен представлять собой список имен полей, разделенных запятыми, которые будут исключены из результатов. Например, если вы укажете следующий параметр GET: `exclude=My Field,-My Field 2`, эти поля будут исключены.\n\n Название полей, содержащих запятые, должно быть заключено в кавычки: `\"Имя\",``. Если имена полей содержат кавычки, их необходимо экранировать с помощью символа `\\`. Например: `Имя \\\"`.\n\n #### Без `user_field_names`:\n\n `exclude` должен представлять собой список полей `field_`, разделенных запятыми, за которым следует идентификатор поля, которое необходимо исключить из результатов. Например: если вы укажете следующий параметр GET `exclude=field_1,field_2`, то поля с идентификатором `1` и идентификатором `2` будут исключены.",
+    "viewId": "По умолчанию не применяются никакие фильтры и сортировки, кроме тех, которые определены в параметрах запроса. Вы можете добавить фильтры и виды представления, указав его идентификатор в параметре GET `view_id`. Например, если вы предоставите следующий параметр GET `view_id=1`, то будут применены фильтры и сортировки, определенные в представлении с идентификатором `1`. Вы можете найти `view_id` в контекстном меню любого данного представления. Это число в скобках после имени представления. \n\n #### With `filter__{'{'}field{'}'}__{'{'}filter{'}'}` \n\n Будут применены как фильтр, указанный в параметре запроса, так и фильтры, определенные в представлении.\n\n #### С `order_by` \n\n Если указан order_by, то сортировка, определенная в представлении, будет игнорироваться.",
+    "filtersBuilder": "Открыть конструктор параметров фильтров",
+    "join": "Позволяет запросить поиск значений полей из целевой таблицы через существующие поля строк ссылок. Имя параметра должно быть именем существующего поля строки ссылки, за которым следует __join. Значение должно представлять собой список имен полей, для которых мы хотим найти дополнительные значения. Вы можете указать одно или несколько целевых полей. Невозможно найти значение поля строки ссылки в целевой таблице.\n\n #### С `user_field_names`:\n\n `join` должен представлять собой список имен полей, разделенных запятыми, которые будут включены в результаты. Например: если вы предоставите следующий параметр GET `LinkRowField__join=MyField,MyField2`, то значения `MyField` и `My Field2` в таблице, связанной с `LinkRowField`, будут включены в ответ.\n\n#### Без `user_field_names`:\n\n `join` должен представлять собой список полей `field_`, разделенных запятыми, за которым следует идентификатор поля, которое будет включено в результаты. Например: если вы предоставите следующий параметр GET `field_1__join=field_2,field_3`, то значения `field_2` и `field_3` в таблице, связанной с `field_1`, будут включены в ответ."
+  },
+  "apiDocsIntro": {
+    "intro": "База данных {name} обеспечивает простой способ интеграции данных с любой внешней системой. API следует семантике REST, использует JSON для кодирования объектов и полагается на стандартные коды HTTP, машиночитаемые и человекочитаемые ошибки для сигнализации результатов операций.",
+    "autoDocDescription": "Эта документация создается автоматически на основе таблиц и полей вашей базы данных. Если вы вносите изменения в свою базу данных, таблицу или поля, возможно, интерфейс API также изменился. Поэтому обязательно обновите реализацию API соответствующим образом.",
+    "databaseId": "Идентификатор этой базы данных:",
+    "jsClient": "Пример API-клиента JavaScript:",
+    "pythonClient": "Пример API-клиента Python:"
+  },
+  "apiDocsTableListFields": {
+    "description": "Для получения списка полей таблицы {name} необходимо отправить запрос GET к конечной точке полей {name}. Перечислить поля можно только в том случае, если токен базы данных имеет разрешения на чтение, создание или обновление.",
+    "resultFieldProperties": "Свойства поля результата",
+    "id": "Первичный ключ поля. Может использоваться для создания имени столбца базы данных путем добавления префикса field_.",
+    "name": "Имя поля.",
+    "tableId": "Идентификатор связанной таблицы.",
+    "order": "Порядок полей в таблице. 0 для первого поля.",
+    "primary": "Указывает, является ли поле основным. Если true, поле нельзя удалить, а значение должно представлять всю строку.",
+    "type": "Тип, определенный для этого поля.",
+    "extraProps": "Некоторые дополнительные свойства здесь не описаны, поскольку они зависят от типа.",
+    "readOnly": "Указывает, является ли поле полем только для чтения. Если это правда, обновить значение ячейки невозможно.",
+    "descriptionField": "Описание поля"
+  },
+  "apiDocsTableDeleteRow": {
+    "description": "Удаляет существующую строку {name}.",
+    "rowId": "Уникальный идентификатор строки, которую необходимо удалить."
+  },
+  "apiDocsTableDeleteRows": {
+    "description": "Удаляет существующие {name} строки.",
+    "items": "Массив идентификаторов строк, которые следует удалить."
+  },
+  "apiDocsTableMoveRow": {
+    "description": "Перемещает существующую строку {name} перед другой строкой. Если `before_id` не указан, строка будет перемещена в конец таблицы.",
+    "rowId": "Перемещает строку, связанную со значением.",
+    "before": "Перемещает строку, связанную с заданным `row_id`, перед строкой, связанной с предоставленным значением. Если не указано, то строка будет перенесена в конец."
+  },
+  "apiDocsUploadFile": {
+    "description": "Загружает файл в Baserow, загружая его содержимое напрямую. Ожидается составная часть `file`, содержащая содержимое файла. Затем ответ можно использовать для [загрузки файла в строку]({PUBLIC_BACKEND_URL}/api/redoc/#tag/Database-table-rows/operation/update_database_table_row).",
+    "file": "Составная часть `file`, содержащая содержимое файла."
+  },
+  "apiDocsUploadFileViaURL": {
+    "description": "Загружает файл в Baserow, загружая его по указанному URL-адресу. Затем ответ можно использовать для [загрузки файла в строку]({PUBLIC_BACKEND_URL}/api/redoc/#tag/Database-table-rows/operation/update_database_table_row).",
+    "url": "URL-адрес, который вы хотите, чтобы Baserow загрузил и загрузил от вашего имени."
+  },
+  "apiDocsTableUpdateRow": {
+    "description": "Обновляет существующую строку {name}.",
+    "rowId": "Уникальный идентификатор строки, которую необходимо обновить.",
+    "before": "Если указано, то вновь созданная строка будет расположена перед строкой с предоставленным идентификатором."
+  },
+  "apiDocsTableUpdateRows": {
+    "description": "Обновляет существующие {name} строки.",
+    "id": "Идентификатор строки."
+  },
+  "apiDocsTableCreateRow": {
+    "description": "Создайте новую строку {name}.",
+    "before": "Если указано, то вновь созданная строка будет расположена перед строкой с предоставленным идентификатором."
+  },
+  "apiDocsTableCreateRows": {
+    "description": "Создайте новые {name} строки.",
+    "before": "Если это предусмотрено, вновь созданные строки будут расположены перед строкой с предоставленным идентификатором."
+  },
+  "apiDocsAuth": {
+    "description": "Baserow использует простую аутентификацию на основе токенов. Вам необходимо сгенерировать хотя бы один токен базы данных в вашем {settingsLink}, чтобы использовать конечные точки, описанные ниже. Можно предоставить разрешения на создание, чтение, обновление и удаление вплоть до уровня таблицы для каждого токена. Вы можете пройти аутентификацию в API, указав свой токен в заголовке токена носителя авторизации HTTP. Все запросы API должны проходить аутентификацию и выполняться по протоколу HTTPS.",
+    "settingsLink": "настройки"
+  },
+  "apiDocsFilters": {
+    "filter": "Фильтр",
+    "exampleValue": "Пример значения",
+    "example": "Полный пример",
+    "field": "поле {name}",
+    "deprecated": "устарел"
+  },
+  "apiDocsFiltersBuilderModal": {
+    "title": "Конструктор параметров фильтров",
+    "userFieldNames": "Имена пользовательских полей",
+    "json": "JSON",
+    "queryParameter": "Параметр запроса"
+  },
+  "apiDocsPasswordFieldAuthentication": {
+    "title": "{name} аутентификация",
+    "description": "Проверяет, соответствуют ли предоставленный пароль и строка тому, что хранится в ячейке.",
+    "fieldId": "Идентификатор поля, для которого нужно проверить пароль.",
+    "rowId": "Идентификатор строки, для которой нужно проверить пароль.",
+    "password": "Пароль, правильность которого необходимо проверить."
+  },
+  "apiDocsListTables": {
+    "listTables": "Перечислить все таблицы",
+    "listTablesDescription": "Эта конечная точка работает только в сочетании с аутентификацией по токену. В нем перечислены все таблицы, к которым токен имеет доступ на создание, чтение, обновление или удаление."
+  },
+  "fieldTextSubForm": {
+    "placeholder": "Текст по умолчанию"
+  },
+  "fieldSingleSelectSubForm": {
+    "optionsLabel": "Параметры",
+    "defaultOptionLabel": "Вариант по умолчанию"
+  },
+  "fieldMultipleSelectSubForm": {
+    "optionsLabel": "Параметры",
+    "defaultOptionsLabel": "Параметры по умолчанию"
+  },
+  "fieldSingleSelectDropdown": {
+    "notFound": "Вариант не найден"
+  },
+  "fieldmultipleCollaboratorsDropdown": {
+    "notFound": "Соавтор не найден"
+  },
+  "fieldDateSubForm": {
+    "dateFormatLabel": "Формат даты",
+    "dateFormatEuropean": "Европейский",
+    "dateFormatUS": "НАС",
+    "dateFormatISO": "ИСО",
+    "includeTimeLabel": "Включить время",
+    "showTimezoneLabel": "Показать часовой пояс",
+    "forceTimezoneLabel": "Установить часовой пояс для всех соавторов",
+    "forceTimezoneValue": "Часовой пояс",
+    "addTimezoneOffsetLabel": "Преобразование значений (добавление {utcOffsetDiff} минут)",
+    "subTimezoneOffsetLabel": "Преобразовать значения (вычесть {utcOffsetDiff} минут)",
+    "timeFormatLabel": "Формат времени",
+    "24Hour": "24 часа",
+    "12Hour": "12 часов"
+  },
+  "fieldLinkRowSubForm": {
+    "noTable": "Для ссылки вам понадобится хотя бы еще одна таблица в той же базе данных.",
+    "selectTableLabel": "Выберите таблицу для ссылки",
+    "hasRelatedFieldLabel": "Создать связанное поле в связанной таблице",
+    "limitToView": "Ограничить выбор для просмотра",
+    "limitToViewDescription": "Обратите внимание, что это только визуально. По-прежнему возможно устанавливать связи за пределами представления через связанную таблицу или API.",
+    "allowMultipleRelations": "Разрешить несколько отношений"
+  },
+  "fieldBooleanSubForm": {
+    "defaultValue": "По умолчанию"
+  },
+  "fieldSelectOptions": {
+    "add": "Добавить вариант"
+  },
+  "fieldNumberSubForm": {
+    "typeLabel": "Тип номера",
+    "integer": "Целое число",
+    "decimal": "Десятичный",
+    "decimalPlacesLabel": "Десятичные знаки",
+    "allowNegative": "Разрешить отрицательные",
+    "separatorLabel": "Разделитель тысяч и десятичный разделитель",
+    "prefixPlaceholder": "Префикс",
+    "suffixPlaceholder": "Суффикс",
+    "prefixAndSuffixLabel": "Префикс/суффикс",
+    "spaceComma": "Пробел, запятая (1 000 000,00)",
+    "spacePeriod": "Пространство, период (1 000 000,00)",
+    "commaPeriod": "Запятая, точка (1 000 000,00)",
+    "periodComma": "Точка, запятая (1.000.000,00)",
+    "noFormatting": "Без форматирования",
+    "defaultValueLabel": "Значение по умолчанию",
+    "defaultValuePlaceholder": "Введите значение по умолчанию"
+  },
+  "fieldDurationSubForm": {
+    "durationFormatLabel": "Формат продолжительности"
+  },
+  "fieldContext": {
+    "editField": "Изменить поле",
+    "deleteField": "Удалить поле",
+    "hideField": "Скрыть поле",
+    "showField": "Показать поле",
+    "changePrimaryField": "Изменить основное поле"
+  },
+  "fieldForm": {
+    "name": "Имя",
+    "description": "Описание",
+    "fieldAlreadyExists": "Поле с таким именем уже существует.",
+    "nameNotAllowed": "Это имя поля недопустимо.",
+    "nameTooLong": "Имя этого поля слишком длинное.",
+    "addDescription": "Добавить описание",
+    "dbIndex": "Индекс",
+    "dbIndexError": "Этот тип поля не может иметь индекс. Пожалуйста, удалите его перед сохранением или изменением типа поля.",
+    "dbIndexDescription": "Индексирование может значительно улучшить производительность фильтрации, но замедляет операции создания, обновления и удаления.",
+    "defaultValueDisabledByConstraint": "Невозможно установить значение по умолчанию с уникальным ограничением.",
+    "dbIndexDisabledTooltip": "Индексирование недоступно для этого типа поля."
+  },
+  "fieldSelectThroughFieldSubForm": {
+    "noTable": "Для создания этого поля вам нужна хотя бы одна ссылка на поле таблицы.",
+    "selectThroughFieldLabel": "Выберите ссылку на поле таблицы"
+  },
+  "fieldRollupSubForm": {
+    "label": "Функция свертки",
+    "selectTargetFieldLabel": "Выберите поле для свертывания"
+  },
+  "fieldLookupSubForm": {
+    "selectTargetFieldLabel": "Выберите поле для поиска"
+  },
+  "fieldFormulaNumberSubForm": {
+    "typeLabel": "Тип номера",
+    "integer": "Целое число",
+    "decimal": "Десятичный",
+    "decimalPlacesLabel": "Десятичные знаки",
+    "allowNegative": "Разрешить отрицательные"
+  },
+  "fieldRatingSubForm": {
+    "maxValue": "Макс",
+    "color": "Цвет",
+    "style": "Стиль"
+  },
+  "rowCreateModal": {
+    "addField": "Добавить поле"
+  },
+  "selectRowContent": {
+    "search": "Поиск строк",
+    "hideFields": "Скрыть поля"
+  },
+  "rowEditModal": {
+    "addField": "Добавить поле",
+    "showHiddenFields": "Показать скрытые поля",
+    "hideHiddenFields": "Скрыть скрытые поля"
+  },
+  "rowEditFieldMultipleSelect": {
+    "addOption": "Выберите вариант"
+  },
+  "rowEditFieldMultipleCollaborators": {
+    "addCollaborator": "Выберите соавтора"
+  },
+  "rowEditFieldFile": {
+    "addFile": "Добавить файл",
+    "sizes": {
+      "0": "Байты",
+      "1": "КБ",
+      "2": "МБ",
+      "3": "ГБ",
+      "4": "туберкулез",
+      "5": "ПБ"
     }
+  },
+  "rowEditFieldLinkRow": {
+    "addLink": "Выберите ссылку",
+    "keepOnlyOneValue": "Оставьте только одно значение. Это поле поддерживает только одну связь. Значение сохраняется, если осталась только одна связь."
+  },
+  "tableCSVImporter": {
+    "chooseFileLabel": "Выберите CSV-файл",
+    "chooseFileDescription": "Вы можете импортировать существующий CSV-файл, загрузив файл .CSV с табличными данными. Большинство приложений для работы с электронными таблицами позволяют экспортировать электронную таблицу в файл .CSV.",
+    "chooseFile": "Выберите CSV-файл",
+    "columnSeparator": "Разделитель столбцов",
+    "recordSeparator": "разделитель записей",
+    "unitSeparator": "разделитель единиц измерения",
+    "encoding": "Кодирование",
+    "firstRowHeader": "Первая строка — заголовок",
+    "limitFileSize": "Максимальный размер файла составляет {limit}MB.",
+    "limitError": "Невозможно импортировать более {limit} строк.",
+    "emptyCSV": "Этот CSV-файл пуст."
+  },
+  "importer": {
+    "fieldDefaultName": "Поле {count}",
+    "loading": "Загрузка файла",
+    "decoding": "Декодирование данных",
+    "parsing": "Анализ данных",
+    "preparing": "Подготовка данных",
+    "inProgress": "В ходе выполнения..."
+  },
+  "tableForm": {
+    "name": "Имя"
+  },
+  "tableXMLImporter": {
+    "fileLabel": "Выберите XML-файл",
+    "fileDescription": "Вы можете импортировать существующий XML, загрузив файл .XML с табличными данными, то есть:",
+    "chooseButton": "Выберите XML-файл",
+    "processingError": "Произошла ошибка при обработке XML: {errors}",
+    "emptyError": "Этот XML-файл пуст.",
+    "limitFileSize": "Максимальный размер файла составляет {limit}MB.",
+    "limitError": "Невозможно импортировать более {limit} строк."
+  },
+  "tableJSONImporter": {
+    "fileLabel": "Выберите файл JSON",
+    "fileDescription": "Вы можете импортировать существующий файл JSON, загрузив файл .json с табличными данными, то есть:",
+    "chooseButton": "Выберите файл JSON",
+    "encodingLabel": "Кодирование",
+    "processingError": "Произошла ошибка при анализе JSON: {error}",
+    "arrayError": "Файл JSON не является массивом.",
+    "emptyError": "Этот файл JSON пуст.",
+    "limitFileSize": "Максимальный размер файла составляет {limit}MB.",
+    "limitError": "Невозможно импортировать более {limit} строк."
+  },
+  "tablePasteImporter": {
+    "pasteLabel": "Вставьте данные таблицы",
+    "pasteDescription": "Вы можете скопировать ячейки из электронной таблицы и вставить их ниже.",
+    "firstRowHeader": "Первая строка — заголовок",
+    "limitError": "Невозможно импортировать более {limit} строк."
+  },
+  "createTableModal": {
+    "title": "Создать новую таблицу",
+    "defaultName": "Стол",
+    "importLabel": "Хотите импортировать существующие данные?",
+    "newTable": "Начать с новой таблицы"
+  },
+  "createTable": {
+    "showTable": "показать таблицу",
+    "addButton": "Добавить таблицу",
+    "uploading": "Загрузка...",
+    "preparing": "Подготовка данных...",
+    "importError": "Что-то пошло не так при импорте файла",
+    "stateRowCreation": "Импорт...",
+    "statePreValidation": "Проверка данных...",
+    "stateCreateTable": "Создание таблицы..."
+  },
+  "importErrorReport": {
+    "reportTitleFailure": "Неудачные строки",
+    "reportTitleSuccess": "Импорт прошел успешно, но...",
+    "reportMessage": "Не удалось импортировать следующие индексы строк:"
+  },
+  "importFileModal": {
+    "defaultName": "Стол",
+    "additionalImportTitle": "Импортировать в {table}",
+    "importLabel": "Хотите импортировать существующие данные?",
+    "newTable": "Начать с новой таблицы",
+    "showTable": "показать таблицу",
+    "importButton": "Импорт",
+    "uploading": "Загрузка...",
+    "preparing": "Подготовка данных...",
+    "importError": "Что-то пошло не так при импорте файла",
+    "fieldMappingTitle": "Сопоставление полей",
+    "fieldMappingDescription": "Мы автоматически сопоставили столбцы полей Baserow в вашей таблице. Вы можете изменить их ниже. Любая несовместимая ячейка после импорта останется пустой.",
+    "selectImportMessage": "Пожалуйста, выберите данные для импорта.",
+    "filePreview": "Предварительный просмотр содержимого файла",
+    "importPreview": "Импортировать предварительный просмотр",
+    "useUpsertField": "Обновить строки, если они уже существуют",
+    "upsertTooltip": "Сопоставьте существующие строки, используя уникальное поле, чтобы перезаписать данные импортированными значениями.",
+    "stateRowCreation": "Импорт...",
+    "statePreValidation": "Проверка данных...",
+    "stateCreateTable": "Создание таблицы..."
+  },
+  "formulaAdvancedEditContext": {
+    "textAreaFormulaInputPlaceholder": "Нажмите, чтобы изменить формулу",
+    "fields": "Поля",
+    "functions": "Функции",
+    "operators": "Операторы",
+    "fieldType": "Поле {type}"
+  },
+  "fieldFormulaInitialSubForm": {
+    "formulaInputPlaceholder": "Нажмите, чтобы изменить формулу",
+    "refreshFormulaOptions": "Обновить параметры формулы"
+  },
+  "fieldLongTextSubForm": {
+    "enableRichTextFormatting": "Включить форматирование расширенного текста"
+  },
+  "formulaFieldItemDescription": {
+    "syntax": "Синтаксис",
+    "examples": "Примеры"
+  },
+  "viewSearchContext": {
+    "searchInRows": "Искать во всех строках",
+    "hideNotMatching": "скрыть несовпадающие строки"
+  },
+  "viewsContext": {
+    "searchView": "Поиск просмотров",
+    "noViews": "Просмотры не найдены",
+    "collaborative": "Совместный"
+  },
+  "viewFilterTypeLinkRow": {
+    "unnamed": "безымянная строка {value}",
+    "choose": "Выберите строку"
+  },
+  "viewFieldConditionsForm": {
+    "addCondition": "Добавить условие",
+    "addConditionGroup": "Добавить группу условий"
+  },
+  "viewFieldConditionItem": {
+    "filterMisconfigured": "Поле, с которым связан этот фильтр, удалено."
+  },
+  "viewFilterContext": {
+    "addFilter": "Добавить фильтр",
+    "addFilterGroup": "Добавить группу фильтров",
+    "disableAllFilters": "все отключены",
+    "noFilterTitle": "Вы еще не создали фильтр",
+    "noFilterText": "Фильтры позволяют отображать строки, соответствующие вашим условиям.",
+    "where": "Где",
+    "and": "И",
+    "or": "Или",
+    "relatedFieldNotFound": "Соответствующее поле не найдено.",
+    "filterTypeNotFound": "Тип фильтра несовместим.",
+    "noCompatibleFilterTypesErrorTitle": "Нет совместимых типов фильтров",
+    "noCompatibleFilterTypesErrorMessage": "Ни в одном из ваших полей нет совместимых типов фильтров."
+  },
+  "viewFilterTypeFileTypeDropdown": {
+    "image": "изображение",
+    "document": "документ"
+  },
+  "createViewModal": {
+    "createNew": "Создать новый {view}",
+    "add": "Добавьте {view}"
+  },
+  "createViewLink": {
+    "inCompatibleWithDataSync": "Этот тип представления несовместим с таблицей синхронизации данных."
+  },
+  "shareViewLink": {
+    "shareViewText": "Частная ссылка для общего доступа позволяет любому просмотреть данные в этом представлении.",
+    "shareView": "Поделиться {viewTypeSharingLinkName}",
+    "createPrivateLink": "Создать личную ссылку",
+    "shareViewTitle": "Вы еще не поделились мнением",
+    "sharedViewTitle": "Этот {viewTypeSharingLinkName} в настоящее время доступен по частной ссылке.",
+    "sharedViewDescription": "Люди, у которых есть ссылка, смогут увидеть {viewTypeSharingLinkName}.",
+    "disableLink": "Отключить общую ссылку",
+    "generateNewUrl": "создать новый URL",
+    "copyURL": "скопировать URL",
+    "EnablePassword": "Ограничить доступ паролем",
+    "DisablePassword": "Доступ защищен паролем",
+    "ChangePassword": "Изменять",
+    "notSharedYetText": "Разрешите всем видеть данные в этом представлении или синхронизируйте события с вашим внешним календарем.",
+    "shareViewWarningTitle": "Предупреждение"
+  },
+  "viewGroupByContext": {
+    "noGroupByTitle": "Вы еще не создали ни одной группы",
+    "noGroupByText": "Сгруппируйте строки по полю.",
+    "groupBy": "Группировать по",
+    "thenBy": "Затем",
+    "addGroupBy": "выберите поле для группировки",
+    "hiddenFieldWarning": "Один или несколько групп ссылаются на скрытые поля, которые не будут видны редакторам и сотрудникам более низкого уровня."
+  },
+  "viewGroupBy": {
+    "groupBy": "Группа | Группировать по 1 полю | Группировать по {count} полям"
+  },
+  "viewSortContext": {
+    "noSortTitle": "Вы еще не создали сортировку",
+    "noSortText": "Сортировки позволяют сортировать строки по полю.",
+    "sortBy": "Сортировать по",
+    "thenBy": "Затем",
+    "addSort": "выберите поле для сортировки",
+    "hiddenFieldWarning": "Одна или несколько сортировок ссылаются на скрытые поля, которые не будут видны редакторам и сотрудникам более низкого уровня."
+  },
+  "viewSort": {
+    "sort": "Сортировать | 1 Сортировать | {count} Сортировки"
+  },
+  "viewDecorator": {
+    "decorator": "Цвет | 1 цвет | {count} Цвета",
+    "hiddenFieldWarning": "Удалены украшения для редакторов и более низких ролей, поскольку они могут ссылаться на скрытые поля."
+  },
+  "viewRotateSlugModal": {
+    "title": "Обновить URL",
+    "refreshWarning": "Вы уверены, что хотите обновить URL-адрес {viewName}? После обновления будет создан новый URL-адрес, и доступ к {viewTypeSharingLinkName} по старому URL-адресу будет невозможен. Все, кому вы поделились URL-адресом, не смогут получить доступ к {viewTypeSharingLinkName}.",
+    "generateNewURL": "Создать новый URL"
+  },
+  "shareViewEnablePasswordModal": {
+    "newPasswordTitle": "Введите пароль",
+    "newPasswordDescription": "Публичная ссылка будет доступна только после ввода пароля. Этот пароль будет сохранен в зашифрованном виде.",
+    "newPasswordSave": "Установить пароль",
+    "changePasswordTitle": "Изменить пароль",
+    "changePasswordDescription": "Сменив пароль, предыдущий уже не будет работать. Этот пароль будет сохранен в зашифрованном виде.",
+    "changePasswordSave": "Изменить пароль"
+  },
+  "shareViewDisablePasswordModal": {
+    "title": "Отключить защиту паролем",
+    "description": "Вы уверены, что хотите отключить защиту паролем для этой общедоступной ссылки? При отключении пароль будет удален и восстановить его будет невозможно.",
+    "disable": "Запрещать"
+  },
+  "publicViewAuthLogin": {
+    "title": "Эта страница защищена паролем",
+    "description": "Введите правильный пароль для доступа к странице.",
+    "enter": "Входить",
+    "error": {
+      "incorrectPasswordTitle": "Неправильный пароль",
+      "incorrectPasswordText": "Предоставленный пароль неверен."
+    }
+  },
+  "viewFieldsContext": {
+    "coverField": "Поле обложки",
+    "noCover": "Нет покрытия",
+    "search": "Поля поиска",
+    "hideAll": "Скрыть все",
+    "showAll": "Показать все"
+  },
+  "viewFilterTypeBoolean": {
+    "selected": "Выбрано"
+  },
+  "viewFilter": {
+    "filter": "Фильтр | 1 Фильтр | {count} Фильтры",
+    "hasAllValuesEqual": "имеет все значения равными",
+    "hasValueHigherThan": "имеет ценность выше, чем",
+    "hasValueHigherThanOrEqual": "имеет значение выше или равное",
+    "hasValueLowerThan": "имеет значение ниже, чем",
+    "hasValueLowerThanOrEqual": "имеет значение ниже или равное",
+    "hasNotValueHigherThan": "не имеет значения выше, чем",
+    "hasNotValueHigherThanOrEqual": "не имеет значения выше или равного",
+    "hasNotValueLowerThan": "не имеет значения ниже, чем",
+    "hasNotValueLowerThanOrEqual": "не имеет значения ниже или равного"
+  },
+  "viewContext": {
+    "exportView": "Экспортировать вид",
+    "duplicateView": "Дублировать вид",
+    "renameView": "Переименование представления",
+    "toPersonal": "В личный",
+    "toCollaborative": "Для совместной работы",
+    "webhooks": "Вебхуки",
+    "importFile": "Импортировать файл",
+    "deleteView": "Удалить представление"
+  },
+  "deleteViewModal": {
+    "title": "Удалить {name}",
+    "description": "Вы уверены, что хотите удалить представление {name}? Данные таблицы будут сохранены, но фильтры, сортировки и ширина полей, связанные с представлением, будут удалены.",
+    "delete": "Удалить представление"
+  },
+  "viewForm": {
+    "name": "Имя",
+    "whoCanEdit": "Кто может редактировать это представление?"
+  },
+  "viewOwnershipType": {
+    "collaborative": "Совместный",
+    "collaborativeDescription": "Каждый может видеть все данные и изменять свойства, если у него есть разрешения."
+  },
+  "galleryViewHeader": {
+    "customizeCards": "Настройка карточек"
+  },
+  "gridViewHide": {
+    "hideField": "Скрыть поля | 1 скрытое поле | {count} скрытые поля"
+  },
+  "gridViewFieldType": {
+    "insertLeft": "Вставить слева",
+    "insertRight": "Вставить вправо",
+    "createFilter": "Создать фильтр",
+    "duplicate": "Дублируемое поле",
+    "sortField": "Сортировать",
+    "hideField": "Скрыть поле",
+    "dataSyncField": "Поле доступно только для чтения и является частью синхронизации данных таблицы.",
+    "dataSyncFieldTwoWaySync": "Поле синхронизируется с синхронизацией данных таблицы.",
+    "noWriteValues": "Изменения в этом поле ограничены."
+  },
+  "gridViewRow": {
+    "rowNotMatchingFilters": "Строка не соответствует фильтрам",
+    "rowNotMatchingSearch": "Строка не соответствует поиску",
+    "rowHasMoved": "Строка перемещена"
+  },
+  "gridView": {
+    "selectRow": "Выберите строку",
+    "insertRowAbove": "Вставить строку выше",
+    "insertRowBelow": "Вставить строку ниже",
+    "duplicateRow": "Повторяющаяся строка",
+    "copyRowURL": "Копировать URL-адрес строки",
+    "copiedRowURL": "Скопированный URL-адрес строки",
+    "copiedRowURLMessage": "URL-адрес строки {id} скопирован в буфер обмена.",
+    "enlargeRow": "Увеличить строку",
+    "deleteRow": "Удалить строку",
+    "deleteRows": "Удалить строки",
+    "copyCells": "Копировать ячейки",
+    "copyCellsWithHeader": "Копировать ячейки с заголовком",
+    "generateCellsValues": "Генерируйте ценности с помощью ИИ",
+    "generateAllAiValues": "Генерация всех значений AI",
+    "rowCount": "Нет строк | 1 ряд | {count} строк",
+    "hiddenRowsInsertedTitle": "Добавлено строк",
+    "hiddenRowsInsertedMessage": "{number} новых строк добавлено, но они не видны из-за активных фильтров.",
+    "tooManyItemsTitle": "Слишком много предметов",
+    "tooManyItemsDescription": "Невозможно обновить более {limit} строк одновременно, поэтому мы обновили только первую.",
+    "AIValuesGenerationErrorTitle": "Не удалось создать значение ИИ.",
+    "AIValuesGenerationErrorMessage": "Пожалуйста, проверьте свой API_KEY и подтвердите выбранную модель."
+  },
+  "gridViewFieldFile": {
+    "dropHere": "Перетащите сюда",
+    "dropFileHere": "Перетащите сюда файлы"
+  },
+  "gridViewFieldLinkRow": {
+    "unnamed": "безымянная строка {value}",
+    "keepOnlyOneValue": "Оставьте только одно значение"
+  },
+  "gridViewIdentifierOptions": {
+    "id": "Идентификатор строки",
+    "count": "Считать"
+  },
+  "gridViewRowsAddContext": {
+    "title": "Создать несколько строк",
+    "choice": "Добавить {rowAmountChoice} строк"
+  },
+  "formViewMeta": {
+    "includeRowId": "Используйте {row_id}, чтобы включить идентификатор вновь созданной строки в URL-адрес."
+  },
+  "formViewMetaControls": {
+    "whenSubmittedLabel": "Когда форма отправлена",
+    "showMessage": "Показать сообщение",
+    "urlRedirect": "Перенаправление на URL",
+    "theMessage": "Сообщение",
+    "theURL": "URL-адрес"
+  },
+  "previewAny": {
+    "externalWarning": "Открытие вашего файла через внешний сервис предоставляет доступ к вашему файлу их серверам."
+  },
+  "exportTableModal": {
+    "title": "Экспортировать {name}",
+    "failedTitle": "Экспорт не выполнен",
+    "failedDescription": "Экспорт не выполнен из-за ошибки сервера.",
+    "cancelledTitle": "Экспорт отменен",
+    "cancelledDescription": "Экспорт был отменен."
+  },
+  "exporterTypeChoices": {
+    "formatLabel": "В какой формат вы хотите экспортировать?"
+  },
+  "exportTableForm": {
+    "viewLabel": "Выберите представление для экспорта:",
+    "typeError": "Тип экспортера недоступен. Выберите другое представление или всю таблицу."
+  },
+  "exportTableLoadingBar": {
+    "export": "Экспорт",
+    "download": "Скачать"
+  },
+  "exportTableDropdown": {
+    "exportEntireTable": "Экспортировать всю таблицу"
+  },
+  "tableCSVExporter": {
+    "columnSeparatorLabel": "Разделитель столбцов",
+    "recordSeparator": "разделитель записей",
+    "unitSeparator": "разделитель единиц измерения",
+    "encodingLabel": "Кодирование",
+    "includeHeader": "Включить имена полей в заголовок"
+  },
+  "apiDocsDatabase": {
+    "pageTitle": "{name} Документация по API базы данных",
+    "back": "Вернуться к панели управления",
+    "openDatabase": "открытая база данных"
+  },
+  "apiDocsComponent": {
+    "title": "ОТДЫХ API",
+    "intro": "После того, как вы создали схему базы данных и ключ API в {settingsLink}, ваша база данных Baserow предоставляет свои собственные конечные точки REST API для создания, чтения, обновления и удаления строк.",
+    "settings": "настройки",
+    "selectApplicationTitle": "Для какой базы данных вы хотите увидеть документацию?",
+    "signIn": "Войдите, чтобы начать",
+    "back": "Вернуться к панели управления"
+  },
+  "viewAggregationType": {
+    "count": "Считать",
+    "notEmptyCount": "Заполненный",
+    "emptyPercentage": "Процент пуст",
+    "notEmptyPercentage": "Процент заполнения",
+    "checkedCount": "Проверено",
+    "notCheckedCount": "Не отмечено",
+    "checkedPercentage": "Процент проверенных",
+    "notCheckedPercentage": "Процент не отмечен",
+    "min": "Мин",
+    "max": "Макс",
+    "earliestDate": "Самая ранняя дата",
+    "earliestDateShort": "Самый ранний",
+    "latestDate": "Последняя дата",
+    "latestDateShort": "Последний",
+    "uniqueCount": "Уникальный",
+    "sum": "Сумма",
+    "average": "Средний",
+    "median": "медиана",
+    "stdDev": "Стандартное отклонение",
+    "stdDevShort": "Стандартное отклонение",
+    "variance": "Дисперсия",
+    "distribution": "Распределение",
+    "othersCount": "Другие",
+    "emptyCount": "(Пустой)"
+  },
+  "databaseForm": {
+    "importLabel": "Хотите импортировать существующие данные?",
+    "emptyLabel": "Начать с нуля",
+    "airtableLabel": "Импорт из Airtable"
+  },
+  "importFromAirtable": {
+    "airtableShareLinkTitle": "Поделитесь ссылкой на свою базу",
+    "airtableShareLinkDescription": "Чтобы импортировать базу Airtable, вам необходима общая ссылка на всю вашу базу. В Airtable нажмите кнопку «Поделиться» в правом верхнем углу после открытия базы. После этого вам необходимо выбрать опцию «Поделиться по ссылке». В модальном окне «Поделиться» вы можете нажать вкладку «Поделиться публично», а затем «Включить ссылку на общую базу». Скопируйте общедоступную ссылку и вставьте ее во входные данные ниже.",
+    "airtableShareLinkBeta": "Эта функция импортирует большую часть данных, но есть несовместимости. Таким образом, будет добавлена ​​таблица с именем «Отчет об импорте Airtable», содержащая список вещей, которые не были импортированы или частично импортированы.",
+    "airtableShareLinkPaste": "Вставьте ссылку сюда",
+    "importButtonLabel": "Импорт из Airtable",
+    "openButtonLabel": "Открыть импортированную базу данных",
+    "importError": "Что-то пошло не так",
+    "statePending": "Ожидание начала",
+    "stateFailed": "Неуспешный",
+    "stateFinished": "Законченный",
+    "stateDownloadingBase": "Загрузка базовой схемы",
+    "stateConverting": "Преобразование в Baserow",
+    "stateDownloadingFiles": "Загрузка файлов",
+    "stateImporting": "Импорт",
+    "stateImportingTable": "Импорт таблицы {table}",
+    "errorJobAlreadyRunningTitle": "Уже работает",
+    "errorJobAlreadyRunningDescription": "Другое задание импорта уже выполняется. Вам нужно дождаться завершения одного, прежде чем начинать следующий.",
+    "linkError": "Ссылка должна выглядеть так: https://airtable.com/shrxxxxxxxxxxxxxxx.",
+    "skipFiles": "Пропустить импорт файлов",
+    "skipFilesHelper": "База Airtable с большим количеством файлов может замедлить импорт. Включение этого параметра позволяет пропустить импорт файлов.",
+    "useSession": "Аутентификация сеанса",
+    "useSessionHelper": "Используйте это, если общедоступная база требует аутентификации.",
+    "sessionDescription": "Если импорт отвечает «База Airtable требует аутентификации». тогда возможно, что организационные настройки в Airtable предотвращают доступ к базе Airtable без предварительной аутентификации. Для этого сеанс и подпись необходимо извлечь вручную. Посетите URL-адрес общедоступной базы в своем браузере и при необходимости войдите в систему. Откройте меню приложения, нажав в правом верхнем углу -> «Дополнительные инструменты» -> «Инструменты разработчика». Откройте вкладку «Приложение» (в Firefox «Хранилище») и нажмите «https://airtable.com». Теперь найдите значения cookie «__Host-airtable-session» и «__Host-airtable-session.sig» и вставьте их во входные данные ниже.",
+    "sessionLabel": "Файл cookie сеанса (__Host-airtable-session)",
+    "sessionSignatureLabel": "Файл cookie подписи сеанса (__Host-airtable-session.sig)"
+  },
+  "chooseSingleSelectField": {
+    "addSelectField": "Добавить одно поле выбора",
+    "warningWhenNothingToChooseOrCreate": "Здесь нет отдельных полей выбора, и у вас нет разрешений на их создание."
+  },
+  "viewDecoratorContext": {
+    "addDecorator": "Добавить декоратор"
+  },
+  "databaseDashboardResourceLinks": {
+    "title": "Документация по API",
+    "description": "Узнайте больше о нашем коде"
+  },
+  "formViewField": {
+    "required": "необходимый",
+    "descriptionPlaceholder": "Описание",
+    "includeAllSelectOptions": "включить все выбранные параметры",
+    "includeAllSelectOptionsHelper": "Выберите параметры выбора, которые должны быть включены в форму, используя этот раскрывающийся список.",
+    "showWhenMatchingConditions": "показать, когда условия выполняются",
+    "addCondition": "Добавить условие",
+    "addConditionGroup": "Добавить группу условий",
+    "showFieldAs": "Показать поле как",
+    "noSelectOptions": "Нет доступных вариантов выбора.",
+    "noCollaboratorsAvailable": "Нет доступных соавторов.",
+    "cannotSumitValues": "Это поле доступно только для чтения и не будет отображаться в форме."
+  },
+  "duplicateFieldContext": {
+    "duplicate": "Дублируемое поле",
+    "cloneData": "Копировать данные",
+    "readOnlyField": "Значения ячеек будут заполнены автоматически."
+  },
+  "changePrimaryFieldModal": {
+    "title": "Изменить основное поле",
+    "change": "Изменять",
+    "primaryFieldLabel": "Основное поле",
+    "existingPrimary": "«{name}» в настоящее время является основным полем."
+  },
+  "snapshotsModal": {
+    "title": "снимки",
+    "description": "Снимки — это полная копия вашего {applicationTypeName} момента их создания. При восстановлении будет создан дубликат этих данных. Снимки автоматически удаляются через год.",
+    "descriptionLimits": "Вы можете иметь максимум {n} снимков на рабочую область. | Вы можете иметь максимум {n} снимок на рабочую область. | Вы можете иметь максимум {n} снимков на рабочую область.",
+    "createLabel": "Создать новый снимок",
+    "create": "Создать снимок",
+    "cancel": "Отмена",
+    "snapshotRestoredErrorTitle": "Произошла ошибка",
+    "snapshotRestoredErrorMessage": "Снимок не удалось восстановить. пожалуйста, попробуйте еще раз позже.",
+    "snapshotDeletedErrorTitle": "Произошла ошибка",
+    "snapshotDeletedErrorMessage": "Не удалось удалить снимок. пожалуйста, попробуйте еще раз позже.",
+    "limitReached": "Достигнут предел максимального количества снимков.",
+    "snapshot": "Снимок",
+    "importingState": "Создание",
+    "reset": "Создать еще один",
+    "noSnapshots": "Снимков для этого приложения пока нет.",
+    "nameAlreadyExists": "Снимок с таким именем уже существует."
+  },
+  "deleteSnapshotModal": {
+    "title": "Удалить снимок",
+    "content": "Вы уверены, что хотите навсегда удалить снимок {name}?",
+    "confirm": "Удалить"
+  },
+  "snapshotListItem": {
+    "restore": "восстановить",
+    "delete": "удалить",
+    "created": "созданный"
+  },
+  "formViewModeType": {
+    "form": "Форма",
+    "formDescription": "Все поля видимы и расположены вертикально."
+  },
+  "formViewHeader": {
+    "mode": "Режим",
+    "preview": "Предварительный просмотр",
+    "fields": "Поля"
+  },
+  "formViewModePreviewForm": {
+    "addCoverImage": "Добавить изображение обложки",
+    "addLogo": "Добавить логотип",
+    "titlePlaceholder": "Заголовок",
+    "descriptionPlaceholder": "Описание",
+    "noFieldsTitle": "В этой форме нет полей",
+    "noFieldsContent": "Нажмите на поле на левой боковой панели, чтобы добавить его."
+  },
+  "table": {
+    "adjacentRow": {
+      "toast": {
+        "notFound": {
+          "next": {
+            "title": "Больше нет строк",
+            "message": "Нет следующей строки"
+          },
+          "previous": {
+            "title": "Больше нет строк",
+            "message": "Нет предыдущей строки"
+          }
+        },
+        "error": {
+          "title": "Произошла ошибка",
+          "message": "Произошла ошибка при получении соседней строки."
+        }
+      }
+    },
+    "chooseView": "Выберите вид"
+  },
+  "fileField": {
+    "errorEmptyFileNameTitle": "Неверное имя файла",
+    "errorEmptyFileNameMessage": "Вы не можете задать пустое имя для файла."
+  },
+  "fieldCollaboratorSubForm": {
+    "notifyUserWhenAdded": "Уведомить пользователя о добавлении"
+  },
+  "collaboratorAddedToRowNotification": {
+    "title": "{sender} назначил вас на {fieldName} в строке {rowId} в {tableName}",
+    "unknownUser": "Неизвестный пользователь"
+  },
+  "formSubmittedNotification": {
+    "title": "{formName} было представлено в таблице {tableName}:",
+    "moreValues": "0 | и еще 1 поле. | и еще {count} полей."
+  },
+  "rowHistorySidebar": {
+    "name": "История",
+    "empty": "Никаких изменений пока нет. Здесь вы сможете отслеживать любые изменения в этой строке.",
+    "you": "Ты",
+    "created": "создал эту строку",
+    "updated": "обновил эту строку",
+    "submitted": "отправил эту строку",
+    "deleted": "удалил эту строку",
+    "restored": "восстановил эту строку",
+    "createdUndo": "отменить создание строки",
+    "updatedUndo": "отменить обновление строки",
+    "deletedUndo": "отменить удаление строки"
+  },
+  "fieldPasswordSubForm": {
+    "allowEndpointAuthentication": "Разрешить аутентификацию конечной точки API",
+    "allowEndpointAuthenticationHelp": "Это предоставляет конечную точку, где можно проверить правильность идентификатора строки и пароля. Это позволяет использовать Baserow в качестве механизма аутентификации.",
+    "description": "Поле пароля также может использоваться при аутентификации пользователя в конструкторе приложений."
+  },
+  "rowEditFieldPassword": {
+    "setPassword": "Установить пароль"
+  },
+  "rowHistoryFieldPassword": {
+    "passwordSet": "Пароль был установлен",
+    "passwordUpdated": "Пароль был обновлен",
+    "passwordDeleted": "Пароль был удален"
+  },
+  "dataProviderTypes": {
+    "fieldsName": "Поля"
+  },
+  "userMentionInRichTextFieldNotification": {
+    "title": "{sender} упомянул вас в поле {fieldName} строки {rowId} в {tableName}",
+    "deletedUser": "Удаленный пользователь"
+  },
+  "databaseImportStep": {
+    "title": "Импортируйте ваши данные",
+    "description": "Переместите свои данные в Baserow всего за несколько кликов.",
+    "tableNameLabel": "Имя таблицы",
+    "tableNamePrefill": "Таблица {name}"
+  },
+  "databaseScratchTrackFieldsStep": {
+    "title": "Выберите поля для каждой строки",
+    "description": "Выберите до {selectedFieldsLimitCount} полей. Вы можете добавить больше позже.",
+    "fieldName": "Имя",
+    "fieldType": "Тип поля",
+    "fieldDescription": "Описание",
+    "fieldDetails": "Подробности",
+    "fieldNumber": "Число",
+    "fieldDate": "Дата",
+    "fieldBoolean": "Законченный",
+    "fieldDuration": "Продолжительность",
+    "fieldUrl": "URL-адрес",
+    "fieldEmail": "Электронная почта",
+    "fieldRating": "Рейтинг",
+    "fieldCategory": "Категория",
+    "fieldKickoffDate": "Дата начала",
+    "fieldDueDate": "Срок оплаты",
+    "fieldBudget": "Бюджет",
+    "fieldCompleted": "Завершенный",
+    "fieldNotes": "Примечания",
+    "fieldRole": "Роль",
+    "fieldPhone": "Телефон",
+    "fieldActive": "Активный",
+    "fieldEstimatedDays": "Расчетное количество дней",
+    "fieldStartDate": "Дата начала",
+    "fieldEndDate": "Дата окончания",
+    "projectsCategoryDesign": "Дизайн",
+    "projectsCategoryDevelopment": "Разработка",
+    "projectsCategoryMarketing": "Маркетинг",
+    "projectsNotesRow1": "Acme хочет провести полный ребрендинг своего веб-сайта с соблюдением следующих рекомендаций.",
+    "projectsNotesRow2": "Выясните, заинтересованы ли нынешние пользователи Soylent в новом пользовательском портале.",
+    "projectsNotesRow3": "Интересно, стоит ли это делать после бойкота рекламы в Facebook? Исследования показывают, что платные рекламные кампании становятся все менее эффективными.",
+    "teamsRoleDesigner": "Дизайнер",
+    "teamsRoleDeveloper": "Разработчик",
+    "teamsRoleMarketer": "Маркетолог",
+    "tasksDetailsRow1": "Логотип необходимо улучшить, чтобы сделать призыв к действию более понятным.",
+    "tasksDetailsRow2": "Структура немного неправильная, поэтому нам, возможно, придется изменить карту сайта и здесь.",
+    "tasksDetailsRow3": "Новый нижний колонтитул должен включать нашу контактную информацию, а также небольшой (но понятный) призыв к действию.",
+    "campaignsDetailsRow1": "Увеличьте свои сбережения, участвуя в нашей горячей летней распродаже, где предлагаются непревзойденные скидки на все ваши любимые товары!",
+    "campaignsDetailsRow2": "Повысьте удержание и вовлеченность клиентов с помощью нашей привлекательной программы лояльности, предназначенной для поощрения ваших самых преданных клиентов.",
+    "campaignsDetailsRow3": "Оживите свой бизнес и очаруйте свою аудиторию динамичным перезапуском бренда, который идеально соответствует сегодняшним тенденциям рынка и желаниям клиентов.",
+    "customFieldsDescriptionRow1": "Turpis Massa Tincidunt dui ut ornare lectus сидит на месте.",
+    "customFieldsDescriptionRow2": "Vitae justo eget magna Fermentum iaculis eu non diam.",
+    "customFieldsDescriptionRow3": "Convallis Tellus id interdum velit laoreet id donec ultricestincidunt."
+  },
+  "databaseScratchTrackStep": {
+    "title": "Что бы вы хотели отслеживать?",
+    "description": "Выбирайте из популярных вариантов использования или создайте свой собственный.",
+    "addYourOwn": "Добавить свой собственный",
+    "tableName": "Имя таблицы",
+    "rowName": "Имя строки",
+    "thisIncludes": "Это включает в себя:",
+    "projects": "Проекты",
+    "productsRow1": "Ребрендинг сайта",
+    "productsRow2": "Исследование клиентов",
+    "productsRow3": "Платная рекламная кампания",
+    "teams": "Команды",
+    "teamsRow1": "Продажи",
+    "teamsRow2": "HR",
+    "teamsRow3": "Маркетинг",
+    "tasks": "Задачи",
+    "tasksRow1": "Редизайн логотипа",
+    "tasksRow2": "Отправить письмо",
+    "tasksRow3": "Написать сообщение в блоге",
+    "campaigns": "Кампании",
+    "campaignsRow1": "Летняя распродажа",
+    "campaignsRow2": "Награды за лояльность",
+    "campaignsRow3": "Перезапуск бренда"
+  },
+  "databaseStep": {
+    "title": "Создайте свою первую базу данных",
+    "description": "Выберите, с чего вы хотите начать:",
+    "databaseNameLabel": "Имя базы данных",
+    "databaseNamePrefill": "база данных {name}",
+    "scratch": "Царапать",
+    "import": "Файл",
+    "airtable": "Воздушный стол",
+    "template": "Шаблон",
+    "workspaceName": "Рабочее пространство {name}"
+  },
+  "ViewFilterTypeDateUpgradeToMultiStep": {
+    "migrateButtonText": "Перейти на многоэтапный фильтр по дате",
+    "migrateButtonTooltip": "В наличии новый фильтр. Нажмите, чтобы обновить. Это работает так же."
+  },
+  "dataSyncType": {
+    "syncError": "Ошибка синхронизации",
+    "icalCalendar": "Синхронизировать канал iCal",
+    "postgresql": "Синхронизировать таблицу PostgreSQL"
+  },
+  "iCalCalendarDataSync": {
+    "name": "URL-адрес iCal",
+    "description": "Синхронизация календаря iCal автоматически синхронизируется с записями в файле календаря URL-адреса. Он поддерживает только тип файлов ICS (Интернет-календарь и планирование)."
+  },
+  "postgreSQLDataSync": {
+    "description": "Синхронизирует таблицу PostgreSQL с таблицей Baserow, соответствующей приведенным ниже данным. Обратите внимание, что при запуске синхронизации будут выбраны все строки в предоставленной таблице. Несмотря на то, что Baserow выбирает только данные, мы настоятельно рекомендуем ограничить пользователя подключением только для чтения.",
+    "host": "Хозяин",
+    "username": "Имя пользователя",
+    "password": "Пароль",
+    "database": "База данных",
+    "schema": "Схема",
+    "table": "Стол",
+    "port": "Порт",
+    "sslMode": "SSL-режим"
+  },
+  "createDataSync": {
+    "next": "Следующий",
+    "fields": "Выберите поля, которые вы хотите синхронизировать.",
+    "create": "Создать и синхронизировать таблицу",
+    "error": "Что-то пошло не так во время синхронизации",
+    "autoAddLabel": "Автоматическое добавление новых свойств",
+    "autoAddHelper": "Автоматически добавляет и синхронизирует новые доступные свойства из источника данных в таблицу Baserow. Обратите внимание: чтобы это работало, все свойства должны быть синхронизированы.",
+    "twoWaySyncLabel": "Двусторонняя синхронизация"
+  },
+  "syncTableModal": {
+    "title": "Синхронизировать {name}",
+    "description": "Эта таблица связана с синхронизацией данных. При нажатии кнопки синхронизации данные будут синхронизированы с источником. Во время этого процесса обновляемые строки блокируются, что может временно замедлить запросы API или изменения таблиц.",
+    "sync": "Таблица синхронизации",
+    "hide": "Скрывать"
+  },
+  "gridViewRowHeight": {
+    "name": "Высота",
+    "small": "Маленький",
+    "medium": "Середина",
+    "large": "Большой"
+  },
+  "configureDataSyncModal": {
+    "title": "Синхронизация данных",
+    "syncedFields": "Синхронизированные поля",
+    "syncSettings": "Синхронизировать настройки"
+  },
+  "configureDataSyncVisibleFields": {
+    "title": "Изменить синхронизированные поля",
+    "fields": "Синхронизированные поля",
+    "syncTable": "Синхронизировать при сохранении"
+  },
+  "configureDataSyncSettings": {
+    "title": "Изменить синхронизацию данных",
+    "syncTable": "Синхронизировать при сохранении"
+  },
+  "webhookDeactivatedNotification": {
+    "body": "Веб-перехватчик {name} был деактивирован, поскольку сбой произошел слишком много раз подряд."
+  },
+  "webhookPayloadTooLargeNotification": {
+    "body": "Полезная нагрузка веб-перехватчика {name} с идентификатором события {event_id} была слишком велика. Содержимое было разделено на несколько пакетов, но данные, превышающие лимит пакета {batch_limit}, были удалены."
+  },
+  "tablesGuidedTourStep": {
+    "title": "Таблицы настройки",
+    "content": "Таблицы аккуратно хранят вашу информацию. Создайте новую таблицу в базе данных, чтобы начать структурирование данных."
+  },
+  "filterSortGroupGuidedTourStep": {
+    "title": "Найдите и систематизируйте свои данные",
+    "content": "Быстро находите информацию, фильтруя и сортируя строки. Мгновенно группируйте данные по любому из полей, чтобы четко визуализировать закономерности и упростить рабочие процессы."
+  },
+  "addFieldGuidedTourStep": {
+    "title": "Настройте свои данные",
+    "content": "Нажмите «+», чтобы добавить новые поля (столбцы). Выбирайте различные типы полей, чтобы указать именно то, что наиболее важно для вашего проекта."
+  },
+  "createViewGuidedTourStep": {
+    "title": "Персонализируйте свои представления",
+    "content": "Создавайте собственные представления, такие как сетка, календарь, канбан или галерея, чтобы визуализировать свои данные именно так, как вы хотите."
+  },
+  "createFormViewGuidedTourStep": {
+    "title": "Создать форму",
+    "content": "Быстро создавайте формы на основе таблиц, чтобы собирать ответы непосредственно в таблицу, оптимизируя сбор данных."
+  },
+  "viewOptionsGuidedTourStep": {
+    "title": "Посмотреть варианты",
+    "content": "Нажмите на три точки рядом с представлением, чтобы экспортировать, импортировать, дублировать и настроить вебхук."
+  },
+  "fieldRules": {
+    "errorTitle": "Ошибка при обработке правила поля",
+    "ruleDoesNotExist": "Правило не существует",
+    "ruleTypeDoesNotExist": "Тип правила не существует",
+    "ruleAlreadyExists": "Правило уже существует"
+  },
+  "fieldFormViewEditRowSubForm": {
+    "selectFormViewLabel": "Вид формы",
+    "description": "Каждая строка получит уникальную ссылку, которая открывает форму, предварительно заполненную данными этой строки. Обратите внимание, что каждый, у кого есть доступ на чтение к таблице и полю, сможет редактировать строку через представление формы, а также зрители и посетители общедоступного представления.",
+    "notPublicWarning": "Это представление формы не является общедоступным. Ссылка на редактирование не будет работать, пока форма не станет общедоступной.",
+    "notPublic": "(не публично)",
+    "formDoesNotExist": "Выбранная форма больше не существует."
+  },
+  "editRowLink": {
+    "editRow": "Изменить строку"
+  },
+  "rowEditFieldFormViewEditRow": {
+    "copyLink": "Копировать ссылку",
+    "noFormView": "Представление формы не настроено"
+  }
 }

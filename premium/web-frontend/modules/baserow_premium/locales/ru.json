@@ -1,290 +1,409 @@
 {
-    "premium": {
-        "user": {
-            "isStaff": "",
-            "isWorkspaceAdmin": "",
-            "active": "",
-            "deactivated": ""
-        },
-        "adminType": {
-            "dashboard": "",
-            "users": "",
-            "workspaces": "",
-            "licenses": ""
-        },
-        "viewType": {
-            "kanban": ""
-        },
-        "exporterType": {
-            "json": "",
-            "xml": ""
-        },
-        "deactivated": ""
+  "premium": {
+    "adminType": {
+      "licenses": "Управление лицензиями"
     },
-    "premiumModal": {
-        "title": "",
-        "description": "",
-        "viewPricing": ""
+    "viewType": {
+      "kanban": "Канбан",
+      "timeline": "Хронология",
+      "calendar": "Календарь"
     },
-    "rowCommentSidebar": {
-        "onlyPremium": "",
-        "readOnlyNoComment": "",
-        "noComment": "",
-        "comment": "",
-        "more": "",
-        "name": ""
+    "exporterType": {
+      "json": "Экспорт в JSON",
+      "xml": "Экспорт в XML",
+      "excel": "Экспорт в Excel",
+      "file": "Экспорт файлов"
     },
-    "rowComment": {
-        "you": "",
-        "anonymous": ""
-    },
-    "registerLicenseModal": {
-        "titleRegisterLicense": "",
-        "registerLicense": "",
-        "viewPricing": "",
-        "licenseDescription": "",
-        "licenseError": {
-            "invalidTitle": "",
-            "invalid": "",
-            "unsupportedTitle": "",
-            "unsupported": "",
-            "expiredTitle": "",
-            "expired": "",
-            "duplicateTitle": "",
-            "duplicate": "",
-            "instanceMismatchTitle": "",
-            "instanceMismatch": ""
-        }
-    },
-    "disconnectLicenseModal": {
-        "disconnectLicense": "",
-        "disconnectDescription": ""
-    },
-    "registerLicenseForm": {
-        "licenseKey": ""
-    },
-    "workspacesAdminTable": {
-        "allWorkspaces": "",
-        "id": "",
-        "name": "",
-        "members": "",
-        "applications": "",
-        "created": ""
-    },
-    "editWorkspaceContext": {
-        "delete": ""
-    },
-    "deleteWorkspaceModal": {
-        "title": "",
-        "confirmation": "",
-        "comment": "",
-        "delete": ""
-    },
-    "activeUsers": {
-        "newUsers": "",
-        "activeUsers": ""
-    },
-    "usersAdminTable": {
-        "allUsers": "",
-        "username": "",
-        "name": "",
-        "workspaces": "",
-        "lastLogin": "",
-        "dateJoined": "",
-        "active": ""
-    },
-    "editUserContext": {
-        "changePassword": "",
-        "delete": "",
-        "impersonate": ""
-    },
-    "changePasswordForm": {
-        "newPassword": "",
-        "repeatPassword": "",
-        "changePassword": "",
-        "error": {
-            "doesntMatch": ""
-        }
-    },
-    "userForm": {
-        "fullName": "",
-        "email": "",
-        "isActive": "",
-        "warning": {
-            "changeEmail": "",
-            "inactiveUser": "",
-            "userStaff": ""
-        },
-        "error": {
-            "invalidName": "",
-            "invalidEmail": ""
-        }
-    },
-    "changeUserPasswordModal": {
-        "changePassword": ""
-    },
-    "deleteUserModal": {
-        "title": "",
-        "confirmation": "",
-        "comment1": "",
-        "comment2": "",
-        "delete": ""
-    },
-    "editUserModal": {
-        "delete": "",
-        "edit": ""
-    },
-    "tableJSONExporter": {
-        "encoding": ""
-    },
-    "tableXMLExporter": {
-        "encoding": ""
-    },
-    "kanbanViewStackContext": {
-        "createCard": "",
-        "editStack": "",
-        "deleteStack": "",
-        "delete": "",
-        "deleteDescription": ""
-    },
-    "kanbanViewHeader": {
-        "stackBy": "",
-        "stackedBy": "",
-        "customizeCards": ""
-    },
-    "kanbanViewOptionForm": {
-        "selectOption": ""
-    },
-    "kanbanViewStakedBy": {
-        "title": "",
-        "chooseField": ""
-    },
-    "kanbanViewStack": {
-        "uncategorized": "",
-        "tryAgain": "",
-        "new": ""
-    },
-    "dashboard": {
-        "title": "",
-        "totals": "",
-        "totalUsers": "",
-        "totalWorkspaces": "",
-        "totalApplications": "",
-        "newUsers": "",
-        "newUsers24h": "",
-        "newUsers7days": "",
-        "newUsers30days": "",
-        "activeUsers": "",
-        "activeUsers24h": "",
-        "activeUsers7days": "",
-        "activeUsers30days": "",
-        "viewAll": ""
-    },
-    "premiumFeatures": {
-        "rowComments": "",
-        "kanbanView": "",
-        "exports": "",
-        "admin": "",
-        "rowColoring": "",
-        "surveyForm": "",
-        "publicLogoRemoval": "",
-        "personalViews": ""
-    },
-    "licenses": {
-        "titleNoLicenses": "",
-        "titleLicenses": "",
-        "noLicensesDescription": "",
-        "getLicense": "",
-        "baserowInstanceId": "",
-        "registerLicense": "",
-        "licenceId": "",
-        "premium": "",
-        "expired": "",
-        "validity": "",
-        "seats": ""
-    },
-    "license": {
-        "title": "",
-        "users": "",
-        "description": "",
-        "seatLeft": "",
-        "fillSeats": "",
-        "removeAll": "",
-        "licenseId": "",
-        "addUser": "",
-        "plan": "",
-        "premium": "",
-        "expired": "",
-        "validFrom": "",
-        "validThrough": "",
-        "validThroughDescription": "",
-        "lastCheck": "",
-        "lastCheckDescription": "",
-        "checkNow": "",
-        "seats": "",
-        "licensedTo": "",
-        "applications": "",
-        "unlimited": "",
-        "rowUsage": "",
-        "storeUsage": "",
-        "disconnectLicense": "",
-        "disconnectDescription": "",
-        "moreSeatsNeededTitle": "",
-        "contactSalesMoreSeats": "",
-        "automaticSeatsProgressBarStatus": "",
-        "premiumFeatureName": "",
-        "enterpriseFeatureName": "",
-        "supportFeatureName": ""
-    },
-    "viewDecoratorType": {
-        "leftBorderColor": "",
-        "leftBorderColorDescription": "",
-        "backgroundColor": "",
-        "backgroundColorDescription": "",
-        "onlyForPremium": "",
-        "onlyOneDecoratorPerView": ""
-    },
-    "decoratorValueProviderType": {
-        "singleSelectColor": "",
-        "singleSelectColorDescription": "",
-        "conditionalColor": "",
-        "conditionalColorDescription": ""
-    },
-    "singleSelectColorValueProviderForm": {
-        "chooseAColor": ""
-    },
-    "conditionalColorValueProviderForm": {
-        "addCondition": "",
-        "colorAlwaysApply": "",
-        "addColor": ""
-    },
-    "redirectToBaserowModal": {
-        "title": "",
-        "content": ""
-    },
-    "premiumTopSidebar": {
-        "impersonateDescription": "",
-        "impersonateStop": "",
-        "premium": "",
-        "premiumDescription": ""
-    },
-    "formViewModeType": {
-        "survey": "",
-        "surveyDescription": "",
-        "onlyForPremium": ""
-    },
-    "formViewModePreviewSurvey": {
-        "orderFields": "",
-        "deactivated": "",
-        "more": ""
-    },
-    "shareLinkOptions": {
-        "baserowLogo": {
-            "label": "",
-            "premiumModalName": ""
-        }
-    },
-    "viewsContext": {
-        "personal": ""
+    "deactivated": "Доступен в премиум-версии"
+  },
+  "paidFeaturesModal": {
+    "description": "Эта функция доступна с планом {plan}. Чтобы получить к нему доступ, обновите свою учетную запись, подписавшись. Нажмите кнопку ниже, чтобы просмотреть наши варианты цен.",
+    "viewPricing": "Посмотреть цены"
+  },
+  "rowCommentSidebar": {
+    "onlyPremium": "Комментарии к строкам доступны в премиум-версии.",
+    "readOnlyNoComment": "Для этой строки нет комментариев.",
+    "noComment": "К этой строке пока нет комментариев. Используйте форму ниже, чтобы добавить комментарий.",
+    "comment": "Комментарий",
+    "more": "Дополнительная информация",
+    "name": "Комментарии"
+  },
+  "rowComment": {
+    "you": "Ты",
+    "anonymous": "Анонимный",
+    "creating": "создание",
+    "updating": "обновление",
+    "deleting": "удаление",
+    "created": "созданный",
+    "edited": "отредактировано",
+    "commentTrashed": "Этот комментарий был удален.",
+    "errorUserNotCommentAuthorTitle": "Невозможно обновить или удалить.",
+    "errorUserNotCommentAuthor": "Обновить или удалить его может только автор комментария.",
+    "errorInvalidCommentMentionTitle": "Неверное упоминание",
+    "errorInvalidCommentMention": "Указанный пользователь не существует."
+  },
+  "rowCommentContext": {
+    "edit": "Редактировать комментарий",
+    "delete": "Удалить комментарий"
+  },
+  "rowCommentMentionNotification": {
+    "title": "{sender} упомянул вас в строке {row} в {table}",
+    "deletedUser": "Удаленный пользователь"
+  },
+  "rowCommentNotification": {
+    "title": "{sender} разместил комментарий в строке {row} в {table}",
+    "deletedUser": "Удаленный пользователь"
+  },
+  "trashType": {
+    "row_comment": "комментарий к строке"
+  },
+  "registerLicenseModal": {
+    "titleRegisterLicense": "Зарегистрировать лицензию",
+    "registerLicense": "Зарегистрировать лицензию",
+    "viewPricing": "Посмотреть цены",
+    "licenseDescription": "Лицензию можно получить только на baserow.io. Если вы уже приобрели лицензию, она будет доставлена ​​вам по электронной почте, и вы сможете войти в нее из обзора в своей учетной записи. Скопируйте и вставьте лицензионный ключ в поле ниже и нажмите кнопку, чтобы зарегистрировать лицензионный ключ для этого экземпляра. Невозможно использовать один и тот же ключ в двух разных установках. {pricingLink}, если у вас еще нет ключа.",
+    "licenseError": {
+      "invalidTitle": "Неверный",
+      "invalid": "Предоставленная лицензия недействительна.",
+      "unsupportedTitle": "Не поддерживается",
+      "unsupported": "Предоставленная лицензия несовместима с вашей версией Baserow. Пожалуйста, обновитесь до последней версии и повторите попытку.",
+      "expiredTitle": "Истекший",
+      "expired": "Срок действия предоставленной лицензии истек.",
+      "duplicateTitle": "Дублировать",
+      "duplicate": "Предоставленная лицензия уже зарегистрирована в этом экземпляре.",
+      "instanceMismatchTitle": "Несоответствие экземпляра",
+      "instanceMismatch": "Предоставленная лицензия не принадлежит этому экземпляру."
     }
+  },
+  "disconnectLicenseModal": {
+    "disconnectLicense": "Отключить лицензию",
+    "disconnectDescription": "Вы уверены, что хотите отключить эту лицензию? Если вы отключите эту лицензию, пока она активна, связанные пользователи больше не будут иметь доступа к плану. Это фактически удалит лицензию. Если вы хотите использовать эту лицензию в другом локальном экземпляре, свяжитесь с нашей службой поддержки по телефону {contact}."
+  },
+  "registerLicenseForm": {
+    "licenseKey": "Лицензионный ключ"
+  },
+  "tableJSONExporter": {
+    "encoding": "Кодирование"
+  },
+  "tableXMLExporter": {
+    "encoding": "Кодирование"
+  },
+  "tableExcelExporter": {
+    "includeHeader": "Включить имена полей в заголовок"
+  },
+  "tableFileExporter": {
+    "organizeFiles": "Группировать файлы по идентификатору строки"
+  },
+  "kanbanViewStackContext": {
+    "createCard": "Создать карту",
+    "editStack": "Редактировать стек",
+    "deleteStack": "Удалить стопку",
+    "delete": "Удалить {name}",
+    "deleteDescription": "Вы уверены, что хотите удалить стек {name}? Удаление стека приводит к удалению опции выбора в одном поле выбора, что может привести к потере данных, поскольку значения строк будут установлены как пустые."
+  },
+  "kanbanViewHeader": {
+    "stackBy": "Складывать по",
+    "stackedBy": "Сложено по {fieldName}",
+    "customizeCards": "Настройка карточек"
+  },
+  "kanbanViewOptionForm": {
+    "selectOption": "Выберите вариант"
+  },
+  "kanbanViewStakedBy": {
+    "title": "Групповое поле",
+    "chooseField": "По какому единственному полю выбора следует складывать карточки?"
+  },
+  "kanbanView": {
+    "addStack": "Добавить стек"
+  },
+  "kanbanViewStack": {
+    "uncategorized": "Без категории",
+    "tryAgain": "Попробуйте еще раз"
+  },
+  "calendarViewType": {
+    "sharedViewText": "Разрешите всем видеть данные в этом представлении или синхронизируйте события с вашим внешним календарем.",
+    "sharedViewEnableSyncToExternalCalendar": "Синхронизация с внешним календарем",
+    "sharedViewDisableSyncToExternalCalendar": "Отключить внешнюю синхронизацию",
+    "sharedViewDescription": "Вставьте эту ссылку в приложение календаря.",
+    "sharedViewTitle": "Синхронизация с внешним календарем"
+  },
+  "calendarViewHeader": {
+    "displayBy": "Показать по",
+    "displayedBy": "Отображается полем «{fieldName}»",
+    "labels": "Этикетки"
+  },
+  "timelineViewHeader": {
+    "dateSettings": "Настройки даты",
+    "labels": "Этикетки"
+  },
+  "selectDateFieldContext": {
+    "save": "Сохранять"
+  },
+  "timelineDateSettingsForm": {
+    "startDateField": "Дата начала",
+    "endDateField": "Дата окончания",
+    "noCompatibleDateFields": "В таблице отсутствуют поля даты. Сначала создайте в таблице поле даты начала и окончания.",
+    "incompatibleFieldsErrorTitle": "Несовместимые поля",
+    "incompatibleFieldsErrorMessage": "Поля несовместимы. Выберите в таблице два допустимых поля даты, в которых используются одинаковые настройки для «включить время» и один и тот же часовой пояс для всех соавторов.",
+    "forceTimezone": "{timezone}",
+    "includeTime": "дата и время",
+    "dateOnly": "только дата"
+  },
+  "timelineTimescaleContext": {
+    "hour": "Час",
+    "day": "День",
+    "week": "Неделя",
+    "month": "Месяц",
+    "quarter": "Четверть",
+    "year": "Год",
+    "disabledTooltip": "Эта опция доступна только для полей даты с включенным параметром «Включить время»."
+  },
+  "initTimelineViewSettings": {
+    "settings": "Настройки даты"
+  },
+  "viewDateSelector": {
+    "today": "Сегодня"
+  },
+  "calendarMonthDay": {
+    "hiddenRowsCount": "0 | еще 1... | {hiddenRowsCount} подробнее..."
+  },
+  "calendarMonthDayExpanded": {
+    "tryAgain": "Попробуйте еще раз"
+  },
+  "timelineGridRow": {
+    "days": "0 | 1 день | {count} дней"
+  },
+  "premiumFeatures": {
+    "rowComments": "Комментарии к строке",
+    "rowCommentsContent": "Совместная работа прямо за столом. Добавляйте комментарии к отдельным строкам, упоминайте членов команды и сохраняйте контекст разговора.",
+    "kanbanView": "Канбан-представление",
+    "kanbanViewContent": "Визуально организуйте свои данные на доске Канбан. Карты группируются в стопки на основе одного поля выбора, и вы можете легко перетаскивать их между стопками.",
+    "calendarView": "Просмотр календаря",
+    "calendarViewContent": "Легко просматривайте свои строки в календаре, используя поле даты по вашему выбору. Идеально подходит для быстрого отслеживания сроков, событий и расписаний.",
+    "timelineView": "Просмотр временной шкалы",
+    "timelineViewContent": "Отображение строк на горизонтальной временной шкале с использованием дат начала и окончания. Идеально подходит для планирования проектов и дорожных карт.",
+    "exports": "Экспорт таблицы",
+    "exportsContent": "Легко экспортируйте свои данные в дополнительные форматы, такие как Excel, JSON и XML, или массово загружайте все файлы из таблицы — идеальное решение для резервного копирования, создания отчетов и обмена ими с другими.",
+    "rowColoring": "Раскраска строк",
+    "rowColoringContent": "Выделяйте строки цветами на основе одного поля выбора или пользовательских условий. Это облегчает выявление закономерностей и приоритетов.",
+    "rowNotifications": "Уведомления о строках",
+    "rowNotificationsContent": "Оставайтесь в курсе событий с помощью настраиваемых уведомлений о комментариях к строкам. Выберите, получать оповещения обо всех комментариях или только тогда, когда вас упоминают.",
+    "surveyForm": "Форма опроса",
+    "surveyFormContent": "Собирайте ответы по одному вопросу за раз в режиме опроса. Упрощенная версия представления формы, оптимизированная для фокусировки и простоты использования.",
+    "publicLogoRemoval": "Удаление общедоступного логотипа",
+    "publicLogoRemovalContent": "Удалите логотип Baserow из общедоступного просмотра, чтобы ваш общий контент выглядел более чистым и фирменным.",
+    "personalViews": "Личные взгляды",
+    "personalViewsContent": "Создавайте представления, которые может видеть только автор. Это дает вам возможность экспериментировать, фильтровать и сортировать данные, не затрагивая рабочую область других.",
+    "aiFeatures": "Возможности ИИ",
+    "aiFeaturesContent": "Используйте ИИ для автоматизации и улучшения ваших рабочих процессов. С помощью типа поля подсказки AI вы можете генерировать текст, сводки или аналитические данные непосредственно в ячейках на основе динамических подсказок, которые могут ссылаться на другие поля. Отдельно вы также можете попросить ИИ создать для вас формулы.",
+    "chartWidget": "Виджет диаграммы",
+    "chartWidgetContent": "Визуализируйте свои данные с помощью диаграмм на информационных панелях. Используйте любую таблицу в качестве источника данных, добавляйте несколько рядов, а также группируйте или сортируйте по полям с расширенными параметрами сводки."
+  },
+  "licenses": {
+    "titleNoLicenses": "Лицензии не найдены",
+    "titleLicenses": "Лицензии",
+    "noLicensesDescription": "В вашем экземпляре Baserow не зарегистрировано ни одной лицензии. Премиум-лицензия дает вам немедленный доступ ко всем дополнительным функциям. Если у вас уже есть лицензия, вы можете зарегистрировать ее здесь. Альтернативно вы можете получить его, нажав на кнопку ниже.",
+    "getLicense": "Получить лицензию",
+    "baserowInstanceId": "Идентификатор вашего экземпляра Baserow:",
+    "registerLicense": "Зарегистрировать лицензию",
+    "licenceId": "Идентификатор лицензии",
+    "premium": "Премиум",
+    "expired": "Истекший",
+    "validity": "Действительно с {start} по {end}",
+    "seats": "сиденья",
+    "applicationUsers": "Пользователи приложения"
+  },
+  "license": {
+    "title": "{name} план",
+    "users": "Пользователи",
+    "description": "Выберите пользователей, которые могут использовать план {product_code}. Эта лицензия позволяет предоставить {product_code} максимум {seats} пользователям.",
+    "seatLeft": "У вас не осталось мест|У вас осталось одно место|У вас осталось {count} мест",
+    "fillSeats": "Заполните места пользователями, которых нет в плане",
+    "removeAll": "Удалить всех пользователей",
+    "licenseId": "Идентификатор лицензии",
+    "addUser": "Добавить пользователя",
+    "plan": "План",
+    "premium": "премия",
+    "expired": "Истекший",
+    "validFrom": "Действительно с",
+    "validThrough": "Действительно до",
+    "validThroughDescription": "После истечения срока действия вашей лицензии вы и все назначенные пользователи больше не сможете использовать дополнительные функции, предоставляемые лицензией.",
+    "lastCheck": "Последняя проверка",
+    "lastCheckDescription": "Лицензия периодически проверяется на наличие изменений. Если вы, например, продлили или обновили свою лицензию, изменения вступят в силу после проверки.",
+    "checkNow": "проверьте сейчас",
+    "seats": "Количество мест (количество пользователей)",
+    "applicationUsers": "Пользователи приложения",
+    "applicationUsersDescription": "Общее количество пользователей приложения в опубликованных источниках пользователей сборщика приложений.",
+    "licensedTo": "Лицензия на",
+    "applications": "Приложения/базы данных",
+    "unlimited": "Безлимитный",
+    "rowUsage": "Использование строк",
+    "storeUsage": "Использование хранилища",
+    "disconnectLicense": "Отключить лицензию",
+    "disconnectDescription": "Если вы отключите эту лицензию, пока она активна, связанные пользователи больше не будут иметь доступа к плану. Это фактически удалит лицензию. Если вы хотите использовать эту лицензию в другом локальном экземпляре, свяжитесь с нашей службой поддержки по телефону {contact}.",
+    "moreSeatsNeededTitle": "Необходимо больше мест",
+    "contactSalesMoreSeats": "Свяжитесь с отделом продаж, чтобы узнать больше мест",
+    "automaticSeatsProgressBarStatus": "{seats_taken} / {seats} платных мест и {free_users_count} бесплатных мест в использовании",
+    "premiumFeatureName": "Премиум",
+    "advancedFeatureName": "Передовой",
+    "enterpriseFeatureName": "Предприятие",
+    "supportFeatureName": "Поддерживать"
+  },
+  "viewDecoratorType": {
+    "leftBorderColor": "Левая граница",
+    "leftBorderColorDescription": "Раскрасьте левую границу строки",
+    "backgroundColor": "Цвет фона",
+    "backgroundColorDescription": "Раскрасьте фон строки",
+    "onlyForPremium": "Доступно в премиум-версии",
+    "onlyOneDecoratorPerView": "Для одного вида можно использовать только одно украшение этого типа."
+  },
+  "decoratorValueProviderType": {
+    "singleSelectColor": "Одиночный выбор",
+    "singleSelectColorDescription": "Цвет строк такой же, как и одно выбранное значение.",
+    "conditionalColor": "Условия",
+    "conditionalColorDescription": "Раскрасьте строки, если они соответствуют условиям"
+  },
+  "singleSelectColorValueProviderForm": {
+    "chooseAColor": "Каким единственным полем выбора должна быть окрашена строка?"
+  },
+  "conditionalColorValueProviderForm": {
+    "addCondition": "Добавить условие",
+    "addConditionGroup": "Добавить группу условий",
+    "colorAlwaysApplyTitle": "Этот цвет применяется по умолчанию.",
+    "colorAlwaysApply": "Вы можете добавить условия, нажав на кнопку «Добавить условие».",
+    "addColor": "Добавить цвет",
+    "deleteColor": "Удалить цвет",
+    "title": "Цвета"
+  },
+  "redirectToBaserowModal": {
+    "title": "Перенаправление на https://baserow.io",
+    "content": "Вы покидаете свой собственный экземпляр и будете перенаправлены на https://baserow.io."
+  },
+  "premiumTopSidebar": {
+    "impersonateDescription": "Эта учетная запись выдана за другое лицо. Обновление страницы остановит это.",
+    "impersonateStop": "Останавливаться",
+    "premium": "Премиум",
+    "premiumDescription": "Ваша учетная запись имеет доступ к премиум-функциям по всему миру."
+  },
+  "formViewModeType": {
+    "survey": "Опрос",
+    "surveyDescription": "Одновременно видно одно поле.",
+    "onlyForPremium": "Доступно в премиум-версии"
+  },
+  "formViewModePreviewSurvey": {
+    "orderFields": "Поля заказа",
+    "deactivated": "Форма опроса доступна в премиум-версии.",
+    "more": "Дополнительная информация"
+  },
+  "shareLinkOptions": {
+    "baserowLogo": {
+      "label": "Скрыть логотип Baserow в общем виде",
+      "premiumModalName": "удаление публичного логотипа"
+    },
+    "allowPublicExportLabel": "Разрешить экспорт в общем представлении"
+  },
+  "viewsContext": {
+    "personal": "Персональный"
+  },
+  "dateFieldSelectForm": {
+    "dateField": "Какое поле вы хотите использовать для этого представления?",
+    "noCompatibleDateFields": "В этой таблице нет полей даты, сначала создайте их."
+  },
+  "selectDateFieldModal": {
+    "chooseDateField": "Выберите поле даты",
+    "save": "Сохранять"
+  },
+  "RowEditModalCommentNotificationMode": {
+    "modeMentionsTitle": "Только упоминания",
+    "modeMentionsDesc": "Вы будете получать уведомления только тогда, когда вас упомянут.",
+    "modeAllTitle": "Все комментарии",
+    "modeAllDesc": "Вы будете получать уведомления обо всех комментариях в этой строке."
+  },
+  "premiumFieldType": {
+    "ai": "AI-подсказка",
+    "aiDescription": "Поле, доступное только для чтения, в котором хранится текст, сгенерированный искусственным интеллектом на основе подсказки поля."
+  },
+  "functionalGridViewFieldAI": {
+    "generate": "Генерировать"
+  },
+  "gridViewFieldAI": {
+    "generate": "Генерировать",
+    "regenerate": "Регенерировать"
+  },
+  "fieldAISubForm": {
+    "prompt": "Быстрый",
+    "promptPlaceholder": "Что такое Басероу?",
+    "premiumFeature": "Поле искусственного интеллекта — это премиум-функция",
+    "emptyFileField": "Никто",
+    "fileFieldHelp": "Первый совместимый файл в поле будет использоваться в качестве базы знаний для подсказки. Файл должен быть текстовым файлом с поддерживаемым расширением, например .txt, .md, .pdf, .docx.",
+    "outputType": "Тип выхода",
+    "outputTypeTooltip": "Выберите желаемый формат вывода, чтобы помочь LLM генерировать ответы, соответствующие желаемым параметрам.",
+    "outputTypeChangedWarning": "Очищает сгенерированные значения ячеек.",
+    "autoUpdate": "Автоматическое обновление",
+    "autoUpdateHelp": "Если этот параметр включен, значение поля AI будет автоматически генерироваться повторно при обновлении любого из полей, на которые имеются ссылки в приглашении.",
+    "autoUpdateDescription": "Регенерировать при изменении полей, на которые ссылаются."
+  },
+  "rowEditFieldAI": {
+    "generate": "Генерировать",
+    "createRowBefore": "Значение AI может быть сгенерировано после создания строки."
+  },
+  "aiFormulaModal": {
+    "title": "Создать формулу с помощью ИИ",
+    "description": "Обратите внимание, что сгенерированные формулы могут не всегда работать должным образом. Мы создаем приглашение для модели и загружаем выходные данные во входные данные формулы. Лучше всего он работает с моделью с высокими параметрами, такой как gpt-4-turbo-preview.",
+    "label": "Быстрый",
+    "labelDescription": "Опишите формулу, которую вы хотите сгенерировать.",
+    "generate": "Генерировать",
+    "noModels": "В вашем экземпляре и рабочей области Baserow не настроены модели искусственного интеллекта. Перейдите на домашнюю страницу, нажмите на название вашего рабочего пространства, а затем на настройки, чтобы их настроить."
+  },
+  "formulaFieldAI": {
+    "generateWithAI": "Генерация с использованием ИИ",
+    "featureName": "Создать формулу с помощью ИИ"
+  },
+  "aiOutputType": {
+    "text": "Текст",
+    "textDescription": "Генерирует произвольный текст на основе подсказки.",
+    "choice": "Выбор",
+    "choiceDescription": "Выбирает только один из вариантов поля."
+  },
+  "publicViewExport": {
+    "export": "Экспорт"
+  },
+  "chart": {
+    "true": "истинный",
+    "false": "ЛОЖЬ",
+    "other": "Другой"
+  },
+  "generateAIValuesModal": {
+    "title": "Генерация всех значений AI",
+    "noPreviousJobs": "Нет предыдущих мест работы",
+    "started": "Началось",
+    "finished": "Завершенный",
+    "running": "Бег",
+    "failed": "Неуспешный",
+    "cancelled": "Отменено",
+    "pending": "В ожидании",
+    "view": "Просмотр: {name}",
+    "table": "Таблица: Все строки",
+    "deletedView": "Просмотр: ID {viewId} (удален)",
+    "rows": "Строки: {count} строк",
+    "autoUpdate": "Автоматическое обновление: изменены ссылочные поля."
+  },
+  "generateAIValuesForm": {
+    "scopeLabel": "Объем",
+    "entireTable": "Вся таблица",
+    "skipPopulated": "Генерировать только значения для пустых ячеек",
+    "warningTitle": "Предупреждение об использовании токена",
+    "warningMessage": "Генерация всех значений AI будет потреблять токены API и может занять значительное время в зависимости от количества строк."
+  },
+  "generateAIValuesFormFooter": {
+    "generate": "Генерируйте с помощью ИИ",
+    "close": "Закрывать"
+  },
+  "jobType": {
+    "generateAIValues": "Восстановить значения поля AI"
+  },
+  "viewOwnershipType": {
+    "personal": "Персональный",
+    "personalDescription": "Только вы можете видеть вид."
+  }
 }

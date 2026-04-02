@@ -1,1 +1,825 @@
-{}
+{
+  "clientHandler": {
+    "cannotDisableAllAuthProvidersTitle": "Последний включенный провайдер",
+    "cannotDisableAllAuthProvidersDescription": "Невозможно отключить или удалить последнего включенного провайдера."
+  },
+  "advanced": {
+    "license": "Передовой"
+  },
+  "enterprise": {
+    "license": "Предприятие",
+    "sidebarTooltip": "Ваша учетная запись имеет доступ к корпоративным функциям по всему миру.",
+    "rbac": "РБАК",
+    "sso": "система единого входа",
+    "licenseDescription": "Просмотры бесплатны с Baserow Enterprise. Если у пользователя есть какая-либо другая роль в любом рабочем пространстве, он автоматически будет использовать платное место.",
+    "overflowWarning": "У вас слишком много пользователей, не являющихся зрителями, и вы израсходовали все платные места. Измените пользователей, чтобы они стали зрителями на каждой странице участников рабочих областей.",
+    "deactivated": "Доступно в расширенной/корпоративной версии."
+  },
+  "trashType": {
+    "team": "команда"
+  },
+  "createTeamModal": {
+    "title": "Создать команду",
+    "invalidNameTitle": "Пожалуйста, используйте другое имя",
+    "invalidNameMessage": "Это имя команды уже используется в указанной рабочей области."
+  },
+  "updateTeamModal": {
+    "title": "Обновление {teamName}",
+    "invalidNameTitle": "Пожалуйста, используйте другое имя",
+    "invalidNameMessage": "Это имя команды уже используется в указанной рабочей области."
+  },
+  "manageTeamModals": {
+    "subheading": "Команды позволяют вам массово предоставлять или ограничивать разрешения нескольким людям."
+  },
+  "manageTeamForm": {
+    "submit": "Сохранять",
+    "nameTitle": "Имя",
+    "roleTitle": "Роль по умолчанию",
+    "inviteMembers": "Добавить участников",
+    "membersTitle": "Члены",
+    "noSubjectsSelected": "Нажмите «0», чтобы добавить пользователей команды.",
+    "roleHelpText": "Роли, специфичные для пользователя, всегда переопределяют роли в команде."
+  },
+  "editTeamContext": {
+    "edit": "Редактировать команду",
+    "remove": "Удалить команду"
+  },
+  "teamsTable": {
+    "title": "{teamCount} команд в {workspaceName}",
+    "createNew": "Создать команду",
+    "nameColumn": "Имя",
+    "createdColumn": "Создано",
+    "subjectsColumn": "Члены",
+    "roleColumn": "Роль по умолчанию",
+    "roleHelpText": "Может быть переопределено ролями в базах данных и таблицах."
+  },
+  "subjectSampleField": {
+    "titleAttr": "{subjectCount} участников в этой команде."
+  },
+  "teamsSettings": {
+    "teamsTabTitle": "Команды"
+  },
+  "adminType": {
+    "AuditLog": "Журнал аудита",
+    "Authentication": "Аутентификация",
+    "DataScanner": "Сканер данных"
+  },
+  "dataScanner": {
+    "title": "Сканер данных",
+    "scansTab": "Сканирование",
+    "resultsTab": "Результаты",
+    "createScan": "Создать сканер данных",
+    "editScan": "Редактировать скан",
+    "nameColumn": "Имя",
+    "typeColumn": "Тип",
+    "frequencyColumn": "Частота",
+    "statusColumn": "Статус",
+    "runningSince": "Работает с {time}",
+    "idle": "Праздный",
+    "neverRun": "Никогда не беги",
+    "runNow": "Беги сейчас",
+    "edit": "Редактировать",
+    "delete": "Удалить",
+    "nameLabel": "Имя",
+    "namePlaceholder": "Введите имя сканирования",
+    "scanTypeLabel": "Тип сканирования",
+    "patternLabel": "Шаблон",
+    "patternPlaceholder": "например \\N\\LDDAAAADDDDDDDDDDD",
+    "patternHelp": "A = любая буква, D = цифра, X = любой символ. Используйте \\, чтобы экранировать литерал (например, \\N для буквы N). Пример: \\N\\LDDAAAADDDDDDDDDDD для голландского IBAN (NL00BANK0000000000).",
+    "listItemsLabel": "Значения списка",
+    "listItemsPlaceholder": "Введите одно значение в строке",
+    "listItemsHelp": "Введите одно значение в каждой строке. Каждое значение будет искаться во всех сканируемых рабочих областях.",
+    "sourceTableLabel": "Исходная таблица",
+    "selectWorkspace": "Выберите рабочую область",
+    "selectDatabase": "Выберите базу данных",
+    "selectTable": "Выбрать стол",
+    "selectField": "Выберите поле",
+    "noCompatibleFieldsTitle": "Нет совместимых полей",
+    "noCompatibleFieldsDescription": "В этой таблице нет совместимых типов полей. В качестве источника можно использовать только поля текста, URL-адреса, электронной почты, номера, автономера, номера телефона и UUID.",
+    "frequencyLabel": "Частота",
+    "frequencyManual": "Руководство",
+    "frequencyHourly": "Ежечасно",
+    "frequencyDaily": "Ежедневно",
+    "frequencyWeekly": "Еженедельно",
+    "hourlyWarning": "Ежечасное сканирование может создать значительную нагрузку на ваш экземпляр Baserow.",
+    "workspaceScopeLabel": "Рабочие области для сканирования",
+    "scanAllWorkspaces": "Сканировать все рабочие области",
+    "filterByScan": "Фильтровать по сканированию",
+    "allScans": "Все сканы",
+    "scanNameColumn": "Сканировать",
+    "workspaceColumn": "Рабочая область",
+    "databaseColumn": "База данных",
+    "tableColumn": "Стол",
+    "fieldColumn": "Поле",
+    "rowIdColumn": "Идентификатор строки",
+    "matchedValueColumn": "Соответствующее значение",
+    "firstIdentifiedColumn": "Впервые выявлен",
+    "clearFilters": "Очистить фильтры",
+    "addWorkspace": "Добавить рабочее пространство",
+    "scanTypePattern": "Шаблон",
+    "scanTypeListOfValues": "Список значений",
+    "scanTypeListTable": "Базовый стол",
+    "lastRunColumn": "Последний запуск",
+    "resultsCountColumn": "Результаты",
+    "viewResults": "Посмотреть результаты",
+    "results": "Посмотреть {count} результат|Просмотреть {count} результат",
+    "noResults": "Пока нет результатов",
+    "resolveResult": "Решать",
+    "resultResolved": "Решено",
+    "exportToCsv": "Экспорт в CSV",
+    "exportModalTitle": "Экспорт результатов в CSV",
+    "exportFilename": "data_scan_results_{date}.csv",
+    "exportFailedTitle": "Экспорт не удался",
+    "exportFailedDescription": "Задание экспорта не выполнено. Пожалуйста, попробуйте еще раз.",
+    "exportCancelledTitle": "Экспорт отменен",
+    "exportCancelledDescription": "Задание экспорта было отменено.",
+    "emptyTitle": "Сканирования данных пока нет",
+    "emptyDescription": "Сканер данных позволяет автоматически сканировать весь экземпляр или отдельные рабочие области, чтобы проверить, используются ли где-либо шаблоны (например, IBAN) или заранее определенный текст (например, медицинские удостоверения).",
+    "emptyResultsTitle": "Результаты не найдены",
+    "emptyResultsDescription": "Результатов сканирования пока нет. Результаты появятся здесь после запуска сканирования данных и обнаружения совпадений."
+  },
+  "deleteDataScanModal": {
+    "title": "Удалить сканирование данных",
+    "confirmation": "Вы уверены, что хотите удалить это сканирование данных? Все результаты сканирования будут безвозвратно удалены.",
+    "delete": "Удалить сканирование"
+  },
+  "dataScanNewResultsNotification": {
+    "titleSingular": "{count} найден новый результат для {scanName}",
+    "titlePlural": "{count} новых результатов найдено для {scanName}",
+    "description": "Просмотрите результаты в сканере данных администратора."
+  },
+  "auditLog": {
+    "adminTitle": "Журнал аудита",
+    "workspaceTitle": "Журнал аудита - {workspaceName}",
+    "filterUserTitle": "Пользователь",
+    "filterWorkspaceTitle": "Рабочая область",
+    "filterActionTypeTitle": "Тип события",
+    "filterFromTimestampTitle": "С даты",
+    "filterFromTimestamp": "С даты",
+    "filterToTimestampTitle": "На сегодняшний день",
+    "filterToTimestamp": "На сегодняшний день",
+    "user": "Пользователь",
+    "workspace": "Рабочая область",
+    "actionType": "Тип события",
+    "description": "Описание",
+    "timestamp": "Временная метка",
+    "ip_address": "IP-адрес",
+    "exportToCsv": "Экспорт в CSV",
+    "exportModalTitle": "Экспорт в CSV",
+    "clearFilters": "Прозрачный",
+    "allUsers": "Все пользователи",
+    "allWorkspaces": "Все рабочие пространства",
+    "allActionTypes": "Все типы событий"
+  },
+  "auditLogExportModal": {
+    "title": "Экспорт в CSV",
+    "exportFilename": "Экспорт журнала аудита администратора — {date}",
+    "exportWorkspaceFilename": "Рабочая область ({workspaceId}) Экспорт журнала аудита – {date}",
+    "cancelledTitle": "Экспорт не удался",
+    "cancelledDescription": "Что-то пошло не так при экспорте журнала аудита. Пожалуйста, попробуйте еще раз."
+  },
+  "authProviders": {
+    "title": "Поставщики аутентификации",
+    "noProviders": "Поставщики аутентификации пока не настроены.",
+    "addProvider": "Добавить провайдера"
+  },
+  "authProviderTypes": {
+    "password": "Аутентификация по электронной почте и паролю",
+    "saml": "SAML-провайдер системы единого входа",
+    "ssoSamlProviderName": "Единый вход SAML: {domain}",
+    "ssoSamlProviderNameUnconfigured": "Ненастроенный единый вход SAML",
+    "ssoOIDCProviderNameUnconfigured": "Ненастроенное подключение OpenId"
+  },
+  "editAuthProviderMenuContext": {
+    "edit": "Редактировать",
+    "delete": "Удалить"
+  },
+  "samlSettingsForm": {
+    "domain": "SAML-домен",
+    "domainPlaceholder": "Вставьте доменное имя компании...",
+    "invalidDomain": "Неверное доменное имя",
+    "domainAlreadyExists": "Поставщик SAML для этого домена уже существует.",
+    "metadata": "Метаданные",
+    "metadataPlaceholder": "Вставьте метаданные поставщика удостоверений...",
+    "invalidMetadata": "Неверные метаданные XML для поставщика удостоверений.",
+    "relayStateUrl": "URL-адрес состояния реле по умолчанию",
+    "acsUrl": "URL-адрес единого входа",
+    "providerIsVerified": "Провайдер проверен",
+    "samlResponseSettings": "Атрибуты ответа SAML",
+    "defaultAttrs": "По умолчанию",
+    "customAttrs": "Обычай",
+    "emailAttrKey": "Электронная почта",
+    "emailAttrKeyHelper": "Адрес электронной почты, который будет использоваться в качестве имени пользователя.",
+    "firstNameAttrKey": "Имя",
+    "firstNameAttrKeyHelper": "Имя пользователя или полное имя, если «Фамилия» не указана.",
+    "lastNameAttrKey": "Фамилия",
+    "lastNameAttrKeyHelper": "Фамилия пользователя (необязательно). Очистите это значение, чтобы указать полное имя в поле «Имя»."
+  },
+  "createSettingsAuthProviderModal": {
+    "title": "Добавить новый {type}"
+  },
+  "updateSettingsAuthProviderModal": {
+    "title": "Изменить {name}"
+  },
+  "deleteAuthProviderModal": {
+    "title": "Удалить {name}",
+    "comment": "Вы действительно хотите удалить этот {type}?"
+  },
+  "loginWithSaml": {
+    "signInWithSaml": "Войти с помощью системы единого входа SAML",
+    "redirecting": "Перенаправление к поставщику удостоверений...",
+    "continueWithSaml": "Перейти к поставщику системы единого входа SAML",
+    "requestError": "В этом домене не настроен единый вход SAML.",
+    "loginText": "Уже есть пароль?"
+  },
+  "loginError": {
+    "title": "Что-то пошло не так:",
+    "loginText": "У вас уже есть аккаунт?",
+    "help": "Обратитесь за помощью к своему администратору.",
+    "defaultErrorMessage": "не удалось завершить процесс входа в систему единого входа.",
+    "errorSsoFeatureNotActive": "Функция единого входа не активна. Пожалуйста, свяжитесь с вашим администратором.",
+    "errorInvalidSamlRequest": "Запрос SAML недействителен.",
+    "errorInvalidSamlResponse": "Ответ SAML недействителен.",
+    "errorUserDeactivated": "пользователь отключен.",
+    "errorProviderDoesNotExist": "этот поставщик аутентификации не существует или недоступен.",
+    "errorAuthFlowError": "произошла ошибка во время процесса аутентификации с выбранным провайдером.",
+    "errorDifferentProvider": "пожалуйста, используйте провайдера, у которого вы изначально зарегистрировались.",
+    "errorWorkspaceInvitationEmailMismatch": "ваш адрес электронной почты не совпадает с приглашением.",
+    "errorSignupDisabled": "регистрация отключена администратором."
+  },
+  "roles": {
+    "admin": {
+      "name": "Админ",
+      "description": "Может полностью настраивать и редактировать рабочие пространства и приложения."
+    },
+    "builder": {
+      "name": "Строитель",
+      "description": "Может полностью настраивать и редактировать приложения."
+    },
+    "editor": {
+      "name": "Редактор",
+      "description": "Можно полностью редактировать данные, но не настраивать приложения или рабочие пространства."
+    },
+    "commenter": {
+      "name": "Комментатор",
+      "description": "Может только читать и комментировать данные."
+    },
+    "viewer": {
+      "name": "Зритель",
+      "description": "Может только читать данные."
+    },
+    "noAccess": {
+      "name": "Нет доступа",
+      "description": "Не могу получить доступ ни к чему."
+    },
+    "noRoleLowPriority": {
+      "name": "Нет роли",
+      "description": "Получите роль рабочей области по умолчанию от своих команд."
+    }
+  },
+  "memberRolesModal": {
+    "memberRolesDatabaseTabTitle": "База данных",
+    "memberRolesTableTabTitle": "Стол",
+    "memberRolesViewTabTitle": "Вид",
+    "error": {
+      "title": "Не удалось получить данные",
+      "description": "Произошла ошибка при получении данных участника."
+    }
+  },
+  "memberRolesTab": {
+    "database": {
+      "title": "{name} база данных",
+      "selectMembers": "Выберите участников",
+      "everyoneHasAccess": "Каждый в рабочей области {name} может получить доступ к этой базе данных.",
+      "onlyYouHaveAccess": "Только вы можете получить доступ к этой базе данных.",
+      "warningTitle": "Другие пользователи могут унаследовать доступ!",
+      "warningMessage": "Другие пользователи могут наследовать доступ через свои соответствующие роли в родительской рабочей области.",
+      "headerTooltip": "Роли базы данных переопределяют роли рабочей области."
+    },
+    "table": {
+      "title": "{name} таблица",
+      "selectMembers": "Выберите участников",
+      "everyoneHasAccess": "Доступ к этой таблице имеют все пользователи рабочей области {name}.",
+      "onlyYouHaveAccess": "Только вы можете получить доступ к этой таблице.",
+      "warningTitle": "Другие пользователи могут унаследовать доступ!",
+      "warningMessage": "Другие пользователи могут наследовать доступ через свои соответствующие роли в родительской базе данных или рабочей области.",
+      "headerTooltip": "Роли таблицы переопределяют роли рабочей области и базы данных."
+    },
+    "view": {
+      "title": "{name} просмотр",
+      "selectMembers": "Выберите участников",
+      "everyoneHasAccess": "Доступ к этому представлению могут получить все пользователи рабочего пространства {name}.",
+      "onlyYouHaveAccess": "Только вы можете получить доступ к этому представлению.",
+      "warningTitle": "Другие пользователи могут унаследовать доступ!",
+      "warningMessage": "Другие пользователи могут наследовать доступ через свои соответствующие роли в родительской таблице, базе данных или рабочей области.",
+      "headerTooltip": "Роли просмотра переопределяют роли рабочей области, базы данных и таблицы."
+    }
+  },
+  "memberRolesShareToggle": {
+    "label": "Поделитесь со всеми в {name}",
+    "subLabel": "{totalUserAmount} участников рабочей области"
+  },
+  "memberRolesDatabaseContexItem": {
+    "label": "Управление участниками",
+    "additionalRoles": "Дополнительные роли"
+  },
+  "memberRolesTableContexItem": {
+    "label": "Управление участниками",
+    "additionalRoles": "Дополнительные роли"
+  },
+  "memberRolesMembersList": {
+    "remove": "Удалять",
+    "teamMembersCount": "{count} членов команды",
+    "adminHelpText": "Администраторы могут ограничивать другие роли администраторов.",
+    "noMembers": "Ни один член не был выбран. Используйте кнопку выбора, чтобы добавить его."
+  },
+  "roleAssignmentModal": {
+    "membersTab": "Члены",
+    "teamsTab": "Команды",
+    "subjectTypeNameMembers": "члены",
+    "subjectTypeNameTeams": "команды"
+  },
+  "selectMembersList": {
+    "searchPlaceholder": "Найдите участников...",
+    "selectedAmountLabel": "Выбрано {count} участников"
+  },
+  "selectTeamsList": {
+    "searchPlaceholder": "Найдите команды...",
+    "selectedAmountLabel": "Выбрано {count} команд"
+  },
+  "selectSubjectsListFooter": {
+    "invite": "Пригласить {count} {type}",
+    "types": {
+      "members": "члены",
+      "teams": "команды"
+    },
+    "helpTooltip": "Назначения ролей участников переопределяют назначения ролей в команде."
+  },
+  "membersRoleField": {
+    "noAccessHelpText": "Этому пользователю требуется явный доступ к ресурсам.",
+    "adminHelpText": "Администраторы могут ограничивать другие роли администраторов."
+  },
+  "membersPagePlugin": {
+    "roleHelpText": "Может быть переопределено ролями в базах данных и таблицах."
+  },
+  "oauthSettingsForm": {
+    "providerName": "Имя",
+    "providerNamePlaceholder": "Имя пользовательского поставщика",
+    "clientId": "Идентификатор клиента",
+    "clientIdPlaceholder": "Идентификатор клиента провайдера",
+    "secret": "Секрет",
+    "secretPlaceholder": "Секрет провайдера",
+    "baseUrl": "URL-адрес",
+    "baseUrlPlaceholder": "Базовый URL-адрес поставщика",
+    "duplicateBaseUrl": "Введенный URL-адрес уже существует у другого провайдера.",
+    "invalidBaseUrl": "Введенный URL-адрес не является действительным URL-адресом поставщика.",
+    "useIdToken": "Используйте токен идентификатора для получения информации о пользователе",
+    "responseSettings": "Атрибуты ответа OIDC",
+    "defaultAttrs": "По умолчанию",
+    "customAttrs": "Обычай",
+    "emailAttrKey": "Электронная почта",
+    "emailAttrKeyHelper": "Адрес электронной почты, который будет использоваться в качестве имени пользователя.",
+    "firstNameAttrKey": "Имя",
+    "lastNameAttrKey": "Фамилия",
+    "firstNameAttrKeyHelper": "Имя пользователя или полное имя, если «Фамилия» не указана.",
+    "lastNameAttrKeyHelper": "Фамилия пользователя (необязательно). Очистите это значение, чтобы указать полное имя в поле «Имя».",
+    "callbackUrl": "URL обратного вызова"
+  },
+  "loginButton": {
+    "continueWith": "Продолжить с"
+  },
+  "enterpriseFeatures": {
+    "sso": "Единый вход",
+    "ssoContent": "Обеспечьте безопасный и простой вход в систему с помощью SAML, Google, Facebook, GitHub, GitLab или OpenID Connect. Поддерживает одновременно несколько провайдеров. Обратите внимание, что как инструмент Baserow, так и система аутентификации сборщика приложений поддерживают единый вход.",
+    "rbac": "Управление доступом на основе ролей",
+    "rbacContent": "Точно управляйте разрешениями. Назначайте такие роли, как администратор, строитель, редактор, комментатор или зритель, на уровне рабочей области, базы данных или таблицы. Вы также можете управлять доступом по команде.",
+    "auditLogs": "Журналы аудита",
+    "auditLogsContent": "Отслеживайте все, что происходит. Просматривайте полную историю действий в вашем экземпляре или рабочей области с возможностью фильтрации по пользователю, действию и т. д.",
+    "dataSync": "Синхронизация данных",
+    "dataSyncContent": "Автоматически обновляйте таблицы, синхронизируя их с другими таблицами Baserow или внешними источниками, такими как Jira, GitHub, GitLab или HubSpot. Он также позволяет выполнять периодическую синхронизацию и обеспечивает двустороннюю синхронизацию данных для поддерживаемых типов синхронизации данных.",
+    "coBranding": "Замена логотипа совместного бренда",
+    "coBrandingContent": "Настройте интерфейс Baserow с помощью собственного логотипа. Обратите внимание, что добавлено «приведено в действие Baserow».",
+    "support": "Прямая поддержка",
+    "supportContent": "Получите помощь, когда она вам понадобится. Свяжитесь с командой Baserow непосредственно с платформы.",
+    "advancedWebhooks": "Расширенные вебхуки",
+    "advancedWebhooksContent": "Запускайте веб-перехватчики, когда строка попадает в определенное представление — отлично подходит для автоматизации рабочих процессов на основе условий фильтра.",
+    "fieldLevelPermissions": "Разрешения на уровне поля",
+    "fieldLevelPermissionsContent": "Управляйте тем, кто может редактировать определенные поля в таблице. Установите разрешения для редакторов, разработчиков, администраторов или полностью отключите изменение значений полей.",
+    "builderBranding": "Брендинг приложения",
+    "builderBrandingContent": "Добавьте фирменную символику вашего приложения в белый цвет, удалив надпись «Сделано с Baserow» в нижнем колонтитуле вашего приложения.",
+    "builderFileInputElement": "Элемент ввода файла",
+    "builderFileInputElementContent": "Элемент ввода файла позволяет добавить на страницы приложения поле для загрузки файлов. Предоставьте своим пользователям возможность хранить важные документы или изображения.",
+    "builderCustomCode": "Пользовательский код для приложений",
+    "builderCustomCodeContent": "Вы можете добавить собственный код CSS/JavaScript для дальнейшей настройки внешнего вида и поведения вашего приложения. Например, вы можете интегрировать внешние сервисы, такие как аналитика или социальные сети.",
+    "dateDependency": "Зависимость от даты",
+    "dateDependencyContent": "Вы можете определить зависимость между двумя датами и продолжительностью, например датой начала/окончания и продолжительностью. При зависимости от даты, если одно значение изменится, другие значения будут скорректированы соответствующим образом.",
+    "dataScanner": "Сканер данных",
+    "dataScannerContent": "Сканируйте все данные в экземпляре Baserow на наличие конфиденциальных шаблонов, таких как номера IBAN или медицинские идентификаторы, или сопоставляйте их со списками известных значений. Настройте расписание автоматического сканирования и просматривайте подробные результаты."
+  },
+  "assistantSidebarItem": {
+    "title": "Кума ИИ"
+  },
+  "assistantPanel": {
+    "title": "ИИ-помощник",
+    "close": "Закрыть AI-помощник",
+    "history": "История чата",
+    "back": "Назад"
+  },
+  "assistantWelcomeMessage": {
+    "greet": "Привет {name}",
+    "question": "меня зовут Кума!",
+    "subtitle": "Я помогу тебе нести ношу, чтобы она никогда не казалась тяжелой. Выберите из подсказок ниже или просто скажите мне, что вам нужно!",
+    "subtitleWithoutSuggestions": "Я помогу тебе нести ношу, чтобы она никогда не казалась тяжелой. Просто скажи мне, что тебе нужно!",
+    "promptCreateDatabaseTitle": "Создать базу данных",
+    "promptCreateDatabasePrompt": "Создайте базу данных управления проектами.",
+    "promptCreateAutomationTitle": "Создайте автоматизацию",
+    "promptCreateAutomationPrompt": "Создайте автоматизацию, которая каждый вторник утром запрашивает на канале разработчиков Slack, есть ли что-нибудь для демонстрации.",
+    "promptInviteUsersTitle": "Пригласить пользователей",
+    "promptInviteUsersPrompt": "Как пригласить пользователей в мое рабочее пространство?",
+    "promptCreateTableTitle": "Создать таблицу",
+    "promptCreateTablePrompt": "Создайте новую таблицу с именем Tasks.",
+    "promptWhichTablesTitle": "Какие таблицы",
+    "promptWhichTablesPrompt": "Какие таблицы есть в этой базе данных?",
+    "promptCreateFormTitle": "Создать форму",
+    "promptCreateFormPrompt": "Создайте форму для этой таблицы.",
+    "promptCreateFilterTitle": "Создать фильтр",
+    "promptCreateFilterPrompt": "Показывать только строки, в которых основное поле пусто."
+  },
+  "assistantInputMessage": {
+    "statusWaiting": "Ассистент готов помочь",
+    "statusRunning": "Бег...",
+    "placeholder": "Спроси меня о чём угодно...",
+    "send": "Отправить сообщение",
+    "stop": "Остановить генерацию"
+  },
+  "assistant": {
+    "statusThinking": "Думая...",
+    "statusAnswering": "Отвечаю...",
+    "statusCancelling": "Отмена...",
+    "messageCancelled": "Сообщение отменено"
+  },
+  "assistantChatHistoryContext": {
+    "empty": "История чата недоступна",
+    "loading": "Загрузка истории чата..."
+  },
+  "assistantMessageSources": {
+    "sources": "{count} источник | {count} источники"
+  },
+  "assistantMessageList": {
+    "disclaimer": "Кума может ошибаться, пожалуйста, проверьте ответы еще раз."
+  },
+  "assistantMessageActions": {
+    "feedbackContextTitle": "Помогите нам улучшить",
+    "feedbackContextPlaceholder": "Что мы могли бы улучшить? (необязательный)",
+    "copiedToClipboard": "Скопировано в буфер обмена",
+    "copiedContentToast": "Содержимое ответа Ассистента скопировано в буфер обмена.",
+    "copyFailed": "Не удалось скопировать в буфер обмена"
+  },
+  "chatwootSupportSidebarWorkspace": {
+    "directSupport": "Прямая поддержка"
+  },
+  "userTeamsField": {
+    "no_records": "Нет команд"
+  },
+  "snapshotModalWarning": {
+    "message": "Имейте в виду, что снимок будет включать все разрешения, установленные для приложения и его таблиц."
+  },
+  "exportWorkspaceModalWarning": {
+    "message": "Имейте в виду, что экспорт не будет включать в себя какие-либо разрешения, установленные для приложения и его таблиц."
+  },
+  "auditLogSidebarWorkspace": {
+    "title": "Журнал аудита"
+  },
+  "localBaserowUserSourceType": {
+    "notConfigured": "Не настроено"
+  },
+  "localBaserowUserSourceForm": {
+    "description": "Каждая строка в таблице представляет собой учетную запись пользователя. Пожалуйста, выберите соответствующие поля в таблице. Поле электронной почты будет использоваться для идентификации.",
+    "emailFieldLabel": "Выберите поле электронной почты",
+    "emailFieldLabelPlaceholder": "Выберите поле...",
+    "noFields": "Нет полей",
+    "nameFieldLabel": "Выберите поле имени",
+    "nameFieldPlaceholder": "Выберите поле...",
+    "roleFieldLabel": "Выберите поле роли",
+    "roleFieldPlaceholder": "Выберите поле..."
+  },
+  "appAuthProviderType": {
+    "localBaserowPassword": "Электронная почта/пароль",
+    "commonSaml": "Самл ССО",
+    "openIdConnect": "OpenID Connect"
+  },
+  "localBaserowPasswordAppAuthProviderForm": {
+    "passwordFieldLabel": "Выберите поле пароля",
+    "noFields": "Нет совместимых полей"
+  },
+  "commonSamlSettingForm": {
+    "relayStateTitle": "URL-адрес состояния реле по умолчанию (нажмите, чтобы скопировать)",
+    "acsTitle": "URL-адрес системы единого входа (нажмите, чтобы скопировать)",
+    "addDomainNotice": "Доступно, если добавлен один или несколько доменов."
+  },
+  "commonOidcSettingForm": {
+    "callbackTitle": "URL-адреса обратного вызова (нажмите, чтобы скопировать)",
+    "callbackHelperText": "Добавьте эти URL-адреса в настройки URI перенаправления провайдера Openid Connect.",
+    "preview": "Предварительный просмотр"
+  },
+  "enterpriseSettings": {
+    "branding": "Брендинг",
+    "showBaserowHelpMessage": "Показать справочное сообщение",
+    "showBaserowHelpMessageDescription": "Указывает, должно ли сообщение с запросом на помощь отображаться на информационной панели.",
+    "deactivated": "Доступно на предприятии",
+    "coBrandingLogo": "Логотип",
+    "coBrandingLogoDescription": "Заменяет логотип Baserow на собственную альтернативу совместного бренда (176x29). Если этот параметр установлен, он также удаляет описание Baserow в нижнем колонтитуле всех электронных писем.",
+    "uploadFileButton": "Загрузить изображение"
+  },
+  "authFormElementForm": {
+    "userSource": "Источник пользователя",
+    "loginButtonLabel": "Ярлык кнопки входа в систему",
+    "loginButtonLabelPlaceholder": "Введите метку..."
+  },
+  "authFormElement": {
+    "email": "Электронная почта",
+    "password": "Пароль",
+    "emailPlaceholder": "Введите адрес электронной почты...",
+    "passwordPlaceholder": "Введите свой пароль...",
+    "selectOrConfigureUserSourceFirst": "Выберите источник пользователя, чтобы начать использовать этот элемент входа."
+  },
+  "enterpriseDataSyncType": {
+    "localBaserowTable": "Синхронизировать таблицу Baserow",
+    "jiraIssues": "Проблемы с синхронизацией Jira",
+    "githubIssues": "Проблемы с синхронизацией GitHub",
+    "gitlabIssues": "Проблемы с синхронизацией GitLab",
+    "hubspotContacts": "Синхронизировать контакты HubSpot"
+  },
+  "localBaserowTableDataSync": {
+    "name": "Идентификатор исходной таблицы",
+    "authorizing": "Вы разрешаете своей учетной записи выбирать данные из исходной таблицы.",
+    "workspace": "Рабочая область",
+    "database": "База данных",
+    "table": "Стол",
+    "view": "Вид",
+    "viewHelper": "Синхронизируются только видимые поля и строки, соответствующие фильтрам."
+  },
+  "jiraIssuesDataSync": {
+    "jiraUrl": "URL-адрес экземпляра Jira",
+    "urlHelper": "Базовый URL-адрес вашего экземпляра Jira (например, https://your-domain.atlassian.net).",
+    "authenticationLabel": "Аутентификация",
+    "authenticationHelper": "Выберите способ аутентификации с помощью Jira.",
+    "projectKey": "Ключ проекта Jira (необязательно)",
+    "projectKeyHelper": "Ключ проекта Jira (например, PROJ). Его можно найти, нажав «Настройки проекта» в Jira. Если не предоставить, все вопросы будут возвращены.",
+    "jiraUsername": "Имя пользователя Jira",
+    "usernameHelper": "Имя пользователя учетной записи Jira, используемой для аутентификации. Это адрес электронной почты, который вы используете для входа.",
+    "apiToken": "Токен API Jira",
+    "apiTokenHelper": "Токен API учетной записи Jira, используемый для аутентификации. Можно создать по адресу https://id.atlassian.com/manage-profile/security/api-tokens.",
+    "personalAccessToken": "Токен личного доступа Jira",
+    "personalAccessTokenHelper": "Токен API учетной записи Jira, используемый для аутентификации. Можно создать по адресу https://confluence.atlassian.com/enterprise/using-personal-access-tokens-1026032365.html."
+  },
+  "githubIssuesDataSync": {
+    "owner": "Владелец",
+    "ownerHelper": "Имя пользователя или владельца репозитория. Обычно в верхнем левом углу `владелец/репо`",
+    "repo": "Репозиторий",
+    "repoHelper": "Имя репозитория. Обычно в верхнем левом углу `владелец/репо`",
+    "apiToken": "API-токен",
+    "apiTokenHelper": "Можно сгенерировать здесь https://github.com/settings/tokens, нажав «Создать новый токен», выберите «Все репозитории», затем в разделе «Разрешения репозитория» установите для параметра «Проблемы» значение «только для чтения»."
+  },
+  "gitlabIssuesDataSync": {
+    "url": "Базовый URL",
+    "urlHelper": "Базовый URL-адрес вашего экземпляра GitLab. (например, https://gitlab.com)",
+    "projectId": "Идентификатор проекта",
+    "projectIdHelper": "Идентификатор проекта, из которого вы хотите синхронизировать задачи. Его можно найти, перейдя на страницу вашего проекта (например, https://gitlab.com/baserow/baserow), щелкнув три точки в правом верхнем углу, а затем «Копировать идентификатор проекта: 12345678».",
+    "accessToken": "Токен доступа",
+    "accessTokenHelper": "Можно сгенерировать здесь https://gitlab.com/-/user_settings/personal_access_tokens, нажав «Добавить новый токен», выберите «read_api»."
+  },
+  "hubspotContactsDataSync": {
+    "accessToken": "Токен доступа к частному приложению",
+    "accessTokenHelper": "Чтобы создать токен доступа к частному приложению в HubSpot, нажмите «Настройки» на верхней панели, выберите «Интеграции» > «Частные приложения» и создайте новое частное приложение. Назначьте следующие области: crm.objects.contacts.read, crm.schemas.contacts.read и crm.objects.custom.read. Наконец, нажмите «Создать приложение», чтобы сгенерировать токен."
+  },
+  "samlAuthLink": {
+    "placeholderWithSaml": "{login} с SAML",
+    "provideEmail": "Укажите адрес электронной почты вашей учетной записи SAML.",
+    "emailPlaceholder": "Введите адрес электронной почты..."
+  },
+  "configureDataSyncModal": {
+    "periodicInterval": "Периодические настройки"
+  },
+  "configureDataSyncPeriodicInterval": {
+    "title": "Периодические настройки",
+    "saved": "Сохранено",
+    "deactivatedTitle": "Периодическая синхронизация данных отключена",
+    "deactivatedText": "Периодическая синхронизация данных была отключена, поскольку она не удалась много раз подряд. Пожалуйста, попробуйте синхронизировать вручную, и если все работает как положено, нажмите кнопку активации.",
+    "activate": "Включить периодическую синхронизацию",
+    "enterprise": "Периодическая синхронизация данных — это расширенная/корпоративная функция.",
+    "more": "Дополнительная информация"
+  },
+  "dataSyncPeriodicIntervalForm": {
+    "intervalLabel": "Интервал",
+    "intervalHelper": "Как часто должна выполняться автоматическая синхронизация данных.",
+    "manual": "Руководство",
+    "daily": "Ежедневно",
+    "hourly": "Ежечасно",
+    "whenHelper": "Укажите точный час, минуту и ​​секунду, когда должна выполняться синхронизация данных.",
+    "whenHourlyHelper": "Укажите точную минуту и ​​секунду, когда должна выполняться синхронизация данных.",
+    "hour": "Час",
+    "minute": "минута",
+    "second": "Второй"
+  },
+  "oidcAuthLink": {
+    "placeholderWithOIDC": "{login} с {provider}"
+  },
+  "chartWidget": {
+    "name": "Диаграмма",
+    "bar": "Гистограмма",
+    "line": "Линейный график"
+  },
+  "pieChartWidget": {
+    "name": "Круговая диаграмма",
+    "pie": "Круговая диаграмма",
+    "doughnut": "Кольцевая диаграмма",
+    "polarArea": "Карта полярной области"
+  },
+  "groupedAggregateRowsDataSourceForm": {
+    "series": "Ряд",
+    "addSeries": "Добавить серию",
+    "data": "Данные",
+    "sourceFieldLabel": "Источник",
+    "viewFieldLabel": "Вид",
+    "notSelected": "Не выбрано"
+  },
+  "aggregationSeriesForm": {
+    "aggregationFieldLabel": "Поле",
+    "aggregationTypeLabel": "Краткое содержание",
+    "deleteSeries": "Удалить серию",
+    "chartType": "Тип диаграммы",
+    "barChart": "Бар",
+    "lineChart": "Линия",
+    "pieChart": "Пирог",
+    "doughnutChart": "Пончик",
+    "polarAreaChart": "Полярная зона"
+  },
+  "aggregationGroupByForm": {
+    "groupByFieldLabel": "Группировать по",
+    "groupByNone": "Никто",
+    "groupByRowId": "Идентификатор строки"
+  },
+  "aggregationSortByForm": {
+    "sortByFieldLabel": "Сортировать по",
+    "none": "Никто",
+    "ascending": "восходящий",
+    "descending": "По убыванию"
+  },
+  "periodicDataSyncDeactivatedNotification": {
+    "failure": "Периодическая синхронизация данных {name} была деактивирована, поскольку она не удалась слишком много раз подряд.",
+    "licenseUnavailable": "{name} периодическая синхронизация данных отключена, поскольку у рабочей области больше нет действующей лицензии. Обновите лицензию, чтобы восстановить автоматическую синхронизацию."
+  },
+  "twoWaySyncUpdateFailed": {
+    "title": "{name} обновление двусторонней синхронизации не удалось: {error}"
+  },
+  "twoWaySyncDeactivated": {
+    "title": "{name} двусторонняя синхронизация отключена, поскольку обновление завершилось неудачно слишком много раз подряд. Выполните синхронизацию вручную и повторно активируйте ее, когда проблема будет решена."
+  },
+  "webhook": {
+    "rowsEnterVieweventType": "Строки входят в представление"
+  },
+  "webhookForm": {
+    "triggerWhenRowsEnterView": "Срабатывает, когда строки попадают в представление.",
+    "helpTriggerWhenRowsEnterView": "Срабатывает только тогда, когда выбран параметр «Строки входят в представление» и в представление попадают строки, которые теперь соответствуют фильтрам."
+  },
+  "fileInputElementForm": {
+    "defaultNameTitle": "Исходное имя файла|Исходные имена файлов",
+    "defaultNamePlaceholder": "Введите имя файла...|Введите имена файлов...",
+    "defaultNameHelp": "Количество имен должно соответствовать количеству URL-адресов.",
+    "defaultUrlTitle": "URL-адрес исходного файла|URL-адреса исходного файла",
+    "defaultUrlPlaceholder": "Введите URL-адрес по умолчанию...|Введите URL-адреса по умолчанию..",
+    "helpTextTitle": "Текст справки",
+    "helpTextPlaceholder": "Оставить пустым по умолчанию...",
+    "multiple": "Несколько файлов?",
+    "required": "Необходимый",
+    "fileTypes": "Типы файлов",
+    "fileTypesHelper": "Выберите, какие расширения файлов разрешены (по одному на строку) при вводе файла (например, jpg, png, svg, pdf). вы можете указать image/*, video/* или audio/*, чтобы разрешить все файлы этих типов. Оставьте пустым, чтобы разрешить все типы файлов.",
+    "preview": "Предварительный просмотр изображений?",
+    "maxFileSize": "Максимальный размер файла",
+    "maxFileSizePlaceholder": "Введите номер...",
+    "addFileType": "Добавить тип файла"
+  },
+  "fileInputElement": {
+    "defaultHelpText": "Перетащите файлы сюда или нажмите, чтобы выбрать",
+    "fileSizeExceeded": "Файл слишком большой. Макс. {max}МБ."
+  },
+  "fieldPermissionModal": {
+    "title": "Изменить разрешения поля",
+    "description": "Выберите, кто может редактировать значения в {fieldName}.",
+    "question": "Кто может редактировать это поле?",
+    "editorTitle": "Редакторы и выше (по умолчанию)",
+    "editorDescription": "Пользователи с ролями редактора, строителя и администратора.",
+    "builderTitle": "Строители и выше",
+    "builderDescription": "Пользователи с ролями Builder и Admin",
+    "adminTitle": "Только администраторы",
+    "adminDescription": "Пользователи с ролью администратора",
+    "nobodyTitle": "Никто",
+    "nobodyDescription": "Нет пользователей",
+    "allowInForms": "Разрешить установку этого поля в строках, созданных с помощью форм.",
+    "linkRowWarning": "Это поле «Ссылка на таблицу». Чтобы гарантировать, что значения не могут быть изменены из связанной таблицы, убедитесь, что также установлены правильные разрешения для связанной таблицы."
+  },
+  "builderSettingTypes": {
+    "customCode": "Пользовательский CSS/JS"
+  },
+  "customCodeSettingForm": {
+    "customCSS": "Пользовательский CSS",
+    "customJS": "Пользовательский JavaScript",
+    "customCSSPlaceholder": "Введите собственный CSS-код...",
+    "customJSPlaceholder": "Введите какой-нибудь собственный JS-код...",
+    "externalScripts": "Внешние скрипты/таблицы стилей",
+    "noScript": "Улучшите свое приложение с помощью внешних скриптов или таблиц стилей.",
+    "customCodeTitle": "Пользовательский код",
+    "customCodeHelp": "Пользовательский код виден только в предварительной версии или опубликованных приложениях. Результаты не видны в редакторе.",
+    "addExternalScript": "Добавить внешний скрипт"
+  },
+  "customCodeSettingScriptForm": {
+    "type": "Тип",
+    "loadType": "Тип нагрузки",
+    "url": "URL-адрес",
+    "urlPlaceholder": "Введите URL-адрес скрипта...",
+    "crossorigin": "Перекрестное происхождение",
+    "includeCredentials": "Включить учетные данные",
+    "typeCSS": "CSS",
+    "typeJS": "Javascript",
+    "loadTypeNone": "Нормальный",
+    "loadTypeDefer": "Отложить",
+    "loadTypeAsync": "Асинхронный",
+    "crossoriginTypeNone": "Нормальный",
+    "crossoriginTypeAnonymous": "Анонимный",
+    "crossoriginTypeCredentials": "Использовать учетные данные"
+  },
+  "elementType": {
+    "errorUserSourceHasNoLoginOption": "Выбранный источник пользователя не имеет возможности входа в систему.",
+    "errorUserSourceMissing": "Источник пользователя не выбран"
+  },
+  "fieldPermissionsMenuItem": {
+    "label": "Изменить разрешения поля"
+  },
+  "enterpriseTwoWaySyncStrategyType": {
+    "realtimePushDescription": "Позволяет редактировать значения ячеек непосредственно в Baserow и передавать их в режиме реального времени в источник синхронизации данных. Обратите внимание, что изменения не вносятся в режиме реального времени, поскольку для их завершения требуется (периодическое) действие синхронизации. Настоятельно рекомендуется создавать резервные копии базы данных PostgreSQL, чтобы избежать случайных изменений."
+  },
+  "dateDependencyModal": {
+    "errorTitle": "Зависимость от даты",
+    "dependencyFieldTooltip": "Настройка зависимостей дат",
+    "dependencyFieldTooltipError": "Правило поля содержит ошибку",
+    "contextMenuItemLabel": "Настройка зависимостей дат",
+    "title": "Зависимость даты для {tableName}",
+    "description": "Укажите, какие строки зависят от других. При перепланировании строки ее зависимые строки автоматически корректируются.",
+    "enableDateDependency": "Включить зависимость дат для проектов",
+    "startDateFieldLabel": "Дата начала",
+    "endDateFieldLabel": "Дата окончания",
+    "durationFieldLabel": "Продолжительность",
+    "durationFieldHint": "Это поле должно иметь формат «d h».",
+    "dependencyLinkrowFieldLabel": "Предшественники",
+    "dependencyLinkrowFieldHint": "Используйте поле «Ссылка на таблицу», чтобы связать строку с ее предшественниками.",
+    "dependencyBufferTypeLabel": "Логика перепланирования",
+    "durationBufferLabel": "Буфер времени",
+    "dependencyConnectionTypeLabel": "Тип",
+    "advancedSettingsLabel": "Расширенные настройки",
+    "includeWeekendsLabel": "Включить выходные при расчете продолжительности",
+    "dependencyFieldForReaderTooltip": "Это поле включено в правило поля зависимости даты.",
+    "fieldInvalidTitle": "Ошибка поля зависимости даты",
+    "addNewField": "Добавить новое поле",
+    "linkRowFieldTitle": "Родители"
+  },
+  "dateDependency": {
+    "invalidChildRow": "Последующая строка недействительна.",
+    "invalidParentRow": "Недопустимая строка предшественника.",
+    "invalidParentEndDateAfterChildStartDate": "Дата окончания строки предшественника после даты начала преемника",
+    "invalidStartDateEmpty": "Дата начала пуста",
+    "invalidEndDateEmpty": "Дата окончания пуста.",
+    "invalidEndDateBeforeStartDate": "Дата окончания предшествует дате начала",
+    "invalidDurationEmpty": "Продолжительность пуста",
+    "invalidDurationValue": "Недопустимое значение продолжительности.",
+    "invalidDurationMismatch": "Несоответствие значения продолжительности"
+  },
+  "viewOwnershipType": {
+    "restricted": "Ограниченный",
+    "restrictedDescription": "Редакторы и ниже могут видеть только отфильтрованные данные и видимые поля. Есть возможность управлять участниками."
+  },
+  "databaseStep": {
+    "ai": "Кума ИИ"
+  },
+  "aiDatabaseOnboardingForm": {
+    "label": "Опишите свою базу данных",
+    "placeholder": "например Создать решение для управления проектами",
+    "description": "Опишите, что вы хотите отслеживать. Kuma создаст таблицы и поля.",
+    "exampleProjectTrackerName": "Трекер проекта",
+    "exampleProjectTrackerPrompt": "Создайте трекер проектов с проектами, задачами, исполнителями, статусом, приоритетом, сроками выполнения и зависимостями.",
+    "exampleProductRoadmapName": "Дорожная карта продукта",
+    "exampleProductRoadmapPrompt": "Создайте дорожную карту продукта с указанием инициатив, функций, владельцев, статуса, приоритета, целевого квартала и примечаний к выпуску.",
+    "exampleCompanyAssetTrackerName": "Отслеживание активов компании",
+    "exampleCompanyAssetTrackerPrompt": "Создайте трекер активов с активами, категориями, серийными номерами, датой покупки, назначением, местоположением и сроком действия гарантии.",
+    "exampleTeamCheckInsName": "Командные чекины",
+    "exampleTeamCheckInsPrompt": "Создайте еженедельный трекер командной регистрации с указанием членов команды, даты, побед, блокировщиков, настроения, приоритетов и последующих действий.",
+    "exampleBugTrackerName": "Трекер ошибок",
+    "exampleBugTrackerPrompt": "Создайте систему отслеживания ошибок с указанием ошибок, серьезности, статуса, шагов по воспроизведению, среды, отправителя отчетов, исполнителя и версии исправления."
+  },
+  "aiDatabaseOnboardingStepType": {
+    "prompt": "Создайте базу данных, включающую таблицы, поля, примеры строк и примеры представлений, соответствующие этому описанию: {prompt}"
+  },
+  "assistantOnboardingMessage": {
+    "instructing": "Поручаем Куме создать вашу базу данных."
+  }
+}

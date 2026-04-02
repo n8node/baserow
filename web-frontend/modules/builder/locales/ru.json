@@ -1,1 +1,1076 @@
-{}
+{
+  "common": {
+    "dateFormatTitle": "Формат даты",
+    "dateFormatEU": "Европейский",
+    "dateFormatUS": "НАС",
+    "dateFormatISO": "ИСО",
+    "timeFormatTitle": "Формат времени",
+    "timeFormat24Hour": "24 часа",
+    "timeFormat12Hour": "12 часов"
+  },
+  "builderToast": {
+    "details": "Подробности",
+    "defaultTitle": "Неожиданная ошибка",
+    "defaultMessage": "Произошла непредвиденная ошибка. Пожалуйста, повторите попытку позже.",
+    "invalidContextTitle": "Неверный запрос",
+    "invalidContextMessage": "Запрос недействителен.",
+    "InvalidContentTitle": "Неверная форма",
+    "invalidContentMessage": "Одно или несколько полей содержат недопустимые значения.",
+    "serviceMisconfiguredTitle": "Неполная конфигурация",
+    "serviceMisconfiguredMessage": "Пожалуйста, проверьте конфигурацию.",
+    "errorWorkflowActionDispatch": "Не удалось выполнить действие «{name}»:",
+    "errorDataSourceDispatch": "Не удалось загрузить данные «{name}»:"
+  },
+  "dataProviderType": {
+    "dataSource": "Записи данных",
+    "dataSourceContext": "Доступные варианты",
+    "pageParameter": "Параметр",
+    "currentRecord": "Источник данных",
+    "formData": "Данные формы",
+    "previousAction": "Предыдущее действие",
+    "user": "Пользователь"
+  },
+  "formDataProviderType": {
+    "nodeMissing": "Отсутствующий"
+  },
+  "builderForm": {
+    "submit": "Добавить приложение"
+  },
+  "sidebarComponentBuilder": {
+    "settings": "Настройки",
+    "createPage": "Новая страница"
+  },
+  "builderSettingsModal": {
+    "title": "Приложение"
+  },
+  "builderSettingTypes": {
+    "generalName": "Общий",
+    "integrationsName": "Интеграции",
+    "themeName": "Тема",
+    "domainsName": "Домены",
+    "userSourcesName": "Пользователи"
+  },
+  "createPageModal": {
+    "header": "Создать страницу",
+    "submit": "Добавить страницу"
+  },
+  "pageErrors": {
+    "errorNameNotUnique": "Страница с таким названием уже существует",
+    "errorNameNotUniqueDescription": "Пожалуйста, введите уникальное имя для страницы",
+    "errorPathNotUnique": "Путь с таким именем уже существует",
+    "errorStartingSlash": "Путь должен начинаться с '/'",
+    "errorValidPathCharacters": "Путь содержит недопустимые символы",
+    "errorUniquePathParams": "Параметры пути должны быть уникальными.",
+    "errorUniqueValidQueryParams": "Имена параметров запроса должны быть уникальными и допустимыми."
+  },
+  "pageHeaderItemTypes": {
+    "labelElements": "Элементы",
+    "labelDataSource": "Данные",
+    "labelVariables": "Переменные",
+    "labelSettings": "Настройки страницы"
+  },
+  "pageActionTypes": {
+    "preview": "Предварительный просмотр",
+    "publish": "Публиковать"
+  },
+  "publishActionModal": {
+    "title": "Публиковать",
+    "description": "Запустите свое приложение, опубликовав его на одном из доменов. Обратите внимание, что ваше приложение может иметь несколько доменов, на каждом из которых работает своя версия приложения.",
+    "publish": "Публиковать",
+    "publishSucceedTitle": "Сайт опубликован",
+    "publishSucceedDescription": "Сайт успешно опубликован.",
+    "publishSucceedLink": "Посмотреть сайт",
+    "publishFailedTitle": "Публикация сайта не удалась",
+    "publishFailedDescription": "Публикация сайта не удалась. Пожалуйста, повторите попытку позже.",
+    "openInNewTab": "Открыть в новой вкладке",
+    "importingState": "Импорт",
+    "noDomain": "Для публикации приложения вам необходимо иметь хотя бы один домен.",
+    "addDomain": "Добавить домен"
+  },
+  "lastPublishedDomainDate": {
+    "neverPublished": "никогда",
+    "lastPublished": "Последняя публикация:"
+  },
+  "elementsContext": {
+    "searchPlaceholder": "Элементы поиска",
+    "noPageElements": "Для этой страницы не найдено элементов",
+    "noElements": "Элементы не найдены"
+  },
+  "elementType": {
+    "heading": "Заголовок",
+    "headingDescription": "Заголовок страницы",
+    "text": "Текст",
+    "textDescription": "Многострочный текст",
+    "link": "Связь",
+    "linkDescription": "Ссылка на страницу/URL",
+    "image": "Изображение",
+    "imageDescription": "Показать изображение",
+    "inputText": "Ввод данных",
+    "inputTextDescription": "Поле ввода данных",
+    "column": "Столбцы",
+    "columnDescription": "Контейнер столбцов",
+    "button": "Кнопка",
+    "buttonDescription": "Элемент кнопки",
+    "table": "Стол",
+    "tableDescription": "Элемент таблицы",
+    "formContainer": "Форма",
+    "formContainerDescription": "Элемент формы",
+    "choice": "Выбор",
+    "choiceDescription": "Для выбора одного или нескольких значений",
+    "checkbox": "Флажок",
+    "checkboxDescription": "Элемент флажка",
+    "iframe": "IFrame",
+    "iframeDescription": "Встроенный кадр",
+    "authForm": "Форма входа",
+    "authFormDescription": "Форма входа пользователя",
+    "repeat": "Повторить",
+    "repeatDescription": "Повторяемый набор элементов",
+    "recordSelector": "Селектор записей",
+    "recordSelectorDescription": "Связанный селектор записей",
+    "dateTimePicker": "Выбор даты и времени",
+    "dateTimePickerDescription": "Поле ввода даты и времени",
+    "header": "Многостраничный заголовок",
+    "headerDescription": "Контейнер, общий для нескольких страниц",
+    "footer": "Многостраничный нижний колонтитул",
+    "footerDescription": "Контейнер, общий для нескольких страниц",
+    "notAllowedUnlessTop": "Этот элемент разрешен только вверху страницы.",
+    "notAllowedUnlessBottom": "Этот элемент разрешен только внизу страницы.",
+    "notAllowedUnlessHeader": "Этот элемент разрешен только внутри заголовка страницы.",
+    "notAllowedUnlessFooter": "Этот элемент разрешен только внутри нижнего колонтитула страницы.",
+    "notAllowedInsideContainer": "Этот элемент не разрешен внутри контейнера.",
+    "notAllowedInsideSameType": "Этот элемент не допускается в контейнере того же типа.",
+    "ratingInput": "Ввод рейтинга",
+    "ratingInputDescription": "Входной элемент рейтинга",
+    "rating": "Рейтинг",
+    "ratingDescription": "Элемент рейтинга",
+    "invalidElementValue": "Недопустимое значение элемента: {value}",
+    "notAllowedLocation": "Этот элемент не разрешен в этом месте",
+    "menu": "Меню",
+    "menuDescription": "Элемент меню",
+    "simpleContainer": "Контейнер",
+    "simpleContainerDescription": "Контейнер для других элементов",
+    "fileInput": "Ввод файла",
+    "fileInputDescription": "Вход для загрузки файлов",
+    "errorValueMissing": "Отсутствует свойство значения",
+    "errorEmptyContainer": "Этот контейнер пуст",
+    "errorParentWithDataSourceMissing": "В элементе или родительском контейнере не выбран источник данных.",
+    "errorDataSourceMissing": "Источник данных не выбран",
+    "errorSchemaPropertyMissing": "Свойство схемы не выбрано",
+    "errorWorkflowActionInError": "По крайней мере одно действие настроено неправильно.",
+    "errorCollectionFieldInError": "По крайней мере одно поле неверно настроено.",
+    "errorNavigateToPageMissing": "Отсутствует. Перейти к свойству.",
+    "errorPageParameterInError": "По крайней мере один параметр страницы настроен неправильно.",
+    "errorNavigationUrlMissing": "Отсутствует свойство URL навигации.",
+    "errorImageFileMissing": "Отсутствует файл изображения",
+    "errorImageUrlMissing": "Отсутствует свойство URL изображения.",
+    "errorNoWorkflowAction": "Действие рабочего процесса не настроено",
+    "errorOptionsMissing": "Опция не настроена",
+    "errorIframeUrlMissing": "Отсутствует свойство URL-адреса IFrame.",
+    "errorIframeContentMissing": "Отсутствует содержимое IFrame",
+    "errorNoMenuItem": "Ни один пункт меню не настроен",
+    "errorMenuItemInError": "По крайней мере одно меню настроено неправильно.",
+    "errorSubMenuItemInError": "По крайней мере одно подменю настроено неправильно."
+  },
+  "addElementButton": {
+    "label": "Элемент"
+  },
+  "addElementModal": {
+    "title": "Добавить новый элемент",
+    "searchPlaceholder": "Элементы поиска",
+    "elementInProgress": "Добавление элемента..."
+  },
+  "addElementCategory": {
+    "suggestedElement": "Предлагаемые элементы",
+    "baseElement": "Базовые элементы",
+    "layoutElement": "Элементы макета",
+    "formElement": "Элементы формы"
+  },
+  "elementMenu": {
+    "moveUp": "Вверх",
+    "moveDown": "Двигаться вниз",
+    "moveLeft": "Двигаться влево",
+    "moveRight": "Двигайтесь вправо",
+    "selectParent": "Выберите родителя"
+  },
+  "duplicatePageJobType": {
+    "name": "Дублировать страницу",
+    "duplicating": "Дублирование",
+    "duplicatedTitle": "Страница дублируется"
+  },
+  "pageSidePanelType": {
+    "general": "Общий",
+    "style": "Стиль",
+    "visibility": "Видимость",
+    "events": "События",
+    "eventsTabDeactivatedNoEvents": "Этот элемент не поддерживает никаких событий",
+    "eventsTabInError": "Одно или несколько действий настроены неправильно."
+  },
+  "emptySidePanelState": {
+    "message": "Нажмите на один из элементов, чтобы увидеть более подробную информацию"
+  },
+  "pagePreview": {
+    "emptyMessage": "Нажмите, чтобы создать элемент",
+    "header": "ЗАГОЛОВОК",
+    "footer": "НИЖНИЙ ФОТЕР"
+  },
+  "elementForms": {
+    "textInputPlaceholder": "Введите текст...",
+    "urlInputPlaceholder": "Введите URL...",
+    "invalidFormula": "Формула недействительна"
+  },
+  "headingElement": {
+    "missingValue": "Отсутствует заголовок...",
+    "emptyValue": "Пустой заголовок..."
+  },
+  "headingElementForm": {
+    "levelTitle": "Уровень",
+    "textTitle": "Текст",
+    "textPlaceholder": "Введите текст...",
+    "headingName": "Заголовок {level} <h{level}>",
+    "textError": "Значение недействительно."
+  },
+  "textElement": {
+    "missingValue": "Пропал текст...",
+    "emptyValue": "Пустой текст..."
+  },
+  "textElementForm": {
+    "textTitle": "Текст",
+    "textPlaceholder": "Введите текст...",
+    "textError": "Значение недействительно.",
+    "textFormatTypeLabel": "Формат",
+    "textFormatTypePlain": "Обычный текст",
+    "textFormatTypeMarkdown": "Уценка"
+  },
+  "orientations": {
+    "label": "Ориентация",
+    "horizontal": "Горизонтальный",
+    "vertical": "Вертикальный"
+  },
+  "menuElement": {
+    "missingValue": "Отсутствует пункт меню",
+    "separator": "Сепаратор",
+    "spacer": "Проставка",
+    "missingLinkValue": "Отсутствует название ссылки...",
+    "emptyLinkValue": "Пустое имя ссылки...",
+    "missingButtonValue": "Не указано название кнопки...",
+    "emptyButtonValue": "Пустое название кнопки..."
+  },
+  "menuElementForm": {
+    "menuItemsLabel": "Пункты меню",
+    "addMenuItemLink": "Добавлять...",
+    "alignment": "Выравнивание",
+    "menuItemDefaultName": "Страница",
+    "menuItemLabelLabel": "Этикетка",
+    "menuItemTypeLabel": "Тип",
+    "menuItemTypeSeparator": "Сепаратор",
+    "menuItemVariantLabel": "Вариант",
+    "menuItemVariantLink": "Связь",
+    "menuItemVariantButton": "Кнопка",
+    "namePlaceholder": "Страница",
+    "addSubLink": "Добавить дополнительную ссылку",
+    "menuItemSubLinkDefaultName": "Дополнительная ссылка",
+    "menuItemAddLink": "Связь",
+    "menuItemAddButton": "Кнопка",
+    "menuItemAddSeparator": "Сепаратор",
+    "menuItemAddSpacer": "Проставка",
+    "eventDescription": "Чтобы настроить действия для этой кнопки, откройте вкладку «События» этого элемента.",
+    "noMenuItemsMessage": "Нажмите «Добавить», чтобы добавить первый пункт меню."
+  },
+  "simpleContainerElementForm": {
+    "noConfigurationOptions": "Элемент контейнера не имеет никаких параметров конфигурации."
+  },
+  "imageElement": {
+    "missingValue": "Отсутствует альтернативный текст...",
+    "emptyValue": "Пустой альтернативный текст..."
+  },
+  "generalForm": {
+    "labelTitle": "Этикетка",
+    "labelPlaceholder": "Введите ярлык",
+    "valueTitle": "Ценить",
+    "defaultValueTitle": "Значение по умолчанию",
+    "defaultValuePlaceholder": "Введите значение по умолчанию",
+    "valuePlaceholder": "Введите значение",
+    "placeholderTitle": "Заполнитель",
+    "placeholderPlaceholder": "Введите заполнитель",
+    "requiredTitle": "Необходимый",
+    "validationTitle": "Валидация"
+  },
+  "inputTextElementForm": {
+    "multilineTitle": "Многострочный",
+    "rowsTitle": "Количество строк",
+    "rowsPlaceholder": "Введите количество строк этого ввода",
+    "validationTypeAnyLabel": "Любой",
+    "validationTypeAnyDescription": "Разрешить установку любого значения на этом входе.",
+    "validationTypeIntegerLabel": "Число",
+    "validationTypeIntegerDescription": "Введите числовое значение в этот ввод (принимаются целые и десятичные числа).",
+    "validationTypeEmailLabel": "Электронная почта",
+    "validationTypeEmailDescription": "Примените значение адреса электронной почты в этом входе.",
+    "inputType": "Тип входа",
+    "inputTypeTextLabel": "Текст",
+    "inputTypePasswordLabel": "Пароль",
+    "passwordTypeWarning": "Пароли являются конфиденциальными данными. Пожалуйста, будьте осторожны с тем, как вы обрабатываете и храните пароли в своем приложении."
+  },
+  "dateTimePickerElementForm": {
+    "includeTime": "Включить время",
+    "invalidDateError": "Неверная дата. Убедитесь, что введенная дата соответствует указанному формату."
+  },
+  "imageElementForm": {
+    "fileLabel": "Изображение",
+    "invalidUrlError": "URL-адрес недействителен",
+    "altTextTitle": "Альтернативный текст",
+    "altTextDescription": "Используется программами чтения с экрана и отображается, если изображение не загружается.",
+    "fileSourceTypeUpload": "Загрузить",
+    "fileSourceTypeURL": "URL-адрес",
+    "urlWarning": "Примечание. Убедитесь, что вы можете контролировать введенный URL-адрес или доверять ему.",
+    "uploadFileButton": "Загрузить файл"
+  },
+  "iframeElementForm": {
+    "missingValue": "Отсутствует источник IFrame...",
+    "emptyValue": "Пустой источник IFrame...",
+    "sourceTypeLabel": "Тип источника",
+    "urlLabel": "URL-адрес",
+    "urlPlaceholder": "Ссылка на внешний ресурс для встраивания",
+    "urlHelp": "Примечание. Убедитесь, что вы можете контролировать введенный URL-адрес или доверять ему.",
+    "embedLabel": "Встроить",
+    "embedPlaceholder": "Необработанный HTML-контент для встраивания",
+    "heightLabel": "Высота (пикселей)",
+    "heightPlaceholder": "Высота в пикселях"
+  },
+  "columnElementForm": {
+    "columnAmountTitle": "Макет",
+    "verticalAlignment": "Вертикальное выравнивание",
+    "columnAmountName": "нет столбцов | 1 столбец | {columnAmount} столбцы",
+    "columnGapTitle": "Пространство между столбцами",
+    "columnGapPlaceholder": "Введите пространство между столбцами..."
+  },
+  "domainSettings": {
+    "titleOverview": "Домены",
+    "titleAddDomain": "Добавить домен",
+    "addDomain": "Добавить домен",
+    "noDomainMessage": "Вы еще не связали домен с этим приложением. Вам необходимо добавить домен, чтобы иметь возможность публиковать свое приложение. Вы можете публиковать разные версии своего приложения для каждого домена, указанного здесь."
+  },
+  "userSourceSettings": {
+    "titleAddUserSource": "Новый источник пользователя",
+    "titleUpdateUserSource": "Изменить источник пользователя",
+    "noUserSourceMessage": "Вы еще не добавили источник пользователя в это приложение. Вы должны добавить источник пользователя, если хотите, чтобы пользователи могли аутентифицировать ваше приложение.",
+    "titleOverview": "Пользовательские источники",
+    "addUserSource": "Добавить источник пользователя"
+  },
+  "themeSettings": {
+    "titleOverview": "Тема"
+  },
+  "generalSettings": {
+    "titleOverview": "Общий",
+    "labelForm": "Фавикон",
+    "labelDescription": "Выберите ICO, PNG, GIF или JPEG размером 128x128 пикселей.",
+    "labelButton": "Загрузить значок",
+    "cantUploadFaviconTitle": "Не удалось загрузить файл значка",
+    "cantUploadFaviconDescription": "К сожалению, не удалось загрузить изображение значка. Убедитесь, что файл изображения уникален и соответствует поддерживаемому формату изображения.",
+    "cantUpdateApplicationTitle": "Не удалось обновить приложение",
+    "cantUpdateApplicationDescription": "К сожалению, не удалось обновить приложение."
+  },
+  "dnsStatus": {
+    "description": "Посетите настройки DNS ваших доменов и внесите следующие изменения.",
+    "typeHeader": "Тип",
+    "hostHeader": "Хозяин",
+    "valueHeader": "Ценить"
+  },
+  "domainForm": {
+    "invalidDomain": "Указанное доменное имя недействительно.",
+    "notUniqueDomain": "Указанный домен уже используется"
+  },
+  "customDomainForm": {
+    "domainNameLabel": "Доменное имя"
+  },
+  "subDomainForm": {
+    "domainNameLabel": "Доменное имя"
+  },
+  "subDomainDetails": {
+    "text": "Настройки DNS домена уже настроены и проверены. Работает без каких-либо дополнительных изменений."
+  },
+  "domainCard": {
+    "refresh": "Обновить настройки",
+    "detailLabel": "Показать детали",
+    "unpublishedDomainWarning": "Опубликуйте приложение, чтобы сделать его доступным в этом домене."
+  },
+  "domainTypes": {
+    "customName": "Пользовательский домен",
+    "subDomainName": "Субдомен",
+    "subDomain": "Поддомен {domain}"
+  },
+  "linkElement": {
+    "missingValue": "Не хватает текста ссылки...",
+    "emptyValue": "Пустой текст ссылки..."
+  },
+  "linkNavigationSelection": {
+    "navigateTo": "Перейдите к",
+    "navigateToCustom": "Пользовательский URL-адрес",
+    "paramPlaceholder": "Введите значение...",
+    "urlPlaceholder": "Введите URL...",
+    "url": "Целевой URL",
+    "paramsInErrorDescription": "Сохраненные параметры не соответствуют параметрам страницы. Вероятно, страница была удалена или обновлена.",
+    "paramsInErrorButton": "Обновить параметры",
+    "target": "Открыть в...",
+    "targetSelf": "Та же вкладка",
+    "targetNewTab": "Новая вкладка"
+  },
+  "linkElementForm": {
+    "text": "Текст",
+    "textPlaceholder": "Введите текст...",
+    "variant": "Вариант",
+    "variantLink": "Связь",
+    "variantButton": "Кнопка",
+    "buttonColor": "Цвет кнопки"
+  },
+  "widthSelector": {
+    "width": "Ширина",
+    "widthAuto": "Авто",
+    "widthFull": "Полная ширина"
+  },
+  "backgroundTypes": {
+    "none": "Никто",
+    "color": "Цвет"
+  },
+  "widthTypes": {
+    "fullBleed": "Полное кровотечение",
+    "fullWidth": "Полная ширина",
+    "normal": "Нормальный",
+    "medium": "Середина",
+    "small": "Маленький"
+  },
+  "horizontalAlignmentSelector": {
+    "alignmentLeft": "Левый",
+    "alignmentCenter": "Центр",
+    "alignmentRight": "Верно"
+  },
+  "verticalAlignmentSelector": {
+    "alignmentTop": "Вершина",
+    "alignmentCenter": "Середина",
+    "alignmentBottom": "Нижний"
+  },
+  "pageSettingsTypes": {
+    "pageName": "Страница"
+  },
+  "pageVisibilitySettingsTypes": {
+    "pageName": "Видимость",
+    "logInPageWarningTitle": "Страница входа не установлена",
+    "logInPagewarningMessage": "Когда анонимный пользователь попытается получить доступ к этой странице, он будет перенаправлен на страницу входа. Пожалуйста, установите страницу входа в общие настройки приложения.",
+    "logInPageInfoTitle": "Анонимные пользователи будут перенаправлены",
+    "logInPageInfoMessage": "Анонимные пользователи, пытающиеся получить доступ к этой странице, будут перенаправлены на страницу {logInPageName}."
+  },
+  "pageSettings": {
+    "title": "Страница",
+    "pageUpdatedTitle": "Измененный",
+    "pageUpdatedDescription": "Настройки страницы обновлены."
+  },
+  "pageVisibilitySettings": {
+    "title": "Видимость",
+    "allVisitors": "Все посетители",
+    "loggedInVisitors": "Зарегистрированные посетители",
+    "description": "Кто может видеть эту страницу"
+  },
+  "pageForm": {
+    "defaultName": "Страница",
+    "nameTitle": "Имя",
+    "nameSubtitle": "Уникальное имя страницы",
+    "namePlaceholder": "Введите имя...",
+    "pathTitle": "Путь",
+    "addAnotherParameter": "Добавьте еще один параметр строки запроса",
+    "addParameter": "Добавить параметр строки запроса",
+    "queryParamsSubtitleTutorial": "Параметры запроса можно использовать для динамической загрузки данных в зависимости от предоставленного параметра.",
+    "pathSubtitle": "Параметр можно добавить через :parameter",
+    "pathPlaceholder": "Введите путь...",
+    "pathParamsTitle": "Параметры пути",
+    "queryParamsTitle": "Параметры строки запроса",
+    "pathParamsSubtitle": "Определяются :parameter в пути",
+    "pathParamsSubtitleTutorial": "Параметры пути можно использовать для динамической загрузки данных в зависимости от предоставленного параметра. Добавьте :parameter к пути, чтобы добавить его."
+  },
+  "pathParamTypes": {
+    "textName": "Текст",
+    "numericName": "Числовой"
+  },
+  "queryParamTypes": {
+    "textName": "Текст",
+    "numericName": "Числовой"
+  },
+  "pageEditor": {
+    "title": "Разработчик приложений",
+    "pageNotFound": "Страница не найдена"
+  },
+  "publicPage": {
+    "siteNotFound": "Сайт не найден",
+    "pageNotFound": "Страница не найдена",
+    "loginToastTitle": "Аутентификация успешна",
+    "loginToastMessage": "Вы успешно вошли в систему.",
+    "authorizedToastTitle": "Требуется аутентификация",
+    "authorizedToastMessage": "Вы должны войти в систему, чтобы получить доступ к этой странице. Пожалуйста, войдите, чтобы продолжить."
+  },
+  "integrationSettings": {
+    "title": "Интеграции",
+    "noIntegrationMessage": "Вы еще не создали ни одной интеграции. Их можно создать путем добавления источника данных, действия или аутентификации пользователя.",
+    "integrationMessage": "Вы можете создавать новые интеграции, добавляя источник данных, действие или аутентификацию пользователя."
+  },
+  "dataSourceForm": {
+    "namePlaceholder": "Название источника",
+    "nameLabel": "Имя",
+    "actionLabel": "Действие",
+    "integrationLabel": "Интеграция",
+    "servicePlaceholder": "Выберите услугу",
+    "integrationPlaceholder": "Выберите интеграцию",
+    "errorUniqueName": "Имя источника данных должно быть уникальным."
+  },
+  "dataSourceContext": {
+    "addDataSource": "Добавить новый источник данных",
+    "noDataSourceTitle": "Вы еще не добавили источник данных.",
+    "noDataSourceMessage": "Источники данных можно использовать для получения данных из внутренних или внешних источников и отображения их на странице.",
+    "sharedDataSourceTitle": "Доступно между страницами",
+    "pageDataSourceTitle": "Для этой страницы",
+    "sharedDataSourceDescription": "Доступен на каждой странице и извлекается один раз при первой загрузке страницы.",
+    "pageDataSourceDescription": "Получается, когда пользователь переходит на эту страницу."
+  },
+  "dataSourceItem": {
+    "notConfigured": "Не настроено"
+  },
+  "dataSourceItemContext": {
+    "shareBetweenPages": "Поделиться между страницами",
+    "unshareBetweenPages": "Отключить общий доступ к другим страницам"
+  },
+  "dataSourceCreateEditModal": {
+    "editTitle": "Изменить источник данных",
+    "createTitle": "Создать источник данных",
+    "sharedWarning": "Этот источник данных является общим, поэтому ваши изменения могут повлиять на несколько страниц."
+  },
+  "defaultStyleForm": {
+    "boxTop": "Вершина",
+    "boxBottom": "Нижний",
+    "boxLeft": "Левый",
+    "boxRight": "Верно",
+    "backgroundLabel": "Фон",
+    "backgroundColor": "Цвет фона",
+    "widthLabel": "Ширина",
+    "backgroundImage": "Изображение",
+    "backgroundImageMode": "Режим заполнения",
+    "cssClasses": "CSS-классы",
+    "cssClassesHelp": "Задайте список классов, разделенных пробелами, для этого элемента, который будет отображаться в сгенерированном HTML.",
+    "cssClassesPlaceholder": "Введите классы CSS..."
+  },
+  "styleBoxForm": {
+    "borderColor": "Цвет границы",
+    "borderLabel": "Размер",
+    "paddingLabel": "Заполнение",
+    "marginLabel": "Допуск"
+  },
+  "radiusStyleForm": {
+    "cornerRadiusLabel": "Угловой радиус",
+    "backgroundRadiusLabel": "Фон",
+    "borderRadiusLabel": "Граница"
+  },
+  "themeConfigBlockType": {
+    "color": "Цвета",
+    "page": "Страница",
+    "typography": "Типография",
+    "button": "Кнопка",
+    "link": "Связь",
+    "image": "Изображение",
+    "input": "Вход",
+    "table": "Стол"
+  },
+  "colorThemeConfigBlock": {
+    "transparent": "Прозрачный",
+    "primaryColor": "Начальный",
+    "secondaryColor": "вторичный",
+    "borderColor": "Граница",
+    "successColor": "Успех",
+    "warningColor": "Предупреждение",
+    "errorColor": "Ошибка",
+    "customColors": "Пользовательские цвета",
+    "addCustomColor": "Добавить собственный цвет",
+    "customColorPrefix": "Обычай"
+  },
+  "pageThemeConfigBlock": {
+    "backgroundColor": "Цвет фона",
+    "backgroundImage": "Фоновое изображение",
+    "backgroundMode": "Фоновый режим"
+  },
+  "colorThemeConfigBlockType": {
+    "transparent": "Прозрачный",
+    "primary": "Начальный",
+    "secondary": "вторичный",
+    "border": "Граница",
+    "success": "Успех",
+    "warning": "Предупреждение",
+    "error": "Ошибка"
+  },
+  "typographyThemeConfigBlock": {
+    "headingLabel": "Заголовок {i} (h{i})",
+    "headingValue": "Заголовок <h{i}>",
+    "color": "Цвет",
+    "size": "Размер",
+    "weight": "Масса",
+    "textAlignment": "Выравнивание",
+    "bodyLabel": "Тело",
+    "decoration": "Текстовое оформление",
+    "fontFamily": "Шрифт"
+  },
+  "fontWeightType": {
+    "thin": "Тонкий",
+    "extraLight": "Экстра-легкий",
+    "light": "Свет",
+    "regular": "Обычный",
+    "medium": "Середина",
+    "semiBold": "Полужирный",
+    "bold": "Смелый",
+    "extraBold": "Экстра-жирный",
+    "black": "Черный",
+    "extraBlack": "Экстра-черный"
+  },
+  "buttonThemeConfigBlock": {
+    "backgroundColor": "Цвет фона",
+    "button": "Кнопка",
+    "defaultState": "Состояние по умолчанию",
+    "hoverState": "Состояние наведения",
+    "activeState": "Активное состояние",
+    "textAlignment": "Выравнивание текста",
+    "alignment": "Выравнивание",
+    "width": "Ширина",
+    "textColor": "Цвет текста",
+    "borderColor": "Цвет границы",
+    "borderSize": "Размер границы",
+    "borderRadius": "Радиус границы",
+    "padding": "Заполнение",
+    "fontFamily": "Шрифт",
+    "size": "Размер шрифта",
+    "weight": "Вес шрифта"
+  },
+  "linkThemeConfigBlock": {
+    "color": "Цвет",
+    "link": "Связь",
+    "defaultState": "Состояние по умолчанию",
+    "hoverState": "Состояние наведения",
+    "activeState": "Активное состояние",
+    "alignment": "Выравнивание",
+    "fontFamily": "Шрифт",
+    "size": "Размер шрифта",
+    "weight": "Вес шрифта",
+    "decoration": "Текстовое оформление"
+  },
+  "inputThemeConfigBlock": {
+    "label": "Этикетка",
+    "input": "Вход",
+    "backgroundColor": "Цвет фона",
+    "textColor": "Цвет текста",
+    "borderColor": "Цвет границы",
+    "borderSize": "Размер границы",
+    "borderRadius": "Радиус границы",
+    "padding": "Заполнение",
+    "fontFamily": "Шрифт",
+    "size": "Размер шрифта",
+    "weight": "Вес шрифта"
+  },
+  "imageThemeConfigBlock": {
+    "alignment": "Выравнивание",
+    "maxWidthLabel": "Максимальная ширина",
+    "maxHeightLabel": "Максимальная высота",
+    "maxHeightPlaceholder": "Введите максимальную высоту",
+    "maxWidthPlaceholder": "Введите максимальную ширину",
+    "imageConstraintsLabel": "Ограничения",
+    "imageConstraintFullWidth": "Расширить до максимальной ширины",
+    "imageConstraintCover": "Крышка",
+    "imageConstraintCoverDisabled": "Недоступно при пустой максимальной высоте.",
+    "imageConstraintContain": "Содержать",
+    "imageConstraintContainDisabled": "Недоступно с максимальной высотой.",
+    "imageBorderRadiusLabel": "Радиус границы",
+    "imageBorderRadiusPlaceholder": "Введите радиус границы изображения."
+  },
+  "tableThemeConfigBlock": {
+    "borderColor": "Цвет границы",
+    "backgroundAlternateColor": "Цвет четных строк",
+    "backgroundColor": "Цвет фона",
+    "textColor": "Цвет текста",
+    "borderSize": "Размер границы",
+    "borderRadius": "Радиус границы",
+    "padding": "Заполнение",
+    "fontFamily": "Шрифт",
+    "size": "Размер",
+    "fontSize": "Размер шрифта",
+    "fontWeight": "Вес шрифта",
+    "table": "Стол",
+    "header": "Заголовок",
+    "alignment": "Выравнивание",
+    "cells": "Клетки",
+    "separators": "Сепараторы",
+    "verticalSeparatorColor": "Вертикальный цвет",
+    "verticalSeparatorSize": "Вертикальный размер",
+    "horizontalSeparatorColor": "Горизонтальный цвет",
+    "horizontalSeparatorSize": "Горизонтальный размер"
+  },
+  "buttonElementForm": {
+    "valueLabel": "Текст кнопки",
+    "valuePlaceholder": "Введите текст..."
+  },
+  "buttonElement": {
+    "missingValue": "Отсутствует текст кнопки...",
+    "emptyValue": "Пустой текст кнопки..."
+  },
+  "eventTypes": {
+    "clickLabel": "По клику",
+    "submitLabel": "При отправке",
+    "afterLoginLabel": "После входа в систему"
+  },
+  "getFormulaComponent": {
+    "errorTooltip": "Неверная ссылка"
+  },
+  "fontSidePanelForm": {
+    "label": "Цвет шрифта"
+  },
+  "choiceElementForm": {
+    "multiple": "Разрешить несколько значений",
+    "display": "Отображать",
+    "dropdown": "Падать",
+    "checkbox": "Флажок",
+    "radio": "Радио"
+  },
+  "dropdown": {
+    "empty": "Нет доступных вариантов"
+  },
+  "tableElementForm": {
+    "dataSource": "Источник данных",
+    "fields": "Поля",
+    "fieldValueLabel": "Ценить",
+    "addField": "добавить поле",
+    "fieldValuePlaceholder": "Введите значение...",
+    "itemsPerPage": "Элементов на странице",
+    "fieldDefaultName": "Столбец",
+    "name": "Имя",
+    "noName": "Без имени",
+    "fieldType": "Тип",
+    "itemsPerPagePlaceholder": "Введите значение...",
+    "selectSourceFirst": "Выберите источник данных и/или свойство, чтобы начать настройку полей.",
+    "buttonColor": "Цвет кнопки",
+    "refreshFieldsFromDataSource": "обновить поля из источника данных",
+    "buttonLoadMoreLabel": "Показать больше ярлыков",
+    "propertySelectorMissingArrays": "Не обнаружено полей с несколькими значениями, которые можно было бы использовать в качестве строк."
+  },
+  "tableElement": {
+    "showMore": "Показать больше"
+  },
+  "abTable": {
+    "loading": "Загрузка...",
+    "empty": "Ни одного предмета не обнаружено."
+  },
+  "repeatElement": {
+    "empty": "Ни одного предмета не обнаружено.",
+    "showMore": "Показать больше",
+    "missingDataSourceTooltip": "Выберите источник данных, чтобы начать добавлять элементы.",
+    "missingSchemaPropertyTooltip": "Выберите свойство, чтобы начать добавлять элементы.",
+    "emptyState": "Записи не найдены."
+  },
+  "collectionElementForm": {
+    "noDataSourceMessage": "Выберите источник данных с несколькими строками, чтобы вывести список всех результатов, или источник данных с одной строкой, чтобы выбрать свойство внутри этой строки.",
+    "noSchemaPropertyMessage": "Выберите свойство внутри источника данных, которое будет использоваться в качестве данных списка вашего элемента.",
+    "propertyOptionLabel": "Действия пользователя"
+  },
+  "propertyOptionForm": {
+    "fieldHeading": "Поле",
+    "filterHeading": "Фильтр",
+    "sortHeading": "Сортировать",
+    "searchHeading": "Поиск",
+    "optionUnavailable": "Недоступно",
+    "noPropertiesAvailable": "Нет доступных полей.",
+    "formDescription": "Выберите, какие свойства на странице источника данных этого элемента посетители могут фильтровать, сортировать и выполнять поиск."
+  },
+  "repeatElementForm": {
+    "dataSource": "Источник данных",
+    "itemsPerPage": "Элементов на странице",
+    "itemsPerPagePlaceholder": "Введите значение...",
+    "itemsPerRowLabel": "Элементов в строке",
+    "itemsPerRowDescription": "Количество столбцов в строке и тип устройства.",
+    "buttonLoadMoreLabel": "Показать больше ярлыков",
+    "toggleEditorRepetitionsLabel": "Временно отключить повторы",
+    "propertySelectorMissingArrays": "Не найдено многозначных полей, которые могут повторяться.",
+    "gapLabel": "Промежуток между повторениями",
+    "gapVerticalLabel": "Вертикальный",
+    "gapHorizontalLabel": "Горизонтальный"
+  },
+  "recordSelectorElement": {
+    "emptyAdhocState": "Записи, соответствующие '{query}', не найдены.",
+    "emptyState": "Записи не найдены."
+  },
+  "recordSelectorElementForm": {
+    "selectRecordsFrom": "Выбрать записи из",
+    "noDataSourceMessage": "Выберите источник данных с несколькими строками, чтобы вывести список всех результатов.",
+    "optionNameSuffix": "Суффикс имени опции",
+    "optionNameSuffixPlaceholder": "Введите суффикс...",
+    "optionNameSuffixHelper": "Этот суффикс добавляется к каждому имени параметра, когда вы открываете раскрывающийся список, и помогает их различать.",
+    "itemsPerPage": "Элементов на странице",
+    "itemsPerPagePlaceholder": "Введите значение...",
+    "multipleLabel": "Разрешить несколько значений",
+    "record": "Запись {id}"
+  },
+  "currentRecordDataProviderType": {
+    "index": "Индекс",
+    "firstPartName": "Источник данных: {name}",
+    "schemaProperty": "{prefixName}: {schemaProperty}"
+  },
+  "workflowActionTypes": {
+    "notificationLabel": "Показать уведомление",
+    "openPageLabel": "Открыть страницу",
+    "logoutLabel": "Выход из системы",
+    "refreshDataSourceLabel": "Обновить источник данных",
+    "httpRequest": "Отправить HTTP-запрос",
+    "errorNavigateToPageMissing": "Отсутствует. Перейти к свойству.",
+    "errorPageParameterInError": "По крайней мере один параметр страницы настроен неправильно.",
+    "errorNavigationUrlMissing": "Отсутствует свойство URL навигации.",
+    "errorDataSourceMissing": "Источник данных не выбран"
+  },
+  "notificationWorkflowActionForm": {
+    "titleLabel": "Заголовок",
+    "titlePlaceholder": "Введите текст...",
+    "descriptionLabel": "Описание",
+    "descriptionPlaceholder": "Введите текст..."
+  },
+  "event": {
+    "addAction": "добавить действие"
+  },
+  "collectionFieldType": {
+    "boolean": "логическое значение",
+    "button": "Кнопка",
+    "text": "Текст",
+    "link": "Связь",
+    "tags": "Теги",
+    "image": "Изображение",
+    "rating": "Рейтинг",
+    "errorValueMissing": "Отсутствует свойство значения"
+  },
+  "textFieldForm": {
+    "fieldValueLabel": "Ценить",
+    "fieldValuePlaceholder": "Введите значение..."
+  },
+  "linkFieldForm": {
+    "fieldValueLabel": "URL",
+    "fieldValuePlaceholder": "Введите значение...",
+    "fieldLinkNameLabel": "Текст ссылки",
+    "fieldLinkNamePlaceholder": "Введите значение...",
+    "buttonColor": "Цвет кнопки"
+  },
+  "tagsFieldForm": {
+    "fieldValuesLabel": "Ценности",
+    "fieldValuesPlaceholder": "Введите значения...",
+    "fieldColorsLabel": "Цвета",
+    "fieldColorsPlaceholder": "Введите цвета..."
+  },
+  "linkField": {
+    "details": "Подробности"
+  },
+  "imageFieldForm": {
+    "fieldSrcLabel": "Источник изображения",
+    "fieldSrcPlaceholder": "Введите значение",
+    "fieldAltLabel": "Альтернативный текст",
+    "fieldAltPlaceholder": "Введите значение...",
+    "fieldAltHelp": "Используется программами чтения с экрана и отображается, если изображение не загружается."
+  },
+  "createUserSourceForm": {
+    "userSourceType": "Тип",
+    "userSourceIntegration": "Интеграция",
+    "userSourceName": "Имя"
+  },
+  "updateUserSourceForm": {
+    "nameFieldLabel": "Имя",
+    "nameFieldPlaceholder": "Введите имя...",
+    "authTitle": "Аутентификация",
+    "integrationFieldLabel": "Интеграция",
+    "addProvider": "Добавить провайдера"
+  },
+  "builderLoginPageForm": {
+    "pageDropdownLabel": "Страница входа",
+    "pageDropdownPlaceholder": "Выберите страницу",
+    "pageDropdownDescription": "Выберите страницу входа, на которую должны перенаправляться незарегистрированные пользователи при попытке доступа к странице с ограниченным доступом."
+  },
+  "formContainerElement": {
+    "submitDeactivatedText": "Заполните все обязательные поля для отправки",
+    "defaultSubmitButtonLabel": "Отправить"
+  },
+  "formContainerElementForm": {
+    "submitButtonLabel": "Кнопка «Отправить»",
+    "submitButtonPlaceholder": "Введите значение...",
+    "buttonColor": "Цвет кнопки",
+    "resetToInitialValuesTitle": "Сброс к значениям по умолчанию после отправки",
+    "resetToInitialValuesDescription": "Если этот флажок установлен, значения формы по умолчанию будут использоваться для сброса формы после успешной отправки. Если этот флажок снят, значения пользователя останутся."
+  },
+  "choiceOptionSelector": {
+    "label": "Параметры",
+    "value": "Значения опций",
+    "valuePlaceholder": "Введите значение",
+    "name": "Названия опций",
+    "namePlaceholder": "Введите имя",
+    "addOption": "добавить вариант",
+    "addOptionDescription": "Нажмите «Добавить опцию», чтобы добавить опции в раскрывающийся список.",
+    "optionType": "Тип опции",
+    "manual": "Руководство",
+    "dataSource": "Источник данных",
+    "formulas": "Формулы"
+  },
+  "fieldMappingContext": {
+    "enableField": "Включить поле",
+    "disableField": "Отключить поле"
+  },
+  "checkboxElementForm": {
+    "labelTitle": "Название опции",
+    "valueTitle": "Значение по умолчанию",
+    "requiredTitle": "Необходимый"
+  },
+  "choiceElement": {
+    "addOptions": "Добавьте параметры, чтобы начать использовать этот элемент..."
+  },
+  "userSourceUsersContext": {
+    "searchPlaceholder": "Поиск пользователя",
+    "anonymous": "Анонимный",
+    "unnamed": "Безымянный",
+    "noEmail": "Нет электронной почты"
+  },
+  "userSelector": {
+    "viewAs": "Посмотреть как: {user}",
+    "anonymous": "Анонимный",
+    "member": "{prefix} участник"
+  },
+  "visibilityForm": {
+    "allVisitors": "Все посетители",
+    "loggedInVisitors": "Зарегистрированные посетители",
+    "notLoggedInVisitors": "Посетители, вышедшие из системы",
+    "warningTitle": "Это функция безопасности",
+    "warningMessage": "Установите флажок {link}, чтобы узнать больше о том, как мы защищаем данные.",
+    "documentationLink": "документация",
+    "excludedRolesLabel": "все роли, кроме",
+    "switchAllowLabel": "Позволять",
+    "switchDisallowLabel": "Запретить",
+    "rolesSelectAll": "Выбрать все",
+    "rolesDeselectAll": "Отменить выбор всех",
+    "rolesSelectHint": "Выберите одну или несколько ролей",
+    "roleTypesHint": "Выберите тип роли",
+    "roleTypeAllowAllRoles": "Все роли",
+    "roleTypeAllowAllRolesExcept": "Запретить роли...",
+    "roleTypeDisallowAllRolesExcept": "Разрешить роли...",
+    "rolesAllMembersOf": "Все участники {name}",
+    "noRole": "Нет роли",
+    "errorFetchingRolesTitle": "Не удалось получить роли пользователей.",
+    "errorFetchingRolesMessage": "Возникла проблема при получении ролей пользователей.",
+    "visibilityCondition": "Условия видимости",
+    "visibilityConditionHelper": "Если результат этой формулы верен и выбор посетителя выше верен, элемент будет виден. Это условие влияет только на видимость элемента. Чтобы вместо этого исключить данные из ответа сервера, используйте параметр фильтрации ролей пользователей, указанный выше.",
+    "visibilityConditionPlaceholder": "Состояние..."
+  },
+  "userDataProviderType": {
+    "isAuthenticated": "Аутентифицирован",
+    "id": "Идентификатор",
+    "email": "Электронная почта",
+    "username": "Имя пользователя",
+    "role": "Роль"
+  },
+  "buttonField": {
+    "noLabel": "Безымянный..."
+  },
+  "buttonFieldForm": {
+    "infoMessage": "Чтобы настроить действия для этой кнопки, откройте вкладку «События» текущего элемента.",
+    "labelPlaceholder": "Введите ярлык..."
+  },
+  "resetButton": {
+    "reset": "Сбросить значение темы по умолчанию"
+  },
+  "backgroundModes": {
+    "fill": "Наполнять",
+    "tile": "Плитка",
+    "fit": "Соответствовать"
+  },
+  "customStyle": {
+    "backToElement": "Вернуться к настройке элемента",
+    "configureThemeOverrides": "Настройте переопределения темы для этого элемента"
+  },
+  "serviceSchemaPropertySelector": {
+    "label": "Свойство",
+    "noProperties": "Нет доступных объектов"
+  },
+  "userSourceDropdown": {
+    "label": "Источник пользователя",
+    "addUserSource": "Добавить новый источник пользователя",
+    "noUserSources": "Нет доступных пользовательских источников"
+  },
+  "dataSourceDropdown": {
+    "label": "Источник данных",
+    "noDataSources": "Нет доступных источников данных",
+    "noSharedDataSources": "Нет доступных общих источников данных.",
+    "shared": "общий",
+    "pageOnly": "эта страница",
+    "addNew": "Добавить новый источник данных"
+  },
+  "multiPageContainerElementForm": {
+    "pagePosition": "Позиция",
+    "behaviour": "Поведение",
+    "display": "Отображать",
+    "selectAll": "Выбрать все",
+    "deselectAll": "Отменить выбор всех"
+  },
+  "pageShareType": {
+    "all": "На всех страницах",
+    "only": "Только на выбранных страницах",
+    "except": "Исключить выбранные страницы"
+  },
+  "authProviderWithModal": {
+    "authProviderInError": "Пожалуйста, отредактируйте этого поставщика, чтобы исправить ошибку.",
+    "title": "Изменить поставщика: {name}"
+  },
+  "textDecorationSelector": {
+    "underline": "Подчеркнуть",
+    "stroke": "Гладить",
+    "italic": "Курсив",
+    "uppercase": "Прописные буквы"
+  },
+  "ratingFieldForm": {
+    "maxValue": "Макс. значение",
+    "color": "Цвет",
+    "style": "Стиль",
+    "star": "Звезда",
+    "heart": "Сердце",
+    "thumbsUp": "Недурно",
+    "flag": "Флаг",
+    "value": "Ценить"
+  },
+  "ratingElementForm": {
+    "maxValue": "Максимум",
+    "color": "Цвет",
+    "ratingStyle": "Стиль",
+    "star": "Звезда",
+    "heart": "Сердце",
+    "smile": "Улыбка",
+    "thumbsUp": "Недурно",
+    "flag": "Флаг"
+  },
+  "automationSettingsModal": {
+    "title": "Рабочий процесс"
+  },
+  "abFileInput": {
+    "delete": "Удалить"
+  },
+  "elementsGuidedTourStep": {
+    "title": "Добавьте элементы на свою страницу",
+    "content": "Каждому приложению нужны компоненты! Добавьте такие элементы, как таблицы, формы, кнопки и многое другое, чтобы оживить ваше приложение."
+  },
+  "dataGuidedTourStep": {
+    "title": "Подключите свои данные",
+    "content": "Свяжите сюда свои таблицы Baserow, чтобы динамически отображать, фильтровать и обновлять данные по различным элементам."
+  },
+  "previewGuidedTourStep": {
+    "title": "Ваш центр управления",
+    "content": "Здесь вы настраиваете страницы вашего приложения. Добавляйте элементы, предварительно просматривайте результат и структурируйте свое приложение именно так, как вы хотите."
+  },
+  "devicesGuidedTourStep": {
+    "title": "Предварительный просмотр на разных устройствах",
+    "content": "Переключайтесь между предварительным просмотром на компьютере, планшете и мобильном устройстве, чтобы увидеть, как ваше приложение выглядит на экранах разных размеров. Убедитесь, что ваш дизайн отлично работает на всех устройствах!"
+  },
+  "sidePanelGuidedTourStep": {
+    "title": "Боковая панель: настройка элементов",
+    "content": "**Вкладка «Общие»** — настройка выбранного элемента.\n\n**Вкладка «Стиль»**: настройте отступы, поля, границы и т. д.\n\n**Вкладка «Видимость»**. Укажите, кто может видеть этот элемент: вошедшие в систему пользователи, вышедшие из системы пользователи или определенные роли.\n\n**Вкладка «События»**. Если элемент поддерживает действия, настройте их здесь для динамической интерактивности."
+  },
+  "previewPublishGuidedTourStep": {
+    "title": "Предварительный просмотр и публикация вашего приложения",
+    "content": "Нажмите **Предварительный просмотр**, чтобы протестировать свое приложение в частном порядке. Когда все будет готово, нажмите **Опубликовать**, чтобы опубликовать его для всех через домен."
+  }
+}

@@ -350,18 +350,11 @@ AUTHENTICATION_BACKENDS = ["django.contrib.auth.backends.AllowAllUsersModelBacke
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
-LANGUAGE_CODE = "en"
+LANGUAGE_CODE = "ru"
 
 LANGUAGES = [
     ("en", "English"),
-    ("fr", "French"),
-    ("nl", "Dutch"),
-    ("de", "German"),
-    ("es", "Spanish"),
-    ("it", "Italian"),
-    ("pl", "Polish"),
-    ("ko", "Korean"),
-    ("uk", "Ukrainian"),
+    ("ru", "Russian"),
 ]
 
 TIME_ZONE = "UTC"

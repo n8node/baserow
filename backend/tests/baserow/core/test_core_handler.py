@@ -577,7 +577,7 @@ def test_send_workspace_invitation_email(data_fixture, mailoutbox):
 def test_send_workspace_invitation_email_in_different_language(
     data_fixture, mailoutbox
 ):
-    user = data_fixture.create_user(language="fr")
+    user = data_fixture.create_user(language="ru")
     workspace_invitation = data_fixture.create_workspace_invitation(invited_by=user)
 
     handler = CoreHandler()
