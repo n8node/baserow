@@ -5,11 +5,37 @@ alwaysApply: true
 
 # Деплой self-hosted Baserow (n8node)
 
-Когда речь об обновлении кода на сервере, релизе, пуше в `develop` или проверке после изменений — **в том же ответе** давай готовый блок команд для SSH (без отсылки «выполните у себё» как единственного варианта).
+Когда речь об обновлении кода на сервере, релизе, пуше в `develop` или проверке после изменений — **в том же ответе** давай готовый блок команд для SSH.
 
-Предполагаемый путь на сервере: `/opt/baserow`, ветка `develop`, compose: `docker-compose.all-in-one.yml` + `docker-compose.server.yml`.
+Предполагаемый путь: `/opt/baserow`, ветка `develop`, compose: `docker-compose.all-in-one.yml` + `docker-compose.server.yml`.
 
-## Обновление после `git push`
+## Важно: `docker-compose.all-in-one.yml` без `build:`
+
+В репозитории указан только **`image: baserow/baserow:…`** (Docker Hub). Команда `docker compose build` выдаёт **«No services to build»** — это нормально: **код из `git pull` в контейнер не попадает**, пока не собран **свой** образ с тем же тегом, что в compose (по умолчанию **`2.1.6`**).
+
+## Деплой форка: сборка all-in-one из `/opt/baserow` (без `just`)
+
+Тег **`2.1.6`** должен совпадать с `BASEROW_VERSION` в compose (или поменяй тег в обоих местах).
+
+```bash
+cd /opt/baserow
+git pull origin develop
+
+docker build -f backend/Dockerfile --target prod -t baserow/backend:2.1.6 .
+docker build -f web-frontend/Dockerfile --target prod -t baserow/web-frontend:2.1.6 .
+docker build -f deploy/all-in-one/Dockerfile --target prod \
+  --build-arg BACKEND_IMAGE=baserow/backend:2.1.6 \
+  --build-arg WEBFRONTEND_IMAGE=baserow/web-frontend:2.1.6 \
+  -t baserow/baserow:2.1.6 .
+
+docker compose -f docker-compose.all-in-one.yml -f docker-compose.server.yml up -d --force-recreate
+```
+
+Сборка фронта может занять много времени и RAM (на слабом VPS — swap или билд на другой машине + `docker save`/`load`).
+
+Альтернатива с `just` из корня репозитория: `just build all-in-one 2.1.6`.
+
+## Если сознательно только образ Hub (без своего кода)
 
 ```bash
 cd /opt/baserow
@@ -18,9 +44,7 @@ docker compose -f docker-compose.all-in-one.yml -f docker-compose.server.yml pul
 docker compose -f docker-compose.all-in-one.yml -f docker-compose.server.yml up -d --force-recreate
 ```
 
-Если образ по-прежнему с Docker Hub и менялся только код в репозитории — шаг `pull` можно опустить; для образа, собранного из форка, после `git pull` обычно нужна **пересборка** (`build`) по их Dockerfile/compose, если так настроено.
-
-## Только пересоздать контейнер (env / compose уже правили)
+## Только пересоздать контейнер (образ уже свой, меняли env)
 
 ```bash
 cd /opt/baserow
@@ -34,12 +58,14 @@ docker compose -f docker-compose.all-in-one.yml -f docker-compose.server.yml ps
 docker logs baserow --tail 80
 ```
 
-После деплоя фронта из форка: жёсткое обновление страницы (Ctrl+F5) или очистка кэша — чтобы не тянуть старый JS.
+После смены фронта: жёсткое обновление (Ctrl+F5).
 
-Проверка, что API отдаёт флаги (должен быть JSON с `enterprise_unlicensed_features` при включённом env):
+Флаг fork в API (при `BASEROW_ENTERPRISE_SSO_AUDIT_LOG_UNLICENSED=true`):
 
 ```bash
-curl -sS "https://baserow.ru/api/settings/" | head -c 800
+curl -sS "https://baserow.ru/api/settings/" | grep -o '"enterprise_unlicensed_features"[^}]*}'
 ```
 
-Если путь, файлы compose или ветка у пользователя другие — уточни один раз и подставь в команды.
+Если пусто — в контейнере всё ещё **старый образ Hub**, не сборка из `/opt/baserow`.
+
+Если путь, тег или compose другие — уточни и подставь в команды.
