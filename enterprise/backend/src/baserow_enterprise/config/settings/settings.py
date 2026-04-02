@@ -1,6 +1,6 @@
 import os
 
-from baserow.config.settings.utils import enum_member_by_value
+from baserow.config.settings.utils import enum_member_by_value, str_to_bool
 from baserow_enterprise.secure_file_serve.constants import SecureFileServePermission
 
 
@@ -14,6 +14,12 @@ def setup(settings):
     for db, value in settings.DATABASES:
         value['engine'] = 'some custom engine'
     """
+
+    # Fork/dev: admin "Authentication" (SSO) + "Audit log" without Enterprise license.
+    # Not for production; see enterprise/LICENSE.
+    settings.BASEROW_ENTERPRISE_SSO_AUDIT_LOG_UNLICENSED = str_to_bool(
+        os.getenv("BASEROW_ENTERPRISE_SSO_AUDIT_LOG_UNLICENSED", "")
+    )
 
     settings.BASEROW_ENTERPRISE_USER_SOURCE_COUNTING_TASK_INTERVAL_MINUTES = int(
         os.getenv("BASEROW_ENTERPRISE_USER_SOURCE_COUNTING_TASK_INTERVAL_MINUTES", "")

@@ -89,6 +89,23 @@ export class EnterprisePlugin extends BaserowPlugin {
     return components
   }
 
+  hasFeature(feature, _forSpecificWorkspace) {
+    const flag = this.app.$config.public.baserowEnterpriseSsoAuditLogUnlicensed
+    const enabled =
+      flag === true ||
+      flag === 'true' ||
+      flag === '1' ||
+      flag === 1
+    if (
+      enabled &&
+      (feature === EnterpriseFeatures.SSO ||
+        feature === EnterpriseFeatures.AUDIT_LOG)
+    ) {
+      return true
+    }
+    return false
+  }
+
   getExtraSnapshotModalComponents(workspace) {
     const rbacSupport = this.app.$hasFeature(
       EnterpriseFeatures.RBAC,

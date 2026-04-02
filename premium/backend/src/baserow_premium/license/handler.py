@@ -59,11 +59,17 @@ from .registries import license_type_registry
 User = get_user_model()
 
 
-def _premium_unlicensed_mode_enabled(feature: str) -> bool:
-    return (
-        getattr(settings, "BASEROW_PREMIUM_FEATURES_UNLICENSED", False)
-        and feature == PREMIUM
-    )
+_UNLICENSED_ENTERPRISE_SSO_AUDIT_FEATURES = frozenset({"sso", "audit_log"})
+
+
+def _unlicensed_feature_override(feature: str) -> bool:
+    if getattr(settings, "BASEROW_PREMIUM_FEATURES_UNLICENSED", False):
+        if feature == PREMIUM:
+            return True
+    if getattr(settings, "BASEROW_ENTERPRISE_SSO_AUDIT_LOG_UNLICENSED", False):
+        if feature in _UNLICENSED_ENTERPRISE_SSO_AUDIT_FEATURES:
+            return True
+    return False
 
 
 class LicenseHandler:
@@ -128,7 +134,7 @@ class LicenseHandler:
         :return: True if the user is allowed to use that feature, False otherwise.
         """
 
-        if _premium_unlicensed_mode_enabled(feature):
+        if _unlicensed_feature_override(feature):
             return True
 
         license_plugin = cls._get_license_plugin()
@@ -145,7 +151,7 @@ class LicenseHandler:
         :return: True if the feature is enabled globally for all users.
         """
 
-        if _premium_unlicensed_mode_enabled(feature):
+        if _unlicensed_feature_override(feature):
             return True
 
         license_plugin = cls._get_license_plugin()
@@ -164,7 +170,7 @@ class LicenseHandler:
         :return: True if the feature is enabled for a particular workspace.
         """
 
-        if _premium_unlicensed_mode_enabled(feature):
+        if _unlicensed_feature_override(feature):
             return True
 
         license_plugin = cls._get_license_plugin()
@@ -182,7 +188,7 @@ class LicenseHandler:
         :return: True if the feature is enabled globally for all users.
         """
 
-        if _premium_unlicensed_mode_enabled(feature):
+        if _unlicensed_feature_override(feature):
             return True
 
         license_plugin = cls._get_license_plugin()

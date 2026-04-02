@@ -15,6 +15,7 @@ from rest_framework.status import HTTP_200_OK
 
 from baserow.core.cache import local_cache
 from baserow.core.exceptions import IsNotAdminError
+from baserow_enterprise.features import AUDIT_LOG, SSO
 from baserow_premium.license.exceptions import (
     FeaturesNotAvailableError,
     InvalidLicenseError,
@@ -1229,3 +1230,23 @@ def test_premium_unlicensed_mode_grants_premium_feature(data_fixture):
         assert LicenseHandler.user_has_feature_instance_wide(PREMIUM, user)
 
     assert not LicenseHandler.user_has_feature(PREMIUM, user, workspace)
+
+
+@pytest.mark.django_db
+def test_enterprise_sso_audit_log_unlicensed_mode_grants_features(data_fixture):
+    user = data_fixture.create_user()
+    workspace = data_fixture.create_workspace(user=user)
+
+    assert not LicenseHandler.user_has_feature(SSO, user, workspace)
+    assert not LicenseHandler.user_has_feature(AUDIT_LOG, user, workspace)
+
+    with (
+        override_settings(BASEROW_ENTERPRISE_SSO_AUDIT_LOG_UNLICENSED=True),
+        local_cache.context(),
+    ):
+        assert LicenseHandler.user_has_feature(SSO, user, workspace)
+        assert LicenseHandler.user_has_feature(AUDIT_LOG, user, workspace)
+        assert LicenseHandler.user_has_feature_instance_wide(SSO, user)
+        assert LicenseHandler.user_has_feature_instance_wide(AUDIT_LOG, user)
+
+    assert not LicenseHandler.user_has_feature(SSO, user, workspace)
