@@ -35,6 +35,38 @@ docker compose -f docker-compose.all-in-one.yml -f docker-compose.server.yml up 
 
 Альтернатива с `just` из корня репозитория: `just build all-in-one 2.1.6`.
 
+### Если `yarn run build` / Nuxt падает с **exit code 137** и в логе **`Killed`**
+
+Это почти всегда **OOM** (нехватка RAM во время сборки). Образ **`baserow/web-frontend:2.1.6` при этом не обновляется** — Docker оставляет **старый** тег; финальный `all-in-one` тащит **старый фронт** (замки в UI остаются), даже если backend собрался заново.
+
+**Вариант A — swap на сервере (4G пример), потом снова `docker build` web-frontend:**
+
+```bash
+sudo fallocate -l 4G /swapfile || sudo dd if=/dev/zero of=/swapfile bs=1M count=4096
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+free -h
+cd /opt/baserow
+docker build -f web-frontend/Dockerfile --target prod -t baserow/web-frontend:2.1.6 .
+```
+
+Постоянно: строка в `/etc/fstab`: `/swapfile none swap sw 0 0`
+
+**Вариант B — собрать web-frontend на мощном ПК**, затем перенести образ на сервер:
+
+```bash
+# на ПК (Linux), в клоне репозитория той же ветки:
+docker build -f web-frontend/Dockerfile --target prod -t baserow/web-frontend:2.1.6 .
+docker save baserow/web-frontend:2.1.6 | gzip > web-frontend-2.1.6.tar.gz
+# на сервер:
+gunzip -c web-frontend-2.1.6.tar.gz | docker load
+cd /opt/baserow && docker build -f deploy/all-in-one/Dockerfile --target prod \
+  --build-arg BACKEND_IMAGE=baserow/backend:2.1.6 \
+  --build-arg WEBFRONTEND_IMAGE=baserow/web-frontend:2.1.6 \
+  -t baserow/baserow:2.1.6 .
+```
+
 ## Если сознательно только образ Hub (без своего кода)
 
 ```bash
