@@ -2,7 +2,7 @@ import os
 
 from django.core.exceptions import ImproperlyConfigured
 
-from baserow.config.settings.utils import try_int
+from baserow.config.settings.utils import str_to_bool, try_int
 
 
 def setup(settings):
@@ -15,6 +15,12 @@ def setup(settings):
     for db, value in settings.DATABASES:
         value['engine'] = 'some custom engine'
     """
+
+    # When true, Premium feature checks (Kanban, Calendar, etc.) succeed without a
+    # paid license. For fork development only; see premium/LICENSE (PE License).
+    settings.BASEROW_PREMIUM_FEATURES_UNLICENSED = str_to_bool(
+        os.getenv("BASEROW_PREMIUM_FEATURES_UNLICENSED", "")
+    )
 
     # How many row comments can be requested at once.
     settings.ROW_COMMENT_PAGE_SIZE_LIMIT = 200

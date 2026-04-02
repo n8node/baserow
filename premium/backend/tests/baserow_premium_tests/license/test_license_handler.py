@@ -1210,3 +1210,22 @@ def test_premium_license_builder_usage_license_extra_info(
             "highest_role_per_user_id": {},
             "application_users_taken": 30,
         }
+
+
+@pytest.mark.django_db
+def test_premium_unlicensed_mode_grants_premium_feature(data_fixture):
+    user = data_fixture.create_user()
+    workspace = data_fixture.create_workspace(user=user)
+
+    assert not LicenseHandler.user_has_feature(PREMIUM, user, workspace)
+
+    with (
+        override_settings(BASEROW_PREMIUM_FEATURES_UNLICENSED=True),
+        local_cache.context(),
+    ):
+        assert LicenseHandler.user_has_feature(PREMIUM, user, workspace)
+        assert LicenseHandler.instance_has_feature(PREMIUM)
+        assert LicenseHandler.workspace_has_feature(PREMIUM, workspace)
+        assert LicenseHandler.user_has_feature_instance_wide(PREMIUM, user)
+
+    assert not LicenseHandler.user_has_feature(PREMIUM, user, workspace)

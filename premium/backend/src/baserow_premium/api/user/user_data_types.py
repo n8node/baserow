@@ -1,5 +1,7 @@
 from typing import List
 
+from django.conf import settings
+
 from baserow.api.user.registries import UserDataType
 from baserow.core.models import Workspace
 from baserow.core.registries import plugin_registry
@@ -31,6 +33,8 @@ class ActiveLicensesDataType(UserDataType):
                 user
             )
         }
+        if getattr(settings, "BASEROW_PREMIUM_FEATURES_UNLICENSED", False):
+            instance_wide_licenses["premium"] = True
         return {
             "instance_wide": instance_wide_licenses,
             "per_workspace": per_workspace_licenses,

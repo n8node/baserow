@@ -34,6 +34,7 @@ from baserow_premium.license.exceptions import (
     CantManuallyChangeSeatsError,
     InvalidLicenseError,
 )
+from baserow_premium.license.features import PREMIUM
 from baserow_premium.license.models import License
 
 from .constants import (
@@ -56,6 +57,13 @@ from .models import LicenseUser
 from .registries import license_type_registry
 
 User = get_user_model()
+
+
+def _premium_unlicensed_mode_enabled(feature: str) -> bool:
+    return (
+        getattr(settings, "BASEROW_PREMIUM_FEATURES_UNLICENSED", False)
+        and feature == PREMIUM
+    )
 
 
 class LicenseHandler:
@@ -120,6 +128,9 @@ class LicenseHandler:
         :return: True if the user is allowed to use that feature, False otherwise.
         """
 
+        if _premium_unlicensed_mode_enabled(feature):
+            return True
+
         license_plugin = cls._get_license_plugin()
         return license_plugin.user_has_feature(feature, user, workspace)
 
@@ -133,6 +144,9 @@ class LicenseHandler:
             files for these constant strings to use.
         :return: True if the feature is enabled globally for all users.
         """
+
+        if _premium_unlicensed_mode_enabled(feature):
+            return True
 
         license_plugin = cls._get_license_plugin()
         return license_plugin.instance_has_feature(feature)
@@ -150,6 +164,9 @@ class LicenseHandler:
         :return: True if the feature is enabled for a particular workspace.
         """
 
+        if _premium_unlicensed_mode_enabled(feature):
+            return True
+
         license_plugin = cls._get_license_plugin()
         return license_plugin.workspace_has_feature(feature, workspace)
 
@@ -164,6 +181,9 @@ class LicenseHandler:
         :param user: The user to check.
         :return: True if the feature is enabled globally for all users.
         """
+
+        if _premium_unlicensed_mode_enabled(feature):
+            return True
 
         license_plugin = cls._get_license_plugin()
         return license_plugin.user_has_feature_instance_wide(feature, user)

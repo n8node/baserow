@@ -1,3 +1,5 @@
+from django.conf import settings
+
 from baserow.api.settings.registries import SettingsDataType
 from baserow.core.registries import plugin_registry
 
@@ -21,4 +23,6 @@ class InstanceWideSettingsDataType(SettingsDataType):
                 None
             )
         }
+        if getattr(settings, "BASEROW_PREMIUM_FEATURES_UNLICENSED", False):
+            instance_wide_licenses["premium"] = True
         return instance_wide_licenses
