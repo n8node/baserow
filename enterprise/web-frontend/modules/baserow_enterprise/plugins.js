@@ -90,20 +90,28 @@ export class EnterprisePlugin extends BaserowPlugin {
   }
 
   hasFeature(feature, _forSpecificWorkspace) {
+    if (
+      feature !== EnterpriseFeatures.SSO &&
+      feature !== EnterpriseFeatures.AUDIT_LOG
+    ) {
+      return false
+    }
+
+    // Prefer API settings (always matches Django when env is set); runtimeConfig is
+    // a fallback for dev if NUXT_PUBLIC_* mapping works.
+    const settingsPayload = this.app.$store?.getters?.['settings/get']
+    const fromApi =
+      settingsPayload?.enterprise_unlicensed_features?.sso_audit_log_enabled ===
+      true
+
     const flag = this.app.$config.public.baserowEnterpriseSsoAuditLogUnlicensed
-    const enabled =
+    const fromRuntime =
       flag === true ||
       flag === 'true' ||
       flag === '1' ||
       flag === 1
-    if (
-      enabled &&
-      (feature === EnterpriseFeatures.SSO ||
-        feature === EnterpriseFeatures.AUDIT_LOG)
-    ) {
-      return true
-    }
-    return false
+
+    return fromApi || fromRuntime
   }
 
   getExtraSnapshotModalComponents(workspace) {

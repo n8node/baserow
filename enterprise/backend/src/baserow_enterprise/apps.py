@@ -172,6 +172,13 @@ class BaserowEnterpriseConfig(AppConfig):
         license_type_registry.register(EnterpriseWithoutSupportLicenseType())
         license_type_registry.register(EnterpriseLicenseType())
 
+        from baserow.api.settings.registries import settings_data_registry
+        from baserow_enterprise.api.settings.settings_types import (
+            EnterpriseUnlicensedFeaturesSettingsDataType,
+        )
+
+        settings_data_registry.register(EnterpriseUnlicensedFeaturesSettingsDataType())
+
         from baserow.core.registries import auth_provider_type_registry
         from baserow_enterprise.sso.oauth2.auth_provider_types import (
             FacebookAuthProviderType,

@@ -34,4 +34,12 @@ docker compose -f docker-compose.all-in-one.yml -f docker-compose.server.yml ps
 docker logs baserow --tail 80
 ```
 
+После деплоя фронта из форка: жёсткое обновление страницы (Ctrl+F5) или очистка кэша — чтобы не тянуть старый JS.
+
+Проверка, что API отдаёт флаги (должен быть JSON с `enterprise_unlicensed_features` при включённом env):
+
+```bash
+curl -sS "https://baserow.ru/api/settings/" | head -c 800
+```
+
 Если путь, файлы compose или ветка у пользователя другие — уточни один раз и подставь в команды.
