@@ -3872,10 +3872,10 @@
   resolved "https://registry.yarnpkg.com/@tiptap/extension-floating-menu/-/extension-floating-menu-3.15.3.tgz#33a5f53c93bbd7299f54b3d5d14f5d9b995be8d6"
   integrity sha512-+3DVBleKKffadEJEdLYxmYAJOjHjLSqtiSFUE3RABT4V2ka1ODy2NIpyKX0o1SvQ5N1jViYT9Q+yUbNa6zCcDw==
 
-"@tiptap/extension-gapcursor@^3.13.0":
-  version "3.15.3"
-  resolved "https://registry.yarnpkg.com/@tiptap/extension-gapcursor/-/extension-gapcursor-3.15.3.tgz#35523d0b911d47f0c31866b98b3602a248cda10f"
-  integrity sha512-Kaw0sNzP0bQI/xEAMSfIpja6xhsu9WqqAK/puzOIS1RKWO47Wps/tzqdSJ9gfslPIb5uY5mKCfy8UR8Xgiia8w==
+"@tiptap/extension-gapcursor@^3.22.0":
+  version "3.22.0"
+  resolved "https://registry.yarnpkg.com/@tiptap/extension-gapcursor/-/extension-gapcursor-3.22.0.tgz#dbc50979d451c8f775b23550bc59b578b66a695c"
+  integrity sha512-VsnaTU88PlA/eG9DtUvuB90z5gVZIaH6T/JVTxGasxR4CFsv0L4Zq5awwr0+SsYH9dKepRMgbanVU03c6k1SuA==
 
 "@tiptap/extension-hard-break@3.13.0":
   version "3.13.0"
