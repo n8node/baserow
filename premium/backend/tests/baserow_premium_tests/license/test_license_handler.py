@@ -15,7 +15,12 @@ from rest_framework.status import HTTP_200_OK
 
 from baserow.core.cache import local_cache
 from baserow.core.exceptions import IsNotAdminError
-from baserow_enterprise.features import AUDIT_LOG, SSO
+from baserow_enterprise.features import (
+    AUDIT_LOG,
+    DATA_SCANNER,
+    ENTERPRISE_SETTINGS,
+    SSO,
+)
 from baserow_premium.license.exceptions import (
     FeaturesNotAvailableError,
     InvalidLicenseError,
@@ -1239,6 +1244,9 @@ def test_enterprise_sso_audit_log_unlicensed_mode_grants_features(data_fixture):
 
     assert not LicenseHandler.user_has_feature(SSO, user, workspace)
     assert not LicenseHandler.user_has_feature(AUDIT_LOG, user, workspace)
+    assert not LicenseHandler.user_has_feature(DATA_SCANNER, user, workspace)
+    assert not LicenseHandler.instance_has_feature(DATA_SCANNER)
+    assert not LicenseHandler.instance_has_feature(ENTERPRISE_SETTINGS)
 
     with (
         override_settings(BASEROW_ENTERPRISE_SSO_AUDIT_LOG_UNLICENSED=True),
@@ -1246,7 +1254,11 @@ def test_enterprise_sso_audit_log_unlicensed_mode_grants_features(data_fixture):
     ):
         assert LicenseHandler.user_has_feature(SSO, user, workspace)
         assert LicenseHandler.user_has_feature(AUDIT_LOG, user, workspace)
+        assert LicenseHandler.user_has_feature(DATA_SCANNER, user, workspace)
         assert LicenseHandler.user_has_feature_instance_wide(SSO, user)
         assert LicenseHandler.user_has_feature_instance_wide(AUDIT_LOG, user)
+        assert LicenseHandler.user_has_feature_instance_wide(DATA_SCANNER, user)
+        assert LicenseHandler.instance_has_feature(DATA_SCANNER)
+        assert LicenseHandler.instance_has_feature(ENTERPRISE_SETTINGS)
 
     assert not LicenseHandler.user_has_feature(SSO, user, workspace)

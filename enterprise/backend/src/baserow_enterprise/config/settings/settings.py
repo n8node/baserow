@@ -15,11 +15,14 @@ def setup(settings):
         value['engine'] = 'some custom engine'
     """
 
-    # Fork/dev: admin "Authentication" (SSO) + "Audit log" without Enterprise license.
-    # Not for production; see enterprise/LICENSE.
-    settings.BASEROW_ENTERPRISE_SSO_AUDIT_LOG_UNLICENSED = str_to_bool(
-        os.getenv("BASEROW_ENTERPRISE_SSO_AUDIT_LOG_UNLICENSED", "")
-    )
+    # Fork/dev: selected Enterprise admin/UI features without a license (SSO, audit log,
+    # data scanner, branding: help message + co-branding logo). Not for production;
+    # see enterprise/LICENSE.
+    _fork_enterprise_unlicensed = str_to_bool(
+        os.getenv("BASEROW_ENTERPRISE_FORK_UNLICENSED", "")
+    ) or str_to_bool(os.getenv("BASEROW_ENTERPRISE_SSO_AUDIT_LOG_UNLICENSED", ""))
+    settings.BASEROW_ENTERPRISE_FORK_UNLICENSED = _fork_enterprise_unlicensed
+    settings.BASEROW_ENTERPRISE_SSO_AUDIT_LOG_UNLICENSED = _fork_enterprise_unlicensed
 
     settings.BASEROW_ENTERPRISE_USER_SOURCE_COUNTING_TASK_INTERVAL_MINUTES = int(
         os.getenv("BASEROW_ENTERPRISE_USER_SOURCE_COUNTING_TASK_INTERVAL_MINUTES", "")

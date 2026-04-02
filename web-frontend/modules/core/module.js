@@ -82,6 +82,7 @@ export default defineNuxtModule({
         baserowRowPageSizeLimit: 200,
         baserowUniqueRowValuesSizeLimit: 100,
         baserowDisableSupport: '',
+        baserowEnterpriseForkUnlicensed: false,
         baserowEnterpriseSsoAuditLogUnlicensed: false,
         baserowIntegrationsPeriodicMinuteMin: '1',
         mediaUrl: 'http://localhost:4000/media/',

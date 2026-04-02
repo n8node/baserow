@@ -90,28 +90,27 @@ export class EnterprisePlugin extends BaserowPlugin {
   }
 
   hasFeature(feature, _forSpecificWorkspace) {
-    if (
-      feature !== EnterpriseFeatures.SSO &&
-      feature !== EnterpriseFeatures.AUDIT_LOG
-    ) {
+    const forkFeatures = new Set([
+      EnterpriseFeatures.SSO,
+      EnterpriseFeatures.AUDIT_LOG,
+      EnterpriseFeatures.DATA_SCANNER,
+      EnterpriseFeatures.ENTERPRISE_SETTINGS,
+    ])
+    if (!forkFeatures.has(feature)) {
       return false
     }
 
-    // Prefer API settings (always matches Django when env is set); runtimeConfig is
-    // a fallback for dev if NUXT_PUBLIC_* mapping works.
     const settingsPayload = this.app.$store?.getters?.['settings/get']
+    const ent = settingsPayload?.enterprise_unlicensed_features
     const fromApi =
-      settingsPayload?.enterprise_unlicensed_features?.sso_audit_log_enabled ===
-      true
+      ent?.enabled === true || ent?.sso_audit_log_enabled === true
 
-    const flag = this.app.$config.public.baserowEnterpriseSsoAuditLogUnlicensed
-    const fromRuntime =
-      flag === true ||
-      flag === 'true' ||
-      flag === '1' ||
-      flag === 1
+    const forkFlag = this.app.$config.public.baserowEnterpriseForkUnlicensed
+    const legacyFlag = this.app.$config.public.baserowEnterpriseSsoAuditLogUnlicensed
+    const fromRuntime = (v) =>
+      v === true || v === 'true' || v === '1' || v === 1
 
-    return fromApi || fromRuntime
+    return fromApi || fromRuntime(forkFlag) || fromRuntime(legacyFlag)
   }
 
   getExtraSnapshotModalComponents(workspace) {

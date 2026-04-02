@@ -59,15 +59,19 @@ from .registries import license_type_registry
 User = get_user_model()
 
 
-_UNLICENSED_ENTERPRISE_SSO_AUDIT_FEATURES = frozenset({"sso", "audit_log"})
+_UNLICENSED_ENTERPRISE_FORK_FEATURES = frozenset(
+    {"sso", "audit_log", "data_scanner", "ENTERPRISE_SETTINGS"}
+)
 
 
 def _unlicensed_feature_override(feature: str) -> bool:
     if getattr(settings, "BASEROW_PREMIUM_FEATURES_UNLICENSED", False):
         if feature == PREMIUM:
             return True
-    if getattr(settings, "BASEROW_ENTERPRISE_SSO_AUDIT_LOG_UNLICENSED", False):
-        if feature in _UNLICENSED_ENTERPRISE_SSO_AUDIT_FEATURES:
+    if getattr(settings, "BASEROW_ENTERPRISE_FORK_UNLICENSED", False) or getattr(
+        settings, "BASEROW_ENTERPRISE_SSO_AUDIT_LOG_UNLICENSED", False
+    ):
+        if feature in _UNLICENSED_ENTERPRISE_FORK_FEATURES:
             return True
     return False
 
