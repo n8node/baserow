@@ -15,9 +15,9 @@ def setup(settings):
         value['engine'] = 'some custom engine'
     """
 
-    # Fork/dev: selected Enterprise admin/UI features without a license (SSO, audit log,
-    # data scanner, branding: help message + co-branding logo). Not for production;
-    # see enterprise/LICENSE.
+    # Fork/dev: full Enterprise + Premium feature checks without a license (same
+    # capability as an Enterprise license for self-hosted). Not for production;
+    # see enterprise/LICENSE and premium/LICENSE.
     _fork_enterprise_unlicensed = str_to_bool(
         os.getenv("BASEROW_ENTERPRISE_FORK_UNLICENSED", "")
     ) or str_to_bool(os.getenv("BASEROW_ENTERPRISE_SSO_AUDIT_LOG_UNLICENSED", ""))

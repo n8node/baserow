@@ -6,8 +6,8 @@ from baserow.api.settings.registries import SettingsDataType
 
 class EnterpriseUnlicensedFeaturesSettingsDataType(SettingsDataType):
     """
-    Exposes fork-only flags to the web frontend so Enterprise UI (SSO, audit log,
-    data scanner, branding) can enable without relying on Nuxt env → runtimeConfig.
+    Exposes fork-only flags to the web frontend so Enterprise UI (full feature set
+    matching a self-hosted Enterprise license) can enable without Nuxt env wiring.
     """
 
     type = "enterprise_unlicensed_features"

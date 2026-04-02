@@ -33,7 +33,9 @@ class ActiveLicensesDataType(UserDataType):
                 user
             )
         }
-        if getattr(settings, "BASEROW_PREMIUM_FEATURES_UNLICENSED", False):
+        if getattr(settings, "BASEROW_PREMIUM_FEATURES_UNLICENSED", False) or getattr(
+            settings, "BASEROW_ENTERPRISE_FORK_UNLICENSED", False
+        ) or getattr(settings, "BASEROW_ENTERPRISE_SSO_AUDIT_LOG_UNLICENSED", False):
             instance_wide_licenses["premium"] = True
         return {
             "instance_wide": instance_wide_licenses,

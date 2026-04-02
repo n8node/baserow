@@ -90,13 +90,8 @@ export class EnterprisePlugin extends BaserowPlugin {
   }
 
   hasFeature(feature, _forSpecificWorkspace) {
-    const forkFeatures = new Set([
-      EnterpriseFeatures.SSO,
-      EnterpriseFeatures.AUDIT_LOG,
-      EnterpriseFeatures.DATA_SCANNER,
-      EnterpriseFeatures.ENTERPRISE_SETTINGS,
-    ])
-    if (!forkFeatures.has(feature)) {
+    const enterpriseFeatureValues = new Set(Object.values(EnterpriseFeatures))
+    if (!enterpriseFeatureValues.has(feature)) {
       return false
     }
 

@@ -17,9 +17,13 @@ from baserow.core.cache import local_cache
 from baserow.core.exceptions import IsNotAdminError
 from baserow_enterprise.features import (
     AUDIT_LOG,
+    BUILDER_NO_BRANDING,
     DATA_SCANNER,
     ENTERPRISE_SETTINGS,
+    RBAC,
+    SECURE_FILE_SERVE,
     SSO,
+    SUPPORT,
 )
 from baserow_premium.license.exceptions import (
     FeaturesNotAvailableError,
@@ -1245,8 +1249,12 @@ def test_enterprise_sso_audit_log_unlicensed_mode_grants_features(data_fixture):
     assert not LicenseHandler.user_has_feature(SSO, user, workspace)
     assert not LicenseHandler.user_has_feature(AUDIT_LOG, user, workspace)
     assert not LicenseHandler.user_has_feature(DATA_SCANNER, user, workspace)
+    assert not LicenseHandler.user_has_feature(RBAC, user, workspace)
+    assert not LicenseHandler.user_has_feature(SUPPORT, user, workspace)
+    assert not LicenseHandler.user_has_feature(PREMIUM, user, workspace)
     assert not LicenseHandler.instance_has_feature(DATA_SCANNER)
     assert not LicenseHandler.instance_has_feature(ENTERPRISE_SETTINGS)
+    assert not LicenseHandler.instance_has_feature(SECURE_FILE_SERVE)
 
     with (
         override_settings(BASEROW_ENTERPRISE_SSO_AUDIT_LOG_UNLICENSED=True),
@@ -1255,10 +1263,15 @@ def test_enterprise_sso_audit_log_unlicensed_mode_grants_features(data_fixture):
         assert LicenseHandler.user_has_feature(SSO, user, workspace)
         assert LicenseHandler.user_has_feature(AUDIT_LOG, user, workspace)
         assert LicenseHandler.user_has_feature(DATA_SCANNER, user, workspace)
+        assert LicenseHandler.user_has_feature(RBAC, user, workspace)
+        assert LicenseHandler.user_has_feature(SUPPORT, user, workspace)
+        assert LicenseHandler.user_has_feature(BUILDER_NO_BRANDING, user, workspace)
+        assert LicenseHandler.user_has_feature(PREMIUM, user, workspace)
         assert LicenseHandler.user_has_feature_instance_wide(SSO, user)
         assert LicenseHandler.user_has_feature_instance_wide(AUDIT_LOG, user)
         assert LicenseHandler.user_has_feature_instance_wide(DATA_SCANNER, user)
         assert LicenseHandler.instance_has_feature(DATA_SCANNER)
         assert LicenseHandler.instance_has_feature(ENTERPRISE_SETTINGS)
+        assert LicenseHandler.instance_has_feature(SECURE_FILE_SERVE)
 
     assert not LicenseHandler.user_has_feature(SSO, user, workspace)

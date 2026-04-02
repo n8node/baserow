@@ -29,6 +29,24 @@ from baserow.core.models import Workspace
 from baserow.core.registries import plugin_registry
 from baserow.core.utils import get_baserow_saas_base_url
 from baserow.ws.signals import broadcast_to_users
+from baserow_enterprise.features import (
+    ADVANCED_WEBHOOKS,
+    AUDIT_LOG,
+    BUILDER_CUSTOM_CODE,
+    BUILDER_FILE_INPUT,
+    BUILDER_NO_BRANDING,
+    BUILDER_SSO,
+    DATA_SCANNER,
+    DATA_SYNC,
+    DATE_DEPENDENCY,
+    ENTERPRISE_SETTINGS,
+    FIELD_LEVEL_PERMISSIONS,
+    RBAC,
+    SECURE_FILE_SERVE,
+    SSO,
+    SUPPORT,
+    TEAMS,
+)
 from baserow_premium.api.user.user_data_types import ActiveLicensesDataType
 from baserow_premium.license.exceptions import (
     CantManuallyChangeSeatsError,
@@ -59,8 +77,27 @@ from .registries import license_type_registry
 User = get_user_model()
 
 
+# Matches enterprise `EnterpriseLicenseType.features` (full self-hosted enterprise).
 _UNLICENSED_ENTERPRISE_FORK_FEATURES = frozenset(
-    {"sso", "audit_log", "data_scanner", "ENTERPRISE_SETTINGS"}
+    {
+        PREMIUM,
+        RBAC,
+        TEAMS,
+        AUDIT_LOG,
+        DATA_SYNC,
+        ADVANCED_WEBHOOKS,
+        FIELD_LEVEL_PERMISSIONS,
+        DATE_DEPENDENCY,
+        BUILDER_SSO,
+        BUILDER_NO_BRANDING,
+        BUILDER_FILE_INPUT,
+        BUILDER_CUSTOM_CODE,
+        SSO,
+        ENTERPRISE_SETTINGS,
+        SECURE_FILE_SERVE,
+        DATA_SCANNER,
+        SUPPORT,
+    }
 )
 
 
