@@ -1,0 +1,37 @@
+---
+description: Выдавать команды деплоя n8node/baserow.ru сразу, без «сделайте сами»
+alwaysApply: true
+---
+
+# Деплой self-hosted Baserow (n8node)
+
+Когда речь об обновлении кода на сервере, релизе, пуше в `develop` или проверке после изменений — **в том же ответе** давай готовый блок команд для SSH (без отсылки «выполните у себё» как единственного варианта).
+
+Предполагаемый путь на сервере: `/opt/baserow`, ветка `develop`, compose: `docker-compose.all-in-one.yml` + `docker-compose.server.yml`.
+
+## Обновление после `git push`
+
+```bash
+cd /opt/baserow
+git pull origin develop
+docker compose -f docker-compose.all-in-one.yml -f docker-compose.server.yml pull
+docker compose -f docker-compose.all-in-one.yml -f docker-compose.server.yml up -d --force-recreate
+```
+
+Если образ по-прежнему с Docker Hub и менялся только код в репозитории — шаг `pull` можно опустить; для образа, собранного из форка, после `git pull` обычно нужна **пересборка** (`build`) по их Dockerfile/compose, если так настроено.
+
+## Только пересоздать контейнер (env / compose уже правили)
+
+```bash
+cd /opt/baserow
+docker compose -f docker-compose.all-in-one.yml -f docker-compose.server.yml up -d --force-recreate
+```
+
+## Проверка
+
+```bash
+docker compose -f docker-compose.all-in-one.yml -f docker-compose.server.yml ps
+docker logs baserow --tail 80
+```
+
+Если путь, файлы compose или ветка у пользователя другие — уточни один раз и подставь в команды.
