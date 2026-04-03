@@ -111,7 +111,7 @@
     "columnDescription": "Контейнер столбцов",
     "button": "Кнопка",
     "buttonDescription": "Элемент кнопки",
-    "table": "Стол",
+    "table": "Таблица",
     "tableDescription": "Элемент таблицы",
     "formContainer": "Форма",
     "formContainerDescription": "Элемент формы",
@@ -573,7 +573,7 @@
     "link": "Связь",
     "image": "Изображение",
     "input": "Вход",
-    "table": "Стол"
+    "table": "Таблица"
   },
   "colorThemeConfigBlock": {
     "transparent": "Прозрачный",
@@ -694,7 +694,7 @@
     "size": "Размер",
     "fontSize": "Размер шрифта",
     "fontWeight": "Вес шрифта",
-    "table": "Стол",
+    "table": "Таблица",
     "header": "Заголовок",
     "alignment": "Выравнивание",
     "cells": "Клетки",

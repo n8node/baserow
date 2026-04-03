@@ -60,7 +60,7 @@
   },
   "sidebar": {
     "viewAPI": "Посмотреть документацию по API",
-    "createTable": "Новый стол"
+    "createTable": "Новая таблица"
   },
   "sidebarItem": {
     "exportTable": "Экспортировать таблицу",
@@ -438,7 +438,7 @@
   },
   "createTableModal": {
     "title": "Создать новую таблицу",
-    "defaultName": "Стол",
+    "defaultName": "Таблица",
     "importLabel": "Хотите импортировать существующие данные?",
     "newTable": "Начать с новой таблицы"
   },
@@ -458,7 +458,7 @@
     "reportMessage": "Не удалось импортировать следующие индексы строк:"
   },
   "importFileModal": {
-    "defaultName": "Стол",
+    "defaultName": "Таблица",
     "additionalImportTitle": "Импортировать в {table}",
     "importLabel": "Хотите импортировать существующие данные?",
     "newTable": "Начать с новой таблицы",
@@ -764,7 +764,7 @@
   },
   "apiDocsComponent": {
     "title": "НАСТРОЙКА API",
-    "intro": "После того, как вы создали схему базы данных и ключ API в {settingsLink}, ваша база данных Baserow предоставляет свои собственные конечные точки REST API для создания, чтения, обновления и удаления строк.",
+    "intro": "После того, как вы создали схему базы данных и ключ API в {settingsLink} ваша база данных Baserow предоставляет свои собственные конечные точки REST API для создания, чтения, обновления и удаления строк.",
     "settings": "настройки",
     "selectApplicationTitle": "Для какой базы данных вы хотите увидеть документацию?",
     "signIn": "Войдите, чтобы начать",
@@ -1059,7 +1059,7 @@
     "databaseNamePrefill": "база данных {name}",
     "scratch": "Царапать",
     "import": "Файл",
-    "airtable": "Воздушный стол",
+    "airtable": "Airtable",
     "template": "Шаблон",
     "workspaceName": "Рабочее пространство {name}"
   },
@@ -1083,7 +1083,7 @@
     "password": "Пароль",
     "database": "База данных",
     "schema": "Схема",
-    "table": "Стол",
+    "table": "Таблица",
     "port": "Порт",
     "sslMode": "SSL-режим"
   },

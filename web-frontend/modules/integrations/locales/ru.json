@@ -227,7 +227,7 @@
   },
   "localBaserowTableSelector": {
     "viewFieldLabel": "Вид",
-    "tableFieldLabel": "Стол",
+    "tableFieldLabel": "Таблица",
     "chooseNoView": "Не выбрано",
     "databaseFieldLabel": "База данных",
     "oneWayDataSyncedTableDescription": "Односторонняя синхронизация",

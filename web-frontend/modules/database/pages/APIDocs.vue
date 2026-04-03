@@ -22,8 +22,9 @@
     </template>
     <template v-else>
       <i18n-t keypath="apiDocsComponent.intro" tag="p">
-        <template #settingsLink>{{ $t('apiDocsComponent.settings') }},</template
-        >,
+        <template #settingsLink>
+          {{ $t('apiDocsComponent.settings') }},
+        </template>
       </i18n-t>
 
       <Button

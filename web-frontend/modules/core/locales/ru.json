@@ -434,7 +434,7 @@
   "createApplicationContext": {
     "fromTemplate": "Из шаблона",
     "fromTemplateDesc": "Быстро начните с одного из рекомендуемых нами шаблонов.",
-    "table": "Стол",
+    "table": "Таблица",
     "tableDesc": "Создайте новое место для управления данными в вашей базе данных.",
     "importWorkspace": "Импортировать данные",
     "importWorkspaceDesc": "Добавьте существующие данные из экземпляра Baserow."
