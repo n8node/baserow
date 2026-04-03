@@ -1,0 +1,130 @@
+.landing-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: $white;
+}
+
+.landing-layout__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  border-bottom: 1px solid $palette-neutral-200;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.landing-layout__logo .logo img {
+  height: 32px;
+  width: auto;
+}
+
+.landing-layout__header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.landing-layout__main {
+  flex: 1;
+}
+
+.landing-page {
+  position: relative;
+  min-height: 40vh;
+}
+
+.landing-page__error {
+  padding: 48px 24px;
+  text-align: center;
+  color: $palette-neutral-700;
+}
+
+.landing-page__block {
+  padding: 48px 24px;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.landing-page__block--hero {
+  padding-top: 64px;
+  padding-bottom: 56px;
+  text-align: center;
+}
+
+.landing-page__block--section {
+  border-top: 1px solid $palette-neutral-100;
+}
+
+.landing-page__block--cta {
+  margin-top: 16px;
+  margin-bottom: 48px;
+  text-align: center;
+  background-color: $palette-neutral-50;
+  border-radius: $rounded-lg;
+  border: 1px solid $palette-neutral-200;
+}
+
+.landing-page__block-inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.landing-page__block--hero .landing-page__block-inner {
+  max-width: 840px;
+}
+
+.landing-page__block-image-wrap {
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.landing-page__block-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: $rounded-md;
+  border: 1px solid $palette-neutral-200;
+}
+
+.landing-page__title {
+  font-size: 24px;
+  font-weight: 600;
+  color: $palette-neutral-1200;
+  margin: 0 0 12px;
+  line-height: 1.25;
+}
+
+.landing-page__title--hero {
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.landing-page__subtitle {
+  font-size: 18px;
+  line-height: 1.5;
+  color: $palette-neutral-700;
+  margin: 0 0 16px;
+}
+
+.landing-page__body {
+  font-size: 15px;
+  line-height: 1.6;
+  color: $palette-neutral-800;
+  margin: 0 0 20px;
+  white-space: pre-wrap;
+}
+
+.landing-page__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.landing-page__block--section .landing-page__actions {
+  justify-content: flex-start;
+}

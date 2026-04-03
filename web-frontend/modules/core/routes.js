@@ -92,6 +92,11 @@ export const routes = [
         file: path.resolve(__dirname, 'pages/admin/dashboard.vue'),
       },
       {
+        name: 'admin-landing',
+        path: '/admin/landing',
+        file: path.resolve(__dirname, 'pages/admin/landing.vue'),
+      },
+      {
         name: 'admin-users',
         path: '/admin/users',
         file: path.resolve(__dirname, 'pages/admin/users.vue'),

@@ -27,7 +27,38 @@
   },
   "action": {
     "cancel": "Отмена",
-    "submit": "Отправить"
+    "submit": "Отправить",
+    "edit": "Изменить"
+  },
+  "landing": {
+    "metaTitle": "Главная",
+    "logIn": "Войти",
+    "signUp": "Регистрация",
+    "loadError": "Не удалось загрузить содержимое страницы. Попробуйте позже."
+  },
+  "landingAdmin": {
+    "pageTitle": "Главная страница (лендинг)",
+    "localeTabRu": "Русский",
+    "localeTabEn": "English",
+    "addBlock": "Добавить блок",
+    "editBlock": "Редактировать блок",
+    "order": "Порядок",
+    "enabled": "Включён",
+    "blockType": "Тип блока",
+    "blockTypeHero": "Hero",
+    "blockTypeSection": "Секция",
+    "blockTypeCta": "Призыв к действию",
+    "blockTitle": "Заголовок",
+    "subtitle": "Подзаголовок",
+    "body": "Текст",
+    "imageUrl": "URL картинки",
+    "primaryCtaLabel": "Текст основной кнопки",
+    "primaryCtaUrl": "Ссылка основной кнопки",
+    "secondaryCtaLabel": "Текст второй кнопки",
+    "secondaryCtaUrl": "Ссылка второй кнопки",
+    "delete": "Удалить",
+    "noBlocks": "Нет блоков для этого языка.",
+    "confirmDelete": "Удалить этот блок?"
   },
   "sidebarApplication": {
     "rename": "Переименовать",
@@ -961,7 +992,8 @@
   "adminType": {
     "dashboard": "Панель управления",
     "users": "Пользователи",
-    "workspaces": "Рабочие пространства"
+    "workspaces": "Рабочие пространства",
+    "landing": "Главная страница"
   },
   "workspacesAdminTable": {
     "allWorkspaces": "Все рабочие места",

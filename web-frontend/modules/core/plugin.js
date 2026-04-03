@@ -35,6 +35,7 @@ import {
 } from '@baserow/modules/core/userFileUploadTypes'
 import {
   DashboardAdminType,
+  LandingAdminType,
   UsersAdminType,
   WorkspacesAdminType,
   HealthCheckAdminType,
@@ -212,6 +213,7 @@ export default defineNuxtPlugin({
     )
 
     registry.register('admin', new DashboardAdminType(context))
+    registry.register('admin', new LandingAdminType(context))
     registry.register('admin', new UsersAdminType(context))
     registry.register('admin', new WorkspacesAdminType(context))
     registry.register('admin', new SettingsAdminType(context))

@@ -56,6 +56,7 @@ __all__ = [
     "ImportApplicationsJob",
     "ImportExportResource",
     "ImportExportTrustedSource",
+    "LandingBlock",
 ]
 
 from baserow.core.trash.registries import (
@@ -855,3 +856,44 @@ class SchemaOperation(CreatedAndUpdatedOnMixin, models.Model):
 
     class Meta:
         unique_together = [["content_type_id", "operation"]]
+
+
+class LandingBlock(models.Model):
+    """
+    Marketing homepage blocks (per locale), editable by staff via admin API.
+    """
+
+    class Locale(models.TextChoices):
+        RU = "ru", "Russian"
+        EN = "en", "English"
+
+    order = models.PositiveIntegerField(default=0)
+    locale = models.CharField(
+        max_length=5,
+        choices=Locale.choices,
+        default=Locale.RU,
+        db_index=True,
+    )
+    enabled = models.BooleanField(default=True)
+    block_type = models.CharField(
+        max_length=32,
+        default="section",
+        help_text="Layout hint for the frontend: hero, section, cta.",
+    )
+    title = models.TextField(blank=True)
+    subtitle = models.TextField(blank=True)
+    body = models.TextField(blank=True)
+    image_url = models.URLField(max_length=2048, blank=True)
+    primary_cta_label = models.CharField(max_length=255, blank=True)
+    primary_cta_url = models.CharField(max_length=2048, blank=True)
+    secondary_cta_label = models.CharField(max_length=255, blank=True)
+    secondary_cta_url = models.CharField(max_length=2048, blank=True)
+
+    class Meta:
+        ordering = ("locale", "order", "id")
+        indexes = [
+            models.Index(fields=("locale", "enabled", "order")),
+        ]
+
+    def __str__(self):
+        return f"{self.locale}#{self.order} ({self.block_type})"

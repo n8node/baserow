@@ -15,6 +15,7 @@ from .auth_provider import urls as auth_provider_urls
 from .health import urls as health_urls
 from .integrations import urls as integrations_urls
 from .jobs import urls as jobs_urls
+from .landing import urls as landing_urls
 from .mcp import urls as mcp_urls
 from .notifications import urls as notifications_urls
 from .search import urls as search_urls
@@ -53,6 +54,7 @@ urlpatterns = (
         path("snapshots/", include(snapshots_urls, namespace="snapshots")),
         path("_health/", include(health_urls, namespace="health")),
         path("notifications/", include(notifications_urls, namespace="notifications")),
+        path("landing/", include(landing_urls, namespace="landing")),
         path("search/", include(search_urls, namespace="search")),
         path("admin/", include(admin_urls, namespace="admin")),
         path("mcp/", include(mcp_urls, namespace="mcp")),

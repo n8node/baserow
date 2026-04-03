@@ -111,6 +111,29 @@ export class DashboardAdminType extends AdminType {
   }
 }
 
+export class LandingAdminType extends AdminType {
+  static getType() {
+    return 'landing'
+  }
+
+  getIconClass() {
+    return 'iconoir-page'
+  }
+
+  getName() {
+    const { $i18n: i18n } = this.app
+    return i18n.t('adminType.landing')
+  }
+
+  getRouteName() {
+    return 'admin-landing'
+  }
+
+  getOrder() {
+    return 1.5
+  }
+}
+
 export class UsersAdminType extends AdminType {
   static getType() {
     return 'users'

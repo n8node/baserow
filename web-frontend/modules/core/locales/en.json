@@ -27,7 +27,38 @@
   },
   "action": {
     "cancel": "Cancel",
-    "submit": "Submit"
+    "submit": "Submit",
+    "edit": "Edit"
+  },
+  "landing": {
+    "metaTitle": "Home",
+    "logIn": "Log in",
+    "signUp": "Sign up",
+    "loadError": "Could not load page content. Please try again later."
+  },
+  "landingAdmin": {
+    "pageTitle": "Homepage (landing)",
+    "localeTabRu": "Russian",
+    "localeTabEn": "English",
+    "addBlock": "Add block",
+    "editBlock": "Edit block",
+    "order": "Order",
+    "enabled": "Enabled",
+    "blockType": "Block type",
+    "blockTypeHero": "Hero",
+    "blockTypeSection": "Section",
+    "blockTypeCta": "Call to action",
+    "blockTitle": "Title",
+    "subtitle": "Subtitle",
+    "body": "Body text",
+    "imageUrl": "Image URL",
+    "primaryCtaLabel": "Primary button label",
+    "primaryCtaUrl": "Primary button URL",
+    "secondaryCtaLabel": "Secondary button label",
+    "secondaryCtaUrl": "Secondary button URL",
+    "delete": "Delete",
+    "noBlocks": "No blocks for this language.",
+    "confirmDelete": "Delete this block?"
   },
   "sidebarApplication": {
     "rename": "Rename",
@@ -961,7 +992,8 @@
   "adminType": {
     "dashboard": "Dashboard",
     "users": "Users",
-    "workspaces": "Workspaces"
+    "workspaces": "Workspaces",
+    "landing": "Homepage"
   },
   "workspacesAdminTable": {
     "allWorkspaces": "All workspaces",
