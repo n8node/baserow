@@ -1,5 +1,8 @@
 import { BillingPlugin } from '@baserow/modules/billing/plugins'
-import { BillingAdminType } from '@baserow/modules/billing/adminTypes'
+import {
+  BillingProvidersAdminType,
+  BillingPlansAdminType,
+} from '@baserow/modules/billing/adminTypes'
 import billingStore from '@baserow/modules/billing/store/billing'
 
 export default defineNuxtPlugin({
@@ -12,6 +15,7 @@ export default defineNuxtPlugin({
     $store.registerModuleNuxtSafe('billing', billingStore)
 
     $registry.register('plugin', new BillingPlugin(context))
-    $registry.register('admin', new BillingAdminType(context))
+    $registry.register('admin', new BillingProvidersAdminType(context))
+    $registry.register('admin', new BillingPlansAdminType(context))
   },
 })

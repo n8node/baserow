@@ -1,14 +1,14 @@
 {
   "billing": {
     "adminType": {
-      "name": "Биллинг",
+      "providers": "Платёжные системы",
+      "plans": "Тарифные планы",
       "category": "Биллинг"
     },
     "badge": {
       "tooltip": "Текущий тариф: {plan}"
     },
     "admin": {
-      "title": "Управление биллингом",
       "paymentProviders": "Платёжные системы",
       "paymentProvidersDescription": "Настройте платёжные шлюзы. Только одна система может быть активна одновременно.",
       "status": "Статус",
