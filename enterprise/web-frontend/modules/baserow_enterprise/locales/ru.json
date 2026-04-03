@@ -475,9 +475,6 @@
     "copiedContentToast": "Содержимое ответа Ассистента скопировано в буфер обмена.",
     "copyFailed": "Не удалось скопировать в буфер обмена"
   },
-  "chatwootSupportSidebarWorkspace": {
-    "directSupport": "Прямая поддержка"
-  },
   "userTeamsField": {
     "no_records": "Нет команд"
   },

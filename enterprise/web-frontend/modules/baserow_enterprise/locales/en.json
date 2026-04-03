@@ -475,9 +475,6 @@
     "copiedContentToast": "The Assistant's response content has been copied to your clipboard",
     "copyFailed": "Failed to copy to clipboard"
   },
-  "chatwootSupportSidebarWorkspace": {
-    "directSupport": "Direct support"
-  },
   "userTeamsField": {
     "no_records": "No teams"
   },
