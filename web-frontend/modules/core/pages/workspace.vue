@@ -99,51 +99,11 @@
           <div class="dashboard__resources">
             <h4>{{ $t('dashboard.resources') }}</h4>
             <div class="dashboard__resources-wrapper">
-              <a
-                href="https://baserow.ru/user-docs"
-                target="_new"
-                class="dashboard__resource dashboard__resource--large"
-              >
-                <div class="dashboard__resource-inner">
-                  <span class="dashboard__resource-icon">
-                    <i class="iconoir-message-text"></i
-                  ></span>
-
-                  <div class="dashboard__resource-content">
-                    <h4 class="dashboard__resource-title">
-                      {{ $t('dashboard.knowledgeBase') }}
-                    </h4>
-                    <p class="dashboard__resource-text">
-                      {{ $t('dashboard.knowledgeBaseMessage') }}
-                    </p>
-                  </div>
-                </div>
-              </a>
               <component
                 :is="component"
                 v-for="(component, index) in resourceLinksComponents"
                 :key="index"
               ></component>
-              <a
-                href="https://baserow.ru/blog/category/tutorials"
-                target="_new"
-                class="dashboard__resource"
-              >
-                <div class="dashboard__resource-inner">
-                  <span class="dashboard__resource-icon">
-                    <i class="iconoir-light-bulb"></i
-                  ></span>
-
-                  <div class="dashboard__resource-content">
-                    <h4 class="dashboard__resource-title">
-                      {{ $t('dashboard.tutorials') }}
-                    </h4>
-                    <p class="dashboard__resource-text">
-                      {{ $t('dashboard.tutorialsMessage') }}
-                    </p>
-                  </div>
-                </div>
-              </a>
             </div>
           </div>
         </div>
