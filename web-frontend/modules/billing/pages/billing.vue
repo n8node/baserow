@@ -163,33 +163,54 @@
             </span>
           </div>
 
-          <!-- Limits -->
-          <ul
-            style="
-              list-style: none;
-              padding: 0;
-              margin: 0 0 20px 0;
-              flex: 1;
-            "
-          >
-            <li
-              v-for="(limit, idx) in planLimits(plan)"
-              :key="idx"
-              style="
-                padding: 4px 0;
-                font-size: 13px;
-                display: flex;
-                align-items: center;
-                gap: 6px;
-              "
+          <div style="flex: 1; margin-bottom: 20px">
+            <!-- Limits -->
+            <ul
+              class="billing-plan-list"
+              style="list-style: none; padding: 0; margin: 0"
             >
-              <i
-                class="iconoir-check"
-                style="color: var(--color-success-600); font-size: 14px"
-              ></i>
-              {{ limit }}
-            </li>
-          </ul>
+              <li
+                v-for="(limit, idx) in planLimitLines(plan)"
+                :key="'lim-' + idx"
+                class="billing-plan-list__item"
+              >
+                <i
+                  class="iconoir-check billing-plan-list__icon"
+                  style="color: var(--color-success-600); font-size: 14px"
+                ></i>
+                {{ limit }}
+              </li>
+            </ul>
+
+            <!-- Features (each on its own row) -->
+            <template v-if="plan.features && plan.features.length">
+              <div
+                style="
+                  font-size: 11px;
+                  font-weight: 600;
+                  text-transform: uppercase;
+                  letter-spacing: 0.04em;
+                  color: var(--color-neutral-500);
+                  margin: 12px 0 6px;
+                "
+              >
+                {{ $t('billing.user.includedFeatures') }}
+              </div>
+              <ul class="billing-plan-list" style="list-style: none; padding: 0; margin: 0">
+                <li
+                  v-for="feat in plan.features"
+                  :key="'feat-' + feat"
+                  class="billing-plan-list__item"
+                >
+                  <i
+                    class="iconoir-check billing-plan-list__icon"
+                    style="color: var(--color-success-600); font-size: 14px"
+                  ></i>
+                  {{ featureLabel(feat) }}
+                </li>
+              </ul>
+            </template>
+          </div>
 
           <!-- Action button -->
           <Button
@@ -274,7 +295,7 @@ definePageMeta({
 })
 
 const { $client, $i18n } = useNuxtApp()
-const { t: $t } = useI18n()
+const { t: $t, te } = useI18n()
 useHead({ title: $i18n.t('billing.user.title') })
 
 const store = useStore()
@@ -325,26 +346,31 @@ function displayPrice(plan) {
   return parseFloat(price) === 0 ? '0' : parseFloat(price).toLocaleString()
 }
 
-function planLimits(plan) {
-  const limits = []
+function planLimitLines(plan) {
+  const lines = []
   const inf = '∞'
-  limits.push(
+  lines.push(
     `${plan.max_rows_per_workspace || inf} ${$t('billing.user.limitRows')}`
   )
-  limits.push(
+  lines.push(
     `${plan.max_storage_mb ? plan.max_storage_mb + ' MB' : inf} ${$t('billing.user.limitStorage')}`
   )
   if (plan.max_workspaces)
-    limits.push(`${plan.max_workspaces} ${$t('billing.user.limitWorkspaces')}`)
-  else limits.push(`${inf} ${$t('billing.user.limitWorkspaces')}`)
+    lines.push(`${plan.max_workspaces} ${$t('billing.user.limitWorkspaces')}`)
+  else lines.push(`${inf} ${$t('billing.user.limitWorkspaces')}`)
   if (plan.max_collaborators_per_workspace)
-    limits.push(
+    lines.push(
       `${plan.max_collaborators_per_workspace} ${$t('billing.user.limitCollaborators')}`
     )
-  if (plan.features && plan.features.length > 0) {
-    limits.push(`${$t('billing.user.premiumFeatures')}`)
+  return lines
+}
+
+function featureLabel(key) {
+  const path = `billing.featureLabels.${key}`
+  if (te(path)) {
+    return $t(path)
   }
-  return limits
+  return String(key).replace(/_/g, ' ')
 }
 
 function formatDate(date) {
@@ -383,3 +409,19 @@ async function cancelSub() {
   cancelling.value = false
 }
 </script>
+
+<style scoped>
+.billing-plan-list__item {
+  padding: 4px 0;
+  font-size: 13px;
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  line-height: 1.35;
+}
+
+.billing-plan-list__icon {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+</style>
