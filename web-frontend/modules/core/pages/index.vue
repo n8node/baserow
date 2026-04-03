@@ -9,6 +9,8 @@ definePageMeta({
   name: 'index',
   layout: 'landing',
   middleware: ['settings'],
+  /** Used by global `authentication` middleware to skip /login on stale refresh token */
+  publicGuestHome: true,
 })
 
 const store = useNuxtApp().$store

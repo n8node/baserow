@@ -8,9 +8,21 @@ import {
  * Public homepage (`/`) shows the marketing landing for guests. A stale jwt cookie
  * would make `auth/refresh` return 401; we must not send users to /login in that case
  * (tokens are already cleared inside `refresh`).
+ *
+ * Route `name` can differ in production (i18n / Nuxt); use meta + path as fallbacks.
  */
 function isPublicLandingHome(to) {
-  return to.name === 'index'
+  if (to.meta.publicGuestHome === true) {
+    return true
+  }
+  if (to.name === 'index') {
+    return true
+  }
+  if (typeof to.name === 'string' && /^index($|___)/.test(to.name)) {
+    return true
+  }
+  const path = (to.path || '/').replace(/\/+$/, '') || '/'
+  return path === '/' || path === ''
 }
 
 export default defineNuxtRouteMiddleware(async (to) => {
