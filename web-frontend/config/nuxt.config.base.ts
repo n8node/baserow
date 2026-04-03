@@ -28,6 +28,7 @@ function baserowModuleConfig(
     `./modules/builder/module.js`,
     `./modules/automation/module.js`,
     `./modules/integrations/module.js`,
+    `./modules/billing/module.js`,
   ]
 
   if (!process.env.BASEROW_OSS_ONLY) {

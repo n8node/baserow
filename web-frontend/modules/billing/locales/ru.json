@@ -1,0 +1,40 @@
+{
+  "billing": {
+    "adminType": {
+      "name": "Биллинг",
+      "category": "Биллинг"
+    },
+    "badge": {
+      "tooltip": "Текущий тариф: {plan}"
+    },
+    "admin": {
+      "title": "Управление биллингом",
+      "paymentProviders": "Платёжные системы",
+      "paymentProvidersDescription": "Настройте платёжные шлюзы. Только одна система может быть активна одновременно.",
+      "status": "Статус",
+      "active": "Активна",
+      "inactive": "Неактивна",
+      "testMode": "Тестовый режим",
+      "plans": "Тарифные планы",
+      "createPlan": "Создать тариф",
+      "editPlan": "Редактировать тариф",
+      "noPlans": "Тарифы ещё не настроены. Создайте первый тариф.",
+      "planName": "Название",
+      "description": "Описание",
+      "order": "Порядок отображения",
+      "priceMonthly": "Цена / мес",
+      "priceYearly": "Цена / год",
+      "maxRows": "Макс. строк",
+      "storage": "Хранилище",
+      "maxWorkspaces": "Макс. воркспейсов",
+      "maxCollaborators": "Макс. соавторов на воркспейс",
+      "maxAutomations": "Макс. автоматизаций",
+      "maxApiCalls": "Макс. API-запросов / мес",
+      "default": "По умолчанию",
+      "activeState": "Активен",
+      "limits": "Лимиты (пусто = безлимитно)",
+      "features": "Функции",
+      "unlimited": "Безлимитно"
+    }
+  }
+}

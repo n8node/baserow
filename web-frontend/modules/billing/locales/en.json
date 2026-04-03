@@ -1,0 +1,40 @@
+{
+  "billing": {
+    "adminType": {
+      "name": "Billing",
+      "category": "Billing"
+    },
+    "badge": {
+      "tooltip": "Current plan: {plan}"
+    },
+    "admin": {
+      "title": "Billing Management",
+      "paymentProviders": "Payment Providers",
+      "paymentProvidersDescription": "Configure payment gateways. Only one provider can be active at a time.",
+      "status": "Status",
+      "active": "Active",
+      "inactive": "Inactive",
+      "testMode": "Test mode",
+      "plans": "Tariff Plans",
+      "createPlan": "Create Plan",
+      "editPlan": "Edit Plan",
+      "noPlans": "No plans configured yet. Create your first plan.",
+      "planName": "Name",
+      "description": "Description",
+      "order": "Display order",
+      "priceMonthly": "Price / month",
+      "priceYearly": "Price / year",
+      "maxRows": "Max rows",
+      "storage": "Storage",
+      "maxWorkspaces": "Max workspaces",
+      "maxCollaborators": "Max collaborators per workspace",
+      "maxAutomations": "Max automations",
+      "maxApiCalls": "Max API calls / month",
+      "default": "Default",
+      "activeState": "Active",
+      "limits": "Limits (empty = unlimited)",
+      "features": "Features",
+      "unlimited": "Unlimited"
+    }
+  }
+}

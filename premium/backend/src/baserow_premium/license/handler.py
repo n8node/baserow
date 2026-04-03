@@ -101,6 +101,18 @@ _UNLICENSED_ENTERPRISE_FORK_FEATURES = frozenset(
 )
 
 
+def _billing_feature_check(feature: str, user=None) -> bool:
+    """Check if the user's billing plan grants this feature."""
+    if user is None:
+        return False
+    try:
+        from baserow.contrib.billing.handler import BillingHandler
+
+        return BillingHandler.user_has_feature(user, feature)
+    except Exception:
+        return False
+
+
 def _unlicensed_feature_override(feature: str) -> bool:
     if getattr(settings, "BASEROW_PREMIUM_FEATURES_UNLICENSED", False):
         if feature == PREMIUM:
@@ -178,6 +190,9 @@ class LicenseHandler:
         if _unlicensed_feature_override(feature):
             return True
 
+        if _billing_feature_check(feature, user):
+            return True
+
         license_plugin = cls._get_license_plugin()
         return license_plugin.user_has_feature(feature, user, workspace)
 
@@ -230,6 +245,9 @@ class LicenseHandler:
         """
 
         if _unlicensed_feature_override(feature):
+            return True
+
+        if _billing_feature_check(feature, user):
             return True
 
         license_plugin = cls._get_license_plugin()

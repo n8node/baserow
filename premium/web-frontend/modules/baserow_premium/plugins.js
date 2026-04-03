@@ -14,7 +14,9 @@ export class PremiumPlugin extends BaserowPlugin {
   }
 
   getHighestLicenseTypeBadge() {
-    return HighestLicenseTypeBadge
+    // When the billing module provides its own SubscriptionBadge, defer to it.
+    // The billing plugin registers with type 'billing' and also provides a badge.
+    return null
   }
 
   getAdditionalShareLinkOptions() {

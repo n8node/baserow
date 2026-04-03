@@ -37,6 +37,17 @@ class ActiveLicensesDataType(UserDataType):
             settings, "BASEROW_ENTERPRISE_FORK_UNLICENSED", False
         ) or getattr(settings, "BASEROW_ENTERPRISE_SSO_AUDIT_LOG_UNLICENSED", False):
             instance_wide_licenses["premium"] = True
+
+        # Inject features from the user's billing plan subscription
+        try:
+            from baserow.contrib.billing.handler import BillingHandler
+
+            plan_features = BillingHandler.get_user_plan_features(user)
+            if "premium" in plan_features:
+                instance_wide_licenses["premium"] = True
+        except Exception:
+            pass
+
         return {
             "instance_wide": instance_wide_licenses,
             "per_workspace": per_workspace_licenses,
