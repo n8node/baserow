@@ -1,12 +1,10 @@
 from datetime import datetime, timezone
 
-from baserow.contrib.billing.models import Subscription
-from baserow.core.tasks import BaserowGroupTask
-
 
 def check_expired_subscriptions():
     """Downgrade expired subscriptions to the default (free) plan."""
     from baserow.contrib.billing.handler import BillingHandler
+    from baserow.contrib.billing.models import Subscription
 
     now = datetime.now(tz=timezone.utc)
     expired = Subscription.objects.filter(
