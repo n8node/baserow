@@ -43,7 +43,9 @@
             ></Avatar>
             {{ workspace.name }}
             <span
-              v-if="hasUnreadNotifications(workspace.id)"
+              v-if="
+                notificationsUiVisible && hasUnreadNotifications(workspace.id)
+              "
               class="sidebar__unread-notifications-icon"
             ></span>
           </div>
@@ -135,11 +137,12 @@ import CreateWorkspaceModal from '@baserow/modules/core/components/workspace/Cre
 import { escapeRegExp } from '@baserow/modules/core/utils/string'
 import { pageFinished } from '@baserow/modules/core/utils/routing'
 import { nextTick } from '#imports'
+import notificationsUiVisible from '@baserow/modules/core/mixins/notificationsUiVisible'
 
 export default {
   name: 'SidebarUserContext',
   components: { SettingsModal, CreateWorkspaceModal },
-  mixins: [context],
+  mixins: [context, notificationsUiVisible],
   props: {
     workspaces: {
       type: Array,

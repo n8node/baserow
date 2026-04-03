@@ -41,7 +41,9 @@
         >
         <span
           v-show="!collapsed"
-          v-if="unreadNotificationsInOtherWorkspaces"
+          v-if="
+            notificationsUiVisible && unreadNotificationsInOtherWorkspaces
+          "
           class="sidebar__unread-notifications-icon"
         ></span>
         <i
@@ -95,9 +97,11 @@ import SidebarAdmin from '@baserow/modules/core/components/sidebar/SidebarAdmin'
 import SidebarFoot from '@baserow/modules/core/components/sidebar/SidebarFoot'
 import SidebarMenu from '@baserow/modules/core/components/sidebar/SidebarMenu'
 import SidebarAdminItem from './SidebarAdminItem.vue'
+import notificationsUiVisible from '@baserow/modules/core/mixins/notificationsUiVisible'
 
 export default {
   name: 'Sidebar',
+  mixins: [notificationsUiVisible],
   components: {
     SidebarAdmin,
     SidebarWithoutWorkspace,

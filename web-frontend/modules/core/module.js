@@ -81,6 +81,7 @@ export default defineNuxtModule({
         baserowBuilderDomains: [],
         baserowRowPageSizeLimit: 200,
         baserowUniqueRowValuesSizeLimit: 100,
+        baserowNotificationsUiVisible: false,
         baserowEnterpriseForkUnlicensed: false,
         baserowEnterpriseSsoAuditLogUnlicensed: false,
         baserowIntegrationsPeriodicMinuteMin: '1',

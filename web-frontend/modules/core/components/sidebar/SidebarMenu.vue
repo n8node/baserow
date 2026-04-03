@@ -32,7 +32,7 @@
         </li>
       </nuxt-link>
 
-      <li class="tree__item">
+      <li v-if="notificationsUiVisible" class="tree__item">
         <div class="tree__action tree__action--has-counter">
           <a
             class="tree__link"
@@ -157,9 +157,11 @@ import NotificationPanel from '@baserow/modules/core/components/NotificationPane
 import WorkspaceMemberInviteModal from '@baserow/modules/core/components/workspace/WorkspaceMemberInviteModal'
 import BadgeCounter from '@baserow/modules/core/components/BadgeCounter'
 import SidebarSearch from '@baserow/modules/core/components/sidebar/SidebarSearch'
+import notificationsUiVisible from '@baserow/modules/core/mixins/notificationsUiVisible'
 
 export default {
   name: 'SidebarMenu',
+  mixins: [notificationsUiVisible],
   components: {
     TrashModal,
     NotificationPanel,
