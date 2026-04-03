@@ -35,8 +35,7 @@
       "limits": "Limits (empty = unlimited)",
       "features": "Features",
       "unlimited": "Unlimited"
-    }
-  },
+    },
     "usersTable": {
       "plan": "Plan"
     },
