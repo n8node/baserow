@@ -12,5 +12,7 @@ docker compose pull
 docker compose up -d
 
 if command -v nginx >/dev/null 2>&1; then
+  sudo cp nginx/baserow.ru.conf /etc/nginx/sites-available/baserow.ru
+  sudo ln -sf /etc/nginx/sites-available/baserow.ru /etc/nginx/sites-enabled/
   sudo nginx -t && sudo systemctl reload nginx
 fi

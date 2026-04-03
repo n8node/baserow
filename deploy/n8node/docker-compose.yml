@@ -10,7 +10,44 @@ services:
     ports:
       - "127.0.0.1:8080:80"
 
+  wordpress:
+    image: wordpress:6-apache
+    container_name: wordpress
+    restart: unless-stopped
+    depends_on:
+      - wordpress-db
+    environment:
+      WORDPRESS_DB_HOST: wordpress-db
+      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: ${WP_DB_PASSWORD:-changeme}
+      WORDPRESS_CONFIG_EXTRA: |
+        define('WP_HOME', '${BASEROW_PUBLIC_URL:-https://baserow.ru}');
+        define('WP_SITEURL', '${BASEROW_PUBLIC_URL:-https://baserow.ru}');
+        define('FORCE_SSL_ADMIN', true);
+        if (isset($$_SERVER['HTTP_X_FORWARDED_PROTO']) && $$_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') {
+            $$_SERVER['HTTPS'] = 'on';
+        }
+    volumes:
+      - wordpress_data:/var/www/html
+    ports:
+      - "127.0.0.1:8081:80"
+
+  wordpress-db:
+    image: mysql:8.0
+    container_name: wordpress-db
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: ${WP_DB_PASSWORD:-changeme}
+      MYSQL_ROOT_PASSWORD: ${WP_DB_ROOT_PASSWORD:-rootchangeme}
+    volumes:
+      - wordpress_db_data:/var/lib/mysql
+
 volumes:
   baserow_data:
     external: true
     name: baserow_data
+  wordpress_data:
+  wordpress_db_data:
