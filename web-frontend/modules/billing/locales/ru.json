@@ -45,6 +45,41 @@
       "selectPlan": "Выберите тариф",
       "assign": "Назначить",
       "default": "по умолчанию"
+    },
+    "user": {
+      "title": "Тарифы и оплата",
+      "menuBilling": "Тарифы и оплата",
+      "yourPlan": "Ваш тариф",
+      "status": "Статус",
+      "until": "до",
+      "cancelSubscription": "Отменить подписку",
+      "choosePlan": "Выберите тариф",
+      "choosePlanDescription": "Выберите тариф, который лучше всего подходит для ваших задач. Вы можете повысить или понизить тариф в любой момент.",
+      "monthly": "Помесячно",
+      "yearly": "На год",
+      "save": "Выгодно",
+      "year": "год",
+      "month": "мес",
+      "free": "Бесплатно",
+      "currentPlan": "Текущий тариф",
+      "switchToFree": "Перейти на Free",
+      "subscribe": "Подключить",
+      "limitRows": "строк",
+      "limitStorage": "хранилище",
+      "limitWorkspaces": "воркспейсов",
+      "limitCollaborators": "соавторов",
+      "premiumFeatures": "Премиум-функции включены",
+      "paymentHistory": "История платежей",
+      "date": "Дата",
+      "description": "Описание",
+      "amount": "Сумма",
+      "paymentStatus": "Статус"
+    },
+    "success": {
+      "title": "Оплата прошла успешно",
+      "description": "Ваш платёж обработан. Подписка активирована. Изменения могут вступить в силу через несколько секунд.",
+      "viewSubscription": "Посмотреть подписку",
+      "goToDashboard": "На главную"
     }
   }
 }

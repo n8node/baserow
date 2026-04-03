@@ -45,6 +45,41 @@
       "selectPlan": "Select plan",
       "assign": "Assign",
       "default": "default"
+    },
+    "user": {
+      "title": "Billing",
+      "menuBilling": "Billing & Plans",
+      "yourPlan": "Your plan",
+      "status": "Status",
+      "until": "until",
+      "cancelSubscription": "Cancel subscription",
+      "choosePlan": "Choose your plan",
+      "choosePlanDescription": "Select the plan that best fits your needs. Upgrade or downgrade at any time.",
+      "monthly": "Monthly",
+      "yearly": "Yearly",
+      "save": "Save",
+      "year": "year",
+      "month": "month",
+      "free": "Free",
+      "currentPlan": "Current plan",
+      "switchToFree": "Switch to Free",
+      "subscribe": "Subscribe",
+      "limitRows": "rows",
+      "limitStorage": "storage",
+      "limitWorkspaces": "workspaces",
+      "limitCollaborators": "collaborators",
+      "premiumFeatures": "Premium features included",
+      "paymentHistory": "Payment history",
+      "date": "Date",
+      "description": "Description",
+      "amount": "Amount",
+      "paymentStatus": "Status"
+    },
+    "success": {
+      "title": "Payment successful",
+      "description": "Your payment has been processed. Your subscription is now active. It may take a moment for changes to take effect.",
+      "viewSubscription": "View subscription",
+      "goToDashboard": "Go to dashboard"
     }
   }
 }
