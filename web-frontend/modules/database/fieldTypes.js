@@ -3173,7 +3173,7 @@ export class URLFieldType extends FieldType {
   }
 
   getDocsRequestExample(field) {
-    return 'https://baserow.io'
+    return 'https://baserow.ru'
   }
 
   getContainsFilterFunction() {
@@ -5098,7 +5098,7 @@ export class FormViewEditRowFieldType extends FieldType {
   }
 
   getDocsRequestExample() {
-    return 'https://baserow.io/form/slug/?edit_token=...'
+    return 'https://baserow.ru/form/slug/?edit_token=...'
   }
 
   toHumanReadableString(field, value) {

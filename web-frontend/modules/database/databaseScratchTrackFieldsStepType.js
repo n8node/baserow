@@ -65,7 +65,7 @@ export class DatabaseScratchTrackFieldsOnboardingType extends Registerable {
         [100, 1000, 10000]
       ),
       this.getField('url', URLFieldType, {}, [
-        'https://baserow.io',
+        'https://baserow.ru',
         'https://example.com',
         'https://gitlab.com/baserow',
       ]),

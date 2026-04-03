@@ -28,7 +28,7 @@
       <Button
         type="secondary"
         tag="a"
-        href="https://baserow.io/contact-sales"
+        href="https://baserow.ru/contact-sales"
         target="_blank"
       >
         {{ $t('license.contactSalesMoreSeats') }}

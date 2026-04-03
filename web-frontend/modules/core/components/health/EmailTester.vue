@@ -4,7 +4,7 @@
       {{ $t('emailTester.title') }}
 
       <a
-        href="https://baserow.io/docs/installation%2Fconfiguration#email-configuration"
+        href="https://baserow.ru/docs/installation%2Fconfiguration#email-configuration"
         target="_blank"
         ><i class="iconoir-chat-bubble-question"
       /></a>

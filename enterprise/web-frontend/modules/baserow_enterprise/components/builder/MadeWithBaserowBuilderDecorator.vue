@@ -4,7 +4,7 @@
     <a
       class="made-with-baserow"
       title="Open source self-hosted no-code platform"
-      :href="showPaidFeaturesModal ? null : 'https://baserow.io/'"
+      :href="showPaidFeaturesModal ? null : 'https://baserow.ru/'"
       :target="showPaidFeaturesModal ? null : '_blank'"
       @click="handleMadeWithBaserowClick"
     >

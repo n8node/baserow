@@ -16,7 +16,7 @@
         <div class="redirect-modal__from-to">
           <client-only>{{ getHostname() }}</client-only>
           <i class="iconoir-arrow-right redirect-modal__from-to-icon"></i>
-          baserow.io
+          baserow.ru
         </div>
         <div class="redirect-modal__loading">
           <div class="loading"></div>

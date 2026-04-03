@@ -471,7 +471,7 @@ const getUploadFileListUrl = () => {
  */
 const getUploadFileViaUrlRequestExample = () => {
   return {
-    url: 'https://baserow.io/assets/photo.png',
+    url: 'https://baserow.ru/assets/photo.png',
   }
 }
 /**
