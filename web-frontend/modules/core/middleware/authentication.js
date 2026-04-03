@@ -4,6 +4,15 @@ import {
   setUserSessionCookie,
 } from '@baserow/modules/core/utils/auth'
 
+/**
+ * Public homepage (`/`) shows the marketing landing for guests. A stale jwt cookie
+ * would make `auth/refresh` return 401; we must not send users to /login in that case
+ * (tokens are already cleared inside `refresh`).
+ */
+function isPublicLandingHome(to) {
+  return to.name === 'index'
+}
+
 export default defineNuxtRouteMiddleware(async (to) => {
   const nuxtApp = useNuxtApp()
   const store = nuxtApp.$store
@@ -32,6 +41,9 @@ export default defineNuxtRouteMiddleware(async (to) => {
       await store.dispatch('auth/refresh', refreshToken)
     } catch (error) {
       if (error.response?.status === 401) {
+        if (isPublicLandingHome(to)) {
+          return
+        }
         return navigateTo({ name: 'login' }, { external: true }) // force browser 302 redirect to get rid of the jwt cookie in the request headers
       }
     }
