@@ -58,7 +58,10 @@
     "secondaryCtaUrl": "Ссылка второй кнопки",
     "delete": "Удалить",
     "noBlocks": "Нет блоков для этого языка.",
-    "confirmDelete": "Удалить этот блок?"
+    "confirmDelete": "Удалить этот блок?",
+    "extraData": "Доп. данные (JSON)",
+    "preview": "Предпросмотр",
+    "duplicate": "Копия"
   },
   "sidebarApplication": {
     "rename": "Переименовать",

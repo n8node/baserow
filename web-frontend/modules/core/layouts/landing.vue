@@ -2,21 +2,23 @@
   <div class="landing-layout">
     <Toasts />
     <header class="landing-layout__header">
-      <NuxtLink :to="{ name: 'index' }" class="landing-layout__logo">
-        <Logo />
-      </NuxtLink>
-      <div class="landing-layout__header-actions">
-        <LangPicker />
-        <Button type="secondary" size="small" :to="{ name: 'login' }">
-          {{ $t('landing.logIn') }}
-        </Button>
-        <Button
-          v-if="settings.allow_new_signups"
-          size="small"
-          :to="{ name: 'signup' }"
-        >
-          {{ $t('landing.signUp') }}
-        </Button>
+      <div class="landing-layout__header-inner">
+        <NuxtLink :to="{ name: 'index' }" class="landing-layout__logo">
+          <Logo />
+        </NuxtLink>
+        <div class="landing-layout__header-actions">
+          <LangPicker />
+          <Button type="secondary" size="small" :to="{ name: 'login' }">
+            {{ $t('landing.logIn') }}
+          </Button>
+          <Button
+            v-if="settings.allow_new_signups"
+            size="small"
+            :to="{ name: 'signup' }"
+          >
+            {{ $t('landing.signUp') }}
+          </Button>
+        </div>
       </div>
     </header>
     <main class="landing-layout__main">

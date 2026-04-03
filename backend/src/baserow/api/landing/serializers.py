@@ -18,6 +18,7 @@ class PublicLandingBlockSerializer(serializers.ModelSerializer):
             "primary_cta_url",
             "secondary_cta_label",
             "secondary_cta_url",
+            "extra_data",
         )
 
 
@@ -38,4 +39,5 @@ class AdminLandingBlockSerializer(serializers.ModelSerializer):
             "primary_cta_url",
             "secondary_cta_label",
             "secondary_cta_url",
+            "extra_data",
         )

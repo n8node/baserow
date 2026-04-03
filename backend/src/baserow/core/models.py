@@ -878,7 +878,12 @@ class LandingBlock(models.Model):
     block_type = models.CharField(
         max_length=32,
         default="section",
-        help_text="Layout hint for the frontend: hero, section, cta.",
+        help_text=(
+            "Layout hint for the frontend: hero, features_grid, logos, "
+            "badges, product_tabs, deployment, ai_assistant, how_it_works, "
+            "section_image, automations, templates_grid, why_baserow, "
+            "comparison, testimonials, cta, footer, section."
+        ),
     )
     title = models.TextField(blank=True)
     subtitle = models.TextField(blank=True)
@@ -888,6 +893,11 @@ class LandingBlock(models.Model):
     primary_cta_url = models.CharField(max_length=2048, blank=True)
     secondary_cta_label = models.CharField(max_length=255, blank=True)
     secondary_cta_url = models.CharField(max_length=2048, blank=True)
+    extra_data = models.JSONField(
+        default=dict,
+        blank=True,
+        help_text="Structured data for complex blocks (items, features, etc.).",
+    )
 
     class Meta:
         ordering = ("locale", "order", "id")

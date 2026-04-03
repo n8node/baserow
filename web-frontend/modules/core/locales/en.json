@@ -58,7 +58,10 @@
     "secondaryCtaUrl": "Secondary button URL",
     "delete": "Delete",
     "noBlocks": "No blocks for this language.",
-    "confirmDelete": "Delete this block?"
+    "confirmDelete": "Delete this block?",
+    "extraData": "Extra data (JSON)",
+    "preview": "Preview",
+    "duplicate": "Copy"
   },
   "sidebarApplication": {
     "rename": "Rename",

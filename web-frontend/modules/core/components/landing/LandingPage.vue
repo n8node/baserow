@@ -5,79 +5,58 @@
       {{ $t('landing.loadError') }}
     </div>
     <template v-else>
-      <section
+      <component
+        :is="blockComponent(block.block_type)"
         v-for="block in blocks || []"
         :key="block.id"
-        class="landing-page__block"
-        :class="`landing-page__block--${block.block_type}`"
-      >
-        <div
-          v-if="block.image_url"
-          class="landing-page__block-image-wrap"
-        >
-          <img
-            class="landing-page__block-image"
-            :src="block.image_url"
-            alt=""
-          />
-        </div>
-        <div class="landing-page__block-inner">
-          <h1
-            v-if="block.block_type === 'hero' && block.title"
-            class="landing-page__title landing-page__title--hero"
-          >
-            {{ block.title }}
-          </h1>
-          <h2
-            v-else-if="block.title"
-            class="landing-page__title"
-          >
-            {{ block.title }}
-          </h2>
-          <p
-            v-if="block.subtitle"
-            class="landing-page__subtitle"
-          >
-            {{ block.subtitle }}
-          </p>
-          <p
-            v-if="block.body"
-            class="landing-page__body"
-          >
-            {{ block.body }}
-          </p>
-          <div
-            v-if="
-              block.primary_cta_label ||
-                block.secondary_cta_label
-            "
-            class="landing-page__actions"
-          >
-            <Button
-              v-if="block.primary_cta_label && block.primary_cta_url"
-              size="large"
-              v-bind="ctaLinkProps(block.primary_cta_url)"
-            >
-              {{ block.primary_cta_label }}
-            </Button>
-            <Button
-              v-if="block.secondary_cta_label && block.secondary_cta_url"
-              type="secondary"
-              size="large"
-              v-bind="ctaLinkProps(block.secondary_cta_url)"
-            >
-              {{ block.secondary_cta_label }}
-            </Button>
-          </div>
-        </div>
-      </section>
+        :block="block"
+      />
     </template>
   </div>
 </template>
 
 <script setup>
-import Button from '@baserow/modules/core/components/Button'
+import { markRaw } from 'vue'
 import LandingService from '@baserow/modules/core/services/landing'
+import LandingHero from './blocks/LandingHero'
+import LandingFeaturesGrid from './blocks/LandingFeaturesGrid'
+import LandingLogos from './blocks/LandingLogos'
+import LandingBadges from './blocks/LandingBadges'
+import LandingProductTabs from './blocks/LandingProductTabs'
+import LandingDeployment from './blocks/LandingDeployment'
+import LandingSectionImage from './blocks/LandingSectionImage'
+import LandingAutomations from './blocks/LandingAutomations'
+import LandingTemplatesGrid from './blocks/LandingTemplatesGrid'
+import LandingHowItWorks from './blocks/LandingHowItWorks'
+import LandingComparison from './blocks/LandingComparison'
+import LandingTestimonials from './blocks/LandingTestimonials'
+import LandingCta from './blocks/LandingCta'
+import LandingFooter from './blocks/LandingFooter'
+import LandingGenericSection from './blocks/LandingGenericSection'
+
+const componentMap = {
+  hero: markRaw(LandingHero),
+  features_grid: markRaw(LandingFeaturesGrid),
+  why_baserow: markRaw(LandingFeaturesGrid),
+  logos: markRaw(LandingLogos),
+  badges: markRaw(LandingBadges),
+  product_tabs: markRaw(LandingProductTabs),
+  deployment: markRaw(LandingDeployment),
+  ai_assistant: markRaw(LandingSectionImage),
+  section_image: markRaw(LandingSectionImage),
+  automations: markRaw(LandingAutomations),
+  templates_grid: markRaw(LandingTemplatesGrid),
+  how_it_works: markRaw(LandingHowItWorks),
+  comparison: markRaw(LandingComparison),
+  testimonials: markRaw(LandingTestimonials),
+  cta: markRaw(LandingCta),
+  footer: markRaw(LandingFooter),
+  section: markRaw(LandingGenericSection),
+}
+
+function blockComponent(type) {
+  return componentMap[type] || componentMap.section
+}
 
 const { $client } = useNuxtApp()
 const { locale } = useI18n()
@@ -85,7 +64,11 @@ const i18n = useI18n()
 const config = useRuntimeConfig()
 const router = useRouter()
 
-const { data: blocks, pending, error } = await useAsyncData(
+const {
+  data: blocks,
+  pending,
+  error,
+} = await useAsyncData(
   'landing-home-blocks',
   async () => {
     const loc = locale.value === 'en' ? 'en' : 'ru'
@@ -101,28 +84,10 @@ useHead({
   link: [
     {
       rel: 'canonical',
-      href: config.public.publicWebFrontendUrl + router.resolve({ name: 'index' }).href,
+      href:
+        config.public.publicWebFrontendUrl +
+        router.resolve({ name: 'index' }).href,
     },
   ],
 })
-
-function isInternalPath(url) {
-  return (
-    typeof url === 'string' &&
-    url.startsWith('/') &&
-    !url.startsWith('//')
-  )
-}
-
-function ctaLinkProps(url) {
-  if (isInternalPath(url)) {
-    return { to: url }
-  }
-  return {
-    tag: 'a',
-    href: url,
-    target: '_blank',
-    rel: 'noopener noreferrer',
-  }
-}
 </script>
