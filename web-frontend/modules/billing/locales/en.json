@@ -36,5 +36,16 @@
       "features": "Features",
       "unlimited": "Unlimited"
     }
+  },
+    "usersTable": {
+      "plan": "Plan"
+    },
+    "assignPlan": {
+      "title": "Assign plan — {username}",
+      "currentPlan": "Current plan",
+      "selectPlan": "Select plan",
+      "assign": "Assign",
+      "default": "default"
+    }
   }
 }

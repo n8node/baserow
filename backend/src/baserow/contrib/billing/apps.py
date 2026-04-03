@@ -6,11 +6,16 @@ class BillingConfig(AppConfig):
     default_auto_field = "django.db.models.BigAutoField"
 
     def ready(self):
-        from baserow.api.user.registries import user_data_registry
+        from baserow.api.user.registries import (
+            member_data_registry,
+            user_data_registry,
+        )
         from baserow.core.registries import plugin_registry
 
+        from .member_data_types import BillingPlanMemberDataType
         from .plugin import BillingPlugin
         from .user_data_types import SubscriptionDataType
 
         plugin_registry.register(BillingPlugin())
         user_data_registry.register(SubscriptionDataType())
+        member_data_registry.register(BillingPlanMemberDataType())

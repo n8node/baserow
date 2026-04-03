@@ -1,6 +1,7 @@
 from django.urls import re_path
 
 from .views import (
+    AdminAssignPlanView,
     AdminAvailableFeaturesView,
     AdminPlanSetDefaultView,
     AdminPlansView,
@@ -52,6 +53,11 @@ urlpatterns = [
         r"^subscriptions/(?P<subscription_id>\d+)/$",
         AdminSubscriptionView.as_view(),
         name="subscription",
+    ),
+    re_path(
+        r"^assign-plan/$",
+        AdminAssignPlanView.as_view(),
+        name="assign_plan",
     ),
     re_path(
         r"^available-features/$",

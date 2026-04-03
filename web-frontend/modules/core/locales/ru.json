@@ -1005,7 +1005,8 @@
   "editUserContext": {
     "changePassword": "Изменить пароль",
     "delete": "Удалить навсегда",
-    "impersonate": "Олицетворять"
+    "impersonate": "Олицетворять",
+    "assignPlan": "Назначить тариф"
   },
   "changePasswordForm": {
     "newPassword": "Новый пароль",

@@ -58,6 +58,15 @@
             {{ $t('editUserContext.impersonate') }}
           </a>
         </li>
+        <li class="context__menu-item">
+          <a
+            class="context__menu-item-link"
+            @click.prevent="showAssignPlanModal"
+          >
+            <i class="context__menu-item-icon iconoir-credit-card"></i>
+            {{ $t('editUserContext.assignPlan') }}
+          </a>
+        </li>
         <li class="context__menu-item context__menu-item--with-separator">
           <a
             class="context__menu-item-link context__menu-item-link--delete"
@@ -84,6 +93,11 @@
         ref="changePasswordModal"
         :user="user"
       ></ChangePasswordModal>
+      <AssignPlanModal
+        ref="assignPlanModal"
+        :user="user"
+        @assigned="onPlanAssigned"
+      ></AssignPlanModal>
     </template>
   </Context>
 </template>
@@ -96,6 +110,7 @@ import { notifyIf } from '@baserow/modules/core/utils/error'
 import ChangePasswordModal from '@baserow/modules/core/components/admin/users/modals/ChangeUserPasswordModal'
 import DeleteUserModal from '@baserow/modules/core/components/admin/users/modals/DeleteUserModal'
 import EditUserModal from '@baserow/modules/core/components/admin/users/modals/EditUserModal'
+import AssignPlanModal from '@baserow/modules/billing/components/admin/AssignPlanModal'
 import UserAdminService from '@baserow/modules/core/services/admin/users'
 
 export default {
@@ -104,6 +119,7 @@ export default {
     ChangePasswordModal,
     DeleteUserModal,
     EditUserModal,
+    AssignPlanModal,
   },
   mixins: [context],
   props: {
@@ -161,6 +177,18 @@ export default {
     },
     async deactivate() {
       await this.changeIsActive(false)
+    },
+    showAssignPlanModal() {
+      this.$refs.assignPlanModal.show()
+      this.hide()
+    },
+    onPlanAssigned({ userId, planId, planName, planSlug }) {
+      this.$emit('update', {
+        ...this.user,
+        billing_plan_id: planId,
+        billing_plan_name: planName,
+        billing_plan_slug: planSlug,
+      })
     },
     impersonate() {
       if (!this.user.is_active) {

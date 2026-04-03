@@ -36,5 +36,16 @@
       "features": "Функции",
       "unlimited": "Безлимитно"
     }
+  },
+    "usersTable": {
+      "plan": "Тариф"
+    },
+    "assignPlan": {
+      "title": "Назначить тариф — {username}",
+      "currentPlan": "Текущий тариф",
+      "selectPlan": "Выберите тариф",
+      "assign": "Назначить",
+      "default": "по умолчанию"
+    }
   }
 }

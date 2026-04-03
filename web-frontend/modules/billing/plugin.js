@@ -3,6 +3,7 @@ import {
   BillingProvidersAdminType,
   BillingPlansAdminType,
 } from '@baserow/modules/billing/adminTypes'
+import { BillingMembersPagePluginType } from '@baserow/modules/billing/membersPagePluginTypes'
 import billingStore from '@baserow/modules/billing/store/billing'
 
 export default defineNuxtPlugin({
@@ -17,5 +18,9 @@ export default defineNuxtPlugin({
     $registry.register('plugin', new BillingPlugin(context))
     $registry.register('admin', new BillingProvidersAdminType(context))
     $registry.register('admin', new BillingPlansAdminType(context))
+    $registry.register(
+      'membersPagePlugins',
+      new BillingMembersPagePluginType(context)
+    )
   },
 })

@@ -63,5 +63,11 @@ export default (client) => {
     adminGetAvailableFeatures() {
       return client.get('/billing/admin/available-features/')
     },
+    adminAssignPlan(userId, planId) {
+      return client.post('/billing/admin/assign-plan/', {
+        user_id: userId,
+        plan_id: planId,
+      })
+    },
   }
 }

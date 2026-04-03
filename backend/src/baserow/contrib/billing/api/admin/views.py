@@ -1,3 +1,5 @@
+from django.contrib.auth import get_user_model
+
 from rest_framework.permissions import IsAdminUser
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -12,6 +14,8 @@ from baserow.contrib.billing.api.serializers import (
 )
 from baserow.contrib.billing.handler import BillingHandler
 from baserow.contrib.billing.models import Subscription
+
+User = get_user_model()
 
 
 class AdminPlansView(APIView):
@@ -130,6 +134,43 @@ class AdminSubscriptionView(APIView):
         sub.save()
 
         return Response(SubscriptionSerializer(sub).data)
+
+
+class AdminAssignPlanView(APIView):
+    permission_classes = [IsAdminUser]
+
+    def post(self, request):
+        user_id = request.data.get("user_id")
+        plan_id = request.data.get("plan_id")
+
+        if not user_id or not plan_id:
+            return Response(
+                {"error": "user_id and plan_id are required."}, status=400
+            )
+
+        try:
+            target_user = User.objects.get(pk=user_id)
+        except User.DoesNotExist:
+            return Response({"error": "User not found."}, status=404)
+
+        plan = BillingHandler.get_plan(plan_id)
+
+        sub, created = Subscription.objects.get_or_create(
+            user=target_user,
+            defaults={
+                "plan": plan,
+                "status": Subscription.Status.ACTIVE,
+            },
+        )
+        if not created:
+            sub.plan = plan
+            sub.status = Subscription.Status.ACTIVE
+            sub.save(update_fields=["plan", "status"])
+
+        result = SubscriptionSerializer(sub).data
+        result["user_id"] = target_user.id
+        result["plan_name"] = plan.name
+        return Response(result)
 
 
 class AdminAvailableFeaturesView(APIView):
