@@ -398,30 +398,18 @@ function buildPlanPayload() {
 }
 
 function handleBillingApiError(e) {
-  notifyIf(e)
-  if (e?.handler && !e.handler.isHandled) {
-    const d = e.response?.data
-    let message = ''
-    if (typeof d === 'object' && d !== null) {
-      if (typeof d.detail === 'string') {
-        message = d.detail
-      } else if (d.detail != null) {
-        message = JSON.stringify(d.detail)
-      } else {
-        message = JSON.stringify(d)
-      }
-    }
-    if (message) {
-      store.dispatch(
-        'toast/error',
-        {
-          title: $i18n.t('clientHandler.notCompletedTitle'),
-          message,
-        },
-        { root: true }
-      )
-      e.handler.handled()
-    }
+  if (e?.handler) {
+    e.handler.notifyIf()
+  } else {
+    console.error('[billing] Unhandled error:', e)
+    store.dispatch(
+      'toast/error',
+      {
+        title: $i18n.t('clientHandler.notCompletedTitle'),
+        message: e?.message || String(e),
+      },
+      { root: true }
+    )
   }
 }
 

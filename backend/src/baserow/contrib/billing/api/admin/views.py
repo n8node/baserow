@@ -55,18 +55,21 @@ class AdminPlanView(APIView):
         return Response(PlanSerializer(plan).data)
 
     def patch(self, request, plan_id):
-        serializer = UpdatePlanSerializer(data=request.data, partial=True)
         try:
-            serializer.is_valid(raise_exception=True)
-        except ValidationError as exc:
-            raise RequestBodyValidationException(detail=exc.detail) from exc
-        try:
-            plan = BillingHandler.update_plan(plan_id, **serializer.validated_data)
+            plan = BillingHandler.get_plan(plan_id)
         except PlanNotFoundError as exc:
             return Response(
                 {"error": "ERROR_BILLING_PLAN_NOT_FOUND", "detail": str(exc)},
                 status=status.HTTP_404_NOT_FOUND,
             )
+        serializer = UpdatePlanSerializer(
+            instance=plan, data=request.data, partial=True
+        )
+        try:
+            serializer.is_valid(raise_exception=True)
+        except ValidationError as exc:
+            raise RequestBodyValidationException(detail=exc.detail) from exc
+        plan = BillingHandler.update_plan(plan_id, **serializer.validated_data)
         return Response(PlanSerializer(plan).data)
 
     def delete(self, request, plan_id):
