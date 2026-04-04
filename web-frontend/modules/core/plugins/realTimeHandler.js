@@ -40,11 +40,11 @@ export class RealTimeHandler {
       return
     }
 
-    // Stop connecting if we have already tried more than 10 times, if we do not have
+    // Stop connecting if we have already tried more than 30 times, if we do not have
     // an authentication token or if the server has already responded with a failed
     // authentication error and the token has not changed.
     if (
-      this.attempts > 10 ||
+      this.attempts > 30 ||
       token === null ||
       (!this.authenticationSuccess && token === this.lastToken)
     ) {
