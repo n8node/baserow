@@ -33,6 +33,12 @@
             reverse_proxy wordpress:80
         }
 
+        # ── WordPress: explicit page slugs (otherwise Nuxt handles the path) ──
+        @wp_page_slugs path /shop-terms /shop-terms/ /shop-terms/* /terms /terms/ /terms/* /privacy-policy /privacy-policy/ /privacy-policy/* /refund /refund/ /refund/* /about /about/ /about/*
+        handle @wp_page_slugs {
+            reverse_proxy wordpress:80
+        }
+
         # ── Block xmlrpc ─────────────────────────────────────────
         @xmlrpc path /xmlrpc.php
         handle @xmlrpc {
