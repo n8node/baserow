@@ -38,6 +38,7 @@
       "subscribers": "Подписчиков",
       "deletePlan": "Удалить",
       "confirmDeletePlan": "Удалить этот тариф? Действие необратимо.",
+      "deletePlanDisabledHint": "Тариф назначен пользователям. Сначала назначьте им другой тариф.",
       "errors": {
         "cannotDeleteDefaultPlanTitle": "Нельзя удалить тариф по умолчанию",
         "cannotDeleteDefaultPlanDescription": "Сначала назначьте другой тариф по умолчанию, затем можно удалить этот.",

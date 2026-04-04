@@ -89,10 +89,12 @@
                 ★
               </Button>
               <Button
-                v-if="canDeletePlan(plan)"
+                v-if="!plan.is_default"
                 size="small"
                 type="danger"
                 style="margin-left: 4px"
+                :disabled="!canDeletePlan(plan)"
+                :title="deletePlanDisabledTitle(plan)"
                 @click="deletePlan(plan)"
               >
                 {{ $t('billing.admin.deletePlan') }}
@@ -215,9 +217,20 @@
             margin-top: 16px;
             display: flex;
             gap: 8px;
-            justify-content: flex-end;
+            align-items: center;
+            flex-wrap: wrap;
           "
         >
+          <Button
+            v-if="!isCreating && !planForm.is_default"
+            type="danger"
+            :disabled="!canDeletePlan(planForm)"
+            :title="deletePlanDisabledTitle(planForm)"
+            @click="deletePlanFromModal"
+          >
+            {{ $t('billing.admin.deletePlan') }}
+          </Button>
+          <div style="flex: 1; min-width: 8px"></div>
           <Button type="secondary" @click="closePlanModal">
             {{ $t('action.cancel') }}
           </Button>
@@ -413,10 +426,24 @@ function handleBillingApiError(e) {
   }
 }
 
-function canDeletePlan(plan) {
-  if (plan.is_default) return false
+function planSubscriberCount(plan) {
+  if (!plan) return null
   const n = plan.subscription_count
-  return n == null || n === 0
+  if (n == null || n === '') return null
+  const num = Number(n)
+  return Number.isFinite(num) ? num : null
+}
+
+function canDeletePlan(plan) {
+  if (!plan || plan.is_default) return false
+  const c = planSubscriberCount(plan)
+  if (c === null) return true
+  return c === 0
+}
+
+function deletePlanDisabledTitle(plan) {
+  if (!plan || plan.is_default || canDeletePlan(plan)) return ''
+  return $i18n.t('billing.admin.deletePlanDisabledHint')
 }
 
 async function deletePlan(plan) {
@@ -427,9 +454,18 @@ async function deletePlan(plan) {
       app,
       planId: plan.id,
     })
+    if (editingPlanId.value === plan.id) {
+      closePlanModal()
+    }
   } catch (e) {
     handleBillingApiError(e)
   }
+}
+
+async function deletePlanFromModal() {
+  if (!canDeletePlan(planForm)) return
+  const plan = { id: planForm.id, subscription_count: planForm.subscription_count }
+  await deletePlan(plan)
 }
 
 async function savePlan() {

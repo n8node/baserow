@@ -38,6 +38,7 @@
       "subscribers": "Subscribers",
       "deletePlan": "Delete",
       "confirmDeletePlan": "Delete this plan? This cannot be undone.",
+      "deletePlanDisabledHint": "This plan is assigned to one or more users. Reassign them first.",
       "errors": {
         "cannotDeleteDefaultPlanTitle": "Cannot delete default plan",
         "cannotDeleteDefaultPlanDescription": "Set another plan as default first, then you can delete this one.",
