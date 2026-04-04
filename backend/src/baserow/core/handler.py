@@ -613,6 +613,13 @@ class CoreHandler(metaclass=baserow_trace_methods(tracer)):
 
         CoreHandler().check_permissions(user, CreateWorkspaceOperationType.type)
 
+        try:
+            from baserow.contrib.billing.limits import check_workspace_limit
+
+            check_workspace_limit(user)
+        except ImportError:
+            pass
+
         workspace = Workspace.objects.create(name=name)
 
         last_order = WorkspaceUser.get_last_order(user)

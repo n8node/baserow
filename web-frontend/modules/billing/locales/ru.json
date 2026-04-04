@@ -77,6 +77,10 @@
       "advanced_webhooks": "Расширенные вебхуки",
       "secure_file_serve": "Безопасная выдача файлов"
     },
+    "errors": {
+      "planLimitExceededTitle": "Лимит тарифа достигнут",
+      "planLimitExceededDescription": "Вы достигли ограничения вашего текущего тарифа. Повысьте тариф, чтобы продолжить."
+    },
     "user": {
       "title": "Тарифы и оплата",
       "menuBilling": "Тарифы и оплата",

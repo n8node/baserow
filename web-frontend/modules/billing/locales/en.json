@@ -77,6 +77,10 @@
       "advanced_webhooks": "Advanced webhooks",
       "secure_file_serve": "Secure file serve"
     },
+    "errors": {
+      "planLimitExceededTitle": "Plan limit reached",
+      "planLimitExceededDescription": "You have reached a limit of your current plan. Upgrade your plan to continue."
+    },
     "user": {
       "title": "Billing",
       "menuBilling": "Billing & Plans",

@@ -28,6 +28,11 @@ export default defineNuxtPlugin({
       $i18n.t('billing.admin.errors.planNotFoundTitle'),
       $i18n.t('billing.admin.errors.planNotFoundDescription')
     )
+    $clientErrorMap.setError(
+      'ERROR_BILLING_PLAN_LIMIT_EXCEEDED',
+      $i18n.t('billing.errors.planLimitExceededTitle'),
+      $i18n.t('billing.errors.planLimitExceededDescription')
+    )
 
     $store.registerModuleNuxtSafe('billing', billingStore)
 
