@@ -855,13 +855,6 @@ class RowHandler(metaclass=baserow_trace_methods(tracer)):
         self._raise_if_values_contain_hidden_fields(user, view, [values])
         self._check_write_fields_values_permissions(user, model, [values])
 
-        try:
-            from baserow.contrib.billing.limits import check_row_limit_for_table
-
-            check_row_limit_for_table(table, rows_to_add=1)
-        except ImportError:
-            pass
-
         return self.force_create_row(
             user,
             table,
@@ -928,6 +921,13 @@ class RowHandler(metaclass=baserow_trace_methods(tracer)):
             )
         else:
             prepared_values = values
+
+        try:
+            from baserow.contrib.billing.limits import check_row_limit_for_table
+
+            check_row_limit_for_table(table, acting_user=user, rows_to_add=1)
+        except ImportError:
+            pass
 
         before_return = before_rows_create.send(
             self, user=user, table=table, model=model
@@ -1366,6 +1366,17 @@ class RowHandler(metaclass=baserow_trace_methods(tracer)):
         )
         report.update({index: err for index, err in errors.items()})
 
+        to_create = len(prepared_rows_values)
+        if to_create:
+            try:
+                from baserow.contrib.billing.limits import check_row_limit_for_table
+
+                check_row_limit_for_table(
+                    table, acting_user=user, rows_to_add=to_create
+                )
+            except ImportError:
+                pass
+
         before_return = before_rows_create.send(
             self, user=user, table=table, model=model
         )
@@ -1565,13 +1576,6 @@ class RowHandler(metaclass=baserow_trace_methods(tracer)):
 
         self._raise_if_values_contain_hidden_fields(user, view, rows_values)
         self._check_write_fields_values_permissions(user, model, rows_values)
-
-        try:
-            from baserow.contrib.billing.limits import check_row_limit_for_table
-
-            check_row_limit_for_table(table, rows_to_add=len(rows_values))
-        except ImportError:
-            pass
 
         return self.force_create_rows(
             user,

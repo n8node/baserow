@@ -1,25 +1,21 @@
 """
 Billing plan limit enforcement.
 
-Provides helpers that check whether a workspace (via its owner's subscription)
-is within the allowed plan limits, and signal receivers that block operations
-when limits are exceeded.
+Row limits use live counts from user tables (not TableUsage), because usage
+row_count is updated asynchronously via Celery and is often stale or NULL.
 """
 
 import logging
-
-from django.db.models import Sum
-from django.db.models.functions import Coalesce
 
 from baserow.contrib.billing.exceptions import PlanLimitExceededError
 
 logger = logging.getLogger(__name__)
 
 
-def _get_workspace_plan(workspace):
+def _get_workspace_plan_first_admin(workspace):
     """
-    Return the Plan for the workspace owner (first admin by pk).
-    Returns None if no admin has an active subscription.
+    Plan from the first workspace admin (by WorkspaceUser pk) with a usable
+    subscription. Used as fallback when the acting user has no membership.
     """
 
     from baserow.core.models import (
@@ -43,32 +39,56 @@ def _get_workspace_plan(workspace):
     return None
 
 
+def _resolve_plan_for_row_limit(workspace, acting_user):
+    """
+    Prefer the subscription of the user creating rows (if they belong to the
+    workspace). Otherwise fall back to the first admin's plan.
+    """
+
+    from baserow.contrib.billing.handler import BillingHandler
+    from baserow.core.models import WorkspaceUser
+
+    if acting_user and getattr(acting_user, "pk", None):
+        if WorkspaceUser.objects.filter(
+            workspace=workspace, user=acting_user
+        ).exists():
+            sub = BillingHandler.get_subscription_safe(acting_user)
+            if sub and sub.is_usable:
+                return sub.plan
+    return _get_workspace_plan_first_admin(workspace)
+
+
 def get_workspace_row_count(workspace):
     """
-    Fast row count for all non-trashed tables in the workspace using the
-    cached TableUsage.row_count (updated by the periodic celery task).
+    Total non-trashed rows across all non-trashed tables in the workspace.
+    Uses each table's generated model default manager (excludes trashed rows).
     """
 
     from baserow.contrib.database.table.models import Table
 
-    result = (
-        Table.objects.filter(
-            database__workspace=workspace,
-            database__trashed=False,
-            trashed=False,
-        )
-        .aggregate(total=Coalesce(Sum("usage__row_count"), 0))
+    qs = Table.objects.filter(
+        database__workspace=workspace,
+        database__trashed=False,
+        trashed=False,
     )
-    return result["total"]
+    total = 0
+    for table in qs.iterator(chunk_size=32):
+        try:
+            model = table.get_model()
+            total += model.objects.count()
+        except Exception:
+            logger.exception(
+                "Billing row limit: could not count rows for table id=%s", table.id
+            )
+    return total
 
 
-def check_row_limit(workspace, rows_to_add=1):
+def check_row_limit(workspace, acting_user=None, rows_to_add=1):
     """
-    Raise PlanLimitExceededError if adding `rows_to_add` rows would exceed
-    the workspace owner's plan limit.
+    Raise PlanLimitExceededError if adding rows would exceed the effective plan limit.
     """
 
-    plan = _get_workspace_plan(workspace)
+    plan = _resolve_plan_for_row_limit(workspace, acting_user)
     if plan is None:
         return
 
@@ -85,10 +105,9 @@ def check_row_limit(workspace, rows_to_add=1):
         )
 
 
-def check_row_limit_for_table(table, rows_to_add=1):
+def check_row_limit_for_table(table, acting_user=None, rows_to_add=1):
     """
-    Convenience wrapper: resolves workspace from a Table instance
-    and delegates to check_row_limit.
+    Resolve workspace from table and enforce row limit.
     """
 
     try:
@@ -97,7 +116,7 @@ def check_row_limit_for_table(table, rows_to_add=1):
         return
     if workspace is None:
         return
-    check_row_limit(workspace, rows_to_add=rows_to_add)
+    check_row_limit(workspace, acting_user=acting_user, rows_to_add=rows_to_add)
 
 
 def check_workspace_limit(user):
@@ -131,26 +150,3 @@ def check_workspace_limit(user):
             current=current,
             maximum=max_ws,
         )
-
-
-# ── Signal receivers ──────────────────────────────────────────────────
-
-
-def on_before_rows_create(sender, **kwargs):
-    """
-    Connected to `before_rows_create` signal.
-    Blocks row creation if workspace row limit would be exceeded.
-    The signal doesn't carry the number of rows, so we check ≥ limit
-    (i.e. at least 1 row would exceed).
-    """
-
-    table = kwargs.get("table")
-    if table is None:
-        return
-
-    try:
-        check_row_limit_for_table(table, rows_to_add=1)
-    except PlanLimitExceededError:
-        raise
-    except Exception:
-        logger.exception("Error checking row limit")
