@@ -62,7 +62,7 @@ describe('test error handling', () => {
   )
   test(
     'test an 500 response with error and detail body attributes with no ' +
-      ' matching specificErrorMap entry results in the generic error message',
+      ' matching specificErrorMap entry uses detail as the message when it is a string',
     async () => {
       try {
         await errorInterceptorWithStubAppAndStore()({
@@ -79,7 +79,7 @@ describe('test error handling', () => {
           doesntMatch: new ResponseErrorMessage('title', 'message'),
         })
         expect(message.title).toBe('clientHandler.notCompletedTitle')
-        expect(message.message).toBe('clientHandler.notCompletedDescription')
+        expect(message.message).toBe('detail')
       }
     }
   )
@@ -265,7 +265,7 @@ describe('test error handling', () => {
   )
   test(
     'test an 400 response with a body validation error which doesnt match any map' +
-      ' falls back to generic default',
+      ' falls back to stringified API detail',
     async () => {
       try {
         await errorInterceptorWithStubAppAndStore()({
@@ -296,7 +296,11 @@ describe('test error handling', () => {
           }
         )
         expect(message.title).toBe('clientHandler.notCompletedTitle')
-        expect(message.message).toBe('clientHandler.notCompletedDescription')
+        expect(message.message).toBe(
+          JSON.stringify({
+            field: [{ code: 'matchesRequestBodyErrorMap' }],
+          })
+        )
       }
     }
   )
@@ -425,7 +429,13 @@ describe('test error handling', () => {
             }
           )
           expect(message.title).toBe('clientHandler.notCompletedTitle')
-          expect(message.message).toBe('clientHandler.notCompletedDescription')
+          const fallback =
+            error.handler.getRequestBodyValidationFallbackMessage()
+          if (fallback != null) {
+            expect(message.message).toBe(fallback)
+          } else {
+            expect(message.message).toBe('clientHandler.notCompletedDescription')
+          }
         }
       }
     )

@@ -287,6 +287,13 @@ export class ErrorHandler {
       return this.errorMap[this.code]
     }
 
+    if (typeof this.detail === 'string' && this.detail.trim().length > 0) {
+      return new ResponseErrorMessage(
+        this.app.$i18n.t('clientHandler.notCompletedTitle'),
+        this.detail
+      )
+    }
+
     return this.genericDefaultError()
   }
 
@@ -408,6 +415,28 @@ export class ErrorHandler {
   }
 
   /**
+   * When the API returns ERROR_REQUEST_BODY_VALIDATION but no entry in
+   * requestBodyErrorMap matches, expose the server detail (field errors) instead
+   * of a generic "unknown error" toast.
+   */
+  getRequestBodyValidationFallbackMessage() {
+    const detail = this.response?.data?.detail
+    if (detail == null) {
+      return null
+    }
+    if (typeof detail === 'string' && detail.trim().length > 0) {
+      return detail
+    }
+    if (typeof detail === 'object' && detail !== null) {
+      if (Array.isArray(detail)) {
+        return detail.length > 0 ? JSON.stringify(detail) : null
+      }
+      return Object.keys(detail).length > 0 ? JSON.stringify(detail) : null
+    }
+    return null
+  }
+
+  /**
    * If there is an error or the requested detail is not found an error
    * message related to the problem is returned.
    */
@@ -424,6 +453,13 @@ export class ErrorHandler {
           this.getRequestBodyErrorMessage(requestBodyErrorMap)
         if (matchingRequestBodyError) {
           return matchingRequestBodyError
+        }
+        const fallback = this.getRequestBodyValidationFallbackMessage()
+        if (fallback != null) {
+          return new ResponseErrorMessage(
+            this.app.$i18n.t('clientHandler.notCompletedTitle'),
+            fallback
+          )
         }
       }
       return this.getErrorMessage(specificErrorMap)
