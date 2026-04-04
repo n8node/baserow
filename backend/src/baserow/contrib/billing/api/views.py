@@ -1,5 +1,6 @@
-from django.conf import settings
+from urllib.parse import parse_qsl
 
+from rest_framework.parsers import FormParser, JSONParser, MultiPartParser
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -9,6 +10,10 @@ from baserow.contrib.billing.api.serializers import (
     PlanPublicSerializer,
     SubscribeRequestSerializer,
     SubscriptionSerializer,
+)
+from baserow.contrib.billing.exceptions import (
+    InvalidPlanChangeError,
+    PlanNotFoundError,
 )
 from baserow.contrib.billing.handler import BillingHandler
 
@@ -124,11 +129,35 @@ def _robokassa_callback_payload(request):
     """
     Robokassa «Result URL» may be configured as HTTP GET (query string) or
     POST (application/x-www-form-urlencoded).
+
+    Prefer the Django POST dict (reliable for form posts); fall back to DRF
+    ``request.data`` and raw ``parse_qsl`` if the body was not parsed.
     """
 
     if request.method.upper() == "GET":
-        return dict(request.query_params)
-    return dict(request.data)
+        qp = request.query_params
+        return qp.dict() if hasattr(qp, "dict") else dict(qp)
+
+    django_request = getattr(request, "_request", request)
+    merged = {}
+
+    if getattr(django_request, "POST", None):
+        merged.update(django_request.POST.dict())
+
+    if not merged and getattr(request, "data", None) is not None:
+        try:
+            merged.update(dict(request.data))
+        except (TypeError, ValueError):
+            pass
+
+    if not merged and getattr(django_request, "body", None):
+        try:
+            text = django_request.body.decode("utf-8", errors="replace")
+            merged.update(dict(parse_qsl(text, keep_blank_values=True)))
+        except Exception:
+            pass
+
+    return merged
 
 
 class RobokassaCallbackView(APIView):
@@ -141,6 +170,7 @@ class RobokassaCallbackView(APIView):
 
     permission_classes = []
     authentication_classes = []
+    parser_classes = (FormParser, MultiPartParser, JSONParser)
 
     def get(self, request):
         return self._handle_robokassa_callback(request)
@@ -157,20 +187,35 @@ class RobokassaCallbackView(APIView):
         except Exception:
             return Response("error", status=400)
 
-        payload = _robokassa_callback_payload(request)
+        payload = RobokassaProvider.normalize_callback_payload(
+            _robokassa_callback_payload(request)
+        )
         provider = RobokassaProvider(provider_config)
         if not provider.verify_callback(payload):
             return Response("signature mismatch", status=400)
 
         inv_id = provider.get_invoice_id_from_callback(payload)
-        if inv_id:
+        if inv_id is None:
+            return Response("missing InvId", status=400)
+
+        try:
+            payment = BillingHandler.confirm_payment(inv_id)
+        except Payment.DoesNotExist:
+            return Response("unknown payment", status=400)
+
+        plan_id = payment.metadata.get("plan_id")
+        if plan_id is not None:
             try:
-                payment = BillingHandler.confirm_payment(inv_id)
-            except Payment.DoesNotExist:
-                return Response("unknown payment", status=400)
-            plan_id = payment.metadata.get("plan_id")
-            if plan_id:
-                BillingHandler.change_plan(payment.subscription.user, plan_id)
+                BillingHandler.change_plan(
+                    payment.subscription.user, int(plan_id)
+                )
+            except (
+                ValueError,
+                TypeError,
+                InvalidPlanChangeError,
+                PlanNotFoundError,
+            ):
+                pass
 
         return Response(provider.success_response(inv_id), content_type="text/plain")
 

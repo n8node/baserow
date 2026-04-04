@@ -16,7 +16,7 @@
       "inactive": "Inactive",
       "testMode": "Test mode",
       "robokassaResultUrl": "Result URL",
-      "robokassaResultUrlDescription": "Paste this exact address into Robokassa → Merchant settings → Technical settings → Result URL. Robokassa uses it to confirm payments server-to-server (GET or POST).",
+      "robokassaResultUrlDescription": "Paste this exact URL into Robokassa → Technical settings → Result URL. It must use HTTPS (same as your site). Subscription activates only after Robokassa calls this URL — the Success URL redirect alone does not confirm payment. In test mode, use Password #1 and #2 from the «test payment» block in the Robokassa cabinet in Baserow.",
       "plans": "Tariff Plans",
       "createPlan": "Create Plan",
       "editPlan": "Edit Plan",

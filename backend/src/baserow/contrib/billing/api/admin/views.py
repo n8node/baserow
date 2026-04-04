@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.db.models import Count
 from django.urls import NoReverseMatch, reverse
@@ -130,9 +131,12 @@ class AdminRobokassaUrlsView(APIView):
             path = reverse("api:billing:robokassa_callback")
         except NoReverseMatch:
             path = "/api/billing/robokassa/callback/"
-        return Response(
-            {"robokassa_result_url": request.build_absolute_uri(path)}
-        )
+        public = (getattr(settings, "PUBLIC_BACKEND_URL", "") or "").rstrip("/")
+        if public:
+            robokassa_result_url = f"{public}{path}"
+        else:
+            robokassa_result_url = request.build_absolute_uri(path)
+        return Response({"robokassa_result_url": robokassa_result_url})
 
 
 class AdminProviderView(APIView):

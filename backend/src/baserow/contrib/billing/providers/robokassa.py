@@ -8,6 +8,8 @@ from baserow.contrib.billing.providers.base import PaymentProviderBase
 
 
 class RobokassaProvider(PaymentProviderBase):
+    """Robokassa MD5 signatures per https://docs.robokassa.ru/ru/notifications-and-redirects"""
+
     LIVE_URL = "https://auth.robokassa.ru/Merchant/Index.aspx"
     TEST_URL = "https://auth.robokassa.ru/Merchant/Index.aspx"
 
@@ -49,7 +51,46 @@ class RobokassaProvider(PaymentProviderBase):
 
         return f"{self.LIVE_URL}?{urlencode(params)}"
 
+    @staticmethod
+    def normalize_callback_payload(data: dict) -> dict:
+        """
+        Robokassa usually sends InvId / OutSum / SignatureValue; tolerate variants
+        and trim the signature (docs: hex 0-9A-F).
+        """
+
+        if not data:
+            return {}
+        out = {k: v for k, v in data.items() if v is not None}
+
+        aliases_inv = ("InvID", "invid", "invoice_id", "InvoiceID")
+        if not out.get("InvId"):
+            for key in aliases_inv:
+                if out.get(key) not in (None, ""):
+                    out["InvId"] = out[key]
+                    break
+
+        aliases_sum = ("out_summ", "Outsumm")
+        if not out.get("OutSum"):
+            for key in aliases_sum:
+                if out.get(key) not in (None, ""):
+                    out["OutSum"] = out[key]
+                    break
+
+        aliases_sig = ("crc", "Signature")
+        if not out.get("SignatureValue"):
+            for key in aliases_sig:
+                if out.get(key) not in (None, ""):
+                    out["SignatureValue"] = out[key]
+                    break
+
+        sig = out.get("SignatureValue")
+        if isinstance(sig, str):
+            out["SignatureValue"] = sig.strip()
+
+        return out
+
     def verify_callback(self, data: dict) -> bool:
+        data = self.normalize_callback_payload(data)
         out_sum = data.get("OutSum", "")
         inv_id = data.get("InvId", "")
         received_sig = data.get("SignatureValue", "")
@@ -58,11 +99,17 @@ class RobokassaProvider(PaymentProviderBase):
         return expected.lower() == received_sig.lower()
 
     def get_payment_id_from_callback(self, data: dict) -> Optional[str]:
-        return data.get("InvId")
+        data = self.normalize_callback_payload(data)
+        raw = data.get("InvId")
+        return str(raw) if raw not in (None, "") else None
 
     def get_invoice_id_from_callback(self, data: dict) -> Optional[int]:
+        data = self.normalize_callback_payload(data)
+        raw = data.get("InvId")
+        if raw is None or raw == "":
+            return None
         try:
-            return int(data.get("InvId", 0))
+            return int(raw)
         except (ValueError, TypeError):
             return None
 
