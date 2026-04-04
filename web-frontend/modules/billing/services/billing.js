@@ -35,6 +35,9 @@ export default (client) => {
     adminSetDefaultPlan(planId) {
       return client.post(`/billing/admin/plans/${planId}/set-default/`)
     },
+    adminGetRobokassaUrls() {
+      return client.get('/billing/admin/robokassa-urls/')
+    },
     adminGetProviders() {
       return client.get('/billing/admin/providers/')
     },

@@ -10,6 +10,7 @@ from .views import (
     AdminProviderDeactivateView,
     AdminProvidersView,
     AdminProviderView,
+    AdminRobokassaUrlsView,
     AdminSubscriptionsView,
     AdminSubscriptionView,
 )
@@ -25,6 +26,11 @@ urlpatterns = [
         r"^plans/(?P<plan_id>\d+)/set-default/$",
         AdminPlanSetDefaultView.as_view(),
         name="plan_set_default",
+    ),
+    re_path(
+        r"^robokassa-urls/$",
+        AdminRobokassaUrlsView.as_view(),
+        name="robokassa_urls",
     ),
     re_path(
         r"^providers/$", AdminProvidersView.as_view(), name="providers"

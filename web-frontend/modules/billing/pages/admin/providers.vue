@@ -81,6 +81,29 @@
             </SwitchInput>
           </div>
         </div>
+        <div class="admin-settings__item">
+          <div class="admin-settings__label">
+            <div class="admin-settings__name">
+              {{ $t('billing.admin.robokassaResultUrl') }}
+            </div>
+            <div class="admin-settings__description">
+              {{ $t('billing.admin.robokassaResultUrlDescription') }}
+            </div>
+          </div>
+          <div class="admin-settings__control">
+            <template v-if="robokassaResultUrl">
+              {{ robokassaResultUrl }}
+              <a
+                class="licenses__instance-id-copy"
+                @click.prevent="copyRobokassaResultUrl"
+              >
+                {{ $t('action.copy') }}
+                <Copied ref="robokassaResultUrlCopied" />
+              </a>
+            </template>
+            <span v-else>—</span>
+          </div>
+        </div>
       </div>
 
       <!-- YooKassa -->
@@ -151,10 +174,12 @@
 </template>
 
 <script setup>
-import { reactive, computed, onMounted } from 'vue'
+import { reactive, computed, onMounted, ref } from 'vue'
 import { useNuxtApp } from '#app'
 import { useStore } from 'vuex'
 import { notifyIf } from '@baserow/modules/core/utils/error'
+import BillingService from '@baserow/modules/billing/services/billing'
+import { copyToClipboard } from '@baserow/modules/database/utils/clipboard'
 
 definePageMeta({
   layout: 'app',
@@ -179,6 +204,9 @@ const yookassaConfig = reactive({
   secret_key_input: '',
   test_mode: true,
 })
+
+const robokassaResultUrl = ref('')
+const robokassaResultUrlCopied = ref(null)
 
 const adminProviders = computed(() => store.getters['billing/getAdminProviders'])
 
@@ -215,7 +243,18 @@ onMounted(async () => {
   } catch (e) {
     notifyIf(e)
   }
+  try {
+    const { data } = await BillingService($client).adminGetRobokassaUrls()
+    robokassaResultUrl.value = data.robokassa_result_url || ''
+  } catch (e) {
+    notifyIf(e)
+  }
 })
+
+function copyRobokassaResultUrl() {
+  copyToClipboard(robokassaResultUrl.value)
+  robokassaResultUrlCopied.value?.show()
+}
 
 async function toggleProvider(type, active) {
   try {

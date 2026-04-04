@@ -120,10 +120,36 @@ class MyPaymentsView(APIView):
         return Response(PaymentSerializer(payments, many=True).data)
 
 
+def _robokassa_callback_payload(request):
+    """
+    Robokassa «Result URL» may be configured as HTTP GET (query string) or
+    POST (application/x-www-form-urlencoded).
+    """
+
+    if request.method.upper() == "GET":
+        return dict(request.query_params)
+    return dict(request.data)
+
+
 class RobokassaCallbackView(APIView):
+    """
+    Robokassa merchant «Result URL» endpoint.
+
+    Full path (relative to API root): /api/billing/robokassa/callback/
+    Response body must be plain text ``OK{InvId}`` on success.
+    """
+
     permission_classes = []
+    authentication_classes = []
+
+    def get(self, request):
+        return self._handle_robokassa_callback(request)
 
     def post(self, request):
+        return self._handle_robokassa_callback(request)
+
+    def _handle_robokassa_callback(self, request):
+        from baserow.contrib.billing.models import Payment
         from baserow.contrib.billing.providers.robokassa import RobokassaProvider
 
         try:
@@ -131,13 +157,17 @@ class RobokassaCallbackView(APIView):
         except Exception:
             return Response("error", status=400)
 
+        payload = _robokassa_callback_payload(request)
         provider = RobokassaProvider(provider_config)
-        if not provider.verify_callback(request.data):
+        if not provider.verify_callback(payload):
             return Response("signature mismatch", status=400)
 
-        inv_id = provider.get_invoice_id_from_callback(request.data)
+        inv_id = provider.get_invoice_id_from_callback(payload)
         if inv_id:
-            payment = BillingHandler.confirm_payment(inv_id)
+            try:
+                payment = BillingHandler.confirm_payment(inv_id)
+            except Payment.DoesNotExist:
+                return Response("unknown payment", status=400)
             plan_id = payment.metadata.get("plan_id")
             if plan_id:
                 BillingHandler.change_plan(payment.subscription.user, plan_id)

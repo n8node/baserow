@@ -1,5 +1,6 @@
 from django.contrib.auth import get_user_model
 from django.db.models import Count
+from django.urls import NoReverseMatch, reverse
 
 from rest_framework import status
 from rest_framework.exceptions import ValidationError
@@ -114,6 +115,23 @@ class AdminProvidersView(APIView):
         providers = BillingHandler.get_all_providers()
         return Response(
             PaymentProviderConfigSerializer(providers, many=True).data
+        )
+
+
+class AdminRobokassaUrlsView(APIView):
+    """
+    Absolute URLs to configure in the Robokassa merchant cabinet (Result URL, etc.).
+    """
+
+    permission_classes = [IsAdminUser]
+
+    def get(self, request):
+        try:
+            path = reverse("api:billing:robokassa_callback")
+        except NoReverseMatch:
+            path = "/api/billing/robokassa/callback/"
+        return Response(
+            {"robokassa_result_url": request.build_absolute_uri(path)}
         )
 
 
