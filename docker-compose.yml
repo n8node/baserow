@@ -282,7 +282,6 @@ services:
   backend:
     image: baserow/backend:${BASEROW_VERSION:-2.1.6}
     restart: unless-stopped
-
     environment:
       <<: *backend-variables
     depends_on:
@@ -290,6 +289,7 @@ services:
       - redis
     volumes:
       - media:/baserow/media
+      - /etc/localtime:/etc/localtime:ro
     networks:
       local:
 
@@ -353,8 +353,6 @@ services:
     environment:
       <<: *backend-variables
     command: celery-worker
-    # The backend image's baked in healthcheck defaults to the django healthcheck
-    # override it to the celery one here.
     healthcheck:
       test:
         [
@@ -366,6 +364,7 @@ services:
       - redis
     volumes:
       - media:/baserow/media
+      - /etc/localtime:/etc/localtime:ro
     networks:
       local:
 
@@ -375,8 +374,6 @@ services:
     command: celery-exportworker
     environment:
       <<: *backend-variables
-    # The backend image's baked in healthcheck defaults to the django healthcheck
-    # override it to the celery one here.
     healthcheck:
       test:
         [
@@ -388,6 +385,7 @@ services:
       - redis
     volumes:
       - media:/baserow/media
+      - /etc/localtime:/etc/localtime:ro
     networks:
       local:
 
@@ -406,13 +404,13 @@ services:
       retries: 3
     environment:
       <<: *backend-variables
-    # See https://github.com/sibson/redbeat/issues/129#issuecomment-1057478237
     stop_signal: SIGQUIT
     depends_on:
       - db
       - redis
     volumes:
       - media:/baserow/media
+      - /etc/localtime:/etc/localtime:ro
     networks:
       local:
 
