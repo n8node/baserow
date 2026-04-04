@@ -1,9 +1,13 @@
 from django.contrib.auth import get_user_model
+from django.db.models import Count
 
+from rest_framework import status
+from rest_framework.exceptions import ValidationError
 from rest_framework.permissions import IsAdminUser
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
+from baserow.api.exceptions import RequestBodyValidationException
 from baserow.contrib.billing.api.serializers import (
     CreatePlanSerializer,
     PaymentProviderConfigSerializer,
@@ -12,8 +16,13 @@ from baserow.contrib.billing.api.serializers import (
     UpdatePaymentProviderSerializer,
     UpdatePlanSerializer,
 )
+from baserow.contrib.billing.exceptions import (
+    CannotDeleteDefaultPlanError,
+    CannotDeletePlanWithSubscriptionsError,
+    PlanNotFoundError,
+)
 from baserow.contrib.billing.handler import BillingHandler
-from baserow.contrib.billing.models import Subscription
+from baserow.contrib.billing.models import Plan, Subscription
 
 User = get_user_model()
 
@@ -22,12 +31,18 @@ class AdminPlansView(APIView):
     permission_classes = [IsAdminUser]
 
     def get(self, request):
-        plans = BillingHandler.get_all_plans()
+        plans = (
+            Plan.objects.annotate(subscription_count=Count("subscriptions"))
+            .order_by("order")
+        )
         return Response(PlanSerializer(plans, many=True).data)
 
     def post(self, request):
         serializer = CreatePlanSerializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
+        try:
+            serializer.is_valid(raise_exception=True)
+        except ValidationError as exc:
+            raise RequestBodyValidationException(detail=exc.detail) from exc
         plan = BillingHandler.create_plan(**serializer.validated_data)
         return Response(PlanSerializer(plan).data, status=201)
 
@@ -41,13 +56,44 @@ class AdminPlanView(APIView):
 
     def patch(self, request, plan_id):
         serializer = UpdatePlanSerializer(data=request.data, partial=True)
-        serializer.is_valid(raise_exception=True)
-        plan = BillingHandler.update_plan(plan_id, **serializer.validated_data)
+        try:
+            serializer.is_valid(raise_exception=True)
+        except ValidationError as exc:
+            raise RequestBodyValidationException(detail=exc.detail) from exc
+        try:
+            plan = BillingHandler.update_plan(plan_id, **serializer.validated_data)
+        except PlanNotFoundError as exc:
+            return Response(
+                {"error": "ERROR_BILLING_PLAN_NOT_FOUND", "detail": str(exc)},
+                status=status.HTTP_404_NOT_FOUND,
+            )
         return Response(PlanSerializer(plan).data)
 
     def delete(self, request, plan_id):
-        BillingHandler.delete_plan(plan_id)
-        return Response(status=204)
+        try:
+            BillingHandler.delete_plan(plan_id)
+        except PlanNotFoundError as exc:
+            return Response(
+                {"error": "ERROR_BILLING_PLAN_NOT_FOUND", "detail": str(exc)},
+                status=status.HTTP_404_NOT_FOUND,
+            )
+        except CannotDeleteDefaultPlanError as exc:
+            return Response(
+                {
+                    "error": "ERROR_BILLING_CANNOT_DELETE_DEFAULT_PLAN",
+                    "detail": str(exc),
+                },
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+        except CannotDeletePlanWithSubscriptionsError as exc:
+            return Response(
+                {
+                    "error": "ERROR_BILLING_PLAN_HAS_SUBSCRIPTIONS",
+                    "detail": str(exc),
+                },
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
 
 class AdminPlanSetDefaultView(APIView):

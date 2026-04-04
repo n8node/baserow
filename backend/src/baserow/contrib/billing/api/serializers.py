@@ -9,6 +9,8 @@ from baserow.contrib.billing.models import (
 
 
 class PlanSerializer(serializers.ModelSerializer):
+    subscription_count = serializers.SerializerMethodField()
+
     class Meta:
         model = Plan
         fields = [
@@ -30,7 +32,14 @@ class PlanSerializer(serializers.ModelSerializer):
             "max_api_calls_per_month",
             "max_file_upload_size_mb",
             "features",
+            "subscription_count",
         ]
+
+    def get_subscription_count(self, obj):
+        annotated = getattr(obj, "subscription_count", None)
+        if annotated is not None:
+            return annotated
+        return obj.subscriptions.count()
 
 
 class PlanPublicSerializer(serializers.ModelSerializer):
@@ -82,29 +91,32 @@ class CreatePlanSerializer(serializers.ModelSerializer):
         ]
 
 
+_UPDATE_PLAN_FIELDS = [
+    "slug",
+    "name",
+    "description",
+    "is_default",
+    "is_active",
+    "order",
+    "price_monthly",
+    "price_yearly",
+    "currency",
+    "max_rows_per_workspace",
+    "max_storage_mb",
+    "max_workspaces",
+    "max_collaborators_per_workspace",
+    "max_automations",
+    "max_api_calls_per_month",
+    "max_file_upload_size_mb",
+    "features",
+]
+
+
 class UpdatePlanSerializer(serializers.ModelSerializer):
     class Meta:
         model = Plan
-        fields = [
-            "slug",
-            "name",
-            "description",
-            "is_default",
-            "is_active",
-            "order",
-            "price_monthly",
-            "price_yearly",
-            "currency",
-            "max_rows_per_workspace",
-            "max_storage_mb",
-            "max_workspaces",
-            "max_collaborators_per_workspace",
-            "max_automations",
-            "max_api_calls_per_month",
-            "max_file_upload_size_mb",
-            "features",
-        ]
-        extra_kwargs = {f: {"required": False} for f in fields}
+        fields = _UPDATE_PLAN_FIELDS
+        extra_kwargs = {f: {"required": False} for f in _UPDATE_PLAN_FIELDS}
 
 
 class SubscriptionSerializer(serializers.ModelSerializer):

@@ -34,7 +34,18 @@
       "activeState": "Active",
       "limits": "Limits (empty = unlimited)",
       "features": "Features",
-      "unlimited": "Unlimited"
+      "unlimited": "Unlimited",
+      "subscribers": "Subscribers",
+      "deletePlan": "Delete",
+      "confirmDeletePlan": "Delete this plan? This cannot be undone.",
+      "errors": {
+        "cannotDeleteDefaultPlanTitle": "Cannot delete default plan",
+        "cannotDeleteDefaultPlanDescription": "Set another plan as default first, then you can delete this one.",
+        "planHasSubscriptionsTitle": "Plan is in use",
+        "planHasSubscriptionsDescription": "This plan is assigned to one or more users. Change their plan before deleting.",
+        "planNotFoundTitle": "Plan not found",
+        "planNotFoundDescription": "The plan may have been removed already."
+      }
     },
     "usersTable": {
       "plan": "Plan"

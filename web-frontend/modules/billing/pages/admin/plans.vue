@@ -30,6 +30,7 @@
             <th style="padding: 8px">{{ $t('billing.admin.storage') }}</th>
             <th style="padding: 8px">{{ $t('billing.admin.default') }}</th>
             <th style="padding: 8px">{{ $t('billing.admin.activeState') }}</th>
+            <th style="padding: 8px">{{ $t('billing.admin.subscribers') }}</th>
             <th style="padding: 8px"></th>
           </tr>
         </thead>
@@ -69,6 +70,7 @@
                 }}
               </Badge>
             </td>
+            <td style="padding: 8px">{{ plan.subscription_count ?? '—' }}</td>
             <td style="padding: 8px">
               <Button
                 size="small"
@@ -85,6 +87,15 @@
                 @click="setDefault(plan)"
               >
                 ★
+              </Button>
+              <Button
+                v-if="canDeletePlan(plan)"
+                size="small"
+                type="danger"
+                style="margin-left: 4px"
+                @click="deletePlan(plan)"
+              >
+                {{ $t('billing.admin.deletePlan') }}
               </Button>
             </td>
           </tr>
@@ -234,6 +245,26 @@ useHead({ title: $i18n.t('billing.admin.plans') })
 const store = useStore()
 const app = { $client }
 
+const PLAN_WRITABLE_FIELDS = [
+  'slug',
+  'name',
+  'description',
+  'is_default',
+  'is_active',
+  'order',
+  'price_monthly',
+  'price_yearly',
+  'currency',
+  'max_rows_per_workspace',
+  'max_storage_mb',
+  'max_workspaces',
+  'max_collaborators_per_workspace',
+  'max_automations',
+  'max_api_calls_per_month',
+  'max_file_upload_size_mb',
+  'features',
+]
+
 const planModal = ref(null)
 const isCreating = ref(false)
 const editingPlanId = ref(null)
@@ -328,26 +359,94 @@ function toggleFeature(key) {
   planForm.features = [...features]
 }
 
+function normalizeNullableInt(value) {
+  if (value === '' || value === undefined || value === null) return null
+  if (typeof value === 'number' && Number.isFinite(value)) {
+    return Math.trunc(value)
+  }
+  const n = parseInt(String(value), 10)
+  return Number.isNaN(n) ? null : n
+}
+
+function buildPlanPayload() {
+  const raw = { ...planForm }
+  const data = {}
+  for (const key of PLAN_WRITABLE_FIELDS) {
+    if (Object.prototype.hasOwnProperty.call(raw, key)) {
+      data[key] = raw[key]
+    }
+  }
+  const intFields = [
+    'max_rows_per_workspace',
+    'max_storage_mb',
+    'max_workspaces',
+    'max_collaborators_per_workspace',
+    'max_automations',
+    'max_api_calls_per_month',
+    'max_file_upload_size_mb',
+  ]
+  for (const f of intFields) {
+    data[f] = normalizeNullableInt(data[f])
+  }
+  data.order = normalizeNullableInt(data.order) ?? 0
+  data.price_monthly = parseFloat(data.price_monthly) || 0
+  data.price_yearly = parseFloat(data.price_yearly) || 0
+  if (!Array.isArray(data.features)) {
+    data.features = []
+  }
+  return data
+}
+
+function handleBillingApiError(e) {
+  notifyIf(e)
+  if (e?.handler && !e.handler.isHandled) {
+    const d = e.response?.data
+    let message = ''
+    if (typeof d === 'object' && d !== null) {
+      if (typeof d.detail === 'string') {
+        message = d.detail
+      } else if (d.detail != null) {
+        message = JSON.stringify(d.detail)
+      } else {
+        message = JSON.stringify(d)
+      }
+    }
+    if (message) {
+      store.dispatch(
+        'toast/error',
+        {
+          title: $i18n.t('clientHandler.notCompletedTitle'),
+          message,
+        },
+        { root: true }
+      )
+      e.handler.handled()
+    }
+  }
+}
+
+function canDeletePlan(plan) {
+  if (plan.is_default) return false
+  const n = plan.subscription_count
+  return n == null || n === 0
+}
+
+async function deletePlan(plan) {
+  if (!canDeletePlan(plan)) return
+  if (!confirm($i18n.t('billing.admin.confirmDeletePlan'))) return
+  try {
+    await store.dispatch('billing/adminDeletePlan', {
+      app,
+      planId: plan.id,
+    })
+  } catch (e) {
+    handleBillingApiError(e)
+  }
+}
+
 async function savePlan() {
   try {
-    const data = { ...planForm }
-    const intFields = [
-      'max_rows_per_workspace',
-      'max_storage_mb',
-      'max_workspaces',
-      'max_collaborators_per_workspace',
-      'max_automations',
-      'max_api_calls_per_month',
-      'max_file_upload_size_mb',
-    ]
-    for (const f of intFields) {
-      if (data[f] === '' || data[f] === undefined) data[f] = null
-      else data[f] = data[f] !== null ? parseInt(data[f]) : null
-    }
-    data.order = parseInt(data.order) || 0
-    data.price_monthly = parseFloat(data.price_monthly) || 0
-    data.price_yearly = parseFloat(data.price_yearly) || 0
-
+    const data = buildPlanPayload()
     if (isCreating.value) {
       await store.dispatch('billing/adminCreatePlan', {
         app,
@@ -362,7 +461,7 @@ async function savePlan() {
     }
     closePlanModal()
   } catch (e) {
-    notifyIf(e)
+    handleBillingApiError(e)
   }
 }
 

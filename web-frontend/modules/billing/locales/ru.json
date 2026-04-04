@@ -34,7 +34,18 @@
       "activeState": "Активен",
       "limits": "Лимиты (пусто = безлимитно)",
       "features": "Функции",
-      "unlimited": "Безлимитно"
+      "unlimited": "Безлимитно",
+      "subscribers": "Подписчиков",
+      "deletePlan": "Удалить",
+      "confirmDeletePlan": "Удалить этот тариф? Действие необратимо.",
+      "errors": {
+        "cannotDeleteDefaultPlanTitle": "Нельзя удалить тариф по умолчанию",
+        "cannotDeleteDefaultPlanDescription": "Сначала назначьте другой тариф по умолчанию, затем можно удалить этот.",
+        "planHasSubscriptionsTitle": "Тариф используется",
+        "planHasSubscriptionsDescription": "Этот тариф назначен одному или нескольким пользователям. Смените им тариф перед удалением.",
+        "planNotFoundTitle": "Тариф не найден",
+        "planNotFoundDescription": "Возможно, тариф уже удалён."
+      }
     },
     "usersTable": {
       "plan": "Тариф"
