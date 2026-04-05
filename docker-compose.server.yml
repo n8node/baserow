@@ -1,0 +1,14 @@
+# Server overlay for docker-compose.all-in-one.yml (baserow.ru).
+# Loads all variables from .env and sets explicit overrides.
+services:
+  baserow:
+    env_file:
+      - .env
+    environment:
+      BASEROW_PUBLIC_URL: ${BASEROW_PUBLIC_URL}
+      BASEROW_CADDY_ADDRESSES: https://baserow.ru
+      SECRET_KEY: ${SECRET_KEY}
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+      REDIS_PASSWORD: ${REDIS_PASSWORD}
+      BASEROW_PREMIUM_FEATURES_UNLICENSED: "true"
+      BASEROW_ENTERPRISE_SSO_AUDIT_LOG_UNLICENSED: "true"
