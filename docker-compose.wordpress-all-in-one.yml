@@ -1,0 +1,6 @@
+# Только для docker-compose.all-in-one.yml: Caddy внутри контейнера baserow.
+# Не использовать с docker-compose.yml (там отдельный сервис caddy).
+services:
+  baserow:
+    volumes:
+      - $PWD/Caddyfile.wordpress:/baserow/caddy/Caddyfile

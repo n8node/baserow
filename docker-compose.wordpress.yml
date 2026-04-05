@@ -1,15 +1,18 @@
-# WordPress + MySQL overlay.
-# Usage:
+# WordPress + MySQL (сервисы только; без привязки к сети local из docker-compose.yml).
+#
+# Мультисервисный Baserow (Caddy отдельно) — подключить Caddyfile:
 #   docker compose -f docker-compose.yml \
 #                  -f docker-compose.server.yml \
+#                  -f docker-compose.wordpress-caddy.yml \
 #                  -f docker-compose.wordpress.yml up -d
 #
-# This file overrides the Caddyfile to route / to WordPress.
+# All-in-one (один контейнер baserow) — подключить Caddyfile внутрь baserow:
+#   docker compose -f docker-compose.all-in-one.yml \
+#                  -f docker-compose.server.yml \
+#                  -f docker-compose.wordpress-all-in-one.yml \
+#                  -f docker-compose.wordpress.yml up -d
+#
 services:
-  caddy:
-    volumes:
-      - $PWD/Caddyfile.wordpress:/etc/caddy/Caddyfile
-
   wordpress:
     image: wordpress:6-apache
     container_name: wordpress
@@ -30,8 +33,6 @@ services:
         }
     volumes:
       - wordpress_data:/var/www/html
-    networks:
-      local:
 
   wordpress-db:
     image: mysql:8.0
@@ -44,8 +45,6 @@ services:
       MYSQL_ROOT_PASSWORD: ${WP_DB_ROOT_PASSWORD:-rootchangeme}
     volumes:
       - wordpress_db_data:/var/lib/mysql
-    networks:
-      local:
 
 volumes:
   wordpress_data:

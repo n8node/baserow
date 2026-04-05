@@ -1,0 +1,6 @@
+# Только для стека с отдельным сервисом caddy (docker-compose.yml).
+# Не использовать с docker-compose.all-in-one.yml.
+services:
+  caddy:
+    volumes:
+      - $PWD/Caddyfile.wordpress:/etc/caddy/Caddyfile

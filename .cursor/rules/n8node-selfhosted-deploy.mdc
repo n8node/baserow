@@ -9,6 +9,14 @@ alwaysApply: true
 
 Предполагаемый путь: `/opt/baserow`, ветка `develop`, compose: `docker-compose.all-in-one.yml` + `docker-compose.server.yml`.
 
+## Запрет: не подтягивать образы Baserow с Docker Hub (форк)
+
+Для **этого** проекта (baserow.ru / n8node, кастомный код в репозитории):
+
+- **Никогда** не предлагать обновление приложения через `docker compose pull` / `docker pull` образов **`baserow/baserow`**, **`baserow/backend`**, **`baserow/web-frontend`** с Docker Hub — это подменит контейнер **апстрим-сборкой** и **сотрёт изменения форка**.
+- Единственный путь обновления кода Baserow: **`git pull`** в `/opt/baserow` → локальные **`docker build`** (backend, web-frontend, all-in-one с тем же тегом, что в compose) → **`docker compose … up -d --force-recreate`**.
+- Допустим `pull` только для **сторонних** сервисов в compose (например `postgres`, `redis`, `wordpress`), если они не несут кастомный код Baserow.
+
 ## Важно: `docker-compose.all-in-one.yml` без `build:`
 
 В репозитории указан только **`image: baserow/baserow:…`** (Docker Hub). Команда `docker compose build` выдаёт **«No services to build»** — это нормально: **код из `git pull` в контейнер не попадает**, пока не собран **свой** образ с тем же тегом, что в compose (по умолчанию **`2.1.6`**).
@@ -67,21 +75,26 @@ cd /opt/baserow && docker build -f deploy/all-in-one/Dockerfile --target prod \
   -t baserow/baserow:2.1.6 .
 ```
 
-## Если сознательно только образ Hub (без своего кода)
-
-```bash
-cd /opt/baserow
-git pull origin develop
-docker compose -f docker-compose.all-in-one.yml -f docker-compose.server.yml pull
-docker compose -f docker-compose.all-in-one.yml -f docker-compose.server.yml up -d --force-recreate
-```
-
 ## Только пересоздать контейнер (образ уже свой, меняли env)
 
 ```bash
 cd /opt/baserow
 docker compose -f docker-compose.all-in-one.yml -f docker-compose.server.yml up -d --force-recreate
 ```
+
+## WordPress вместе с all-in-one
+
+`docker-compose.wordpress.yml` **нельзя** запускать отдельно: раньше он требовал сеть `local` из `docker-compose.yml` и оверлей `caddy`. Для **all-in-one** поднимай WordPress **в одном проекте** с baserow и подключай `Caddyfile.wordpress` в контейнер baserow:
+
+```bash
+cd /opt/baserow
+docker compose -f docker-compose.all-in-one.yml \
+  -f docker-compose.server.yml \
+  -f docker-compose.wordpress-all-in-one.yml \
+  -f docker-compose.wordpress.yml up -d --force-recreate
+```
+
+Для стека **с отдельным Caddy** (`docker-compose.yml`): добавь `docker-compose.wordpress-caddy.yml` перед `docker-compose.wordpress.yml` (см. комментарии в этих файлах).
 
 ## Проверка
 
