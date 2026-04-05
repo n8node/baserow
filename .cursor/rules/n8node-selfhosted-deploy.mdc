@@ -9,6 +9,20 @@ alwaysApply: true
 
 Предполагаемый путь: `/opt/baserow`, ветка `develop`, compose: `docker-compose.all-in-one.yml` + `docker-compose.server.yml`.
 
+## Перед важным обновлением: полный бэкап
+
+**Всегда напоминай** сделать полный бэкап **кода репозитория + дамп встроенной PostgreSQL** перед крупными изменениями (смена compose, миграции, пересборка образов, `git pull` на проде).
+
+На сервере:
+
+```bash
+cd /opt/baserow && bash deploy/scripts/baserow-full-backup.sh
+```
+
+Снимки складываются в **`/opt/baserow/backup/YYYYMMDD_HHMMSS/`** (`code.tar.gz`, `postgres.dump`, `BACKUP_INFO.txt`). Переменная **`BASEROW_BACKUP_DIR`** задаёт другой каталог; **`BASEROW_CONTAINER_NAME`** — если контейнер не называется `baserow`.
+
+Восстановление — скрипт **`deploy/scripts/baserow-full-restore.sh`** (`--code-only`, `--db-only` или два шага по README внутри файла). Тома **WordPress** в этот бэкап не входят — при необходимости делай отдельный дамп томов или `mysqldump`.
+
 ## Запрет: не подтягивать образы Baserow с Docker Hub (форк)
 
 Для **этого** проекта (baserow.ru / n8node, кастомный код в репозитории):
@@ -27,6 +41,8 @@ alwaysApply: true
 
 ```bash
 cd /opt/baserow
+# Перед обновлением: bash deploy/scripts/baserow-full-backup.sh
+
 git pull origin develop
 
 docker build -f backend/Dockerfile --target prod -t baserow/backend:2.1.6 .
