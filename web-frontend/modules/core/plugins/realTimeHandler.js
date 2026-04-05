@@ -40,11 +40,7 @@ export class RealTimeHandler {
       return
     }
 
-    // Stop connecting if we have already tried more than 30 times, if we do not have
-    // an authentication token or if the server has already responded with a failed
-    // authentication error and the token has not changed.
     if (
-      this.attempts > 30 ||
       token === null ||
       (!this.authenticationSuccess && token === this.lastToken)
     ) {
@@ -124,13 +120,14 @@ export class RealTimeHandler {
     this.attempts++
     this.context.store.dispatch('toast/setConnecting', true)
 
-    this.reconnectTimeout = setTimeout(
-      () => {
-        this.connect(true, this.anonymous)
-      },
-      // After the first try, we want to try again every 5 seconds.
-      this.attempts > 1 ? 5000 : 0
-    )
+    const delay =
+      this.attempts <= 1
+        ? 0
+        : Math.min(1000 * Math.pow(2, this.attempts - 1), 60000)
+
+    this.reconnectTimeout = setTimeout(() => {
+      this.connect(true, this.anonymous)
+    }, delay)
   }
 
   /**
