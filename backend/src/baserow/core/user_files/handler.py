@@ -263,6 +263,14 @@ class UserFileHandler:
                 "The provided file is too large.",
             )
 
+        from baserow.contrib.billing.limits import (
+            check_file_size_limit,
+            check_storage_limit,
+        )
+
+        check_file_size_limit(user, size)
+        check_storage_limit(user, size)
+
         storage = storage or get_default_storage()
         stream_hash = sha256_hash(stream)
         file_name = truncate_middle(file_name, 64)

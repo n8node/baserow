@@ -387,6 +387,9 @@ REST_FRAMEWORK = {
     ),
     "DEFAULT_RENDERER_CLASSES": ("rest_framework.renderers.JSONRenderer",),
     "DEFAULT_SCHEMA_CLASS": "baserow.api.openapi.AutoSchema",
+    "DEFAULT_THROTTLE_CLASSES": [
+        "baserow.contrib.billing.throttling.BillingApiCallThrottle",
+    ],
 }
 
 # Limits the number of concurrent requests per user.
@@ -397,9 +400,9 @@ BASEROW_MAX_CONCURRENT_USER_REQUESTS = int(
 )
 
 if BASEROW_MAX_CONCURRENT_USER_REQUESTS > 0:
-    REST_FRAMEWORK["DEFAULT_THROTTLE_CLASSES"] = [
-        "baserow.throttling.ConcurrentUserRequestsThrottle",
-    ]
+    REST_FRAMEWORK["DEFAULT_THROTTLE_CLASSES"].append(
+        "baserow.throttling.ConcurrentUserRequestsThrottle"
+    )
 
     REST_FRAMEWORK["DEFAULT_THROTTLE_RATES"] = {
         "concurrent_user_requests": BASEROW_MAX_CONCURRENT_USER_REQUESTS

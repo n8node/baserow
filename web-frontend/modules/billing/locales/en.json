@@ -82,7 +82,11 @@
     },
     "errors": {
       "planLimitExceededTitle": "Plan limit reached",
-      "planLimitExceededDescription": "You have reached a limit of your current plan. Upgrade your plan to continue."
+      "planLimitExceededDescription": "You have reached a limit of your current plan. Upgrade your plan to continue.",
+      "limitCollaborators": "Maximum number of collaborators in this workspace reached.",
+      "limitStorage": "Storage quota exceeded. Free up space or upgrade your plan.",
+      "limitFileSize": "This file exceeds the maximum upload size for your plan.",
+      "limitApiCalls": "Monthly API call quota exceeded. Try again next month or upgrade your plan."
     },
     "user": {
       "title": "Billing",

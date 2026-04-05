@@ -1134,6 +1134,10 @@ class CoreHandler(metaclass=baserow_trace_methods(tracer)):
                 f"The user {email} is already part of the workspace."
             )
 
+        from baserow.contrib.billing.limits import check_collaborator_limit
+
+        check_collaborator_limit(workspace, acting_user=user)
+
         max_invites = settings.BASEROW_MAX_PENDING_WORKSPACE_INVITES
         if max_invites > 0 and (
             WorkspaceInvitation.objects.filter(workspace=workspace)
@@ -1269,6 +1273,11 @@ class CoreHandler(metaclass=baserow_trace_methods(tracer)):
             default if not specified.
         :return: The created `WorkspaceUser` object.
         """
+
+        if not WorkspaceUser.objects.filter(user=user, workspace=workspace).exists():
+            from baserow.contrib.billing.limits import check_collaborator_limit
+
+            check_collaborator_limit(workspace)
 
         workspace_user, _ = WorkspaceUser.objects.update_or_create(
             user=user,
