@@ -349,41 +349,45 @@ function displayPrice(plan) {
 function planLimitLines(plan) {
   const lines = []
   const inf = $t('billing.user.unlimitedShort')
-  const numOrInf = (v) =>
-    v !== null && v !== undefined && v !== '' ? v : inf
+
+  const hasValue = (v) =>
+    v !== null && v !== undefined && v !== '' && Number(v) > 0
 
   lines.push(
-    `${numOrInf(plan.max_rows_per_workspace)} ${$t('billing.user.limitRows')}`
+    hasValue(plan.max_rows_per_workspace)
+      ? `${plan.max_rows_per_workspace} ${$t('billing.user.limitRows')}`
+      : `${inf} ${$t('billing.user.limitRows')}`
   )
   lines.push(
-    `${
-      plan.max_storage_mb !== null &&
-      plan.max_storage_mb !== undefined &&
-      plan.max_storage_mb !== ''
-        ? plan.max_storage_mb + ' MB'
-        : inf
-    } ${$t('billing.user.limitStorage')}`
+    hasValue(plan.max_storage_mb)
+      ? `${plan.max_storage_mb} MB ${$t('billing.user.limitStorage')}`
+      : `${inf} ${$t('billing.user.limitStorage')}`
   )
   lines.push(
-    `${numOrInf(plan.max_workspaces)} ${$t('billing.user.limitWorkspaces')}`
+    hasValue(plan.max_workspaces)
+      ? `${plan.max_workspaces} ${$t('billing.user.limitWorkspaces')}`
+      : `${inf} ${$t('billing.user.limitWorkspaces')}`
   )
   lines.push(
-    `${numOrInf(plan.max_collaborators_per_workspace)} ${$t('billing.user.limitCollaborators')}`
+    hasValue(plan.max_collaborators_per_workspace)
+      ? `${plan.max_collaborators_per_workspace} ${$t('billing.user.limitCollaborators')}`
+      : `${inf} ${$t('billing.user.limitCollaborators')}`
   )
-  lines.push(
-    `${numOrInf(plan.max_automations)} ${$t('billing.user.limitAutomations')}`
-  )
-  lines.push(
-    `${numOrInf(plan.max_api_calls_per_month)} ${$t('billing.user.limitApiCalls')}`
-  )
-  const maxFileMb = plan.max_file_upload_size_mb
-  lines.push(
-    maxFileMb !== null &&
-      maxFileMb !== undefined &&
-      maxFileMb !== ''
-      ? `${maxFileMb} MB ${$t('billing.user.limitPerFile')}`
-      : `${inf} ${$t('billing.user.limitPerFile')}`
-  )
+  if (hasValue(plan.max_automations)) {
+    lines.push(
+      `${plan.max_automations} ${$t('billing.user.limitAutomations')}`
+    )
+  }
+  if (hasValue(plan.max_api_calls_per_month)) {
+    lines.push(
+      `${plan.max_api_calls_per_month} ${$t('billing.user.limitApiCalls')}`
+    )
+  }
+  if (hasValue(plan.max_file_upload_size_mb)) {
+    lines.push(
+      `${plan.max_file_upload_size_mb} MB ${$t('billing.user.limitPerFile')}`
+    )
+  }
   return lines
 }
 
