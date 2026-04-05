@@ -19,9 +19,9 @@ alwaysApply: true
 cd /opt/baserow && bash deploy/scripts/baserow-full-backup.sh
 ```
 
-Снимки складываются в **`/opt/baserow/backup/YYYYMMDD_HHMMSS/`** (`code.tar.gz`, `postgres.dump`, `BACKUP_INFO.txt`). Переменная **`BASEROW_BACKUP_DIR`** задаёт другой каталог; **`BASEROW_CONTAINER_NAME`** — если контейнер не называется `baserow`.
+Снимки складываются в **`/opt/baserow/backup/YYYYMMDD_HHMMSS/`**: `code.tar.gz`, `postgres.dump`, `wordpress_files.tar.gz`, `wordpress_mysql.sql`, `BACKUP_INFO.txt` (нужны запущенные `baserow`, `wordpress`, `wordpress-db`). Без WordPress: **`BASEROW_BACKUP_SKIP_WORDPRESS=1`**. Переменные: **`BASEROW_BACKUP_DIR`**, **`BASEROW_CONTAINER_NAME`**, **`WORDPRESS_CONTAINER_NAME`**, **`WORDPRESS_DB_CONTAINER_NAME`**.
 
-Восстановление — скрипт **`deploy/scripts/baserow-full-restore.sh`** (`--code-only`, `--db-only` или два шага по README внутри файла). Тома **WordPress** в этот бэкап не входят — при необходимости делай отдельный дамп томов или `mysqldump`.
+Восстановление — **`deploy/scripts/baserow-full-restore.sh`**: `--code-only`, `--db-only` (PostgreSQL), `--wordpress-only` (файлы + MySQL), см. комментарии в скрипте.
 
 ## Запрет: не подтягивать образы Baserow с Docker Hub (форк)
 
