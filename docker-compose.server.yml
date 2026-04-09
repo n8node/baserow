@@ -6,6 +6,7 @@ services:
       - .env
     environment:
       BASEROW_PUBLIC_URL: ${BASEROW_PUBLIC_URL}
+      YANDEX_METRIKA_ID: ${YANDEX_METRIKA_ID:-108398896}
       BASEROW_CADDY_ADDRESSES: https://baserow.ru
       SECRET_KEY: ${SECRET_KEY}
       DATABASE_PASSWORD: ${DATABASE_PASSWORD}
