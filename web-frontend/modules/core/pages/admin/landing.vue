@@ -198,7 +198,7 @@ const blockTypes = [
   { value: 'badges', label: 'Badges & Certifications' },
   { value: 'product_tabs', label: 'Product Tabs (screenshots)' },
   { value: 'deployment', label: 'Deployment Options' },
-  { value: 'ai_assistant', label: 'AI Assistant (Kuma)' },
+  { value: 'ai_assistant', label: 'AI Assistant (George AI)' },
   { value: 'how_it_works', label: 'How It Works' },
   { value: 'section_image', label: 'Section + Image' },
   { value: 'automations', label: 'Automations (3 features)' },

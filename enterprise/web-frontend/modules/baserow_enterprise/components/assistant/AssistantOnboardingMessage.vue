@@ -1,11 +1,11 @@
 <template>
   <div class="assistant-onboarding">
     <div class="assistant-onboarding__logo">
-      <img :src="image" alt="kuma" width="56" height="56" />
+      <img :src="image" alt="george-ai" width="56" height="56" />
     </div>
     <div class="assistant-onboarding__title">
       <i class="iconoir-magic-wand assistant-onboarding__title-icon"></i>
-      Kuma is building your database
+      George AI is building your database
     </div>
     <div class="assistant-onboarding__message">
       <div class="assistant-onboarding__loading-wrapper">
