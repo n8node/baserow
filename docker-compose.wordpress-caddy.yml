@@ -4,3 +4,10 @@ services:
   caddy:
     volumes:
       - $PWD/Caddyfile.wordpress:/etc/caddy/Caddyfile
+  # Ensure Caddy can resolve and reach WordPress containers on the same network.
+  wordpress:
+    networks:
+      local:
+  wordpress-db:
+    networks:
+      local:
