@@ -17,3 +17,4 @@ BUILDER_CUSTOM_CODE = "builder_custom_code"
 
 DATE_DEPENDENCY = "date_dependency"
 DATA_SCANNER = "data_scanner"
+ASSISTANT_CHAT = "assistant_chat"

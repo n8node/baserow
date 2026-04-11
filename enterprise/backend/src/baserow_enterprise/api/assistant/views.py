@@ -23,6 +23,7 @@ from baserow.api.serializers import get_example_pagination_serializer_class
 from baserow.api.sessions import set_client_undo_redo_action_group_id
 from baserow.core.exceptions import UserNotInWorkspace, WorkspaceDoesNotExist
 from baserow.core.handler import CoreHandler
+from baserow_enterprise.features import ASSISTANT_CHAT
 from baserow_enterprise.assistant.assistant import set_assistant_cancellation_key
 from baserow_enterprise.assistant.exceptions import (
     AssistantChatDoesNotExist,
@@ -41,6 +42,7 @@ from baserow_enterprise.assistant.types import (
     HumanMessage,
     UIContext,
 )
+from baserow_premium.license.handler import LicenseHandler
 
 from .errors import (
     ERROR_ASSISTANT_CHAT_DOES_NOT_EXIST,
@@ -55,6 +57,12 @@ from .serializers import (
     AssistantMessageSerializer,
     AssistantRateChatMessageSerializer,
 )
+
+
+def _raise_if_assistant_not_available(user, workspace):
+    LicenseHandler.raise_if_user_doesnt_have_feature(
+        ASSISTANT_CHAT, user=user, workspace=workspace
+    )
 
 
 class AssistantChatsView(APIView):
@@ -108,6 +116,7 @@ class AssistantChatsView(APIView):
             workspace=workspace,
             context=workspace,
         )
+        _raise_if_assistant_not_available(request.user, workspace)
 
         chats = AssistantHandler().list_chats(request.user, workspace_id)
 
@@ -154,6 +163,7 @@ class AssistantChatView(APIView):
             workspace=workspace,
             context=workspace,
         )
+        _raise_if_assistant_not_available(request.user, workspace)
 
         check_lm_ready_or_raise()
         handler = AssistantHandler()
@@ -232,6 +242,7 @@ class AssistantChatView(APIView):
             workspace=workspace,
             context=workspace,
         )
+        _raise_if_assistant_not_available(request.user, workspace)
 
         messages = handler.list_chat_messages(chat)
 
@@ -269,6 +280,7 @@ class AssistantChatView(APIView):
             workspace=workspace,
             context=workspace,
         )
+        _raise_if_assistant_not_available(request.user, workspace)
 
         set_assistant_cancellation_key(chat.uuid)
 
@@ -301,6 +313,7 @@ class AssistantChatMessageFeedbackView(APIView):
     def put(self, request: Request, message_id: int, data) -> Response:
         handler = AssistantHandler()
         message = handler.get_chat_message_by_id(request.user, message_id)
+        _raise_if_assistant_not_available(request.user, message.chat.workspace)
         try:
             prediction: AssistantChatPrediction = message.prediction
         except AttributeError:

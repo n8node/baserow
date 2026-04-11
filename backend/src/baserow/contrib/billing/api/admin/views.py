@@ -258,6 +258,7 @@ class AdminAvailableFeaturesView(APIView):
             {"key": "personal_views", "name": "Personal views"},
             {"key": "export_json_xml", "name": "JSON/XML export"},
             {"key": "ai_field", "name": "AI field"},
+            {"key": "assistant_chat", "name": "AI assistant (George AI)"},
             {"key": "chart_widget", "name": "Chart widgets"},
             {"key": "no_branding", "name": "No branding"},
             {"key": "rbac", "name": "RBAC (role-based access)"},
