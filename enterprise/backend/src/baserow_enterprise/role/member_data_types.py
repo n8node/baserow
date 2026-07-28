@@ -74,17 +74,16 @@ class EnterpriseRolesDataType(MemberDataType):
         license_plugin = plugin_registry.get_by_type(PremiumPlugin).get_license_plugin()
 
         usage = license_plugin.get_seat_usage_for_workspace(workspace)
-        if usage:
-            highest_role_per_user = usage.highest_role_per_user_id
-        else:
-            highest_role_per_user = None
+        highest_role_per_user = usage.highest_role_per_user_id if usage else None
 
         for member in serialized_data:
             role = RoleAssignmentHandler().get_role_by_uid(
                 role_uid=member["permissions"], use_fallback=True
             )
-            member["highest_role_uid"] = highest_role_per_user.get(
-                member["user_id"], None
+            member["highest_role_uid"] = (
+                highest_role_per_user.get(member["user_id"], None)
+                if highest_role_per_user is not None
+                else None
             )
             member["role_uid"] = role.uid
 

@@ -201,3 +201,36 @@ def test_roles_member_data_type_doesnt_expose_to_users_without_read_role(
         viewer,
     )
     assert result == serialized_users_pre_annotation
+
+
+@pytest.mark.django_db
+@override_settings(
+    PERMISSION_MANAGERS=["core", "staff", "member", "basic", "role"],
+)
+def test_roles_member_data_type_without_seat_usage_summary(
+    data_fixture, enterprise_data_fixture, synced_roles, mocker
+):
+    user = data_fixture.create_user()
+    workspace = enterprise_data_fixture.create_workspace(user=user)
+
+    license_plugin = mocker.Mock()
+    license_plugin.get_seat_usage_for_workspace.return_value = None
+    mocker.patch(
+        "baserow_enterprise.role.member_data_types.plugin_registry.get_by_type",
+        return_value=mocker.Mock(get_license_plugin=mocker.Mock(return_value=license_plugin)),
+    )
+
+    serialized_data = [{"user_id": user.id, "permissions": "ADMIN"}]
+
+    result = EnterpriseRolesDataType().annotate_serialized_workspace_members_data(
+        workspace, serialized_data, user
+    )
+
+    assert result == [
+        {
+            "user_id": user.id,
+            "permissions": "ADMIN",
+            "role_uid": "ADMIN",
+            "highest_role_uid": None,
+        }
+    ]
