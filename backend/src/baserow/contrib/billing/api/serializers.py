@@ -187,6 +187,10 @@ class PaymentProviderConfigSerializer(serializers.ModelSerializer):
             "merchant_login",
             "password1",
             "password2",
+            "hash_algorithm",
+            "fiscalization_enabled",
+            "receipt_tax",
+            "receipt_sno",
             "shop_id",
             "secret_key",
             "test_mode",
@@ -213,6 +217,13 @@ class UpdatePaymentProviderSerializer(serializers.Serializer):
     merchant_login = serializers.CharField(required=False, allow_blank=True)
     password1 = serializers.CharField(required=False, allow_blank=True)
     password2 = serializers.CharField(required=False, allow_blank=True)
+    hash_algorithm = serializers.ChoiceField(
+        required=False,
+        choices=["md5", "sha1", "sha256", "sha384", "sha512"],
+    )
+    fiscalization_enabled = serializers.BooleanField(required=False)
+    receipt_tax = serializers.CharField(required=False, allow_blank=True)
+    receipt_sno = serializers.CharField(required=False, allow_blank=True)
     shop_id = serializers.CharField(required=False, allow_blank=True)
     secret_key = serializers.CharField(required=False, allow_blank=True)
     test_mode = serializers.BooleanField(required=False)

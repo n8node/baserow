@@ -71,11 +71,70 @@
             <div class="admin-settings__name">
               {{ $t('billing.admin.testMode') }}
             </div>
+            <div class="admin-settings__description">
+              {{ $t('billing.admin.robokassaTestModeHint') }}
+            </div>
           </div>
           <div class="admin-settings__control">
             <SwitchInput
               :value="robokassaConfig.test_mode"
               @input="saveProviderField('robokassa', 'test_mode', $event)"
+            >
+              {{ $t('settings.enabled') }}
+            </SwitchInput>
+          </div>
+        </div>
+        <div class="admin-settings__item">
+          <div class="admin-settings__label">
+            <div class="admin-settings__name">
+              {{ $t('billing.admin.robokassaHashAlgorithm') }}
+            </div>
+            <div class="admin-settings__description">
+              {{ $t('billing.admin.robokassaHashAlgorithmDescription') }}
+            </div>
+          </div>
+          <div class="admin-settings__control">
+            <select
+              :value="robokassaConfig.hash_algorithm"
+              style="
+                width: 100%;
+                padding: 8px;
+                border: 1px solid var(--color-neutral-300);
+                border-radius: 4px;
+              "
+              @change="
+                saveProviderField(
+                  'robokassa',
+                  'hash_algorithm',
+                  $event.target.value
+                )
+              "
+            >
+              <option
+                v-for="opt in robokassaHashOptions"
+                :key="opt.value"
+                :value="opt.value"
+              >
+                {{ opt.name }}
+              </option>
+            </select>
+          </div>
+        </div>
+        <div class="admin-settings__item">
+          <div class="admin-settings__label">
+            <div class="admin-settings__name">
+              {{ $t('billing.admin.robokassaFiscalization') }}
+            </div>
+            <div class="admin-settings__description">
+              {{ $t('billing.admin.robokassaFiscalizationDescription') }}
+            </div>
+          </div>
+          <div class="admin-settings__control">
+            <SwitchInput
+              :value="robokassaConfig.fiscalization_enabled"
+              @input="
+                saveProviderField('robokassa', 'fiscalization_enabled', $event)
+              "
             >
               {{ $t('settings.enabled') }}
             </SwitchInput>
@@ -192,11 +251,21 @@ useHead({ title: $i18n.t('billing.admin.paymentProviders') })
 const store = useStore()
 const app = { $client }
 
+const robokassaHashOptions = [
+  { value: 'md5', name: 'MD5' },
+  { value: 'sha1', name: 'SHA1' },
+  { value: 'sha256', name: 'SHA256' },
+  { value: 'sha384', name: 'SHA384' },
+  { value: 'sha512', name: 'SHA512' },
+]
+
 const robokassaConfig = reactive({
   merchant_login: '',
   password1_input: '',
   password2_input: '',
   test_mode: true,
+  hash_algorithm: 'md5',
+  fiscalization_enabled: false,
 })
 
 const yookassaConfig = reactive({
@@ -226,6 +295,8 @@ function syncProviderConfigs() {
   if (robo) {
     robokassaConfig.merchant_login = robo.merchant_login || ''
     robokassaConfig.test_mode = robo.test_mode ?? true
+    robokassaConfig.hash_algorithm = robo.hash_algorithm || 'md5'
+    robokassaConfig.fiscalization_enabled = robo.fiscalization_enabled ?? false
   }
   const yoo = adminProviders.value.find(
     (p) => p.provider_type === 'yookassa'

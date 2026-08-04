@@ -179,8 +179,23 @@ class BillingHandler:
         config, _ = PaymentProviderConfig.objects.get_or_create(
             provider_type=provider_type
         )
+        # Credentials must not carry accidental whitespace — Robokassa error 29.
+        strip_fields = {
+            "merchant_login",
+            "password1",
+            "password2",
+            "shop_id",
+            "secret_key",
+            "hash_algorithm",
+            "receipt_tax",
+            "receipt_sno",
+        }
         for key, value in kwargs.items():
             if hasattr(config, key) and key != "provider_type":
+                if key in strip_fields and isinstance(value, str):
+                    value = value.strip()
+                if key == "hash_algorithm" and value:
+                    value = value.lower()
                 setattr(config, key, value)
         config.save()
         return config

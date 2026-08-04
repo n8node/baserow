@@ -80,12 +80,15 @@ class SubscribeView(APIView):
 
         if provider_config.provider_type == "robokassa":
             provider = RobokassaProvider(provider_config)
-            payment_url = provider.create_payment_url(
-                invoice_id=payment.pk,
-                amount=amount,
-                description=f"{plan.name} ({billing_period})",
-                email=request.user.email,
-            )
+            try:
+                payment_url = provider.create_payment_url(
+                    invoice_id=payment.pk,
+                    amount=amount,
+                    description=f"{plan.name} ({billing_period})",
+                    email=request.user.email,
+                )
+            except ValueError as exc:
+                return Response({"error": str(exc)}, status=503)
         else:
             provider = YooKassaProvider(provider_config)
             payment_url = provider.create_payment_url(

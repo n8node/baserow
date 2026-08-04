@@ -79,6 +79,29 @@ class PaymentProviderConfig(models.Model):
         default="",
         help_text="Robokassa: Password #2",
     )
+    hash_algorithm = models.CharField(
+        max_length=16,
+        blank=True,
+        default="md5",
+        help_text="Robokassa hash algorithm from merchant technical settings "
+        "(md5, sha1, sha256, sha384, sha512).",
+    )
+    fiscalization_enabled = models.BooleanField(
+        default=False,
+        help_text="Send Receipt JSON for 54-FZ (must match Robokassa fiscalization).",
+    )
+    receipt_tax = models.CharField(
+        max_length=16,
+        blank=True,
+        default="none",
+        help_text="Robokassa Receipt item tax (none, vat0, vat10, vat20, ...).",
+    )
+    receipt_sno = models.CharField(
+        max_length=32,
+        blank=True,
+        default="",
+        help_text="Optional Receipt sno (osn, usn_income, ...). Empty = cabinet default.",
+    )
 
     shop_id = models.CharField(
         max_length=255,
@@ -93,7 +116,11 @@ class PaymentProviderConfig(models.Model):
         help_text="YooKassa: Secret key",
     )
 
-    test_mode = models.BooleanField(default=True)
+    test_mode = models.BooleanField(
+        default=True,
+        help_text="Robokassa: send IsTest=1. Must use TEST Password #1/#2, "
+        "not live passwords (otherwise error 29).",
+    )
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
