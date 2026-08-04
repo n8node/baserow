@@ -38,6 +38,9 @@ export default (client) => {
     adminGetRobokassaUrls() {
       return client.get('/billing/admin/robokassa-urls/')
     },
+    adminTestRobokassa() {
+      return client.post('/billing/admin/robokassa-test/')
+    },
     adminGetProviders() {
       return client.get('/billing/admin/providers/')
     },

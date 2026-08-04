@@ -199,9 +199,14 @@ class PaymentProviderConfigSerializer(serializers.ModelSerializer):
     def _mask(self, value: str) -> str:
         if not value:
             return ""
-        if len(value) <= 4:
-            return "****"
-        return "****" + value[-4:]
+        value = value.strip()
+        length = len(value)
+        if length <= 4:
+            return "••••"
+        if length <= 6:
+            return f"{value[:1]}••••{value[-1:]}"
+        # Show a few real characters so admins can verify the right secret is stored.
+        return f"{value[:2]}••••{value[-2:]} ({length})"
 
     def get_password1(self, obj):
         return self._mask(obj.password1)

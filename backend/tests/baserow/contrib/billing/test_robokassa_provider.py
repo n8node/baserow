@@ -140,3 +140,82 @@ def test_format_out_sum_consistent():
     assert RobokassaProvider.format_out_sum(Decimal("1200")) == "1200.00"
     assert RobokassaProvider.format_out_sum("1200.5") == "1200.50"
     assert RobokassaProvider.format_out_sum(10) == "10.00"
+
+
+@pytest.mark.django_db
+def test_connection_reports_missing_password(robokassa_config):
+    robokassa_config.password2 = ""
+    robokassa_config.save(update_fields=["password2"])
+    result = RobokassaProvider(robokassa_config).test_connection()
+    assert result["ok"] is False
+    assert "Password #2" in result["message"]
+
+
+@pytest.mark.django_db
+def test_connection_accepts_opstate_invoice_not_found(robokassa_config, monkeypatch):
+    provider = RobokassaProvider(robokassa_config)
+
+    responses = {
+        "GetCurrencies": """<?xml version="1.0"?>
+<CurrenciesList xmlns="http://merchant.roboxchange.com/WebService/">
+  <Result><Code>0</Code></Result>
+</CurrenciesList>""",
+        "OpStateExt": """<?xml version="1.0"?>
+<OperationStateResponse xmlns="http://merchant.roboxchange.com/WebService/">
+  <Result><Code>3</Code></Result>
+</OperationStateResponse>""",
+    }
+
+    def fake_urlopen(req, timeout=20):
+        url = req.full_url if hasattr(req, "full_url") else str(req)
+        body = next(v for k, v in responses.items() if k in url)
+
+        class Resp:
+            def read(self):
+                return body.encode("utf-8")
+
+            def __enter__(self):
+                return self
+
+            def __exit__(self, *args):
+                return False
+
+        return Resp()
+
+    monkeypatch.setattr(
+        "urllib.request.urlopen", fake_urlopen
+    )
+    result = provider.test_connection()
+    assert result["ok"] is True
+    assert any(c["name"] == "password2" and c["ok"] for c in result["checks"])
+
+
+@pytest.mark.django_db
+def test_connection_detects_bad_signature(robokassa_config, monkeypatch):
+    provider = RobokassaProvider(robokassa_config)
+
+    def fake_urlopen(req, timeout=20):
+        url = req.full_url if hasattr(req, "full_url") else str(req)
+        if "GetCurrencies" in url:
+            body = """<?xml version="1.0"?><CurrenciesList xmlns="http://merchant.roboxchange.com/WebService/"><Result><Code>0</Code></Result></CurrenciesList>"""
+        else:
+            body = """<?xml version="1.0"?><OperationStateResponse xmlns="http://merchant.roboxchange.com/WebService/"><Result><Code>1</Code></Result></OperationStateResponse>"""
+
+        class Resp:
+            def read(self):
+                return body.encode("utf-8")
+
+            def __enter__(self):
+                return self
+
+            def __exit__(self, *args):
+                return False
+
+        return Resp()
+
+    monkeypatch.setattr("urllib.request.urlopen", fake_urlopen)
+    result = provider.test_connection()
+    assert result["ok"] is False
+    assert any(
+        c["name"] == "password2" and not c["ok"] for c in result["checks"]
+    )

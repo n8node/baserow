@@ -199,3 +199,249 @@ class RobokassaProvider(PaymentProviderBase):
 
     def success_response(self, inv_id) -> str:
         return f"OK{inv_id}"
+
+    def test_connection(self) -> dict:
+        """
+        Verify Robokassa merchant credentials against XML interfaces.
+
+        - GetCurrencies → MerchantLogin exists / shop active
+        - OpStateExt → Password #2 + hash algorithm (Result 0 or 3 = signature OK)
+        - Password #1 → only checked as present; used when building payment links
+        """
+        import re as _re
+        import urllib.error
+        import urllib.request
+        import xml.etree.ElementTree as ET
+
+        checks: list[dict] = []
+        ok = True
+
+        if not self.merchant_login:
+            return {
+                "ok": False,
+                "message": "MerchantLogin не задан.",
+                "checks": [],
+                "test_mode": bool(self.config.test_mode),
+                "hash_algorithm": self.hash_algorithm,
+            }
+        if not self.password1:
+            return {
+                "ok": False,
+                "message": "Password #1 не задан.",
+                "checks": [],
+                "test_mode": bool(self.config.test_mode),
+                "hash_algorithm": self.hash_algorithm,
+            }
+        if not self.password2:
+            return {
+                "ok": False,
+                "message": "Password #2 не задан.",
+                "checks": [],
+                "test_mode": bool(self.config.test_mode),
+                "hash_algorithm": self.hash_algorithm,
+            }
+
+        def _http_get(url: str) -> str:
+            req = urllib.request.Request(
+                url,
+                headers={"User-Agent": "Baserow-Robokassa-Check/1.0"},
+                method="GET",
+            )
+            with urllib.request.urlopen(req, timeout=20) as resp:
+                return resp.read().decode("utf-8", errors="replace")
+
+        def _result_code(xml_text: str) -> tuple[Optional[int], str]:
+            try:
+                root = ET.fromstring(xml_text)
+            except ET.ParseError:
+                return None, "Некорректный XML-ответ Robokassa"
+            # Namespace-agnostic search for Result/Code
+            code_el = None
+            for el in root.iter():
+                tag = el.tag.split("}")[-1] if "}" in el.tag else el.tag
+                if tag == "Code" and code_el is None:
+                    # Prefer Result/Code: walk parents is awkward; take first Code
+                    # under an element named Result if possible.
+                    code_el = el
+            # Prefer Code inside Result
+            for el in root.iter():
+                tag = el.tag.split("}")[-1] if "}" in el.tag else el.tag
+                if tag == "Result":
+                    for child in el:
+                        ctag = child.tag.split("}")[-1] if "}" in child.tag else child.tag
+                        if ctag == "Code" and child.text is not None:
+                            try:
+                                return int(child.text.strip()), ""
+                            except ValueError:
+                                return None, f"Неверный Result.Code: {child.text}"
+            if code_el is not None and code_el.text:
+                try:
+                    return int(code_el.text.strip()), ""
+                except ValueError:
+                    return None, f"Неверный Code: {code_el.text}"
+            snippet = _re.sub(r"\s+", " ", xml_text)[:200]
+            return None, f"Result.Code не найден ({snippet})"
+
+        # 1) MerchantLogin via GetCurrencies
+        currencies_url = (
+            "https://auth.robokassa.ru/Merchant/WebService/Service.asmx/"
+            f"GetCurrencies?MerchantLogin={quote(self.merchant_login, safe='')}"
+            "&Language=ru"
+        )
+        try:
+            currencies_xml = _http_get(currencies_url)
+            code, err = _result_code(currencies_xml)
+            if err:
+                checks.append(
+                    {
+                        "name": "merchant_login",
+                        "ok": False,
+                        "detail": err,
+                    }
+                )
+                ok = False
+            elif code == 0:
+                checks.append(
+                    {
+                        "name": "merchant_login",
+                        "ok": True,
+                        "detail": "Магазин найден (GetCurrencies).",
+                    }
+                )
+            elif code == 2:
+                checks.append(
+                    {
+                        "name": "merchant_login",
+                        "ok": False,
+                        "detail": "Магазин не найден или не активирован (код 2).",
+                    }
+                )
+                ok = False
+            else:
+                checks.append(
+                    {
+                        "name": "merchant_login",
+                        "ok": False,
+                        "detail": f"GetCurrencies вернул код {code}.",
+                    }
+                )
+                ok = False
+        except urllib.error.HTTPError as exc:
+            checks.append(
+                {
+                    "name": "merchant_login",
+                    "ok": False,
+                    "detail": f"HTTP {exc.code} при GetCurrencies.",
+                }
+            )
+            ok = False
+        except Exception as exc:  # noqa: BLE001 — surface any network failure
+            checks.append(
+                {
+                    "name": "merchant_login",
+                    "ok": False,
+                    "detail": f"Сеть: {exc}",
+                }
+            )
+            ok = False
+
+        # 2) Password #2 + hash via OpStateExt (nonexistent invoice)
+        probe_invoice = "2147483646"
+        signature = self._sign(self.merchant_login, probe_invoice, self.password2)
+        opstate_url = (
+            "https://auth.robokassa.ru/Merchant/WebService/Service.asmx/"
+            f"OpStateExt?MerchantLogin={quote(self.merchant_login, safe='')}"
+            f"&InvoiceID={probe_invoice}"
+            f"&Signature={signature}"
+        )
+        try:
+            opstate_xml = _http_get(opstate_url)
+            code, err = _result_code(opstate_xml)
+            if err:
+                checks.append({"name": "password2", "ok": False, "detail": err})
+                ok = False
+            elif code == 1:
+                checks.append(
+                    {
+                        "name": "password2",
+                        "ok": False,
+                        "detail": (
+                            "Неверная подпись (код 1): проверьте Password #2 и "
+                            f"алгоритм хеша ({self.hash_algorithm}). "
+                            "В тестовом режиме нужны тестовые пароли."
+                        ),
+                    }
+                )
+                ok = False
+            elif code == 2:
+                checks.append(
+                    {
+                        "name": "password2",
+                        "ok": False,
+                        "detail": "Магазин не найден при OpStateExt (код 2).",
+                    }
+                )
+                ok = False
+            elif code in (0, 3, 4):
+                # 3 = invoice not found → signature accepted
+                checks.append(
+                    {
+                        "name": "password2",
+                        "ok": True,
+                        "detail": (
+                            f"Password #2 и {self.hash_algorithm.upper()} "
+                            f"приняты Robokassa (OpStateExt код {code})."
+                        ),
+                    }
+                )
+            else:
+                checks.append(
+                    {
+                        "name": "password2",
+                        "ok": False,
+                        "detail": f"OpStateExt вернул код {code}.",
+                    }
+                )
+                ok = False
+        except Exception as exc:  # noqa: BLE001
+            checks.append(
+                {
+                    "name": "password2",
+                    "ok": False,
+                    "detail": f"Сеть OpStateExt: {exc}",
+                }
+            )
+            ok = False
+
+        checks.append(
+            {
+                "name": "password1",
+                "ok": True,
+                "detail": (
+                    "Password #1 задан и будет использован в SignatureValue "
+                    "платёжной ссылки (удалённо не проверяется без создания платежа)."
+                ),
+            }
+        )
+
+        if self.config.test_mode:
+            mode_note = (
+                "Включён тестовый режим (IsTest=1): в кабинете Robokassa должны "
+                "быть указаны именно тестовые Password #1/#2."
+            )
+        else:
+            mode_note = "Боевой режим: используйте основные (не тестовые) пароли."
+
+        if ok:
+            message = f"Соединение с Robokassa успешно. {mode_note}"
+        else:
+            message = f"Проверка не пройдена. {mode_note}"
+
+        return {
+            "ok": ok,
+            "message": message,
+            "checks": checks,
+            "test_mode": bool(self.config.test_mode),
+            "hash_algorithm": self.hash_algorithm,
+            "merchant_login": self.merchant_login,
+        }

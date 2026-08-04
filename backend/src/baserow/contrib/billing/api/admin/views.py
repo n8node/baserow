@@ -139,6 +139,31 @@ class AdminRobokassaUrlsView(APIView):
         return Response({"robokassa_result_url": robokassa_result_url})
 
 
+class AdminRobokassaTestConnectionView(APIView):
+    """Call Robokassa XML APIs to verify MerchantLogin / Password #2 / hash."""
+
+    permission_classes = [IsAdminUser]
+
+    def post(self, request):
+        from baserow.contrib.billing.exceptions import (
+            PaymentProviderNotConfiguredError,
+        )
+        from baserow.contrib.billing.models import PaymentProviderConfig
+        from baserow.contrib.billing.providers.robokassa import RobokassaProvider
+
+        try:
+            config = BillingHandler.get_provider("robokassa")
+        except PaymentProviderNotConfiguredError:
+            config, _ = PaymentProviderConfig.objects.get_or_create(
+                provider_type=PaymentProviderConfig.ProviderType.ROBOKASSA
+            )
+        result = RobokassaProvider(config).test_connection()
+        http_status = (
+            status.HTTP_200_OK if result.get("ok") else status.HTTP_400_BAD_REQUEST
+        )
+        return Response(result, status=http_status)
+
+
 class AdminProviderView(APIView):
     permission_classes = [IsAdminUser]
 

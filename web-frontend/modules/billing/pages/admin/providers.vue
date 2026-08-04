@@ -43,11 +43,14 @@
         <div class="admin-settings__item">
           <div class="admin-settings__label">
             <div class="admin-settings__name">Password 1</div>
+            <div class="admin-settings__description">
+              {{ $t('billing.admin.robokassaPasswordHint') }}
+            </div>
           </div>
           <div class="admin-settings__control">
             <FormInput
               :value="robokassaConfig.password1_input"
-              type="password"
+              @focus="onPasswordFocus('robokassa', 'password1')"
               @input="robokassaConfig.password1_input = $event"
               @blur="saveProviderPassword('robokassa', 'password1')"
             />
@@ -56,11 +59,14 @@
         <div class="admin-settings__item">
           <div class="admin-settings__label">
             <div class="admin-settings__name">Password 2</div>
+            <div class="admin-settings__description">
+              {{ $t('billing.admin.robokassaPasswordHint') }}
+            </div>
           </div>
           <div class="admin-settings__control">
             <FormInput
               :value="robokassaConfig.password2_input"
-              type="password"
+              @focus="onPasswordFocus('robokassa', 'password2')"
               @input="robokassaConfig.password2_input = $event"
               @blur="saveProviderPassword('robokassa', 'password2')"
             />
@@ -163,6 +169,46 @@
             <span v-else>—</span>
           </div>
         </div>
+        <div class="admin-settings__item">
+          <div class="admin-settings__label">
+            <div class="admin-settings__name">
+              {{ $t('billing.admin.robokassaTestConnection') }}
+            </div>
+          </div>
+          <div class="admin-settings__control">
+            <Button
+              size="small"
+              type="secondary"
+              :loading="robokassaTesting"
+              @click="testRobokassaConnection"
+            >
+              {{ $t('billing.admin.robokassaTestConnection') }}
+            </Button>
+            <div
+              v-if="robokassaTestResult"
+              style="margin-top: 12px; font-size: 13px; line-height: 1.45"
+              :style="{
+                color: robokassaTestResult.ok
+                  ? 'var(--color-success-600)'
+                  : 'var(--color-error-600)',
+              }"
+            >
+              <div>{{ robokassaTestResult.message }}</div>
+              <ul
+                v-if="robokassaTestResult.checks?.length"
+                style="margin: 8px 0 0; padding-left: 18px"
+              >
+                <li
+                  v-for="(check, idx) in robokassaTestResult.checks"
+                  :key="idx"
+                >
+                  {{ check.ok ? '✓' : '✗' }} {{ check.name }}:
+                  {{ check.detail }}
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- YooKassa -->
@@ -202,11 +248,14 @@
         <div class="admin-settings__item">
           <div class="admin-settings__label">
             <div class="admin-settings__name">Secret Key</div>
+            <div class="admin-settings__description">
+              {{ $t('billing.admin.robokassaPasswordHint') }}
+            </div>
           </div>
           <div class="admin-settings__control">
             <FormInput
               :value="yookassaConfig.secret_key_input"
-              type="password"
+              @focus="onPasswordFocus('yookassa', 'secret_key')"
               @input="yookassaConfig.secret_key_input = $event"
               @blur="saveProviderPassword('yookassa', 'secret_key')"
             />
@@ -262,7 +311,9 @@ const robokassaHashOptions = [
 const robokassaConfig = reactive({
   merchant_login: '',
   password1_input: '',
+  password1_mask: '',
   password2_input: '',
+  password2_mask: '',
   test_mode: true,
   hash_algorithm: 'md5',
   fiscalization_enabled: false,
@@ -271,11 +322,14 @@ const robokassaConfig = reactive({
 const yookassaConfig = reactive({
   shop_id: '',
   secret_key_input: '',
+  secret_key_mask: '',
   test_mode: true,
 })
 
 const robokassaResultUrl = ref('')
 const robokassaResultUrlCopied = ref(null)
+const robokassaTesting = ref(false)
+const robokassaTestResult = ref(null)
 
 const adminProviders = computed(() => store.getters['billing/getAdminProviders'])
 
@@ -297,6 +351,10 @@ function syncProviderConfigs() {
     robokassaConfig.test_mode = robo.test_mode ?? true
     robokassaConfig.hash_algorithm = robo.hash_algorithm || 'md5'
     robokassaConfig.fiscalization_enabled = robo.fiscalization_enabled ?? false
+    robokassaConfig.password1_mask = robo.password1 || ''
+    robokassaConfig.password2_mask = robo.password2 || ''
+    robokassaConfig.password1_input = robokassaConfig.password1_mask
+    robokassaConfig.password2_input = robokassaConfig.password2_mask
   }
   const yoo = adminProviders.value.find(
     (p) => p.provider_type === 'yookassa'
@@ -304,6 +362,8 @@ function syncProviderConfigs() {
   if (yoo) {
     yookassaConfig.shop_id = yoo.shop_id || ''
     yookassaConfig.test_mode = yoo.test_mode ?? true
+    yookassaConfig.secret_key_mask = yoo.secret_key || ''
+    yookassaConfig.secret_key_input = yookassaConfig.secret_key_mask
   }
 }
 
@@ -325,6 +385,15 @@ onMounted(async () => {
 function copyRobokassaResultUrl() {
   copyToClipboard(robokassaResultUrl.value)
   robokassaResultUrlCopied.value?.show()
+}
+
+function onPasswordFocus(type, field) {
+  const cfg = type === 'robokassa' ? robokassaConfig : yookassaConfig
+  const inputKey = `${field}_input`
+  const maskKey = `${field}_mask`
+  if (cfg[inputKey] && cfg[inputKey] === cfg[maskKey]) {
+    cfg[inputKey] = ''
+  }
 }
 
 async function toggleProvider(type, active) {
@@ -357,23 +426,29 @@ async function saveProvider(type) {
       providerType: type,
       providerData: data,
     })
+    syncProviderConfigs()
   } catch (e) {
     notifyIf(e)
   }
 }
 
 async function saveProviderPassword(type, field) {
-  const inputField =
-    type === 'robokassa'
-      ? robokassaConfig[field + '_input']
-      : yookassaConfig[field + '_input']
-  if (!inputField) return
+  const cfg = type === 'robokassa' ? robokassaConfig : yookassaConfig
+  const inputField = cfg[`${field}_input`]
+  const mask = cfg[`${field}_mask`]
+  if (!inputField || inputField === mask) {
+    // Restore mask display if user left the field empty / unchanged.
+    cfg[`${field}_input`] = mask || ''
+    return
+  }
   try {
     await store.dispatch('billing/adminUpdateProvider', {
       app,
       providerType: type,
       providerData: { [field]: inputField },
     })
+    await store.dispatch('billing/adminFetchProviders', { app })
+    syncProviderConfigs()
   } catch (e) {
     notifyIf(e)
   }
@@ -390,6 +465,32 @@ async function saveProviderField(type, field, value) {
     })
   } catch (e) {
     notifyIf(e)
+  }
+}
+
+async function testRobokassaConnection() {
+  robokassaTesting.value = true
+  robokassaTestResult.value = null
+  try {
+    const { data } = await BillingService($client).adminTestRobokassa()
+    robokassaTestResult.value = data
+    await store.dispatch('toast/success', {
+      title: $i18n.t('billing.admin.robokassaTestConnectionOk'),
+      message: data.message,
+    })
+  } catch (e) {
+    const data = e?.response?.data || e?.handler?.response?.data
+    if (data && typeof data === 'object' && 'ok' in data) {
+      robokassaTestResult.value = data
+      await store.dispatch('toast/error', {
+        title: $i18n.t('billing.admin.robokassaTestConnectionFail'),
+        message: data.message || '',
+      })
+    } else {
+      notifyIf(e)
+    }
+  } finally {
+    robokassaTesting.value = false
   }
 }
 </script>

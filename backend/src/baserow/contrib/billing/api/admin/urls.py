@@ -10,6 +10,7 @@ from .views import (
     AdminProviderDeactivateView,
     AdminProvidersView,
     AdminProviderView,
+    AdminRobokassaTestConnectionView,
     AdminRobokassaUrlsView,
     AdminSubscriptionsView,
     AdminSubscriptionView,
@@ -31,6 +32,11 @@ urlpatterns = [
         r"^robokassa-urls/$",
         AdminRobokassaUrlsView.as_view(),
         name="robokassa_urls",
+    ),
+    re_path(
+        r"^robokassa-test/$",
+        AdminRobokassaTestConnectionView.as_view(),
+        name="robokassa_test",
     ),
     re_path(
         r"^providers/$", AdminProvidersView.as_view(), name="providers"
