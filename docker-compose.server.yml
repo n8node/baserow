@@ -2,6 +2,7 @@
 # Loads all variables from .env and sets explicit overrides.
 services:
   baserow:
+    restart: unless-stopped
     env_file:
       - .env
     environment:

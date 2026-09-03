@@ -135,6 +135,9 @@ export default {
     country() {
       this.updateValue()
     },
+    share() {
+      this.updateValue()
+    },
   },
   mounted() {
     this.updateValue()

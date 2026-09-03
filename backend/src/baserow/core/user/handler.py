@@ -967,14 +967,19 @@ class UserHandler(metaclass=baserow_trace_methods(tracer)):
 
         email = user.email
 
-        share_onboarding_details_with_baserow.delay(
-            email=email,
-            team=team,
-            role=role,
-            size=size,
-            country=country,
-            how=how,
-        )
+        try:
+            share_onboarding_details_with_baserow.delay(
+                email=email,
+                team=team,
+                role=role,
+                size=size,
+                country=country,
+                how=how,
+            )
+        except Exception:
+            logger.exception(
+                "Failed to queue share onboarding details task for %s", email
+            )
 
     def share_onboarding_details_with_baserow(
         self, email, team, role, size, country, how

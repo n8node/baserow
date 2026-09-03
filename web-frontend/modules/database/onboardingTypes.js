@@ -67,9 +67,33 @@ export class DatabaseOnboardingType extends OnboardingType {
   async complete(data, responses, callback) {
     const { $i18n: i18n } = this.app
     const name = this.app.$store.getters['auth/getName']
-    const workspace = await this.app.$store.dispatch('workspace/create', {
-      name: i18n.t('databaseStep.workspaceName', { name }),
-    })
+    let workspace
+
+    const existingWorkspaces = this.app.$store.getters['workspace/getAll']
+    if (existingWorkspaces.length > 0) {
+      workspace = existingWorkspaces[0]
+    } else {
+      try {
+        workspace = await this.app.$store.dispatch('workspace/create', {
+          name: i18n.t('databaseStep.workspaceName', { name }),
+        })
+      } catch (error) {
+        if (
+          error.response?.data?.error === 'ERROR_BILLING_PLAN_LIMIT_EXCEEDED'
+        ) {
+          await this.app.$store.dispatch('workspace/fetchAll')
+          const loadedWorkspaces = this.app.$store.getters['workspace/getAll']
+          if (loadedWorkspaces.length > 0) {
+            workspace = loadedWorkspaces[0]
+          } else {
+            throw error
+          }
+        } else {
+          throw error
+        }
+      }
+    }
+
     const returnValue = { workspace }
     const stepData = data[this.getType()]
     const fromType = stepData.type

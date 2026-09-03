@@ -112,13 +112,19 @@ export class MoreOnboardingType extends OnboardingType {
     const share = moreData?.share
 
     if (share) {
-      await AuthService(this.app.$client).shareOnboardingDetailsWithBaserow(
-        moreData.team,
-        'undefined',
-        'undefined',
-        moreData.country,
-        moreData.how
-      )
+      try {
+        await AuthService(this.app.$client).shareOnboardingDetailsWithBaserow(
+          moreData.team,
+          'undefined',
+          'undefined',
+          moreData.country,
+          moreData.how
+        )
+      } catch (error) {
+        // Optional telemetry for baserow.io — must not block onboarding completion
+        // on self-hosted instances (e.g. Celery/Redis unavailable).
+        console.error(error)
+      }
     }
   }
 }

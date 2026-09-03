@@ -1,5 +1,19 @@
 import UserService from '@baserow/modules/core/services/admin/users'
 
+function stripImpersonateUserQuery(query) {
+  const nextQuery = { ...query }
+  delete nextQuery['__impersonate-user']
+  return nextQuery
+}
+
+function isAlreadyImpersonating(store) {
+  try {
+    return store.getters['impersonating/getImpersonating'] === true
+  } catch {
+    return false
+  }
+}
+
 /**
  * We only want to allow impersonation when a page loads for the first time because
  * on first load several endpoints are called to fetch initial data like workspace,
@@ -18,6 +32,18 @@ export default defineNuxtRouteMiddleware(async (to) => {
     return
   }
 
+  const queryWithoutImpersonate = stripImpersonateUserQuery(to.query)
+
+  // dashboardRedirect sends users to workspace with the same query string. If we
+  // call the admin impersonate endpoint again here, the request uses the
+  // impersonated user's JWT and the API correctly responds with 403.
+  if (isAlreadyImpersonating(store)) {
+    return navigateTo(
+      { path: to.path, query: queryWithoutImpersonate, hash: to.hash },
+      { replace: true }
+    )
+  }
+
   const userId = to.query['__impersonate-user']
 
   // Request the impersonate user data, this contains the `token` and `user` object.
@@ -34,4 +60,9 @@ export default defineNuxtRouteMiddleware(async (to) => {
   // Set the impersonating state to true so that the warning in the top left corner
   // is visible.
   store.dispatch('impersonating/setImpersonating', true)
+
+  return navigateTo(
+    { path: to.path, query: queryWithoutImpersonate, hash: to.hash },
+    { replace: true }
+  )
 })

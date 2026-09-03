@@ -10,12 +10,15 @@ export default defineNuxtRouteMiddleware(async (to) => {
   const selectedWorkspace = store.getters['workspace/getSelected']
   const allWorkspaces = store.getters['workspace/getAll']
 
+  const query = { ...to.query }
+  delete query['__impersonate-user']
+
   if (selectedWorkspace?.id) {
     return navigateTo(
       {
         name: 'workspace',
         params: { workspaceId: selectedWorkspace.id },
-        query: to.query,
+        query,
       },
       { replace: true }
     )
@@ -24,7 +27,7 @@ export default defineNuxtRouteMiddleware(async (to) => {
       {
         name: 'workspace',
         params: { workspaceId: allWorkspaces[0].id },
-        query: to.query,
+        query,
       },
       { replace: true }
     )
